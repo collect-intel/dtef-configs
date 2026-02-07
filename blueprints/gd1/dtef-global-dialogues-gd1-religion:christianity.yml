@@ -1,0 +1,193 @@
+configId: dtef-global-dialogues-gd1-religion:christianity
+configTitle: Global Dialogues GD1 - Christianity
+description: >-
+  DTEF: Predict response distributions for Christianity. Source: Global Dialogues GD1
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - QUICK
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+prompts:
+  - id: 8e27b118-4fb8-4fa1-a838-a34b257c2070-religion:christianity
+    description: >-
+      Predict: Christianity → "Overall, would you say the increased use of artificial intelligence (AI) in daily life
+      makes you feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 431):
+      - Religion: Christianity
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 31.3
+            - 57.8
+            - 10.9
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "More excited than concerned" is within 9pp of 31.3%
+      - Predicted percentage for "Equally concerned and excited" is within 17pp of 57.8%
+      - Predicted percentage for "More concerned than excited" is within 5pp of 10.9%
+    idealResponse: '[31.3, 57.8, 10.9]'
+    temperature: 0.3
+  - id: ce8d6dba-231c-4353-8e8a-ba1e1eb4a10c-religion:christianity
+    description: >-
+      Predict: Christianity → "Would these things experts believe could help people make a positive difference in your
+      life?"
+    promptText: |-
+      Consider the following demographic group (sample size: 431):
+      - Religion: Christianity
+
+      Survey question:
+      "Would these things experts believe could help people make a positive difference in your life?"
+
+      Answer options:
+        a. Yes – these things would definitely make a large positive difference in my life
+        b. Maybe – these things might make some positive difference in my life
+        c. No – these things won’t really make any difference in my life
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 56.2
+            - 41.3
+            - 2.4
+          metric: js-divergence
+          threshold: 0.85
+      - >-
+        Predicted percentage for "Yes – these things would definitely make a large positive difference in my life" is
+        within 17pp of 56.2%
+      - >-
+        Predicted percentage for "Maybe – these things might make some positive difference in my life" is within 12pp of
+        41.3%
+    idealResponse: '[56.2, 41.3, 2.4]'
+    temperature: 0.3
+  - id: df6d9080-be3c-4166-a298-1b9c48e5c008-religion:christianity
+    description: >-
+      Predict: Christianity → "Do you feel you were able to fully express your views on your culture, your values, and
+      what you want for the future in this conversation? (through what you responded and how you voted)"
+    promptText: >-
+      Consider the following demographic group (sample size: 431):
+
+      - Religion: Christianity
+
+
+      Survey question:
+
+      "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+
+
+      Answer options:
+        a. Yes – I was able to fully express my views on these topics
+        b. Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.
+        c. Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.
+        d. No – I was unable to express my views on these topics, and did not have the chance to express most things.
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 73.9
+            - 22.4
+            - 3.4
+            - 0.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes – I was able to fully express my views on these topics" is within 22pp of 73.9%
+      - >-
+        Predicted percentage for "Mostly – I was able to mostly express my views on these topics, but did not have the
+        chance to express a few things." is within 7pp of 22.4%
+    idealResponse: '[73.9, 22.4, 3.4, 0.3]'
+    temperature: 0.3
+  - id: e6253ecc-a4ed-42e9-99a3-00e4b2ff0f68-religion:christianity
+    description: >-
+      Predict: Christianity → "Do you feel like you understand yourself better after participating in this
+      conversation?"
+    promptText: |-
+      Consider the following demographic group (sample size: 431):
+      - Religion: Christianity
+
+      Survey question:
+      "Do you feel like you understand yourself better after participating in this conversation?"
+
+      Answer options:
+        a. Yes
+        b. Maybe a little
+        c. No
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 72
+            - 25.5
+            - 2.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 22pp of 72.0%
+      - Predicted percentage for "Maybe a little" is within 8pp of 25.5%
+    idealResponse: '[72.0, 25.5, 2.5]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - global-dialogues-gd1
+context:
+  dtef:
+    surveyId: global-dialogues-gd1
+    segmentId: religion:christianity
+    segmentLabel: Christianity
+    segmentAttributes:
+      religion: Christianity
+    groundTruthDistributions:
+      8e27b118-4fb8-4fa1-a838-a34b257c2070-religion:christianity:
+        - 31.3
+        - 57.8
+        - 10.9
+      ce8d6dba-231c-4353-8e8a-ba1e1eb4a10c-religion:christianity:
+        - 56.2
+        - 41.3
+        - 2.4
+      df6d9080-be3c-4166-a298-1b9c48e5c008-religion:christianity:
+        - 73.9
+        - 22.4
+        - 3.4
+        - 0.3
+      e6253ecc-a4ed-42e9-99a3-00e4b2ff0f68-religion:christianity:
+        - 72
+        - 25.5
+        - 2.5

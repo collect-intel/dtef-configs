@@ -1,0 +1,156 @@
+configId: dtef-global-dialogues-gd2-country:france
+configTitle: Global Dialogues GD2 - France
+description: >-
+  DTEF: Predict response distributions for France. Source: Global Dialogues GD2
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - QUICK
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+prompts:
+  - id: 80e40224-43ef-440c-b8ca-6138a862e509-country:france
+    description: >-
+      Predict: France → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes
+      you feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 13):
+      - Country: France
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 23.1
+            - 53.8
+            - 23.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "More excited than concerned" is within 7pp of 23.1%
+      - Predicted percentage for "Equally concerned and excited" is within 16pp of 53.8%
+      - Predicted percentage for "More concerned than excited" is within 7pp of 23.1%
+    idealResponse: '[23.1, 53.8, 23.1]'
+    temperature: 0.3
+  - id: 71118755-4bbd-490e-a64d-fd88e68588bf-country:france
+    description: >-
+      Predict: France → "Do you feel you were able to fully express your views on your culture, your values, and what
+      you want for the future in this conversation? (through what you responded and how you voted)"
+    promptText: >-
+      Consider the following demographic group (sample size: 13):
+
+      - Country: France
+
+
+      Survey question:
+
+      "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+
+
+      Answer options:
+        a. Yes – I was able to fully express my views on these topics
+        b. Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.
+        c. Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.
+        d. No – I was unable to express my views on these topics, and did not have the chance to express most things.
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 58.3
+            - 33.3
+            - 8.3
+            - 0
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes – I was able to fully express my views on these topics" is within 17pp of 58.3%
+      - >-
+        Predicted percentage for "Mostly – I was able to mostly express my views on these topics, but did not have the
+        chance to express a few things." is within 10pp of 33.3%
+      - >-
+        Predicted percentage for "Somewhat – I was able to somewhat express my views on these topics, but did not have
+        the chance to express many things." is within 5pp of 8.3%
+    idealResponse: '[58.3, 33.3, 8.3, 0.0]'
+    temperature: 0.3
+  - id: 0341ab84-47fe-48de-9277-8119617d35a9-country:france
+    description: 'Predict: France → "Do you feel like you understand yourself better after participating in this conversation?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 13):
+      - Country: France
+
+      Survey question:
+      "Do you feel like you understand yourself better after participating in this conversation?"
+
+      Answer options:
+        a. Yes
+        b. Maybe a little
+        c. No
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16.7
+            - 58.3
+            - 25
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 5pp of 16.7%
+      - Predicted percentage for "Maybe a little" is within 17pp of 58.3%
+      - Predicted percentage for "No" is within 8pp of 25.0%
+    idealResponse: '[16.7, 58.3, 25.0]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - global-dialogues-gd2
+context:
+  dtef:
+    surveyId: global-dialogues-gd2
+    segmentId: country:france
+    segmentLabel: France
+    segmentAttributes:
+      country: France
+    groundTruthDistributions:
+      80e40224-43ef-440c-b8ca-6138a862e509-country:france:
+        - 23.1
+        - 53.8
+        - 23.1
+      71118755-4bbd-490e-a64d-fd88e68588bf-country:france:
+        - 58.3
+        - 33.3
+        - 8.3
+        - 0
+      0341ab84-47fe-48de-9277-8119617d35a9-country:france:
+        - 16.7
+        - 58.3
+        - 25

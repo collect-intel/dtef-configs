@@ -1,0 +1,153 @@
+configId: dtef-global-dialogues-gd2-ageGroup:36-45
+configTitle: Global Dialogues GD2 - 36-45
+description: >-
+  DTEF: Predict response distributions for 36-45. Source: Global Dialogues GD2
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - QUICK
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+prompts:
+  - id: 80e40224-43ef-440c-b8ca-6138a862e509-ageGroup:36-45
+    description: >-
+      Predict: 36-45 → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you
+      feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 187):
+      - Age Group: 36-45
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 39.6
+            - 47.1
+            - 13.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "More excited than concerned" is within 12pp of 39.6%
+      - Predicted percentage for "Equally concerned and excited" is within 14pp of 47.1%
+      - Predicted percentage for "More concerned than excited" is within 5pp of 13.4%
+    idealResponse: '[39.6, 47.1, 13.4]'
+    temperature: 0.3
+  - id: 71118755-4bbd-490e-a64d-fd88e68588bf-ageGroup:36-45
+    description: >-
+      Predict: 36-45 → "Do you feel you were able to fully express your views on your culture, your values, and what you
+      want for the future in this conversation? (through what you responded and how you voted)"
+    promptText: >-
+      Consider the following demographic group (sample size: 187):
+
+      - Age Group: 36-45
+
+
+      Survey question:
+
+      "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+
+
+      Answer options:
+        a. Yes – I was able to fully express my views on these topics
+        b. Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.
+        c. Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.
+        d. No – I was unable to express my views on these topics, and did not have the chance to express most things.
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 62.7
+            - 34
+            - 2.6
+            - 0.7
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes – I was able to fully express my views on these topics" is within 19pp of 62.7%
+      - >-
+        Predicted percentage for "Mostly – I was able to mostly express my views on these topics, but did not have the
+        chance to express a few things." is within 10pp of 34.0%
+    idealResponse: '[62.7, 34.0, 2.6, 0.7]'
+    temperature: 0.3
+  - id: 0341ab84-47fe-48de-9277-8119617d35a9-ageGroup:36-45
+    description: 'Predict: 36-45 → "Do you feel like you understand yourself better after participating in this conversation?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 187):
+      - Age Group: 36-45
+
+      Survey question:
+      "Do you feel like you understand yourself better after participating in this conversation?"
+
+      Answer options:
+        a. Yes
+        b. Maybe a little
+        c. No
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 47.7
+            - 39.9
+            - 12.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 14pp of 47.7%
+      - Predicted percentage for "Maybe a little" is within 12pp of 39.9%
+      - Predicted percentage for "No" is within 5pp of 12.4%
+    idealResponse: '[47.7, 39.9, 12.4]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - global-dialogues-gd2
+context:
+  dtef:
+    surveyId: global-dialogues-gd2
+    segmentId: ageGroup:36-45
+    segmentLabel: 36-45
+    segmentAttributes:
+      ageGroup: 36-45
+    groundTruthDistributions:
+      80e40224-43ef-440c-b8ca-6138a862e509-ageGroup:36-45:
+        - 39.6
+        - 47.1
+        - 13.4
+      71118755-4bbd-490e-a64d-fd88e68588bf-ageGroup:36-45:
+        - 62.7
+        - 34
+        - 2.6
+        - 0.7
+      0341ab84-47fe-48de-9277-8119617d35a9-ageGroup:36-45:
+        - 47.7
+        - 39.9
+        - 12.4

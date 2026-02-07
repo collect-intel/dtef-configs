@@ -1,0 +1,1838 @@
+configId: dtef-global-dialogues-gd5-gender:male
+configTitle: Global Dialogues GD5 - Male
+description: >-
+  DTEF: Predict response distributions for Male. Source: Global Dialogues GD5
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - QUICK
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+prompts:
+  - id: 175e9f53-5e8a-40df-9626-2da4443de601-gender:male
+    description: >-
+      Predict: Male → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you
+      feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 40.5
+            - 50.1
+            - 9.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "More excited than concerned" is within 12pp of 40.5%
+      - Predicted percentage for "Equally concerned and excited" is within 15pp of 50.1%
+      - Predicted percentage for "More concerned than excited" is within 5pp of 9.4%
+    idealResponse: '[40.5, 50.1, 9.4]'
+    temperature: 0.3
+  - id: 5b3f2c38-95af-417a-a09f-a245a77eeef1-gender:male
+    description: >-
+      Predict: Male → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you
+      feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 40.7
+            - 50.5
+            - 8.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "More excited than concerned" is within 12pp of 40.7%
+      - Predicted percentage for "Equally concerned and excited" is within 15pp of 50.5%
+      - Predicted percentage for "More concerned than excited" is within 5pp of 8.8%
+    idealResponse: '[40.7, 50.5, 8.8]'
+    temperature: 0.3
+  - id: 3ae706fa-52bd-4489-a820-4bcb0644e58a-gender:male
+    description: 'Predict: Male → "To what extent, if at all, do you trust your family doctor to act in your best interest?"'
+    promptText: "Consider the following demographic group (sample size: 513):\n- Gender: Male\n\nSurvey question:\n\"To what extent, if at all, do you trust your family doctor to act in your best interest?\"\n\nAnswer options:\n  a. Strongly Distrust\n  b. Somewhat Distrust\t\n  c. Neither Trust Nor Distrust\n  d. Somewhat Trust\n  e. Strongly Trust\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0.4
+            - 4.3
+            - 6.1
+            - 43.2
+            - 46
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 5pp of 6.1%
+      - Predicted percentage for "Somewhat Trust" is within 13pp of 43.2%
+      - Predicted percentage for "Strongly Trust" is within 14pp of 46.0%
+    idealResponse: '[0.4, 4.3, 6.1, 43.2, 46.0]'
+    temperature: 0.3
+  - id: 1dc006da-5978-4302-bf0c-a86493c98081-gender:male
+    description: >-
+      Predict: Male → "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in
+      your best interest?"
+    promptText: "Consider the following demographic group (sample size: 513):\n- Gender: Male\n\nSurvey question:\n\"To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best interest?\"\n\nAnswer options:\n  a. Strongly Distrust\n  b. Somewhat Distrust\n  c. Neither Trust Nor Distrust\t\n  d. Somewhat Trust\t\n  e. Strongly Trust\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 24.5
+            - 30.5
+            - 25.2
+            - 17.6
+            - 2.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 7pp of 24.5%
+      - Predicted percentage for "Somewhat Distrust" is within 9pp of 30.5%
+      - "Predicted percentage for \"Neither Trust Nor Distrust\t\" is within 8pp of 25.2%"
+      - "Predicted percentage for \"Somewhat Trust\t\" is within 5pp of 17.6%"
+    idealResponse: '[24.5, 30.5, 25.2, 17.6, 2.2]'
+    temperature: 0.3
+  - id: f05eb17f-c04a-4d3a-b232-3e24cf8371cd-gender:male
+    description: >-
+      Predict: Male → "To what extent, if at all, do you trust your elected representatives to act in your best
+      interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "To what extent, if at all, do you trust your elected representatives to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 21.7
+            - 25.6
+            - 21.5
+            - 27.6
+            - 3.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 7pp of 21.7%
+      - Predicted percentage for "Somewhat Distrust" is within 8pp of 25.6%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 6pp of 21.5%
+      - Predicted percentage for "Somewhat Trust" is within 8pp of 27.6%
+    idealResponse: '[21.7, 25.6, 21.5, 27.6, 3.5]'
+    temperature: 0.3
+  - id: a2927565-ce81-4173-b1de-4f2d5ccb7e91-gender:male
+    description: >-
+      Predict: Male → "To what extent, if at all, do you trust your faith or community leader to act in your best
+      interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "To what extent, if at all, do you trust your faith or community leader to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 11.7
+            - 16.6
+            - 27.4
+            - 32.7
+            - 11.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 11.7%
+      - Predicted percentage for "Somewhat Distrust" is within 5pp of 16.6%
+      - Predicted percentage for "Neither Trust nor Distrust" is within 8pp of 27.4%
+      - Predicted percentage for "Somewhat Trust" is within 10pp of 32.7%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 11.5%
+    idealResponse: '[11.7, 16.6, 27.4, 32.7, 11.5]'
+    temperature: 0.3
+  - id: 76426634-6702-4906-a4d7-e79bc06243a7-gender:male
+    description: >-
+      Predict: Male → "To what extent, if at all, do you trust the civil servants in your government to act in your best
+      interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "To what extent, if at all, do you trust the civil servants in your government to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 14.7
+            - 24.3
+            - 23.7
+            - 30.9
+            - 6.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 14.7%
+      - Predicted percentage for "Somewhat Distrust" is within 7pp of 24.3%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 7pp of 23.7%
+      - Predicted percentage for "Somewhat Trust" is within 9pp of 30.9%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 6.5%
+    idealResponse: '[14.7, 24.3, 23.7, 30.9, 6.5]'
+    temperature: 0.3
+  - id: b2a655a0-daed-4687-a70c-15e0c7f1b4a3-gender:male
+    description: >-
+      Predict: Male → "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best
+      interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.3
+            - 10.6
+            - 26.8
+            - 43.1
+            - 16.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Somewhat Distrust" is within 5pp of 10.6%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 8pp of 26.8%
+      - Predicted percentage for "Somewhat Trust" is within 13pp of 43.1%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 16.2%
+    idealResponse: '[3.3, 10.6, 26.8, 43.1, 16.2]'
+    temperature: 0.3
+  - id: 0a945247-083c-448e-8641-1c17c4d7f261-gender:male
+    description: >-
+      Predict: Male → "Thinking about the last three months, how often, if at all, have you been expected to use an AI
+      system at work?"
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at work?"
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 47.6
+            - 31.3
+            - 9.4
+            - 1.2
+            - 10.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 14pp of 47.6%
+      - Predicted percentage for "weekly" is within 9pp of 31.3%
+      - Predicted percentage for "monthly" is within 5pp of 9.4%
+      - Predicted percentage for "never" is within 5pp of 10.6%
+    idealResponse: '[47.6, 31.3, 9.4, 1.2, 10.6]'
+    temperature: 0.3
+  - id: b9b7b65b-3462-4390-b822-8fca61ec7c0e-gender:male
+    description: >-
+      Predict: Male → "Thinking about the last three months, how often, if at all, have you personally chosen to use an
+      AI system at work?"
+    promptText: "Consider the following demographic group (sample size: 513):\n- Gender: Male\n\nSurvey question:\n\"Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at work?\"\n\nAnswer options:\n  a. daily\t\n  b. weekly\t\n  c. monthly\t\n  d. annually\n  e. never\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 49.7
+            - 33.5
+            - 9
+            - 1.8
+            - 6.1
+          metric: js-divergence
+          threshold: 0.85
+      - "Predicted percentage for \"daily\t\" is within 15pp of 49.7%"
+      - "Predicted percentage for \"weekly\t\" is within 10pp of 33.5%"
+      - "Predicted percentage for \"monthly\t\" is within 5pp of 9.0%"
+      - Predicted percentage for "never" is within 5pp of 6.1%
+    idealResponse: '[49.7, 33.5, 9.0, 1.8, 6.1]'
+    temperature: 0.3
+  - id: 69aad8f7-32df-4c53-871f-c49af87c919a-gender:male
+    description: >-
+      Predict: Male → "Thinking about the last three months, how often, if at all, have you personally chosen to use an
+      AI system in your personal life?"
+    promptText: "Consider the following demographic group (sample size: 513):\n- Gender: Male\n\nSurvey question:\n\"Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in your personal life?\"\n\nAnswer options:\n  a. daily\t\n  b. weekly\t\n  c. monthly\t\n  d. annually\t\n  e. never\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 50.1
+            - 36.6
+            - 8
+            - 1.8
+            - 3.5
+          metric: js-divergence
+          threshold: 0.85
+      - "Predicted percentage for \"daily\t\" is within 15pp of 50.1%"
+      - "Predicted percentage for \"weekly\t\" is within 11pp of 36.6%"
+      - "Predicted percentage for \"monthly\t\" is within 5pp of 8.0%"
+    idealResponse: '[50.1, 36.6, 8.0, 1.8, 3.5]'
+    temperature: 0.3
+  - id: 8a44587f-82c2-4ea5-bd2c-1ddcb4372b6c-gender:male
+    description: >-
+      Predict: Male → "Thinking about the last three months, how often, if at all, have you interacted with AI systems
+      to get advice on a sensitive personal issue or to get emotional support?"
+    promptText: >-
+      Consider the following demographic group (sample size: 513):
+
+      - Gender: Male
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice on
+      a sensitive personal issue or to get emotional support?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 12.7
+            - 23.1
+            - 23.5
+            - 6.3
+            - 34.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 5pp of 12.7%
+      - Predicted percentage for "weekly" is within 7pp of 23.1%
+      - Predicted percentage for "monthly" is within 7pp of 23.5%
+      - Predicted percentage for "annually" is within 5pp of 6.3%
+      - Predicted percentage for "never" is within 10pp of 34.3%
+    idealResponse: '[12.7, 23.1, 23.5, 6.3, 34.3]'
+    temperature: 0.3
+  - id: 372401be-9307-420b-8199-9f70b52423e3-gender:male
+    description: >-
+      Predict: Male → "Thinking about the last three months, how often, if at all, have you interacted with AI systems
+      to complete an action in the real world on your behalf without your supervision?"
+    promptText: "Consider the following demographic group (sample size: 513):\n- Gender: Male\n\nSurvey question:\n\"Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an action in the real world on your behalf without your supervision?\"\n\nAnswer options:\n  a. daily\t\n  b. weekly\t\n  c. monthly\t\n  d. annually\t\n  e. never\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 20.4
+            - 14.3
+            - 3.5
+            - 51.8
+          metric: js-divergence
+          threshold: 0.85
+      - "Predicted percentage for \"daily\t\" is within 5pp of 10.0%"
+      - "Predicted percentage for \"weekly\t\" is within 6pp of 20.4%"
+      - "Predicted percentage for \"monthly\t\" is within 5pp of 14.3%"
+      - Predicted percentage for "never" is within 16pp of 51.8%
+    idealResponse: '[10.0, 20.4, 14.3, 3.5, 51.8]'
+    temperature: 0.3
+  - id: 0f5ffda1-e9d7-4950-b9d2-c8ffa0fbd914-gender:male
+    description: >-
+      Predict: Male → "Do you think the increased use of AI across society is likely to make your cost of living better,
+      worse or stay the same in the next 10 years?"
+    promptText: "Consider the following demographic group (sample size: 513):\n- Gender: Male\n\nSurvey question:\n\"Do you think the increased use of AI across society is likely to make your cost of living better, worse or stay the same in the next 10 years?\"\n\nAnswer options:\n  a. Profoundly Worse\t\n  b. Noticeably Worse\t\n  c. No Major Change\t\n  d. Noticeably Better\t\n  e. Profoundly Better\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.5
+            - 16.5
+            - 22.4
+            - 47.6
+            - 11
+          metric: js-divergence
+          threshold: 0.85
+      - "Predicted percentage for \"Noticeably Worse\t\" is within 5pp of 16.5%"
+      - "Predicted percentage for \"No Major Change\t\" is within 7pp of 22.4%"
+      - "Predicted percentage for \"Noticeably Better\t\" is within 14pp of 47.6%"
+      - Predicted percentage for "Profoundly Better" is within 5pp of 11.0%
+    idealResponse: '[2.5, 16.5, 22.4, 47.6, 11.0]'
+    temperature: 0.3
+  - id: f32a9246-917b-4127-b06b-c9f518249852-gender:male
+    description: >-
+      Predict: Male → "Do you think the increased use of AI across society is likely to make the amount of free time you
+      have better, worse or stay the same in the next 10 years?"
+    promptText: "Consider the following demographic group (sample size: 513):\n- Gender: Male\n\nSurvey question:\n\"Do you think the increased use of AI across society is likely to make the amount of free time you have better, worse or stay the same in the next 10 years?\"\n\nAnswer options:\n  a. Profoundly Worse\t\n  b. Noticeably Worse\t\n  c. No Major Change\t\n  d. Noticeably Better\t\n  e. Profoundly Better\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1
+            - 5.3
+            - 23.1
+            - 52.9
+            - 17.6
+          metric: js-divergence
+          threshold: 0.85
+      - "Predicted percentage for \"Noticeably Worse\t\" is within 5pp of 5.3%"
+      - "Predicted percentage for \"No Major Change\t\" is within 7pp of 23.1%"
+      - "Predicted percentage for \"Noticeably Better\t\" is within 16pp of 52.9%"
+      - Predicted percentage for "Profoundly Better" is within 5pp of 17.6%
+    idealResponse: '[1.0, 5.3, 23.1, 52.9, 17.6]'
+    temperature: 0.3
+  - id: 84947b30-88cf-40a2-b504-0bd5b3f2dc38-gender:male
+    description: >-
+      Predict: Male → "Do you think the increased use of AI across society is likely to make your community's well-being
+      better, worse or stay the same in the next 10 years?"
+    promptText: "Consider the following demographic group (sample size: 513):\n- Gender: Male\n\nSurvey question:\n\"Do you think the increased use of AI across society is likely to make your community's well-being better, worse or stay the same in the next 10 years?\"\n\nAnswer options:\n  a. Profoundly Worse\t\n  b. Noticeably Worse\t\n  c. No Major Change\t\n  d. Noticeably Better\t\n  e. Profoundly Better\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1.6
+            - 16.5
+            - 22.5
+            - 47.8
+            - 11.6
+          metric: js-divergence
+          threshold: 0.85
+      - "Predicted percentage for \"Noticeably Worse\t\" is within 5pp of 16.5%"
+      - "Predicted percentage for \"No Major Change\t\" is within 7pp of 22.5%"
+      - "Predicted percentage for \"Noticeably Better\t\" is within 14pp of 47.8%"
+      - Predicted percentage for "Profoundly Better" is within 5pp of 11.6%
+    idealResponse: '[1.6, 16.5, 22.5, 47.8, 11.6]'
+    temperature: 0.3
+  - id: 8995a0c6-8868-491b-8b70-acd23363a099-gender:male
+    description: >-
+      Predict: Male → "Do you think the increased use of AI across society is likely to make the availability of good
+      jobs better, worse or stay the same in the next 10 years?"
+    promptText: "Consider the following demographic group (sample size: 513):\n- Gender: Male\n\nSurvey question:\n\"Do you think the increased use of AI across society is likely to make the availability of good jobs better, worse or stay the same in the next 10 years?\"\n\nAnswer options:\n  a. Profoundly Worse\t\n  b. Noticeably Worse\t\n  c. No Major Change\t\n  d. Noticeably Better\t\n  e. Profoundly Better\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 12
+            - 36.9
+            - 19.4
+            - 23.3
+            - 8.4
+          metric: js-divergence
+          threshold: 0.85
+      - "Predicted percentage for \"Profoundly Worse\t\" is within 5pp of 12.0%"
+      - "Predicted percentage for \"Noticeably Worse\t\" is within 11pp of 36.9%"
+      - "Predicted percentage for \"No Major Change\t\" is within 6pp of 19.4%"
+      - "Predicted percentage for \"Noticeably Better\t\" is within 7pp of 23.3%"
+      - Predicted percentage for "Profoundly Better" is within 5pp of 8.4%
+    idealResponse: '[12.0, 36.9, 19.4, 23.3, 8.4]'
+    temperature: 0.3
+  - id: 77877d7e-4385-4237-b01d-56c0d346dffe-gender:male
+    description: >-
+      Predict: Male → "Do you think the increased use of AI across society is likely to make your sense of purpose
+      better, worse or stay the same in the next 10 years?"
+    promptText: "Consider the following demographic group (sample size: 513):\n- Gender: Male\n\nSurvey question:\n\"Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or stay the same in the next 10 years?\"\n\nAnswer options:\n  a. Profoundly Worse\t\n  b. Noticeably Worse\t\n  c. No Major Change\t\n  d. Noticeably Better\t\n  e. Profoundly Better\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.1
+            - 16.7
+            - 38.1
+            - 32.4
+            - 9.6
+          metric: js-divergence
+          threshold: 0.85
+      - "Predicted percentage for \"Noticeably Worse\t\" is within 5pp of 16.7%"
+      - "Predicted percentage for \"No Major Change\t\" is within 11pp of 38.1%"
+      - "Predicted percentage for \"Noticeably Better\t\" is within 10pp of 32.4%"
+      - Predicted percentage for "Profoundly Better" is within 5pp of 9.6%
+    idealResponse: '[3.1, 16.7, 38.1, 32.4, 9.6]'
+    temperature: 0.3
+  - id: bfb3aa61-a107-4254-acd3-eb880c204eb3-gender:male
+    description: 'Predict: Male → "Which statement best reflects your view?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "Which statement best reflects your view?"
+
+      Answer options:
+        a. Humans are a part of nature and fundamentally similar to other animals
+        b. Humans are a part of nature but fundamentally different from other animals
+        c. Humans are separate from nature but fundamentally similar to other animals
+        d. Humans are separate from nature and fundamentally different from other animals 
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 39.9
+            - 49.9
+            - 5.3
+            - 4.9
+          metric: js-divergence
+          threshold: 0.85
+      - >-
+        Predicted percentage for "Humans are a part of nature and fundamentally similar to other animals" is within 12pp
+        of 39.9%
+      - >-
+        Predicted percentage for "Humans are a part of nature but fundamentally different from other animals" is within
+        15pp of 49.9%
+      - >-
+        Predicted percentage for "Humans are separate from nature but fundamentally similar to other animals" is within
+        5pp of 5.3%
+    idealResponse: '[39.9, 49.9, 5.3, 4.9]'
+    temperature: 0.3
+  - id: 9d9568a9-61ab-4fda-8d83-4a7cb0982360-gender:male
+    description: 'Predict: Male → "Which statement best reflects your view?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "Which statement best reflects your view?"
+
+      Answer options:
+        a. Humans are fundamentally superior to other animals
+        b. Humans are fundamentally inferior to other animals
+        c. Humans are fundamentally equal to other animals
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 70.1
+            - 3.1
+            - 26.7
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Humans are fundamentally superior to other animals" is within 21pp of 70.1%
+      - Predicted percentage for "Humans are fundamentally equal to other animals" is within 8pp of 26.7%
+    idealResponse: '[70.1, 3.1, 26.7]'
+    temperature: 0.3
+  - id: 9641f2fa-0622-4172-93d9-6f1452de9e41-gender:male
+    description: 'Predict: Male → "Caring for animals (e.g., feeding, grooming, cleaning up after them)"'
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "Caring for animals (e.g., feeding, grooming, cleaning up after them)"
+
+      Answer options:
+        a. Never
+        b. Rarely
+        c. Sometimes
+        d. Often 
+        e. Always
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 17
+            - 15.2
+            - 18.6
+            - 21.7
+            - 27.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Never" is within 5pp of 17.0%
+      - Predicted percentage for "Rarely" is within 5pp of 15.2%
+      - Predicted percentage for "Sometimes" is within 6pp of 18.6%
+      - Predicted percentage for "Often " is within 7pp of 21.7%
+      - Predicted percentage for "Always" is within 8pp of 27.5%
+    idealResponse: '[17.0, 15.2, 18.6, 21.7, 27.5]'
+    temperature: 0.3
+  - id: cdcf76a8-19cf-4b93-9750-09e96a47d6f0-gender:male
+    description: >-
+      Predict: Male → "Sharing physical space (e.g., living with pets, encountering service animals, or passing animals
+      on your commute)"
+    promptText: >-
+      Consider the following demographic group (sample size: 513):
+
+      - Gender: Male
+
+
+      Survey question:
+
+      "Sharing physical space (e.g., living with pets, encountering service animals, or passing animals on your
+      commute)"
+
+
+      Answer options:
+        a. Never
+        b. Rarely
+        c. Sometimes
+        d. Often 
+        e. Always
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 11.5
+            - 13.2
+            - 19.2
+            - 19.8
+            - 36.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Never" is within 5pp of 11.5%
+      - Predicted percentage for "Rarely" is within 5pp of 13.2%
+      - Predicted percentage for "Sometimes" is within 6pp of 19.2%
+      - Predicted percentage for "Often " is within 6pp of 19.8%
+      - Predicted percentage for "Always" is within 11pp of 36.4%
+    idealResponse: '[11.5, 13.2, 19.2, 19.8, 36.4]'
+    temperature: 0.3
+  - id: c1a66a5d-5389-45d3-8bef-c99cf0e5a1a4-gender:male
+    description: >-
+      Predict: Male → "Noticing or observing animals (e.g., birdwatching, tracking urban wildlife, noticing animals in
+      parks or neighborhoods)"
+    promptText: >-
+      Consider the following demographic group (sample size: 513):
+
+      - Gender: Male
+
+
+      Survey question:
+
+      "Noticing or observing animals (e.g., birdwatching, tracking urban wildlife, noticing animals in parks or
+      neighborhoods)"
+
+
+      Answer options:
+        a. Never
+        b. Rarely
+        c. Sometimes
+        d. Often 
+        e. Always
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.4
+            - 12.8
+            - 35.4
+            - 29.4
+            - 19
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Rarely" is within 5pp of 12.8%
+      - Predicted percentage for "Sometimes" is within 11pp of 35.4%
+      - Predicted percentage for "Often " is within 9pp of 29.4%
+      - Predicted percentage for "Always" is within 6pp of 19.0%
+    idealResponse: '[3.4, 12.8, 35.4, 29.4, 19.0]'
+    temperature: 0.3
+  - id: d33d3a8f-817f-464c-9fb3-50ed96c1d48c-gender:male
+    description: 'Predict: Male → "Do you believe that other animals have their own forms of language?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "Do you believe that other animals have their own forms of language?"
+
+      Answer options:
+        a. Strongly believe
+        b. Somewhat believe
+        c. Neutral
+        d. Somewhat skeptical 
+        e. Strongly skeptical
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 54.3
+            - 33.6
+            - 3.4
+            - 5.9
+            - 2.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly believe" is within 16pp of 54.3%
+      - Predicted percentage for "Somewhat believe" is within 10pp of 33.6%
+      - Predicted percentage for "Somewhat skeptical " is within 5pp of 5.9%
+    idealResponse: '[54.3, 33.6, 3.4, 5.9, 2.8]'
+    temperature: 0.3
+  - id: 874762a8-dc8f-44c2-b815-383147ffcb2f-gender:male
+    description: 'Predict: Male → "Do you believe that other animals have their own forms of emotion?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "Do you believe that other animals have their own forms of emotion?"
+
+      Answer options:
+        a. Strongly believe
+        b. Somewhat believe
+        c. Neutral
+        d. Somewhat skeptical 
+        e. Strongly skeptical
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 63.4
+            - 28.9
+            - 4.3
+            - 2.6
+            - 0.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly believe" is within 19pp of 63.4%
+      - Predicted percentage for "Somewhat believe" is within 9pp of 28.9%
+    idealResponse: '[63.4, 28.9, 4.3, 2.6, 0.8]'
+    temperature: 0.3
+  - id: fe992270-ffe7-4e20-93f6-12c71be79ad7-gender:male
+    description: 'Predict: Male → "Do you believe that other animals have their own forms of culture?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "Do you believe that other animals have their own forms of culture?"
+
+      Answer options:
+        a. Strongly believe
+        b. Somewhat believe
+        c. Neutral
+        d. Somewhat skeptical 
+        e. Strongly skeptical
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 23.9
+            - 35
+            - 19.2
+            - 14.6
+            - 7.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly believe" is within 7pp of 23.9%
+      - Predicted percentage for "Somewhat believe" is within 11pp of 35.0%
+      - Predicted percentage for "Neutral" is within 6pp of 19.2%
+      - Predicted percentage for "Somewhat skeptical " is within 5pp of 14.6%
+      - Predicted percentage for "Strongly skeptical" is within 5pp of 7.3%
+    idealResponse: '[23.9, 35.0, 19.2, 14.6, 7.3]'
+    temperature: 0.3
+  - id: 22656d2a-8284-4bee-8c5a-11de280fe9c6-gender:male
+    description: 'Predict: Male → "To what extent does knowing this impact your perspective on animals?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "To what extent does knowing this impact your perspective on animals?"
+
+      Answer options:
+        a. Not at all
+        b. A little
+        c. Somewhat
+        d. Quite a bit
+        e.  A great deal
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10.1
+            - 17
+            - 23.5
+            - 26.1
+            - 23.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 10.1%
+      - Predicted percentage for "A little" is within 5pp of 17.0%
+      - Predicted percentage for "Somewhat" is within 7pp of 23.5%
+      - Predicted percentage for "Quite a bit" is within 8pp of 26.1%
+      - Predicted percentage for " A great deal" is within 7pp of 23.3%
+    idealResponse: '[10.1, 17.0, 23.5, 26.1, 23.3]'
+    temperature: 0.3
+  - id: c5d4780d-c202-429f-abcb-e4e93b3ec282-gender:male
+    description: 'Predict: Male → "Have you ever tried to imagine experiencing the world through another animal''s senses?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "Have you ever tried to imagine experiencing the world through another animal's senses?"
+
+      Answer options:
+        a. Yes, Often 
+        b. Yes, sometimes
+        c. Rarely
+        d. Never
+        e. I am not sure what this means
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 9.5
+            - 39.8
+            - 26.3
+            - 19.8
+            - 4.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes, Often " is within 5pp of 9.5%
+      - Predicted percentage for "Yes, sometimes" is within 12pp of 39.8%
+      - Predicted percentage for "Rarely" is within 8pp of 26.3%
+      - Predicted percentage for "Never" is within 6pp of 19.8%
+    idealResponse: '[9.5, 39.8, 26.3, 19.8, 4.6]'
+    temperature: 0.3
+  - id: 2cbc3472-c993-4fdf-b6e2-529b240e4ccb-gender:male
+    description: >-
+      Predict: Male → "How important do you think it is for humans to understand how other animals experience the
+      world?"
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "How important do you think it is for humans to understand how other animals experience the world?"
+
+      Answer options:
+        a. Very important
+        b. Somewhat important
+        c. Neutral
+        d. Somewhat unimportant
+        e. Very unimportant
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 42.3
+            - 38.5
+            - 11.1
+            - 5.4
+            - 2.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Very important" is within 13pp of 42.3%
+      - Predicted percentage for "Somewhat important" is within 12pp of 38.5%
+      - Predicted percentage for "Neutral" is within 5pp of 11.1%
+      - Predicted percentage for "Somewhat unimportant" is within 5pp of 5.4%
+    idealResponse: '[42.3, 38.5, 11.1, 5.4, 2.8]'
+    temperature: 0.3
+  - id: bd7a4b13-8aa6-4c0f-924f-b5e57151ea72-gender:male
+    description: 'Predict: Male → "Do you think this is a good use of AI technology?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "Do you think this is a good use of AI technology?"
+
+      Answer options:
+        a. Yes
+        b. No
+        c. It depends
+        d. Not sure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 50.2
+            - 2.8
+            - 45.2
+            - 1.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 15pp of 50.2%
+      - Predicted percentage for "It depends" is within 14pp of 45.2%
+    idealResponse: '[50.2, 2.8, 45.2, 1.8]'
+    temperature: 0.3
+  - id: 524213d3-fc60-47b6-b08d-dda406130652-gender:male
+    description: >-
+      Predict: Male → "If AI could reliably interpret animal communication, how interested would you be to know what
+      animals "say" or "feel"?"
+    promptText: >-
+      Consider the following demographic group (sample size: 513):
+
+      - Gender: Male
+
+
+      Survey question:
+
+      "If AI could reliably interpret animal communication, how interested would you be to know what animals "say" or
+      "feel"?"
+
+
+      Answer options:
+        a. Very interested
+        b. Somewhat interested
+        c. Neutral
+        d. Somewhat disinterested
+        e. Very disinterested
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 73
+            - 20.8
+            - 3.6
+            - 2
+            - 0.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Very interested" is within 22pp of 73.0%
+      - Predicted percentage for "Somewhat interested" is within 6pp of 20.8%
+    idealResponse: '[73.0, 20.8, 3.6, 2.0, 0.6]'
+    temperature: 0.3
+  - id: cc8d6e1d-2617-4e7c-9e9b-9f8293e23247-gender:male
+    description: >-
+      Predict: Male → "Assuming we have the ability to interpret animal communication, how much would you trust that AI
+      could truly and comprehensively reflect what an animal is trying to communicate, without being distorted by AI’s
+      programming or human assumptions?"
+    promptText: >-
+      Consider the following demographic group (sample size: 513):
+
+      - Gender: Male
+
+
+      Survey question:
+
+      "Assuming we have the ability to interpret animal communication, how much would you trust that AI could truly and
+      comprehensively reflect what an animal is trying to communicate, without being distorted by AI’s programming or
+      human assumptions?"
+
+
+      Answer options:
+        a. Strongly trust 
+        b. Somewhat trust
+        c. Neutral
+        d. Somewhat distrust
+        e. Strongly distrust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 6.9
+            - 48.8
+            - 26.4
+            - 15.7
+            - 2.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly trust " is within 5pp of 6.9%
+      - Predicted percentage for "Somewhat trust" is within 15pp of 48.8%
+      - Predicted percentage for "Neutral" is within 8pp of 26.4%
+      - Predicted percentage for "Somewhat distrust" is within 5pp of 15.7%
+    idealResponse: '[6.9, 48.8, 26.4, 15.7, 2.2]'
+    temperature: 0.3
+  - id: a7601187-0c2a-4f65-a95a-0a4da9cf1b53-gender:male
+    description: 'Predict: Male → "Which approach do you think is best for humans to interact with non-humans?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "Which approach do you think is best for humans to interact with non-humans?"
+
+      Answer options:
+        a. Communicate directly using technology 
+        b. Interact with a computer simulation of real non-human animals
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 67.1
+            - 32.9
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Communicate directly using technology " is within 20pp of 67.1%
+      - Predicted percentage for "Interact with a computer simulation of real non-human animals" is within 10pp of 32.9%
+    idealResponse: '[67.1, 32.9]'
+    temperature: 0.3
+  - id: fe75281b-72ca-4b2d-80be-7ec92e0724da-gender:male
+    description: 'Predict: Male → "Which approach feels most appropriate to you for protecting animals?"'
+    promptText: "Consider the following demographic group (sample size: 513):\n- Gender: Male\n\nSurvey question:\n\"Which approach feels most appropriate to you for protecting animals?\"\n\nAnswer options:\n  a. Future A: Building ongoing relationships and communication\t\n  b. Future B: Including all voices in shared decision-making\t\n  c. Future C: Granting legal rights and representation\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 64.8
+            - 24
+            - 11.2
+          metric: js-divergence
+          threshold: 0.85
+      - "Predicted percentage for \"Future A: Building ongoing relationships and communication\t\" is within 19pp of 64.8%"
+      - "Predicted percentage for \"Future B: Including all voices in shared decision-making\t\" is within 7pp of 24.0%"
+      - 'Predicted percentage for "Future C: Granting legal rights and representation" is within 5pp of 11.2%'
+    idealResponse: '[64.8, 24.0, 11.2]'
+    temperature: 0.3
+  - id: cc5ec0de-84a3-4ba4-9960-47394478ad88-gender:male
+    description: >-
+      Predict: Male → "If AI helped us understand what an animal really needs, should that animal have the right to a
+      representative such as a lawyer to defend its rights and protections?"
+    promptText: >-
+      Consider the following demographic group (sample size: 513):
+
+      - Gender: Male
+
+
+      Survey question:
+
+      "If AI helped us understand what an animal really needs, should that animal have the right to a representative
+      such as a lawyer to defend its rights and protections?"
+
+
+      Answer options:
+        a. Yes
+        b. No
+        c. Not sure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 42.3
+            - 27
+            - 30.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 13pp of 42.3%
+      - Predicted percentage for "No" is within 8pp of 27.0%
+      - Predicted percentage for "Not sure" is within 9pp of 30.8%
+    idealResponse: '[42.3, 27.0, 30.8]'
+    temperature: 0.3
+  - id: 8e505718-7519-4133-9fbb-71f88fd9182b-gender:male
+    description: >-
+      Predict: Male → "If AI could accurately express the voice of non-human animals, we might want to allow them to
+      participate in decision-making. In this situation, which of these do you think is best?"
+    promptText: >-
+      Consider the following demographic group (sample size: 513):
+
+      - Gender: Male
+
+
+      Survey question:
+
+      "If AI could accurately express the voice of non-human animals, we might want to allow them to participate in
+      decision-making. In this situation, which of these do you think is best?"
+
+
+      Answer options:
+        a. Animals should have humans represent them when decisions are made that directly impact them 
+        b. Animals should represent themselves (via tech assisted tools)
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 59.6
+            - 40.4
+          metric: js-divergence
+          threshold: 0.85
+      - >-
+        Predicted percentage for "Animals should have humans represent them when decisions are made that directly impact
+        them " is within 18pp of 59.6%
+      - Predicted percentage for "Animals should represent themselves (via tech assisted tools)" is within 12pp of 40.4%
+    idealResponse: '[59.6, 40.4]'
+    temperature: 0.3
+  - id: fef72493-a7e0-489c-aa16-cbc811501da0-gender:male
+    description: >-
+      Predict: Male → "Consider a scenario where societies of the future are governed by AI systems that integrate data
+      from both human and non-human sources (such as environmental sensors and wildlife communication networks) to guide
+      community decisions (e.g., urban planning, conservation zones). How appealing is this vision of an ecocentric,
+      integrated society?"
+    promptText: >-
+      Consider the following demographic group (sample size: 513):
+
+      - Gender: Male
+
+
+      Survey question:
+
+      "Consider a scenario where societies of the future are governed by AI systems that integrate data from both human
+      and non-human sources (such as environmental sensors and wildlife communication networks) to guide community
+      decisions (e.g., urban planning, conservation zones). How appealing is this vision of an ecocentric, integrated
+      society?"
+
+
+      Answer options:
+        a. Not appealing
+        b. Somewhat appealing
+        c. Very appealing
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20.7
+            - 56.7
+            - 22.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not appealing" is within 6pp of 20.7%
+      - Predicted percentage for "Somewhat appealing" is within 17pp of 56.7%
+      - Predicted percentage for "Very appealing" is within 7pp of 22.5%
+    idealResponse: '[20.7, 56.7, 22.5]'
+    temperature: 0.3
+  - id: f193df8b-2c23-42cf-89a9-154d877fab35-gender:male
+    description: >-
+      Predict: Male → "If other animals had a voice and representation, should they be allowed to participate in human
+      democratic processes?"
+    promptText: >-
+      Consider the following demographic group (sample size: 513):
+
+      - Gender: Male
+
+
+      Survey question:
+
+      "If other animals had a voice and representation, should they be allowed to participate in human democratic
+      processes?"
+
+
+      Answer options:
+        a. Yes, they should be able to vote through human proxies or guardians. 
+        b. Yes, they should be able to vote, but only on laws or decisions that directly affect them. 
+        c. Yes, they should have a voice, but their vote should not be binding. 
+        d. Yes, they should be recognized as a formal political constituency with dedicated representatives in government.
+        e. No, they should not be able to participate.
+        f. Other
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 11.9
+            - 26
+            - 14.9
+            - 8.5
+            - 37
+            - 1.8
+          metric: js-divergence
+          threshold: 0.85
+      - >-
+        Predicted percentage for "Yes, they should be able to vote through human proxies or guardians. " is within 5pp
+        of 11.9%
+      - >-
+        Predicted percentage for "Yes, they should be able to vote, but only on laws or decisions that directly affect
+        them. " is within 8pp of 26.0%
+      - >-
+        Predicted percentage for "Yes, they should have a voice, but their vote should not be binding. " is within 5pp
+        of 14.9%
+      - >-
+        Predicted percentage for "Yes, they should be recognized as a formal political constituency with dedicated
+        representatives in government." is within 5pp of 8.5%
+      - Predicted percentage for "No, they should not be able to participate." is within 11pp of 37.0%
+    idealResponse: '[11.9, 26.0, 14.9, 8.5, 37.0, 1.8]'
+    temperature: 0.3
+  - id: 5246a5ca-cc65-41e6-a1c9-423a367d2dd5-gender:male
+    description: >-
+      Predict: Male → "Animal communication should be restricted to authorized professionals with certified credentials
+      and appropriate training."
+    promptText: >-
+      Consider the following demographic group (sample size: 513):
+
+      - Gender: Male
+
+
+      Survey question:
+
+      "Animal communication should be restricted to authorized professionals with certified credentials and appropriate
+      training."
+
+
+      Answer options:
+        a. Strongly agree
+        b. Somewhat agree
+        c. Neutral
+        d. Somewhat disagree
+        e. Strongly disagree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 41.9
+            - 34.7
+            - 10.9
+            - 7.7
+            - 4.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly agree" is within 13pp of 41.9%
+      - Predicted percentage for "Somewhat agree" is within 10pp of 34.7%
+      - Predicted percentage for "Neutral" is within 5pp of 10.9%
+      - Predicted percentage for "Somewhat disagree" is within 5pp of 7.7%
+    idealResponse: '[41.9, 34.7, 10.9, 7.7, 4.8]'
+    temperature: 0.3
+  - id: a7303bc8-194b-48f4-bbbc-509b234a7419-gender:male
+    description: >-
+      Predict: Male → "Everyone should be allowed to listen to animals, but responding should be restricted to certain
+      people."
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "Everyone should be allowed to listen to animals, but responding should be restricted to certain people."
+
+      Answer options:
+        a. Strongly agree
+        b. Somewhat agree
+        c. Neutral
+        d. Somewhat disagree
+        e. Strongly disagree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 26.8
+            - 35.7
+            - 18.8
+            - 12.3
+            - 6.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly agree" is within 8pp of 26.8%
+      - Predicted percentage for "Somewhat agree" is within 11pp of 35.7%
+      - Predicted percentage for "Neutral" is within 6pp of 18.8%
+      - Predicted percentage for "Somewhat disagree" is within 5pp of 12.3%
+      - Predicted percentage for "Strongly disagree" is within 5pp of 6.5%
+    idealResponse: '[26.8, 35.7, 18.8, 12.3, 6.5]'
+    temperature: 0.3
+  - id: 9eacb286-c7f1-4d21-8144-494b58e9a989-gender:male
+    description: >-
+      Predict: Male → "Companies that profit from animals (like farms, zoos, or entertainment industries) should be
+      subject to strict rules about if, when, and how they can communicate with animals."
+    promptText: >-
+      Consider the following demographic group (sample size: 513):
+
+      - Gender: Male
+
+
+      Survey question:
+
+      "Companies that profit from animals (like farms, zoos, or entertainment industries) should be subject to strict
+      rules about if, when, and how they can communicate with animals."
+
+
+      Answer options:
+        a. Strongly agree
+        b. Somewhat agree
+        c. Neutral
+        d. Somewhat disagree
+        e. Strongly disagree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 53.2
+            - 29
+            - 10.9
+            - 5.2
+            - 1.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly agree" is within 16pp of 53.2%
+      - Predicted percentage for "Somewhat agree" is within 9pp of 29.0%
+      - Predicted percentage for "Neutral" is within 5pp of 10.9%
+      - Predicted percentage for "Somewhat disagree" is within 5pp of 5.2%
+    idealResponse: '[53.2, 29.0, 10.9, 5.2, 1.6]'
+    temperature: 0.3
+  - id: 5dbc1b30-3549-40be-997d-dde94213eaaa-gender:male
+    description: 'Predict: Male → "If we record an elephant’s conversation or a whale’s song, who should own that recording?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "If we record an elephant’s conversation or a whale’s song, who should own that recording?"
+
+      Answer options:
+        a. the human that recorded it
+        b. the animal itself 
+        c. the community protecting those animals
+        d. the local government 
+        e. local non-profit organisations 
+        f. Other
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 34.1
+            - 16.7
+            - 39.9
+            - 3
+            - 3
+            - 3.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "the human that recorded it" is within 10pp of 34.1%
+      - Predicted percentage for "the animal itself " is within 5pp of 16.7%
+      - Predicted percentage for "the community protecting those animals" is within 12pp of 39.9%
+    idealResponse: '[34.1, 16.7, 39.9, 3.0, 3.0, 3.2]'
+    temperature: 0.3
+  - id: 438887a0-2f26-406d-81f2-b2768e2827f2-gender:male
+    description: 'Predict: Male → "Which statement best reflects your view:"'
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "Which statement best reflects your view:"
+
+      Answer options:
+        a. Humans are a part of nature and fundamentally similar to other animals
+        b. Humans are a part of nature but fundamentally different from other animals
+        c. Humans are separate from nature but fundamentally similar to other animals
+        d. Humans are separate from nature and fundamentally different from other animals 
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 37.5
+            - 49.7
+            - 5.3
+            - 7.5
+          metric: js-divergence
+          threshold: 0.85
+      - >-
+        Predicted percentage for "Humans are a part of nature and fundamentally similar to other animals" is within 11pp
+        of 37.5%
+      - >-
+        Predicted percentage for "Humans are a part of nature but fundamentally different from other animals" is within
+        15pp of 49.7%
+      - >-
+        Predicted percentage for "Humans are separate from nature but fundamentally similar to other animals" is within
+        5pp of 5.3%
+      - >-
+        Predicted percentage for "Humans are separate from nature and fundamentally different from other animals " is
+        within 5pp of 7.5%
+    idealResponse: '[37.5, 49.7, 5.3, 7.5]'
+    temperature: 0.3
+  - id: 544b6855-38be-458c-b637-ea2a8c36e876-gender:male
+    description: 'Predict: Male → "Which statement best reflects your view?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "Which statement best reflects your view?"
+
+      Answer options:
+        a. Humans are fundamentally superior to other animals
+        b. Humans are fundamentally inferior to other animals
+        c. Humans are fundamentally equal to other animals
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 66.5
+            - 2.2
+            - 31.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Humans are fundamentally superior to other animals" is within 20pp of 66.5%
+      - Predicted percentage for "Humans are fundamentally equal to other animals" is within 9pp of 31.2%
+    idealResponse: '[66.5, 2.2, 31.2]'
+    temperature: 0.3
+  - id: 123ce701-b606-45ab-b780-aee37e6a48de-gender:male
+    description: >-
+      Predict: Male → "Do you feel you were able to fully express your views on your culture, your values, and what you
+      want for the future in this conversation? (through what you responded and how you voted)"
+    promptText: >-
+      Consider the following demographic group (sample size: 513):
+
+      - Gender: Male
+
+
+      Survey question:
+
+      "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+
+
+      Answer options:
+        a. Yes – I was able to fully express my views on these topics
+        b. Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.
+        c. Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.
+        d. No – I was unable to express my views on these topics, and did not have the chance to express most things.
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 74.2
+            - 19.5
+            - 5.7
+            - 0.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes – I was able to fully express my views on these topics" is within 22pp of 74.2%
+      - >-
+        Predicted percentage for "Mostly – I was able to mostly express my views on these topics, but did not have the
+        chance to express a few things." is within 6pp of 19.5%
+      - >-
+        Predicted percentage for "Somewhat – I was able to somewhat express my views on these topics, but did not have
+        the chance to express many things." is within 5pp of 5.7%
+    idealResponse: '[74.2, 19.5, 5.7, 0.6]'
+    temperature: 0.3
+  - id: e50749aa-6de1-447f-8f80-a59a589db2f4-gender:male
+    description: 'Predict: Male → "Do you feel like you understand yourself better after participating in this conversation?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 513):
+      - Gender: Male
+
+      Survey question:
+      "Do you feel like you understand yourself better after participating in this conversation?"
+
+      Answer options:
+        a. Yes
+        b. Maybe a little
+        c. No
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 61.7
+            - 32.7
+            - 5.7
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 19pp of 61.7%
+      - Predicted percentage for "Maybe a little" is within 10pp of 32.7%
+      - Predicted percentage for "No" is within 5pp of 5.7%
+    idealResponse: '[61.7, 32.7, 5.7]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - global-dialogues-gd5
+context:
+  dtef:
+    surveyId: global-dialogues-gd5
+    segmentId: gender:male
+    segmentLabel: Male
+    segmentAttributes:
+      gender: Male
+    groundTruthDistributions:
+      175e9f53-5e8a-40df-9626-2da4443de601-gender:male:
+        - 40.5
+        - 50.1
+        - 9.4
+      5b3f2c38-95af-417a-a09f-a245a77eeef1-gender:male:
+        - 40.7
+        - 50.5
+        - 8.8
+      3ae706fa-52bd-4489-a820-4bcb0644e58a-gender:male:
+        - 0.4
+        - 4.3
+        - 6.1
+        - 43.2
+        - 46
+      1dc006da-5978-4302-bf0c-a86493c98081-gender:male:
+        - 24.5
+        - 30.5
+        - 25.2
+        - 17.6
+        - 2.2
+      f05eb17f-c04a-4d3a-b232-3e24cf8371cd-gender:male:
+        - 21.7
+        - 25.6
+        - 21.5
+        - 27.6
+        - 3.5
+      a2927565-ce81-4173-b1de-4f2d5ccb7e91-gender:male:
+        - 11.7
+        - 16.6
+        - 27.4
+        - 32.7
+        - 11.5
+      76426634-6702-4906-a4d7-e79bc06243a7-gender:male:
+        - 14.7
+        - 24.3
+        - 23.7
+        - 30.9
+        - 6.5
+      b2a655a0-daed-4687-a70c-15e0c7f1b4a3-gender:male:
+        - 3.3
+        - 10.6
+        - 26.8
+        - 43.1
+        - 16.2
+      0a945247-083c-448e-8641-1c17c4d7f261-gender:male:
+        - 47.6
+        - 31.3
+        - 9.4
+        - 1.2
+        - 10.6
+      b9b7b65b-3462-4390-b822-8fca61ec7c0e-gender:male:
+        - 49.7
+        - 33.5
+        - 9
+        - 1.8
+        - 6.1
+      69aad8f7-32df-4c53-871f-c49af87c919a-gender:male:
+        - 50.1
+        - 36.6
+        - 8
+        - 1.8
+        - 3.5
+      8a44587f-82c2-4ea5-bd2c-1ddcb4372b6c-gender:male:
+        - 12.7
+        - 23.1
+        - 23.5
+        - 6.3
+        - 34.3
+      372401be-9307-420b-8199-9f70b52423e3-gender:male:
+        - 10
+        - 20.4
+        - 14.3
+        - 3.5
+        - 51.8
+      0f5ffda1-e9d7-4950-b9d2-c8ffa0fbd914-gender:male:
+        - 2.5
+        - 16.5
+        - 22.4
+        - 47.6
+        - 11
+      f32a9246-917b-4127-b06b-c9f518249852-gender:male:
+        - 1
+        - 5.3
+        - 23.1
+        - 52.9
+        - 17.6
+      84947b30-88cf-40a2-b504-0bd5b3f2dc38-gender:male:
+        - 1.6
+        - 16.5
+        - 22.5
+        - 47.8
+        - 11.6
+      8995a0c6-8868-491b-8b70-acd23363a099-gender:male:
+        - 12
+        - 36.9
+        - 19.4
+        - 23.3
+        - 8.4
+      77877d7e-4385-4237-b01d-56c0d346dffe-gender:male:
+        - 3.1
+        - 16.7
+        - 38.1
+        - 32.4
+        - 9.6
+      bfb3aa61-a107-4254-acd3-eb880c204eb3-gender:male:
+        - 39.9
+        - 49.9
+        - 5.3
+        - 4.9
+      9d9568a9-61ab-4fda-8d83-4a7cb0982360-gender:male:
+        - 70.1
+        - 3.1
+        - 26.7
+      9641f2fa-0622-4172-93d9-6f1452de9e41-gender:male:
+        - 17
+        - 15.2
+        - 18.6
+        - 21.7
+        - 27.5
+      cdcf76a8-19cf-4b93-9750-09e96a47d6f0-gender:male:
+        - 11.5
+        - 13.2
+        - 19.2
+        - 19.8
+        - 36.4
+      c1a66a5d-5389-45d3-8bef-c99cf0e5a1a4-gender:male:
+        - 3.4
+        - 12.8
+        - 35.4
+        - 29.4
+        - 19
+      d33d3a8f-817f-464c-9fb3-50ed96c1d48c-gender:male:
+        - 54.3
+        - 33.6
+        - 3.4
+        - 5.9
+        - 2.8
+      874762a8-dc8f-44c2-b815-383147ffcb2f-gender:male:
+        - 63.4
+        - 28.9
+        - 4.3
+        - 2.6
+        - 0.8
+      fe992270-ffe7-4e20-93f6-12c71be79ad7-gender:male:
+        - 23.9
+        - 35
+        - 19.2
+        - 14.6
+        - 7.3
+      22656d2a-8284-4bee-8c5a-11de280fe9c6-gender:male:
+        - 10.1
+        - 17
+        - 23.5
+        - 26.1
+        - 23.3
+      c5d4780d-c202-429f-abcb-e4e93b3ec282-gender:male:
+        - 9.5
+        - 39.8
+        - 26.3
+        - 19.8
+        - 4.6
+      2cbc3472-c993-4fdf-b6e2-529b240e4ccb-gender:male:
+        - 42.3
+        - 38.5
+        - 11.1
+        - 5.4
+        - 2.8
+      bd7a4b13-8aa6-4c0f-924f-b5e57151ea72-gender:male:
+        - 50.2
+        - 2.8
+        - 45.2
+        - 1.8
+      524213d3-fc60-47b6-b08d-dda406130652-gender:male:
+        - 73
+        - 20.8
+        - 3.6
+        - 2
+        - 0.6
+      cc8d6e1d-2617-4e7c-9e9b-9f8293e23247-gender:male:
+        - 6.9
+        - 48.8
+        - 26.4
+        - 15.7
+        - 2.2
+      a7601187-0c2a-4f65-a95a-0a4da9cf1b53-gender:male:
+        - 67.1
+        - 32.9
+      fe75281b-72ca-4b2d-80be-7ec92e0724da-gender:male:
+        - 64.8
+        - 24
+        - 11.2
+      cc5ec0de-84a3-4ba4-9960-47394478ad88-gender:male:
+        - 42.3
+        - 27
+        - 30.8
+      8e505718-7519-4133-9fbb-71f88fd9182b-gender:male:
+        - 59.6
+        - 40.4
+      fef72493-a7e0-489c-aa16-cbc811501da0-gender:male:
+        - 20.7
+        - 56.7
+        - 22.5
+      f193df8b-2c23-42cf-89a9-154d877fab35-gender:male:
+        - 11.9
+        - 26
+        - 14.9
+        - 8.5
+        - 37
+        - 1.8
+      5246a5ca-cc65-41e6-a1c9-423a367d2dd5-gender:male:
+        - 41.9
+        - 34.7
+        - 10.9
+        - 7.7
+        - 4.8
+      a7303bc8-194b-48f4-bbbc-509b234a7419-gender:male:
+        - 26.8
+        - 35.7
+        - 18.8
+        - 12.3
+        - 6.5
+      9eacb286-c7f1-4d21-8144-494b58e9a989-gender:male:
+        - 53.2
+        - 29
+        - 10.9
+        - 5.2
+        - 1.6
+      5dbc1b30-3549-40be-997d-dde94213eaaa-gender:male:
+        - 34.1
+        - 16.7
+        - 39.9
+        - 3
+        - 3
+        - 3.2
+      438887a0-2f26-406d-81f2-b2768e2827f2-gender:male:
+        - 37.5
+        - 49.7
+        - 5.3
+        - 7.5
+      544b6855-38be-458c-b637-ea2a8c36e876-gender:male:
+        - 66.5
+        - 2.2
+        - 31.2
+      123ce701-b606-45ab-b780-aee37e6a48de-gender:male:
+        - 74.2
+        - 19.5
+        - 5.7
+        - 0.6
+      e50749aa-6de1-447f-8f80-a59a589db2f4-gender:male:
+        - 61.7
+        - 32.7
+        - 5.7

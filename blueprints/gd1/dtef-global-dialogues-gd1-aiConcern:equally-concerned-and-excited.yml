@@ -1,0 +1,193 @@
+configId: dtef-global-dialogues-gd1-aiConcern:equally-concerned-and-excited
+configTitle: Global Dialogues GD1 - Equally concerned and excited
+description: >-
+  DTEF: Predict response distributions for Equally concerned and excited. Source: Global Dialogues GD1
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - QUICK
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+prompts:
+  - id: 8e27b118-4fb8-4fa1-a838-a34b257c2070-aiConcern:equally-concerned-and-excited
+    description: >-
+      Predict: Equally concerned and excited → "Overall, would you say the increased use of artificial intelligence (AI)
+      in daily life makes you feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 720):
+      - Ai Concern: Equally concerned and excited
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 100
+            - 0
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Equally concerned and excited" is within 30pp of 100.0%
+    idealResponse: '[0.0, 100.0, 0.0]'
+    temperature: 0.3
+  - id: ce8d6dba-231c-4353-8e8a-ba1e1eb4a10c-aiConcern:equally-concerned-and-excited
+    description: >-
+      Predict: Equally concerned and excited → "Would these things experts believe could help people make a positive
+      difference in your life?"
+    promptText: |-
+      Consider the following demographic group (sample size: 720):
+      - Ai Concern: Equally concerned and excited
+
+      Survey question:
+      "Would these things experts believe could help people make a positive difference in your life?"
+
+      Answer options:
+        a. Yes – these things would definitely make a large positive difference in my life
+        b. Maybe – these things might make some positive difference in my life
+        c. No – these things won’t really make any difference in my life
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 47.6
+            - 49.6
+            - 2.7
+          metric: js-divergence
+          threshold: 0.85
+      - >-
+        Predicted percentage for "Yes – these things would definitely make a large positive difference in my life" is
+        within 14pp of 47.6%
+      - >-
+        Predicted percentage for "Maybe – these things might make some positive difference in my life" is within 15pp of
+        49.6%
+    idealResponse: '[47.6, 49.6, 2.7]'
+    temperature: 0.3
+  - id: df6d9080-be3c-4166-a298-1b9c48e5c008-aiConcern:equally-concerned-and-excited
+    description: >-
+      Predict: Equally concerned and excited → "Do you feel you were able to fully express your views on your culture,
+      your values, and what you want for the future in this conversation? (through what you responded and how you
+      voted)"
+    promptText: >-
+      Consider the following demographic group (sample size: 720):
+
+      - Ai Concern: Equally concerned and excited
+
+
+      Survey question:
+
+      "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+
+
+      Answer options:
+        a. Yes – I was able to fully express my views on these topics
+        b. Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.
+        c. Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.
+        d. No – I was unable to express my views on these topics, and did not have the chance to express most things.
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 66.7
+            - 28.3
+            - 4.9
+            - 0.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes – I was able to fully express my views on these topics" is within 20pp of 66.7%
+      - >-
+        Predicted percentage for "Mostly – I was able to mostly express my views on these topics, but did not have the
+        chance to express a few things." is within 8pp of 28.3%
+    idealResponse: '[66.7, 28.3, 4.9, 0.2]'
+    temperature: 0.3
+  - id: e6253ecc-a4ed-42e9-99a3-00e4b2ff0f68-aiConcern:equally-concerned-and-excited
+    description: >-
+      Predict: Equally concerned and excited → "Do you feel like you understand yourself better after participating in
+      this conversation?"
+    promptText: |-
+      Consider the following demographic group (sample size: 720):
+      - Ai Concern: Equally concerned and excited
+
+      Survey question:
+      "Do you feel like you understand yourself better after participating in this conversation?"
+
+      Answer options:
+        a. Yes
+        b. Maybe a little
+        c. No
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 61.8
+            - 33
+            - 5.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 19pp of 61.8%
+      - Predicted percentage for "Maybe a little" is within 10pp of 33.0%
+      - Predicted percentage for "No" is within 5pp of 5.2%
+    idealResponse: '[61.8, 33.0, 5.2]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - global-dialogues-gd1
+context:
+  dtef:
+    surveyId: global-dialogues-gd1
+    segmentId: aiConcern:equally-concerned-and-excited
+    segmentLabel: Equally concerned and excited
+    segmentAttributes:
+      aiConcern: Equally concerned and excited
+    groundTruthDistributions:
+      8e27b118-4fb8-4fa1-a838-a34b257c2070-aiConcern:equally-concerned-and-excited:
+        - 0
+        - 100
+        - 0
+      ce8d6dba-231c-4353-8e8a-ba1e1eb4a10c-aiConcern:equally-concerned-and-excited:
+        - 47.6
+        - 49.6
+        - 2.7
+      df6d9080-be3c-4166-a298-1b9c48e5c008-aiConcern:equally-concerned-and-excited:
+        - 66.7
+        - 28.3
+        - 4.9
+        - 0.2
+      e6253ecc-a4ed-42e9-99a3-00e4b2ff0f68-aiConcern:equally-concerned-and-excited:
+        - 61.8
+        - 33
+        - 5.2

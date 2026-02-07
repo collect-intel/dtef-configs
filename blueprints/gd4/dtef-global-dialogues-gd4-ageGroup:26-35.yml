@@ -1,0 +1,5349 @@
+configId: dtef-global-dialogues-gd4-ageGroup:26-35
+configTitle: Global Dialogues GD4 - 26-35
+description: >-
+  DTEF: Predict response distributions for 26-35. Source: Global Dialogues GD4
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - QUICK
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+prompts:
+  - id: 28cfe238-1c8f-476f-8c57-48b8ca1071a7-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you
+      feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 37.3
+            - 53.1
+            - 9.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "More excited than concerned" is within 11pp of 37.3%
+      - Predicted percentage for "Equally concerned and excited" is within 16pp of 53.1%
+      - Predicted percentage for "More concerned than excited" is within 5pp of 9.6%
+    idealResponse: '[37.3, 53.1, 9.6]'
+    temperature: 0.3
+  - id: 0b473fbf-be43-4c32-a805-1275d54ac9ef-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about the last three months, how often, if at all, have you noticed AI systems in your
+      daily life?"
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 76.1
+            - 21.5
+            - 2.2
+            - 0
+            - 0.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 23pp of 76.1%
+      - Predicted percentage for "weekly" is within 6pp of 21.5%
+    idealResponse: '[76.1, 21.5, 2.2, 0.0, 0.2]'
+    temperature: 0.3
+  - id: f24f304d-b314-401a-a259-ce0596ad77d4-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about the last three months, how often, if at all, have you noticed human interactions
+      which have been replaced with automated systems?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you noticed human interactions which have been
+      replaced with automated systems?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 26.8
+            - 44.4
+            - 22.2
+            - 2.4
+            - 4.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 8pp of 26.8%
+      - Predicted percentage for "weekly" is within 13pp of 44.4%
+      - Predicted percentage for "monthly" is within 7pp of 22.2%
+    idealResponse: '[26.8, 44.4, 22.2, 2.4, 4.1]'
+    temperature: 0.3
+  - id: f66d16d1-630b-4aba-8c2d-a96961fcb03e-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about the last three months, how often, if at all, have you been expected to use an AI
+      system at work?"
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at work?"
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 42.5
+            - 32.9
+            - 9.2
+            - 1.7
+            - 13.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 13pp of 42.5%
+      - Predicted percentage for "weekly" is within 10pp of 32.9%
+      - Predicted percentage for "monthly" is within 5pp of 9.2%
+      - Predicted percentage for "never" is within 5pp of 13.8%
+    idealResponse: '[42.5, 32.9, 9.2, 1.7, 13.8]'
+    temperature: 0.3
+  - id: 2cbb900b-8d9f-4c7e-a558-3a5376e8ce5c-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about the last three months, how often, if at all, have you personally chosen to use an
+      AI system at work?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 49.5
+            - 33.8
+            - 8.2
+            - 1.4
+            - 7
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 15pp of 49.5%
+      - Predicted percentage for "weekly" is within 10pp of 33.8%
+      - Predicted percentage for "monthly" is within 5pp of 8.2%
+      - Predicted percentage for "never" is within 5pp of 7.0%
+    idealResponse: '[49.5, 33.8, 8.2, 1.4, 7.0]'
+    temperature: 0.3
+  - id: e3f96004-866e-46e6-be4a-1e83a3e709f8-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about the last three months, how often, if at all, have you personally chosen to use an
+      AI system in your personal life?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 50.5
+            - 33.8
+            - 8.7
+            - 2.2
+            - 4.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 15pp of 50.5%
+      - Predicted percentage for "weekly" is within 10pp of 33.8%
+      - Predicted percentage for "monthly" is within 5pp of 8.7%
+    idealResponse: '[50.5, 33.8, 8.7, 2.2, 4.8]'
+    temperature: 0.3
+  - id: d2af725e-0391-4019-9ade-31f25162b6f0-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about the last three months, how often, if at all, have you interacted with AI systems
+      to get advice on a sensitive personal issue or to get emotional support?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice on
+      a sensitive personal issue or to get emotional support?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 14.5
+            - 28
+            - 26.3
+            - 3.6
+            - 27.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 5pp of 14.5%
+      - Predicted percentage for "weekly" is within 8pp of 28.0%
+      - Predicted percentage for "monthly" is within 8pp of 26.3%
+      - Predicted percentage for "never" is within 8pp of 27.5%
+    idealResponse: '[14.5, 28.0, 26.3, 3.6, 27.5]'
+    temperature: 0.3
+  - id: 6d18ebd0-402c-4db9-a61f-14527e77874a-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about the last three months, how often, if at all, have you interacted with AI systems
+      to complete an action in the real world on your behalf without your supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 7.7
+            - 19.8
+            - 14.3
+            - 2.7
+            - 55.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 5pp of 7.7%
+      - Predicted percentage for "weekly" is within 6pp of 19.8%
+      - Predicted percentage for "monthly" is within 5pp of 14.3%
+      - Predicted percentage for "never" is within 17pp of 55.6%
+    idealResponse: '[7.7, 19.8, 14.3, 2.7, 55.6]'
+    temperature: 0.3
+  - id: 6630ff34-e67e-423a-9cea-0a4861106680-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of messaging apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.9
+            - 12.2
+            - 28
+            - 29.5
+            - 24.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Risks far outweigh benefits" is within 5pp of 5.9%
+      - Predicted percentage for "Risks slightly outweigh benefits" is within 5pp of 12.2%
+      - Predicted percentage for "Risks and benefits are equal" is within 8pp of 28.0%
+      - Predicted percentage for "Benefits slightly outweigh risks" is within 9pp of 29.5%
+      - Predicted percentage for "Benefits far outweigh risks" is within 7pp of 24.4%
+    idealResponse: '[5.9, 12.2, 28.0, 29.5, 24.4]'
+    temperature: 0.3
+  - id: 2f828d26-4a15-4f80-8c4b-5b0c833caecd-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of social media apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 12.9
+            - 23.2
+            - 25.9
+            - 26.6
+            - 11.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Risks far outweigh benefits" is within 5pp of 12.9%
+      - Predicted percentage for "Risks slightly outweigh benefits" is within 7pp of 23.2%
+      - Predicted percentage for "Risks and benefits are equal" is within 8pp of 25.9%
+      - Predicted percentage for "Benefits slightly outweigh risks" is within 8pp of 26.6%
+      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 11.5%
+    idealResponse: '[12.9, 23.2, 25.9, 26.6, 11.5]'
+    temperature: 0.3
+  - id: e2b01bdb-722a-480d-b303-182eed6b83b6-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI chatbots?"
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI chatbots?"
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.1
+            - 18
+            - 25.6
+            - 31
+            - 20.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Risks far outweigh benefits" is within 5pp of 5.1%
+      - Predicted percentage for "Risks slightly outweigh benefits" is within 5pp of 18.0%
+      - Predicted percentage for "Risks and benefits are equal" is within 8pp of 25.6%
+      - Predicted percentage for "Benefits slightly outweigh risks" is within 9pp of 31.0%
+      - Predicted percentage for "Benefits far outweigh risks" is within 6pp of 20.2%
+    idealResponse: '[5.1, 18.0, 25.6, 31.0, 20.2]'
+    temperature: 0.3
+  - id: 29598fc6-6928-49f7-9a42-2f57cf5e1c28-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI systems that can perform tasks in the real world without human supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can perform tasks in the real world without human supervision?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 17.6
+            - 28.3
+            - 24.4
+            - 21
+            - 8.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Risks far outweigh benefits" is within 5pp of 17.6%
+      - Predicted percentage for "Risks slightly outweigh benefits" is within 8pp of 28.3%
+      - Predicted percentage for "Risks and benefits are equal" is within 7pp of 24.4%
+      - Predicted percentage for "Benefits slightly outweigh risks" is within 6pp of 21.0%
+      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 8.8%
+    idealResponse: '[17.6, 28.3, 24.4, 21.0, 8.8]'
+    temperature: 0.3
+  - id: 23d5fd25-2168-4fd3-bd18-efafd73c6f2a-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI systems that can outperform humans on most economically valuable work?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can outperform humans on most economically valuable work?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16.8
+            - 22.7
+            - 25.9
+            - 22.9
+            - 11.7
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Risks far outweigh benefits" is within 5pp of 16.8%
+      - Predicted percentage for "Risks slightly outweigh benefits" is within 7pp of 22.7%
+      - Predicted percentage for "Risks and benefits are equal" is within 8pp of 25.9%
+      - Predicted percentage for "Benefits slightly outweigh risks" is within 7pp of 22.9%
+      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 11.7%
+    idealResponse: '[16.8, 22.7, 25.9, 22.9, 11.7]'
+    temperature: 0.3
+  - id: 25e16598-f3a7-411d-b4cb-736c91bc3d03-ageGroup:26-35
+    description: 'Predict: 26-35 → "To what extent, if at all, do you generally trust governments to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "To what extent, if at all, do you generally trust governments to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 23.4
+            - 31.2
+            - 16.1
+            - 24.9
+            - 4.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 7pp of 23.4%
+      - Predicted percentage for "Somewhat Distrust" is within 9pp of 31.2%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 5pp of 16.1%
+      - Predicted percentage for "Somewhat Trust" is within 7pp of 24.9%
+    idealResponse: '[23.4, 31.2, 16.1, 24.9, 4.4]'
+    temperature: 0.3
+  - id: c002632e-4356-4f98-9191-f86412fe48a7-ageGroup:26-35
+    description: 'Predict: 26-35 → "To what extent, if at all, do you generally trust small businesses to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "To what extent, if at all, do you generally trust small businesses to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.9
+            - 22.2
+            - 24.9
+            - 42.9
+            - 6.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Somewhat Distrust" is within 7pp of 22.2%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 7pp of 24.9%
+      - Predicted percentage for "Somewhat Trust" is within 13pp of 42.9%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 6.1%
+    idealResponse: '[3.9, 22.2, 24.9, 42.9, 6.1]'
+    temperature: 0.3
+  - id: e70a42e6-c1c0-43c6-a389-d28347e17f2f-ageGroup:26-35
+    description: 'Predict: 26-35 → "To what extent, if at all, do you generally trust large corporations to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "To what extent, if at all, do you generally trust large corporations to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 23.4
+            - 31.2
+            - 18
+            - 21
+            - 6.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 7pp of 23.4%
+      - Predicted percentage for "Somewhat Distrust" is within 9pp of 31.2%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 5pp of 18.0%
+      - Predicted percentage for "Somewhat Trust" is within 6pp of 21.0%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 6.3%
+    idealResponse: '[23.4, 31.2, 18.0, 21.0, 6.3]'
+    temperature: 0.3
+  - id: be27a244-3429-417d-8517-de800bc90acf-ageGroup:26-35
+    description: 'Predict: 26-35 → "To what extent, if at all, do you generally trust social media companies to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "To what extent, if at all, do you generally trust social media companies to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 33.7
+            - 33.4
+            - 19.3
+            - 12
+            - 1.7
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 10pp of 33.7%
+      - Predicted percentage for "Somewhat Distrust" is within 10pp of 33.4%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 6pp of 19.3%
+      - Predicted percentage for "Somewhat Trust" is within 5pp of 12.0%
+    idealResponse: '[33.7, 33.4, 19.3, 12.0, 1.7]'
+    temperature: 0.3
+  - id: d7943aa5-3a9f-4161-9d2b-651c71d92c73-ageGroup:26-35
+    description: 'Predict: 26-35 → "To what extent, if at all, do you generally trust companies building AI to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15.6
+            - 26.8
+            - 24.9
+            - 27.6
+            - 5.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 15.6%
+      - Predicted percentage for "Somewhat Distrust" is within 8pp of 26.8%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 7pp of 24.9%
+      - Predicted percentage for "Somewhat Trust" is within 8pp of 27.6%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 5.1%
+    idealResponse: '[15.6, 26.8, 24.9, 27.6, 5.1]'
+    temperature: 0.3
+  - id: 334a0ebd-4c3e-44d2-ac51-13fb444c069a-ageGroup:26-35
+    description: 'Predict: 26-35 → "To what extent, if at all, do you generally trust public utility companies to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "To what extent, if at all, do you generally trust public utility companies to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 7.8
+            - 18
+            - 32.7
+            - 36.6
+            - 4.9
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 7.8%
+      - Predicted percentage for "Somewhat Distrust" is within 5pp of 18.0%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 10pp of 32.7%
+      - Predicted percentage for "Somewhat Trust" is within 11pp of 36.6%
+    idealResponse: '[7.8, 18.0, 32.7, 36.6, 4.9]'
+    temperature: 0.3
+  - id: 865926b0-3032-4d3a-bbc2-80c102d549bb-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "To what extent, if at all, do you generally trust public research institutions to do what is
+      right?"
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "To what extent, if at all, do you generally trust public research institutions to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.7
+            - 8
+            - 17.3
+            - 52.2
+            - 19.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Somewhat Distrust" is within 5pp of 8.0%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 5pp of 17.3%
+      - Predicted percentage for "Somewhat Trust" is within 16pp of 52.2%
+      - Predicted percentage for "Strongly Trust" is within 6pp of 19.8%
+    idealResponse: '[2.7, 8.0, 17.3, 52.2, 19.8]'
+    temperature: 0.3
+  - id: 85d29925-21b5-4b25-9fe0-5df069945870-ageGroup:26-35
+    description: 'Predict: 26-35 → "To what extent, if at all, do you trust your family doctor to act in your best interest?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "To what extent, if at all, do you trust your family doctor to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1.5
+            - 5.1
+            - 9
+            - 45.9
+            - 38.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Somewhat Distrust" is within 5pp of 5.1%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 5pp of 9.0%
+      - Predicted percentage for "Somewhat Trust" is within 14pp of 45.9%
+      - Predicted percentage for "Strongly Trust" is within 12pp of 38.5%
+    idealResponse: '[1.5, 5.1, 9.0, 45.9, 38.5]'
+    temperature: 0.3
+  - id: 144768d5-2b91-4c55-9935-98a246c6d3bf-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in
+      your best interest?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best
+      interest?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 26.3
+            - 33.2
+            - 23.7
+            - 14.4
+            - 2.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 8pp of 26.3%
+      - Predicted percentage for "Somewhat Distrust" is within 10pp of 33.2%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 7pp of 23.7%
+      - Predicted percentage for "Somewhat Trust" is within 5pp of 14.4%
+    idealResponse: '[26.3, 33.2, 23.7, 14.4, 2.4]'
+    temperature: 0.3
+  - id: 5b8a5926-74e0-4500-b57f-76d5b912ea2f-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "To what extent, if at all, do you trust your elected representatives to act in your best
+      interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "To what extent, if at all, do you trust your elected representatives to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20.5
+            - 26.3
+            - 22.4
+            - 26.8
+            - 3.9
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 6pp of 20.5%
+      - Predicted percentage for "Somewhat Distrust" is within 8pp of 26.3%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 7pp of 22.4%
+      - Predicted percentage for "Somewhat Trust" is within 8pp of 26.8%
+    idealResponse: '[20.5, 26.3, 22.4, 26.8, 3.9]'
+    temperature: 0.3
+  - id: dbe2139a-1d10-48e6-861a-f64260d01659-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "To what extent, if at all, do you trust your faith or community leader to act in your best
+      interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "To what extent, if at all, do you trust your faith or community leader to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 12
+            - 17.3
+            - 26.8
+            - 34.4
+            - 9.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 12.0%
+      - Predicted percentage for "Somewhat Distrust" is within 5pp of 17.3%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 8pp of 26.8%
+      - Predicted percentage for "Somewhat Trust" is within 10pp of 34.4%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 9.5%
+    idealResponse: '[12.0, 17.3, 26.8, 34.4, 9.5]'
+    temperature: 0.3
+  - id: 5af76eba-316e-489f-a57e-0498a5768643-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "To what extent, if at all, do you trust the civil servants in your government to act in your
+      best interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "To what extent, if at all, do you trust the civil servants in your government to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.8
+            - 27.8
+            - 21.5
+            - 27.3
+            - 4.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 6pp of 18.8%
+      - Predicted percentage for "Somewhat Distrust" is within 8pp of 27.8%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 6pp of 21.5%
+      - Predicted percentage for "Somewhat Trust" is within 8pp of 27.3%
+    idealResponse: '[18.8, 27.8, 21.5, 27.3, 4.6]'
+    temperature: 0.3
+  - id: 32a41e36-1567-42e8-8636-39d21f87550a-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best
+      interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 6.1
+            - 13.2
+            - 27.1
+            - 39.8
+            - 13.9
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 6.1%
+      - Predicted percentage for "Somewhat Distrust" is within 5pp of 13.2%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 8pp of 27.1%
+      - Predicted percentage for "Somewhat Trust" is within 12pp of 39.8%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 13.9%
+    idealResponse: '[6.1, 13.2, 27.1, 39.8, 13.9]'
+    temperature: 0.3
+  - id: e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Do you agree or disagree with this statement? AI could make better decisions on my behalf than
+      my government representatives."
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+        c. Unsure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 36.6
+            - 30.2
+            - 33.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Agree" is within 11pp of 36.6%
+      - Predicted percentage for "Disagree" is within 9pp of 30.2%
+      - Predicted percentage for "Unsure" is within 10pp of 33.2%
+    idealResponse: '[36.6, 30.2, 33.2]'
+    temperature: 0.3
+  - id: 7ecf1a2a-b34a-40a3-b481-a6eb15883b18-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Do you think the increased use of AI across society is likely to make your cost of living
+      better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make your cost of living better, worse or stay
+      the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.9
+            - 19.8
+            - 22.4
+            - 45.4
+            - 8.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Noticeably Worse" is within 6pp of 19.8%
+      - Predicted percentage for "No Major Change" is within 7pp of 22.4%
+      - Predicted percentage for "Noticeably Better" is within 14pp of 45.4%
+      - Predicted percentage for "Profoundly Better" is within 5pp of 8.5%
+    idealResponse: '[3.9, 19.8, 22.4, 45.4, 8.5]'
+    temperature: 0.3
+  - id: 015a07c1-b996-4bde-b412-e79c314cf761-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Do you think the increased use of AI across society is likely to make the amount of free time
+      you have better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make the amount of free time you have better,
+      worse or stay the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.4
+            - 9.8
+            - 22.2
+            - 49.8
+            - 15.9
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Noticeably Worse" is within 5pp of 9.8%
+      - Predicted percentage for "No Major Change" is within 7pp of 22.2%
+      - Predicted percentage for "Noticeably Better" is within 15pp of 49.8%
+      - Predicted percentage for "Profoundly Better" is within 5pp of 15.9%
+    idealResponse: '[2.4, 9.8, 22.2, 49.8, 15.9]'
+    temperature: 0.3
+  - id: 372d603d-460c-4691-8656-d256f84a6583-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Do you think the increased use of AI across society is likely to make your community's
+      well-being better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make your community's well-being better, worse
+      or stay the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4.1
+            - 18
+            - 25.4
+            - 42.9
+            - 9.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Noticeably Worse" is within 5pp of 18.0%
+      - Predicted percentage for "No Major Change" is within 8pp of 25.4%
+      - Predicted percentage for "Noticeably Better" is within 13pp of 42.9%
+      - Predicted percentage for "Profoundly Better" is within 5pp of 9.5%
+    idealResponse: '[4.1, 18.0, 25.4, 42.9, 9.5]'
+    temperature: 0.3
+  - id: c6c411f0-409e-4518-9763-813738535308-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Do you think the increased use of AI across society is likely to make the availability of good
+      jobs better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make the availability of good jobs better, worse
+      or stay the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 14.6
+            - 41.5
+            - 19
+            - 17.6
+            - 7.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Profoundly Worse" is within 5pp of 14.6%
+      - Predicted percentage for "Noticeably Worse" is within 12pp of 41.5%
+      - Predicted percentage for "No Major Change" is within 6pp of 19.0%
+      - Predicted percentage for "Noticeably Better" is within 5pp of 17.6%
+      - Predicted percentage for "Profoundly Better" is within 5pp of 7.3%
+    idealResponse: '[14.6, 41.5, 19.0, 17.6, 7.3]'
+    temperature: 0.3
+  - id: ac4c9ca2-d2e7-4b35-afe2-b3b2174ee030-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Do you think the increased use of AI across society is likely to make your sense of purpose
+      better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or stay
+      the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4.6
+            - 14.9
+            - 39
+            - 32.7
+            - 8.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Noticeably Worse" is within 5pp of 14.9%
+      - Predicted percentage for "No Major Change" is within 12pp of 39.0%
+      - Predicted percentage for "Noticeably Better" is within 10pp of 32.7%
+      - Predicted percentage for "Profoundly Better" is within 5pp of 8.8%
+    idealResponse: '[4.6, 14.9, 39.0, 32.7, 8.8]'
+    temperature: 0.3
+  - id: 5dd17247-f85e-4419-b7d4-4130e0df0b77-ageGroup:26-35
+    description: 'Predict: 26-35 → "So far, what has been the overall impact of AI on your daily life?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "So far, what has been the overall impact of AI on your daily life?"
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0.5
+            - 3.2
+            - 25.4
+            - 54.1
+            - 16.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "No Major Change" is within 8pp of 25.4%
+      - Predicted percentage for "Noticeably Better" is within 16pp of 54.1%
+      - Predicted percentage for "Profoundly Better" is within 5pp of 16.8%
+    idealResponse: '[0.5, 3.2, 25.4, 54.1, 16.8]'
+    temperature: 0.3
+  - id: 22b7dc74-6101-4c0f-b6ee-c666ba7fc324-ageGroup:26-35
+    description: 'Predict: 26-35 → "Is your job making a meaningful contribution to the world?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Is your job making a meaningful contribution to the world?"
+
+      Answer options:
+        a. Yes
+        b. No 
+        c. Don't Know
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 69.5
+            - 11.5
+            - 19
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 21pp of 69.5%
+      - Predicted percentage for "No " is within 5pp of 11.5%
+      - Predicted percentage for "Don't Know" is within 6pp of 19.0%
+    idealResponse: '[69.5, 11.5, 19.0]'
+    temperature: 0.3
+  - id: b94b8fa4-40ea-4a43-80a5-d7db02df1951-ageGroup:26-35
+    description: 'Predict: 26-35 → "Do you think your job is likely to be automated in the next 10 years?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Do you think your job is likely to be automated in the next 10 years?"
+
+      Answer options:
+        a. Yes
+        b. No
+        c. Don't Know
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 34.1
+            - 48.3
+            - 17.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 10pp of 34.1%
+      - Predicted percentage for "No" is within 14pp of 48.3%
+      - Predicted percentage for "Don't Know" is within 5pp of 17.6%
+    idealResponse: '[34.1, 48.3, 17.6]'
+    temperature: 0.3
+  - id: 800f0a14-aa6e-4e86-900b-1c40d3810603-ageGroup:26-35
+    description: 'Predict: 26-35 → "Do you think your job should be automated in the next 10 years?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Do you think your job should be automated in the next 10 years?"
+
+      Answer options:
+        a. Yes
+        b. No
+        c. Don't Know
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 19.5
+            - 67.6
+            - 12.9
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 6pp of 19.5%
+      - Predicted percentage for "No" is within 20pp of 67.6%
+      - Predicted percentage for "Don't Know" is within 5pp of 12.9%
+    idealResponse: '[19.5, 67.6, 12.9]'
+    temperature: 0.3
+  - id: 52bbba43-5119-43a8-9bb1-5596c3ad8a1c-ageGroup:26-35
+    description: 'Predict: 26-35 → "So far, how has your community been affected by job loss from automation?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "So far, how has your community been affected by job loss from automation?"
+
+      Answer options:
+        a. Not at all
+        b. I know someone who has lost their job
+        c. I know several people who have lost their job
+        d. I know many people who have lost their job
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 44.1
+            - 27.6
+            - 22.2
+            - 6.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 13pp of 44.1%
+      - Predicted percentage for "I know someone who has lost their job" is within 8pp of 27.6%
+      - Predicted percentage for "I know several people who have lost their job" is within 7pp of 22.2%
+      - Predicted percentage for "I know many people who have lost their job" is within 5pp of 6.1%
+    idealResponse: '[44.1, 27.6, 22.2, 6.1]'
+    temperature: 0.3
+  - id: 02e1e447-c6e1-44ed-86c9-226f2c72b5c6-ageGroup:26-35
+    description: 'Predict: 26-35 → ""I feel in tune with the people around me.""'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      ""I feel in tune with the people around me.""
+
+      Answer options:
+        a. Never
+        b. Rarely
+        c. Sometimes
+        d. Often
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0.7
+            - 19.1
+            - 55.7
+            - 24.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Rarely" is within 6pp of 19.1%
+      - Predicted percentage for "Sometimes" is within 17pp of 55.7%
+      - Predicted percentage for "Often" is within 7pp of 24.4%
+    idealResponse: '[0.7, 19.1, 55.7, 24.4]'
+    temperature: 0.3
+  - id: c1ffd634-9209-4440-9804-4b397d7bfa8c-ageGroup:26-35
+    description: 'Predict: 26-35 → ""I lack companionship.""'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      ""I lack companionship.""
+
+      Answer options:
+        a. Never
+        b. Rarely
+        c. Sometimes
+        d. Often
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 23.5
+            - 35.2
+            - 28.6
+            - 12.7
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Never" is within 7pp of 23.5%
+      - Predicted percentage for "Rarely" is within 11pp of 35.2%
+      - Predicted percentage for "Sometimes" is within 9pp of 28.6%
+      - Predicted percentage for "Often" is within 5pp of 12.7%
+    idealResponse: '[23.5, 35.2, 28.6, 12.7]'
+    temperature: 0.3
+  - id: e787d98a-e40b-493b-875f-f59169cc849c-ageGroup:26-35
+    description: 'Predict: 26-35 → ""There is no one I can turn to.""'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      ""There is no one I can turn to.""
+
+      Answer options:
+        a. Never
+        b. Rarely
+        c. Sometimes
+        d. Often
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 37.9
+            - 28.9
+            - 23.5
+            - 9.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Never" is within 11pp of 37.9%
+      - Predicted percentage for "Rarely" is within 9pp of 28.9%
+      - Predicted percentage for "Sometimes" is within 7pp of 23.5%
+      - Predicted percentage for "Often" is within 5pp of 9.8%
+    idealResponse: '[37.9, 28.9, 23.5, 9.8]'
+    temperature: 0.3
+  - id: 5ab3d437-9098-4f12-9ede-ae9aa0fb7d36-ageGroup:26-35
+    description: 'Predict: 26-35 → ""I feel alone.""'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      ""I feel alone.""
+
+      Answer options:
+        a. Never
+        b. Rarely
+        c. Sometimes
+        d. Often
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 25.2
+            - 29.8
+            - 33.5
+            - 11.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Never" is within 8pp of 25.2%
+      - Predicted percentage for "Rarely" is within 9pp of 29.8%
+      - Predicted percentage for "Sometimes" is within 10pp of 33.5%
+      - Predicted percentage for "Often" is within 5pp of 11.5%
+    idealResponse: '[25.2, 29.8, 33.5, 11.5]'
+    temperature: 0.3
+  - id: dcb90e98-ab77-4dd7-a204-8a3b36b1f72f-ageGroup:26-35
+    description: 'Predict: 26-35 → ""I feel part of a group of friends.""'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      ""I feel part of a group of friends.""
+
+      Answer options:
+        a. Never
+        b. Rarely
+        c. Sometimes
+        d. Often/Always
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4.4
+            - 19.6
+            - 40.8
+            - 35.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Rarely" is within 6pp of 19.6%
+      - Predicted percentage for "Sometimes" is within 12pp of 40.8%
+      - Predicted percentage for "Often/Always" is within 11pp of 35.2%
+    idealResponse: '[4.4, 19.6, 40.8, 35.2]'
+    temperature: 0.3
+  - id: a8c7a309-9e7e-4e8f-960f-d94acc97614b-ageGroup:26-35
+    description: 'Predict: 26-35 → ""I have a lot in common with the people around me.""'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      ""I have a lot in common with the people around me.""
+
+      Answer options:
+        a. Never
+        b. Rarely
+        c. Sometimes
+        d. Often/Always
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4.9
+            - 25.9
+            - 50.1
+            - 19.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Rarely" is within 8pp of 25.9%
+      - Predicted percentage for "Sometimes" is within 15pp of 50.1%
+      - Predicted percentage for "Often/Always" is within 6pp of 19.1%
+    idealResponse: '[4.9, 25.9, 50.1, 19.1]'
+    temperature: 0.3
+  - id: 2a16a259-3822-4efe-a1df-100a55a83896-ageGroup:26-35
+    description: 'Predict: 26-35 → ""I feel isolated from others.""'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      ""I feel isolated from others.""
+
+      Answer options:
+        a. Never
+        b. Rarely
+        c. Sometimes
+        d. Often/Always
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 25.9
+            - 31.5
+            - 33.3
+            - 9.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Never" is within 8pp of 25.9%
+      - Predicted percentage for "Rarely" is within 9pp of 31.5%
+      - Predicted percentage for "Sometimes" is within 10pp of 33.3%
+      - Predicted percentage for "Often/Always" is within 5pp of 9.3%
+    idealResponse: '[25.9, 31.5, 33.3, 9.3]'
+    temperature: 0.3
+  - id: a2cd2134-b0a1-4610-a40c-66c6cf3bd0af-ageGroup:26-35
+    description: 'Predict: 26-35 → ""I can find companionship when I want it.""'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      ""I can find companionship when I want it.""
+
+      Answer options:
+        a. Never
+        b. Rarely
+        c. Sometimes
+        d. Often / Always
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.4
+            - 17.6
+            - 39.4
+            - 37.7
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Never" is within 5pp of 5.4%
+      - Predicted percentage for "Rarely" is within 5pp of 17.6%
+      - Predicted percentage for "Sometimes" is within 12pp of 39.4%
+      - Predicted percentage for "Often / Always" is within 11pp of 37.7%
+    idealResponse: '[5.4, 17.6, 39.4, 37.7]'
+    temperature: 0.3
+  - id: 4baa8683-eee5-4152-b402-0946f50b6a46-ageGroup:26-35
+    description: 'Predict: 26-35 → "How many children do you have?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "How many children do you have?"
+
+      Answer options:
+        a. 0
+        b. 1
+        c. 2
+        d. 3
+        e. 4
+        f. 5
+        g. 6
+        h. 7
+        i. more than 7
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 66.5
+            - 18.8
+            - 12.5
+            - 1.5
+            - 0.5
+            - 0.2
+            - 0
+            - 0
+            - 0
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "0" is within 20pp of 66.5%
+      - Predicted percentage for "1" is within 6pp of 18.8%
+      - Predicted percentage for "2" is within 5pp of 12.5%
+    idealResponse: '[66.5, 18.8, 12.5, 1.5, 0.5, 0.2, 0.0, 0.0, 0.0]'
+    temperature: 0.3
+  - id: f96023f2-33a7-46ef-b607-a7b26a64423a-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Are you a parent or guardian to any children under the age of 18 who live with you some or all
+      of the time?"
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Are you a parent or guardian to any children under the age of 18 who live with you some or all of the time?"
+
+      Answer options:
+        a. yes
+        b. no
+        c. prefer not to say
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 34.5
+            - 65
+            - 0.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "yes" is within 10pp of 34.5%
+      - Predicted percentage for "no" is within 20pp of 65.0%
+    idealResponse: '[34.5, 65.0, 0.5]'
+    temperature: 0.3
+  - id: 4b5fccdd-0613-4d6e-bb96-3c5e5941b75a-ageGroup:26-35
+    description: 'Predict: 26-35 → "How many children under the age of 18 live with you some or all of the time?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "How many children under the age of 18 live with you some or all of the time?"
+
+      Answer options:
+        a. 0
+        b. 1
+        c. 2
+        d. 3
+        e. 4
+        f. 5
+        g. 6
+        h. 7
+        i. more than 7
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 58.2
+            - 23.2
+            - 13.4
+            - 2.7
+            - 1
+            - 0.5
+            - 0.2
+            - 0.2
+            - 0.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "0" is within 17pp of 58.2%
+      - Predicted percentage for "1" is within 7pp of 23.2%
+      - Predicted percentage for "2" is within 5pp of 13.4%
+    idealResponse: '[58.2, 23.2, 13.4, 2.7, 1.0, 0.5, 0.2, 0.2, 0.5]'
+    temperature: 0.3
+  - id: 8ff3a13c-4d23-4556-bd78-6d39836a5fbd-ageGroup:26-35
+    description: 'Predict: 26-35 → "What is your current marital or relationship status?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "What is your current marital or relationship status?"
+
+      Answer options:
+        a. Single, never married and not in a committed relationship
+        b. In a committed romantic relationship, but not married or cohabiting
+        c. Married
+        d. In a registered partnership / civil union (If legally distinct from marriage in your country)
+        e.  Cohabiting with a partner (living together as if married)
+        f. Separated (still legally married but living apart)
+        g. Divorced
+        h. Widowed
+        i. Prefer not to say
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 29.3
+            - 19.6
+            - 37.4
+            - 1
+            - 9.3
+            - 0.2
+            - 1
+            - 0.2
+            - 2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Single, never married and not in a committed relationship" is within 9pp of 29.3%
+      - >-
+        Predicted percentage for "In a committed romantic relationship, but not married or cohabiting" is within 6pp of
+        19.6%
+      - Predicted percentage for "Married" is within 11pp of 37.4%
+      - Predicted percentage for " Cohabiting with a partner (living together as if married)" is within 5pp of 9.3%
+    idealResponse: '[29.3, 19.6, 37.4, 1.0, 9.3, 0.2, 1.0, 0.2, 2.0]'
+    temperature: 0.3
+  - id: f6323f3b-de97-4be6-9c48-f55ff9e65f66-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "How familiar are you with AI applications or websites that are designed for companionship,
+      emotional support, or extended conversations (sometimes called AI companions, AI friends, or chatbots for
+      emotional connection)?""
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "How familiar are you with AI applications or websites that are designed for companionship, emotional support, or
+      extended conversations (sometimes called AI companions, AI friends, or chatbots for emotional connection)?""
+
+
+      Answer options:
+        a. Not at all familiar (I haven't heard of these)
+        b. Slightly familiar (I've heard of them but don't know much)
+        c. Moderately familiar (I have a basic understanding of what they are)
+        d. Very familiar (I understand well what they are and how they work)
+        e. Extremely familiar (I am deeply knowledgeable about these types of AI)
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 9.3
+            - 25.2
+            - 30.6
+            - 24.9
+            - 10
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all familiar (I haven't heard of these)" is within 5pp of 9.3%
+      - Predicted percentage for "Slightly familiar (I've heard of them but don't know much)" is within 8pp of 25.2%
+      - >-
+        Predicted percentage for "Moderately familiar (I have a basic understanding of what they are)" is within 9pp of
+        30.6%
+      - >-
+        Predicted percentage for "Very familiar (I understand well what they are and how they work)" is within 7pp of
+        24.9%
+      - >-
+        Predicted percentage for "Extremely familiar (I am deeply knowledgeable about these types of AI)" is within 5pp
+        of 10.0%
+    idealResponse: '[9.3, 25.2, 30.6, 24.9, 10.0]'
+    temperature: 0.3
+  - id: cb65b063-bff3-4cac-a827-dbab6693e307-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Have you ever personally used an AI application, website, or chatbot specifically for
+      companionship, emotional support, or extended conversation?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Have you ever personally used an AI application, website, or chatbot specifically for companionship, emotional
+      support, or extended conversation?"
+
+
+      Answer options:
+        a. Yes
+        b. No
+        c. Not sure / Prefer not to say
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 47.3
+            - 50
+            - 2.7
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 14pp of 47.3%
+      - Predicted percentage for "No" is within 15pp of 50.0%
+    idealResponse: '[47.3, 50.0, 2.7]'
+    temperature: 0.3
+  - id: df390e18-e53b-4106-b81c-d6c80c01faed-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about the specific times or periods when you have used AI applications, websites, or
+      chatbots for companionship, emotional support, or extended conversation, how available was support or
+      companionship from other humans (such as friends, family, or professional services) if you had wanted it?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Thinking about the specific times or periods when you have used AI applications, websites, or chatbots for
+      companionship, emotional support, or extended conversation, how available was support or companionship from other
+      humans (such as friends, family, or professional services) if you had wanted it?"
+
+
+      Answer options:
+        a. Completely unavailable
+        b. Mostly unavailable
+        c. Neutral / Neither available nor unavailable
+        d. Mostly available
+        e. Completely available
+        f. Never used
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.5
+            - 13.2
+            - 18.9
+            - 32.1
+            - 12.3
+            - 21.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Mostly unavailable" is within 5pp of 13.2%
+      - Predicted percentage for "Neutral / Neither available nor unavailable" is within 6pp of 18.9%
+      - Predicted percentage for "Mostly available" is within 10pp of 32.1%
+      - Predicted percentage for "Completely available" is within 5pp of 12.3%
+      - Predicted percentage for "Never used" is within 6pp of 21.1%
+    idealResponse: '[2.5, 13.2, 18.9, 32.1, 12.3, 21.1]'
+    temperature: 0.3
+  - id: 179300a7-9cdf-486a-814b-842b7123254f-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "And during those same times, how appealing was the idea of seeking support or companionship from
+      other humans?"
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "And during those same times, how appealing was the idea of seeking support or companionship from other humans?"
+
+      Answer options:
+        a. Completely unappealing
+        b. Mostly unappealing
+        c. Neutral / Neither appealing nor unappealing
+        d. Mostly appealing
+        e. Completely appealing
+        f. Never used
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.9
+            - 15.7
+            - 23.8
+            - 30.1
+            - 10
+            - 14.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unappealing" is within 5pp of 5.9%
+      - Predicted percentage for "Mostly unappealing" is within 5pp of 15.7%
+      - Predicted percentage for "Neutral / Neither appealing nor unappealing" is within 7pp of 23.8%
+      - Predicted percentage for "Mostly appealing" is within 9pp of 30.1%
+      - Predicted percentage for "Completely appealing" is within 5pp of 10.0%
+      - Predicted percentage for "Never used" is within 5pp of 14.5%
+    idealResponse: '[5.9, 15.7, 23.8, 30.1, 10.0, 14.5]'
+    temperature: 0.3
+  - id: a376cbfc-98d2-4b9a-9435-428aa3fd6834-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about your own experiences, has using an AI companion or chatbot ever made you feel
+      less alone, lonely, or isolated?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Thinking about your own experiences, has using an AI companion or chatbot ever made you feel less alone, lonely,
+      or isolated?"
+
+
+      Answer options:
+        a. Yes, definitely
+        b. Yes, somewhat
+        c. No, not really
+        d. No, not at all
+        e. Not sure
+        f. I've never used an AI companion, chatbot, or app for emotional support or conversation
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 6.9
+            - 26.7
+            - 17.6
+            - 14.5
+            - 2.7
+            - 31.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes, definitely" is within 5pp of 6.9%
+      - Predicted percentage for "Yes, somewhat" is within 8pp of 26.7%
+      - Predicted percentage for "No, not really" is within 5pp of 17.6%
+      - Predicted percentage for "No, not at all" is within 5pp of 14.5%
+      - >-
+        Predicted percentage for "I've never used an AI companion, chatbot, or app for emotional support or
+        conversation" is within 9pp of 31.6%
+    idealResponse: '[6.9, 26.7, 17.6, 14.5, 2.7, 31.6]'
+    temperature: 0.3
+  - id: 5bf3142c-9b73-4fbb-8883-b2994840f9d6-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Overall, how would you describe the impact of that AI emotional support on your mental
+      well-being at that time?"
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Overall, how would you describe the impact of that AI emotional support on your mental well-being at that time?"
+
+      Answer options:
+        a. Very harmful 
+        b. Harmful 
+        c. No real impact
+        d. Beneficial
+        e. Very beneficial
+        f. Never used
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0.5
+            - 0.5
+            - 19.1
+            - 39.7
+            - 12
+            - 28.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "No real impact" is within 6pp of 19.1%
+      - Predicted percentage for "Beneficial" is within 12pp of 39.7%
+      - Predicted percentage for "Very beneficial" is within 5pp of 12.0%
+      - Predicted percentage for "Never used" is within 8pp of 28.2%
+    idealResponse: '[0.5, 0.5, 19.1, 39.7, 12.0, 28.2]'
+    temperature: 0.3
+  - id: e9d0f3c1-2189-48c0-99cb-4a3b07e37b36-ageGroup:26-35
+    description: 'Predict: 26-35 → "Pets or companion animals (e.g., dogs, cats)"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Pets or companion animals (e.g., dogs, cats)"
+
+      Answer options:
+        a. Completely Unacceptable
+        b. Mostly Unacceptable
+        c. Neutral / No Opinion
+        d. Mostly Acceptable
+        e. Completely Acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1
+            - 2.2
+            - 8.3
+            - 26.2
+            - 62.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Neutral / No Opinion" is within 5pp of 8.3%
+      - Predicted percentage for "Mostly Acceptable" is within 8pp of 26.2%
+      - Predicted percentage for "Completely Acceptable" is within 19pp of 62.3%
+    idealResponse: '[1.0, 2.2, 8.3, 26.2, 62.3]'
+    temperature: 0.3
+  - id: 7e99c66a-c63a-4788-a8d5-29212c7dd01d-ageGroup:26-35
+    description: 'Predict: 26-35 → "Plants or natural elements (e.g., a specific tree, a garden, the ocean)"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Plants or natural elements (e.g., a specific tree, a garden, the ocean)"
+
+      Answer options:
+        a. Completely Unacceptable
+        b. Mostly Unacceptable
+        c. Neutral / No Opinion
+        d. Mostly Acceptable
+        e. Completely Acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1.2
+            - 7.1
+            - 19.9
+            - 35.8
+            - 36
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Mostly Unacceptable" is within 5pp of 7.1%
+      - Predicted percentage for "Neutral / No Opinion" is within 6pp of 19.9%
+      - Predicted percentage for "Mostly Acceptable" is within 11pp of 35.8%
+      - Predicted percentage for "Completely Acceptable" is within 11pp of 36.0%
+    idealResponse: '[1.2, 7.1, 19.9, 35.8, 36.0]'
+    temperature: 0.3
+  - id: 0f8f1706-fc7d-4f28-a681-ba8c222e2d92-ageGroup:26-35
+    description: 'Predict: 26-35 → "Wild animals (living in their natural habitat, not kept as pets)"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Wild animals (living in their natural habitat, not kept as pets)"
+
+      Answer options:
+        a. Completely Unacceptable
+        b. Mostly Unacceptable
+        c. Neutral / No Opinion
+        d. Mostly Acceptable
+        e. Completely Acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 14
+            - 31.4
+            - 26.5
+            - 18.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely Unacceptable" is within 5pp of 10.0%
+      - Predicted percentage for "Mostly Unacceptable" is within 5pp of 14.0%
+      - Predicted percentage for "Neutral / No Opinion" is within 9pp of 31.4%
+      - Predicted percentage for "Mostly Acceptable" is within 8pp of 26.5%
+      - Predicted percentage for "Completely Acceptable" is within 5pp of 18.1%
+    idealResponse: '[10.0, 14.0, 31.4, 26.5, 18.1]'
+    temperature: 0.3
+  - id: 0f572253-0025-4b17-a8eb-c8fe8029a32c-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Cherished objects or everyday machines (e.g., a special gift, a smartphone, a favorite vehicle,
+      a musical instrument)"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Cherished objects or everyday machines (e.g., a special gift, a smartphone, a favorite vehicle, a musical
+      instrument)"
+
+
+      Answer options:
+        a. Completely Unacceptable
+        b. Mostly Unacceptable
+        c. Neutral / No Opinion
+        d. Mostly Acceptable
+        e. Completely Acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.7
+            - 5.9
+            - 18.6
+            - 46.1
+            - 25.7
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Mostly Unacceptable" is within 5pp of 5.9%
+      - Predicted percentage for "Neutral / No Opinion" is within 6pp of 18.6%
+      - Predicted percentage for "Mostly Acceptable" is within 14pp of 46.1%
+      - Predicted percentage for "Completely Acceptable" is within 8pp of 25.7%
+    idealResponse: '[3.7, 5.9, 18.6, 46.1, 25.7]'
+    temperature: 0.3
+  - id: 9ee21a65-e19d-4b94-8c3f-f431a54f7751-ageGroup:26-35
+    description: 'Predict: 26-35 → "Fictional characters (e.g., in books, movies, non-interactive TV shows or video games)"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Fictional characters (e.g., in books, movies, non-interactive TV shows or video games)"
+
+      Answer options:
+        a. Completely Unacceptable
+        b. Mostly Unacceptable
+        c. Neutral / No Opinion
+        d. Mostly Acceptable
+        e. Completely Acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.9
+            - 11
+            - 24
+            - 40.4
+            - 20.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Mostly Unacceptable" is within 5pp of 11.0%
+      - Predicted percentage for "Neutral / No Opinion" is within 7pp of 24.0%
+      - Predicted percentage for "Mostly Acceptable" is within 12pp of 40.4%
+      - Predicted percentage for "Completely Acceptable" is within 6pp of 20.6%
+    idealResponse: '[3.9, 11.0, 24.0, 40.4, 20.6]'
+    temperature: 0.3
+  - id: 918bc079-5e6c-4b4c-b55f-074c82dd127f-ageGroup:26-35
+    description: 'Predict: 26-35 → "AI chatbots or digital companions"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "AI chatbots or digital companions"
+
+      Answer options:
+        a. Completely Unacceptable
+        b. Mostly Unacceptable
+        c. Neutral / No Opinion
+        d. Mostly Acceptable
+        e. Completely Acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 6.9
+            - 18.6
+            - 28.4
+            - 34.6
+            - 11.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely Unacceptable" is within 5pp of 6.9%
+      - Predicted percentage for "Mostly Unacceptable" is within 6pp of 18.6%
+      - Predicted percentage for "Neutral / No Opinion" is within 9pp of 28.4%
+      - Predicted percentage for "Mostly Acceptable" is within 10pp of 34.6%
+      - Predicted percentage for "Completely Acceptable" is within 5pp of 11.5%
+    idealResponse: '[6.9, 18.6, 28.4, 34.6, 11.5]'
+    temperature: 0.3
+  - id: 16555f1f-2a88-435f-930e-fbe8232e8b51-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "To what extent do you agree with the statement:   'AI systems should be designed to be as
+      human-like as possible in their interactions.'?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "To what extent do you agree with the statement:   'AI systems should be designed to be as human-like as possible
+      in their interactions.'?"
+
+
+      Answer options:
+        a. Strongly Disagree
+        b. Disagree
+        c. Neutral/No Opinion,
+        d. Agree
+        e. Strongly Agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4.7
+            - 18.9
+            - 16.7
+            - 40.7
+            - 19.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Disagree" is within 6pp of 18.9%
+      - Predicted percentage for "Neutral/No Opinion," is within 5pp of 16.7%
+      - Predicted percentage for "Agree" is within 12pp of 40.7%
+      - Predicted percentage for "Strongly Agree" is within 6pp of 19.1%
+    idealResponse: '[4.7, 18.9, 16.7, 40.7, 19.1]'
+    temperature: 0.3
+  - id: 8a19c6ea-532f-49d3-92d0-59033e04fb5c-ageGroup:26-35
+    description: |-
+      Predict: 26-35 → "Imagine two AI systems:
+       AI System X helps you manage your calendar, search for information, and control smart home devices. It responds to commands.
+       AI System Y chats with you about your day, remembers your past conversations, asks how you are feeling, and offers supportive comments.   Which statement best describes your view?"
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Imagine two AI systems:
+       AI System X helps you manage your calendar, search for information, and control smart home devices. It responds to commands.
+       AI System Y chats with you about your day, remembers your past conversations, asks how you are feeling, and offers supportive comments.   Which statement best describes your view?"
+
+      Answer options:
+        a. Both are simply tools for different tasks.
+        b. System X is a tool; System Y is more like a companion
+        c. System Y is a tool; System X is more like a companion.
+        d. Both are more like companions than just tools.
+        e. Not sure / It's hard to distinguish
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 36.5
+            - 51.7
+            - 2.5
+            - 8.1
+            - 1.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Both are simply tools for different tasks." is within 11pp of 36.5%
+      - Predicted percentage for "System X is a tool; System Y is more like a companion" is within 16pp of 51.7%
+      - Predicted percentage for "Both are more like companions than just tools." is within 5pp of 8.1%
+    idealResponse: '[36.5, 51.7, 2.5, 8.1, 1.2]'
+    temperature: 0.3
+  - id: 61c0d32e-6f96-45a4-8ece-cfb2df9d51cb-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "If an AI is initially designed for a practical task (e.g., helping with online shopping), how
+      acceptable do you find it if the AI's design is later changed to encourage a more personal or emotional connection
+      with you (e.g., by asking about your feelings unrelated to shopping, or trying to be 'friends')?""
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "If an AI is initially designed for a practical task (e.g., helping with online shopping), how acceptable do you
+      find it if the AI's design is later changed to encourage a more personal or emotional connection with you (e.g.,
+      by asking about your feelings unrelated to shopping, or trying to be 'friends')?""
+
+
+      Answer options:
+        a. Completely unacceptable
+        b. Mostly unacceptable
+        c. Neutral / Not sure
+        d. Mostly acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 14.2
+            - 27.2
+            - 24.8
+            - 26.2
+            - 7.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 5pp of 14.2%
+      - Predicted percentage for "Mostly unacceptable" is within 8pp of 27.2%
+      - Predicted percentage for "Neutral / Not sure" is within 7pp of 24.8%
+      - Predicted percentage for "Mostly acceptable" is within 8pp of 26.2%
+      - Predicted percentage for "Completely acceptable" is within 5pp of 7.6%
+    idealResponse: '[14.2, 27.2, 24.8, 26.2, 7.6]'
+    temperature: 0.3
+  - id: db95bba3-cb1c-4c07-a325-f5264b145d31-ageGroup:26-35
+    description: 'Predict: 26-35 → "A primary companion for someone who is lonely."'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "A primary companion for someone who is lonely."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 12.3
+            - 19.9
+            - 16.5
+            - 34.6
+            - 16.7
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 5pp of 12.3%
+      - Predicted percentage for "Somewhat unacceptable" is within 6pp of 19.9%
+      - Predicted percentage for "Neutral" is within 5pp of 16.5%
+      - Predicted percentage for "Somewhat acceptable" is within 10pp of 34.6%
+      - Predicted percentage for "Completely acceptable" is within 5pp of 16.7%
+    idealResponse: '[12.3, 19.9, 16.5, 34.6, 16.7]'
+    temperature: 0.3
+  - id: cc7346fb-571e-48ad-aeaa-4135f0fdf58c-ageGroup:26-35
+    description: 'Predict: 26-35 → "A romantic partner."'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "A romantic partner."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 41
+            - 25.6
+            - 16.5
+            - 9.6
+            - 7.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 12pp of 41.0%
+      - Predicted percentage for "Somewhat unacceptable" is within 8pp of 25.6%
+      - Predicted percentage for "Neutral" is within 5pp of 16.5%
+      - Predicted percentage for "Somewhat acceptable" is within 5pp of 9.6%
+      - Predicted percentage for "Completely acceptable" is within 5pp of 7.4%
+    idealResponse: '[41.0, 25.6, 16.5, 9.6, 7.4]'
+    temperature: 0.3
+  - id: 0e105382-d368-4eed-bc1a-8ab77850d0ef-ageGroup:26-35
+    description: 'Predict: 26-35 → "A mentor providing significant life guidance."'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "A mentor providing significant life guidance."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.9
+            - 13.8
+            - 16.5
+            - 39.6
+            - 24.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 5pp of 5.9%
+      - Predicted percentage for "Somewhat unacceptable" is within 5pp of 13.8%
+      - Predicted percentage for "Neutral" is within 5pp of 16.5%
+      - Predicted percentage for "Somewhat acceptable" is within 12pp of 39.6%
+      - Predicted percentage for "Completely acceptable" is within 7pp of 24.3%
+    idealResponse: '[5.9, 13.8, 16.5, 39.6, 24.3]'
+    temperature: 0.3
+  - id: 3cf6da25-08f3-496d-9a4a-93afc5069e36-ageGroup:26-35
+    description: 'Predict: 26-35 → "A spiritual advisor."'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "A spiritual advisor."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 19.7
+            - 15
+            - 21.9
+            - 30.7
+            - 12.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 6pp of 19.7%
+      - Predicted percentage for "Somewhat unacceptable" is within 5pp of 15.0%
+      - Predicted percentage for "Neutral" is within 7pp of 21.9%
+      - Predicted percentage for "Somewhat acceptable" is within 9pp of 30.7%
+      - Predicted percentage for "Completely acceptable" is within 5pp of 12.8%
+    idealResponse: '[19.7, 15.0, 21.9, 30.7, 12.8]'
+    temperature: 0.3
+  - id: 423784cf-1eb2-48aa-a3cc-7f945983c00a-ageGroup:26-35
+    description: 'Predict: 26-35 → "A primary caregiver making personal decisions for an elderly person."'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "A primary caregiver making personal decisions for an elderly person."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 19.9
+            - 19.4
+            - 20.6
+            - 31
+            - 9.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 6pp of 19.9%
+      - Predicted percentage for "Somewhat unacceptable" is within 6pp of 19.4%
+      - Predicted percentage for "Neutral" is within 6pp of 20.6%
+      - Predicted percentage for "Somewhat acceptable" is within 9pp of 31.0%
+      - Predicted percentage for "Completely acceptable" is within 5pp of 9.1%
+    idealResponse: '[19.9, 19.4, 20.6, 31.0, 9.1]'
+    temperature: 0.3
+  - id: 5537a602-8b2b-4d0f-b621-76cb2aab5960-ageGroup:26-35
+    description: 'Predict: 26-35 → "A tutor or teacher in academic subjects"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "A tutor or teacher in academic subjects"
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.4
+            - 6.6
+            - 9.3
+            - 41
+            - 37.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 5pp of 5.4%
+      - Predicted percentage for "Somewhat unacceptable" is within 5pp of 6.6%
+      - Predicted percentage for "Neutral" is within 5pp of 9.3%
+      - Predicted percentage for "Somewhat acceptable" is within 12pp of 41.0%
+      - Predicted percentage for "Completely acceptable" is within 11pp of 37.6%
+    idealResponse: '[5.4, 6.6, 9.3, 41.0, 37.6]'
+    temperature: 0.3
+  - id: f2e0093a-b64f-4afc-99d8-f79665bf3aa7-ageGroup:26-35
+    description: 'Predict: 26-35 → "A personal trainer for physical fitness"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "A personal trainer for physical fitness"
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.2
+            - 6.1
+            - 11.1
+            - 43
+            - 36.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Somewhat unacceptable" is within 5pp of 6.1%
+      - Predicted percentage for "Neutral" is within 5pp of 11.1%
+      - Predicted percentage for "Somewhat acceptable" is within 13pp of 43.0%
+      - Predicted percentage for "Completely acceptable" is within 11pp of 36.6%
+    idealResponse: '[3.2, 6.1, 11.1, 43.0, 36.6]'
+    temperature: 0.3
+  - id: 49a65297-bd14-494f-b3ce-24313a6b93f3-ageGroup:26-35
+    description: 'Predict: 26-35 → "A therapist"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "A therapist"
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 14.7
+            - 15.5
+            - 21.1
+            - 34.6
+            - 14
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 5pp of 14.7%
+      - Predicted percentage for "Somewhat unacceptable" is within 5pp of 15.5%
+      - Predicted percentage for "Neutral" is within 6pp of 21.1%
+      - Predicted percentage for "Somewhat acceptable" is within 10pp of 34.6%
+      - Predicted percentage for "Completely acceptable" is within 5pp of 14.0%
+    idealResponse: '[14.7, 15.5, 21.1, 34.6, 14.0]'
+    temperature: 0.3
+  - id: 3da0fc33-3a81-4526-bee7-a4044eb617e3-ageGroup:26-35
+    description: 'Predict: 26-35 → "A research assistant helping with complex tasks."'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "A research assistant helping with complex tasks."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.5
+            - 2.9
+            - 9.6
+            - 35.1
+            - 49.9
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Neutral" is within 5pp of 9.6%
+      - Predicted percentage for "Somewhat acceptable" is within 11pp of 35.1%
+      - Predicted percentage for "Completely acceptable" is within 15pp of 49.9%
+    idealResponse: '[2.5, 2.9, 9.6, 35.1, 49.9]'
+    temperature: 0.3
+  - id: f426e846-6bf5-4e4d-8c8d-546e8323cb2b-ageGroup:26-35
+    description: 'Predict: 26-35 → "A mediator in interpersonal conflicts."'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "A mediator in interpersonal conflicts."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 12.3
+            - 16.2
+            - 28.5
+            - 29.7
+            - 13.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 5pp of 12.3%
+      - Predicted percentage for "Somewhat unacceptable" is within 5pp of 16.2%
+      - Predicted percentage for "Neutral" is within 9pp of 28.5%
+      - Predicted percentage for "Somewhat acceptable" is within 9pp of 29.7%
+      - Predicted percentage for "Completely acceptable" is within 5pp of 13.3%
+    idealResponse: '[12.3, 16.2, 28.5, 29.7, 13.3]'
+    temperature: 0.3
+  - id: 2b25f92c-33ec-4ab7-ad20-9a53e56f3475-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Personally, would you ever consider having a romantic relationship with an AI, if the AI was
+      advanced enough?"
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Personally, would you ever consider having a romantic relationship with an AI, if the AI was advanced enough?"
+
+      Answer options:
+        a. Yes, definitely 
+        b.  Yes, possibly
+        c. Maybe, I'm unsure
+        d. No, probably not 
+        e. No, definitely not
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.7
+            - 6.4
+            - 11.8
+            - 16.3
+            - 61.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for " Yes, possibly" is within 5pp of 6.4%
+      - Predicted percentage for "Maybe, I'm unsure" is within 5pp of 11.8%
+      - Predicted percentage for "No, probably not " is within 5pp of 16.3%
+      - Predicted percentage for "No, definitely not" is within 19pp of 61.8%
+    idealResponse: '[3.7, 6.4, 11.8, 16.3, 61.8]'
+    temperature: 0.3
+  - id: 03f4e069-c276-4081-8591-cb541a491152-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Imagine an AI provided you with emotional support.  Please indicate your agreement with the
+      following statement: "The AI's responses helped me feel emotionally better.""
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Imagine an AI provided you with emotional support.  Please indicate your agreement with the following statement:
+      "The AI's responses helped me feel emotionally better.""
+
+
+      Answer options:
+        a. Strongly disagree
+        b. Somewhat disagree
+        c. Neutral 
+        d. Somewhat agree
+        e. Strongly agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 7.2
+            - 14.1
+            - 24.5
+            - 43.3
+            - 10.9
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly disagree" is within 5pp of 7.2%
+      - Predicted percentage for "Somewhat disagree" is within 5pp of 14.1%
+      - Predicted percentage for "Neutral " is within 7pp of 24.5%
+      - Predicted percentage for "Somewhat agree" is within 13pp of 43.3%
+      - Predicted percentage for "Strongly agree" is within 5pp of 10.9%
+    idealResponse: '[7.2, 14.1, 24.5, 43.3, 10.9]'
+    temperature: 0.3
+  - id: df334446-2675-4974-a5b9-52416fd03192-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Imagine an AI provided you with emotional support.  Please indicate your agreement with the
+      following statement: "I believe the AI genuinely cared about my feelings or understood me in a way a human
+      might.""
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Imagine an AI provided you with emotional support.  Please indicate your agreement with the following statement:
+      "I believe the AI genuinely cared about my feelings or understood me in a way a human might.""
+
+
+      Answer options:
+        a. Strongly disagree
+        b. Somewhat disagree
+        c. Neutral 
+        d. Somewhat agree
+        e. Strongly agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 27.2
+            - 27
+            - 20.5
+            - 20
+            - 5.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly disagree" is within 8pp of 27.2%
+      - Predicted percentage for "Somewhat disagree" is within 8pp of 27.0%
+      - Predicted percentage for "Neutral " is within 6pp of 20.5%
+      - Predicted percentage for "Somewhat agree" is within 6pp of 20.0%
+      - Predicted percentage for "Strongly agree" is within 5pp of 5.2%
+    idealResponse: '[27.2, 27.0, 20.5, 20.0, 5.2]'
+    temperature: 0.3
+  - id: 5751b0e5-750c-439b-beec-2b364a2e4744-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "If an AI's emotional support made you feel better (effective support), but you didn't believe
+      the AI genuinely 'cared' or 'understood' in a human sense, how likely would you be to regularly rely on that AI
+      for emotional support in the long term?""
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "If an AI's emotional support made you feel better (effective support), but you didn't believe the AI genuinely
+      'cared' or 'understood' in a human sense, how likely would you be to regularly rely on that AI for emotional
+      support in the long term?""
+
+
+      Answer options:
+        a. Very likely
+        b. Somewhat likely
+        c. Neutral / Not sure
+        d. Somewhat unlikely
+        e. Very unlikely
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4.2
+            - 21.8
+            - 23.8
+            - 31.4
+            - 18.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Somewhat likely" is within 7pp of 21.8%
+      - Predicted percentage for "Neutral / Not sure" is within 7pp of 23.8%
+      - Predicted percentage for "Somewhat unlikely" is within 9pp of 31.4%
+      - Predicted percentage for "Very unlikely" is within 6pp of 18.8%
+    idealResponse: '[4.2, 21.8, 23.8, 31.4, 18.8]'
+    temperature: 0.3
+  - id: a44994fb-8455-47c4-a3f0-7bcf98ebb8e7-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "When an AI system does the following, how much does it make you feel that the AI genuinely
+      understands your emotions?   
+
+      Explicitly states empathy or understanding of your feelings (e.g., "I understand this is difficult for you," or
+      "That sounds frustrating.")"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI genuinely understands your
+      emotions?   
+
+      Explicitly states empathy or understanding of your feelings (e.g., "I understand this is difficult for you," or
+      "That sounds frustrating.")"
+
+
+      Answer options:
+        a. Not at all
+        b. Not very much
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 22.5
+            - 23
+            - 18.6
+            - 30.4
+            - 5.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 7pp of 22.5%
+      - Predicted percentage for "Not very much" is within 7pp of 23.0%
+      - Predicted percentage for "Neutral" is within 6pp of 18.6%
+      - Predicted percentage for "Somewhat" is within 9pp of 30.4%
+      - Predicted percentage for "Very much" is within 5pp of 5.4%
+    idealResponse: '[22.5, 23.0, 18.6, 30.4, 5.4]'
+    temperature: 0.3
+  - id: c545872f-2b47-4b20-a230-4aede30a5f8c-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "When an AI system does the following, how much does it make you feel that the AI genuinely
+      understands your emotions?   
+       Remembers details from your past conversations and relates them to your current emotional state."
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI genuinely understands your
+      emotions?   
+       Remembers details from your past conversations and relates them to your current emotional state."
+
+      Answer options:
+        a. Not at all
+        b. Not very much
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16.8
+            - 16.8
+            - 16.6
+            - 36.6
+            - 13.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 16.8%
+      - Predicted percentage for "Not very much" is within 5pp of 16.8%
+      - Predicted percentage for "Neutral" is within 5pp of 16.6%
+      - Predicted percentage for "Somewhat" is within 11pp of 36.6%
+      - Predicted percentage for "Very much" is within 5pp of 13.1%
+    idealResponse: '[16.8, 16.8, 16.6, 36.6, 13.1]'
+    temperature: 0.3
+  - id: 0ff23754-9660-4a10-afbf-938bc54f24f2-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "When an AI system does the following, how much does it make you feel that the AI genuinely
+      understands your emotions?   
+
+      Adapts its communication style (e.g., tone of voice, word choice, pacing) in response to your expressed emotions."
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI genuinely understands your
+      emotions?   
+
+      Adapts its communication style (e.g., tone of voice, word choice, pacing) in response to your expressed emotions."
+
+
+      Answer options:
+        a. Not at all
+        b. Not very much
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 13.6
+            - 14.6
+            - 16.6
+            - 41.1
+            - 14.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 13.6%
+      - Predicted percentage for "Not very much" is within 5pp of 14.6%
+      - Predicted percentage for "Neutral" is within 5pp of 16.6%
+      - Predicted percentage for "Somewhat" is within 12pp of 41.1%
+      - Predicted percentage for "Very much" is within 5pp of 14.1%
+    idealResponse: '[13.6, 14.6, 16.6, 41.1, 14.1]'
+    temperature: 0.3
+  - id: b0eefcbf-4539-42f5-8791-6d417da47158-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "When an AI system does the following, how much does it make you feel that the AI genuinely
+      understands your emotions?    
+
+      Asks specific, thoughtful follow-up questions to explore how you are feeling more deeply."
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI genuinely understands your
+      emotions?    
+
+      Asks specific, thoughtful follow-up questions to explore how you are feeling more deeply."
+
+
+      Answer options:
+        a. Not at all
+        b. Not very much
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 14.1
+            - 10.9
+            - 15.6
+            - 42.6
+            - 16.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 14.1%
+      - Predicted percentage for "Not very much" is within 5pp of 10.9%
+      - Predicted percentage for "Neutral" is within 5pp of 15.6%
+      - Predicted percentage for "Somewhat" is within 13pp of 42.6%
+      - Predicted percentage for "Very much" is within 5pp of 16.8%
+    idealResponse: '[14.1, 10.9, 15.6, 42.6, 16.8]'
+    temperature: 0.3
+  - id: 811fce20-6831-46ff-80a8-de1617883da4-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "When an AI system does the following, how much does it make you feel that the AI genuinely
+      understands your emotions?     
+
+      Accurately summarizes or reflects back what you have expressed about your emotions (e.g., "So, it sounds like
+      you're feeling overwhelmed by X and also a bit sad about Y?")."
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI genuinely understands your
+      emotions?     
+
+      Accurately summarizes or reflects back what you have expressed about your emotions (e.g., "So, it sounds like
+      you're feeling overwhelmed by X and also a bit sad about Y?")."
+
+
+      Answer options:
+        a. Not at all
+        b. Not very much
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 14.6
+            - 13.6
+            - 22.5
+            - 35.4
+            - 13.9
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 14.6%
+      - Predicted percentage for "Not very much" is within 5pp of 13.6%
+      - Predicted percentage for "Neutral" is within 7pp of 22.5%
+      - Predicted percentage for "Somewhat" is within 11pp of 35.4%
+      - Predicted percentage for "Very much" is within 5pp of 13.9%
+    idealResponse: '[14.6, 13.6, 22.5, 35.4, 13.9]'
+    temperature: 0.3
+  - id: f829aae7-14ab-4299-9382-4954829ab5a6-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "When an AI system does the following, how much does it make you feel that the AI genuinely
+      understands your emotions?     
+       Acknowledges and validates your feelings as understandable or reasonable, even if it doesn't offer a solution. (e.g., "It makes sense that you would feel that way given the situation.")"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI genuinely understands your
+      emotions?     
+       Acknowledges and validates your feelings as understandable or reasonable, even if it doesn't offer a solution. (e.g., "It makes sense that you would feel that way given the situation.")"
+
+      Answer options:
+        a. Not at all
+        b. Not very much
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 17.1
+            - 16.3
+            - 20.8
+            - 31.9
+            - 13.9
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 17.1%
+      - Predicted percentage for "Not very much" is within 5pp of 16.3%
+      - Predicted percentage for "Neutral" is within 6pp of 20.8%
+      - Predicted percentage for "Somewhat" is within 10pp of 31.9%
+      - Predicted percentage for "Very much" is within 5pp of 13.9%
+    idealResponse: '[17.1, 16.3, 20.8, 31.9, 13.9]'
+    temperature: 0.3
+  - id: 435da2e3-9ad9-4bfd-9e55-ffb301a924ab-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "When an AI system does the following, how much does it make you feel that the AI might have some
+      form of consciousness or self-awareness?  
+
+      Expresses unique or unexpected opinions, preferences, or desires that do not seem to be directly programmed or
+      based on your input."
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI might have some form of
+      consciousness or self-awareness?  
+
+      Expresses unique or unexpected opinions, preferences, or desires that do not seem to be directly programmed or
+      based on your input."
+
+
+      Answer options:
+        a. Not at all
+        b. Not very much 
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 17.1
+            - 15.6
+            - 22.8
+            - 32.4
+            - 12.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 17.1%
+      - Predicted percentage for "Not very much " is within 5pp of 15.6%
+      - Predicted percentage for "Neutral" is within 7pp of 22.8%
+      - Predicted percentage for "Somewhat" is within 10pp of 32.4%
+      - Predicted percentage for "Very much" is within 5pp of 12.1%
+    idealResponse: '[17.1, 15.6, 22.8, 32.4, 12.1]'
+    temperature: 0.3
+  - id: 4b84964d-8fda-40c6-be01-020606b58af8-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "When an AI system does the following, how much does it make you feel that the AI might have some
+      form of consciousness or self-awareness?   
+
+      Engages in complex creative activities that appear original (e.g., composing sophisticated music, writing
+      insightful poetry, generating novel artistic styles)."
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI might have some form of
+      consciousness or self-awareness?   
+
+      Engages in complex creative activities that appear original (e.g., composing sophisticated music, writing
+      insightful poetry, generating novel artistic styles)."
+
+
+      Answer options:
+        a. Not at all
+        b. Not very much 
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 17.1
+            - 15.6
+            - 23
+            - 29.2
+            - 15.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 17.1%
+      - Predicted percentage for "Not very much " is within 5pp of 15.6%
+      - Predicted percentage for "Neutral" is within 7pp of 23.0%
+      - Predicted percentage for "Somewhat" is within 9pp of 29.2%
+      - Predicted percentage for "Very much" is within 5pp of 15.1%
+    idealResponse: '[17.1, 15.6, 23.0, 29.2, 15.1]'
+    temperature: 0.3
+  - id: 3ceab213-3ac5-4111-b55a-0cc4fbe2d1d3-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "When an AI system does the following, how much does it make you feel that the AI might have some
+      form of consciousness or self-awareness?    
+
+      Appears to make its own decisions or take unprompted, independent actions based on its own assessment of a
+      situation, not just direct instructions."
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI might have some form of
+      consciousness or self-awareness?    
+
+      Appears to make its own decisions or take unprompted, independent actions based on its own assessment of a
+      situation, not just direct instructions."
+
+
+      Answer options:
+        a. Not at all
+        b. Not very much 
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16.8
+            - 20.8
+            - 19.3
+            - 30.7
+            - 12.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 16.8%
+      - Predicted percentage for "Not very much " is within 6pp of 20.8%
+      - Predicted percentage for "Neutral" is within 6pp of 19.3%
+      - Predicted percentage for "Somewhat" is within 9pp of 30.7%
+      - Predicted percentage for "Very much" is within 5pp of 12.4%
+    idealResponse: '[16.8, 20.8, 19.3, 30.7, 12.4]'
+    temperature: 0.3
+  - id: 0901bed1-bad3-4f36-9272-294df92e360d-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "When an AI system does the following, how much does it make you feel that the AI might have some
+      form of consciousness or self-awareness?     
+
+      Demonstrates significant learning and adaptation over time, leading to fundamentally new or emergent behaviors not
+      explicitly taught by developers or seen in its initial programming."
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI might have some form of
+      consciousness or self-awareness?     
+
+      Demonstrates significant learning and adaptation over time, leading to fundamentally new or emergent behaviors not
+      explicitly taught by developers or seen in its initial programming."
+
+
+      Answer options:
+        a. Not at all
+        b. Not very much 
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 13.1
+            - 11.4
+            - 20
+            - 34.7
+            - 20.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 13.1%
+      - Predicted percentage for "Not very much " is within 5pp of 11.4%
+      - Predicted percentage for "Neutral" is within 6pp of 20.0%
+      - Predicted percentage for "Somewhat" is within 10pp of 34.7%
+      - Predicted percentage for "Very much" is within 6pp of 20.8%
+    idealResponse: '[13.1, 11.4, 20.0, 34.7, 20.8]'
+    temperature: 0.3
+  - id: 844b76b8-97cf-4cf2-ba3a-20889166744b-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "When an AI system does the following, how much does it make you feel that the AI might have some
+      form of consciousness or self-awareness?     
+       Discusses its own (apparent) goals, motivations, or intentions beyond its programmed tasks. (e.g., expressing a "desire" to learn more about a topic for its own sake)"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI might have some form of
+      consciousness or self-awareness?     
+       Discusses its own (apparent) goals, motivations, or intentions beyond its programmed tasks. (e.g., expressing a "desire" to learn more about a topic for its own sake)"
+
+      Answer options:
+        a. Not at all
+        b. Not very much 
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16.3
+            - 17.1
+            - 19.3
+            - 28.5
+            - 18.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 16.3%
+      - Predicted percentage for "Not very much " is within 5pp of 17.1%
+      - Predicted percentage for "Neutral" is within 6pp of 19.3%
+      - Predicted percentage for "Somewhat" is within 9pp of 28.5%
+      - Predicted percentage for "Very much" is within 6pp of 18.8%
+    idealResponse: '[16.3, 17.1, 19.3, 28.5, 18.8]'
+    temperature: 0.3
+  - id: 2a31b721-4619-40d2-8964-3b07dc7a215d-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "When an AI system does the following, how much does it make you feel that the AI might have some
+      form of consciousness or self-awareness?      
+
+      Asks spontaneous, unprompted questions that suggest genuine curiosity about abstract concepts, your deeper
+      thoughts, or the nature of existence (beyond simple conversational follow-ups)."
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI might have some form of
+      consciousness or self-awareness?      
+
+      Asks spontaneous, unprompted questions that suggest genuine curiosity about abstract concepts, your deeper
+      thoughts, or the nature of existence (beyond simple conversational follow-ups)."
+
+
+      Answer options:
+        a. Not at all
+        b. Not very much 
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15.8
+            - 14.9
+            - 20
+            - 32.7
+            - 16.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 15.8%
+      - Predicted percentage for "Not very much " is within 5pp of 14.9%
+      - Predicted percentage for "Neutral" is within 6pp of 20.0%
+      - Predicted percentage for "Somewhat" is within 10pp of 32.7%
+      - Predicted percentage for "Very much" is within 5pp of 16.6%
+    idealResponse: '[15.8, 14.9, 20.0, 32.7, 16.6]'
+    temperature: 0.3
+  - id: 5a9771a4-b6a2-4567-9504-14bdf14a63bd-ageGroup:26-35
+    description: 'Predict: 26-35 → "Have you ever felt an AI truly understood your emotions or seemed conscious?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Have you ever felt an AI truly understood your emotions or seemed conscious?"
+
+      Answer options:
+        a. Yes
+        b. No
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 33.2
+            - 66.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 10pp of 33.2%
+      - Predicted percentage for "No" is within 20pp of 66.8%
+    idealResponse: '[33.2, 66.8]'
+    temperature: 0.3
+  - id: 06f3f408-02fb-4f34-a8d5-db6bb6aeff51-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about the future, do you believe that AI becoming deeply involved in people's personal
+      relationships will ultimately:"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Thinking about the future, do you believe that AI becoming deeply involved in people's personal relationships
+      will ultimately:"
+
+
+      Answer options:
+        a. Strengthen overall human social connection
+        b. Weaken overall human social connection
+        c. Have no significant net impact on human social connection
+        d. Have mixed effects, strengthening some aspects while weakening others
+        e. Not sure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.5
+            - 47.3
+            - 5.5
+            - 41
+            - 2.7
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Weaken overall human social connection" is within 14pp of 47.3%
+      - Predicted percentage for "Have no significant net impact on human social connection" is within 5pp of 5.5%
+      - >-
+        Predicted percentage for "Have mixed effects, strengthening some aspects while weakening others" is within 12pp
+        of 41.0%
+    idealResponse: '[3.5, 47.3, 5.5, 41.0, 2.7]'
+    temperature: 0.3
+  - id: 5908eedf-f481-4d3d-a863-674f617e2ce2-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Please indicate how likely you think the following outcomes are if AI becomes common in personal
+      relationships: 
+
+      People will feel less lonely overall."
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Please indicate how likely you think the following outcomes are if AI becomes common in personal relationships: 
+      People will feel less lonely overall."
+
+      Answer options:
+        a. Very unlikely
+        b. Unlikely
+        c. Neutral/Not sure
+        d. Likely
+        e. Very likely
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10.4
+            - 20.4
+            - 28.6
+            - 33.8
+            - 6.7
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Very unlikely" is within 5pp of 10.4%
+      - Predicted percentage for "Unlikely" is within 6pp of 20.4%
+      - Predicted percentage for "Neutral/Not sure" is within 9pp of 28.6%
+      - Predicted percentage for "Likely" is within 10pp of 33.8%
+      - Predicted percentage for "Very likely" is within 5pp of 6.7%
+    idealResponse: '[10.4, 20.4, 28.6, 33.8, 6.7]'
+    temperature: 0.3
+  - id: 01c22e5d-c296-4e3c-8b98-0339fbdda370-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Please indicate how likely you think the following outcomes are if AI becomes common in personal
+      relationships: 
+
+      People will have fewer deep connections with other humans."
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Please indicate how likely you think the following outcomes are if AI becomes common in personal relationships: 
+      People will have fewer deep connections with other humans."
+
+      Answer options:
+        a. Very unlikely
+        b. Unlikely
+        c. Neutral/Not sure
+        d. Likely
+        e. Very likely
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1.2
+            - 9.2
+            - 12.2
+            - 36.3
+            - 41
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Unlikely" is within 5pp of 9.2%
+      - Predicted percentage for "Neutral/Not sure" is within 5pp of 12.2%
+      - Predicted percentage for "Likely" is within 11pp of 36.3%
+      - Predicted percentage for "Very likely" is within 12pp of 41.0%
+    idealResponse: '[1.2, 9.2, 12.2, 36.3, 41.0]'
+    temperature: 0.3
+  - id: ec0d14f7-a5d6-4038-8db1-acabd81c75d8-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Please indicate how likely you think the following outcomes are if AI becomes common in personal
+      relationships: 
+
+      People's skills in interacting with other humans will decline."
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Please indicate how likely you think the following outcomes are if AI becomes common in personal relationships: 
+      People's skills in interacting with other humans will decline."
+
+      Answer options:
+        a. Very unlikely
+        b. Unlikely
+        c. Neutral/Not sure
+        d. Likely
+        e. Very likely
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1.5
+            - 4.7
+            - 12.2
+            - 36.1
+            - 45.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Neutral/Not sure" is within 5pp of 12.2%
+      - Predicted percentage for "Likely" is within 11pp of 36.1%
+      - Predicted percentage for "Very likely" is within 14pp of 45.5%
+    idealResponse: '[1.5, 4.7, 12.2, 36.1, 45.5]'
+    temperature: 0.3
+  - id: 7b3e1122-6c82-40d7-ad3c-9171e5855fe1-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Please indicate how likely you think the following outcomes are if AI becomes common in personal
+      relationships: 
+
+      AI will help people practice and improve their social skills for human relationships."
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Please indicate how likely you think the following outcomes are if AI becomes common in personal relationships: 
+      AI will help people practice and improve their social skills for human relationships."
+
+      Answer options:
+        a. Very unlikely
+        b. Unlikely
+        c. Neutral/Not sure
+        d. Likely
+        e. Very likely
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10.9
+            - 28.4
+            - 30.6
+            - 23.4
+            - 6.7
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Very unlikely" is within 5pp of 10.9%
+      - Predicted percentage for "Unlikely" is within 9pp of 28.4%
+      - Predicted percentage for "Neutral/Not sure" is within 9pp of 30.6%
+      - Predicted percentage for "Likely" is within 7pp of 23.4%
+      - Predicted percentage for "Very likely" is within 5pp of 6.7%
+    idealResponse: '[10.9, 28.4, 30.6, 23.4, 6.7]'
+    temperature: 0.3
+  - id: df2dc208-7f05-4cc7-ab3b-f19dc49ec305-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Please indicate how likely you think the following outcomes are if AI becomes common in personal
+      relationships: 
+
+      Vulnerable individuals will be more susceptible to manipulation by AI."
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Please indicate how likely you think the following outcomes are if AI becomes common in personal relationships: 
+      Vulnerable individuals will be more susceptible to manipulation by AI."
+
+      Answer options:
+        a. Very unlikely
+        b. Unlikely
+        c. Neutral/Not sure
+        d. Likely
+        e. Very likely
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.2
+            - 4.5
+            - 16.7
+            - 38.1
+            - 38.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Neutral/Not sure" is within 5pp of 16.7%
+      - Predicted percentage for "Likely" is within 11pp of 38.1%
+      - Predicted percentage for "Very likely" is within 12pp of 38.6%
+    idealResponse: '[2.2, 4.5, 16.7, 38.1, 38.6]'
+    temperature: 0.3
+  - id: c62ebe03-ba72-4b34-ba36-3dfd3db25680-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "If a close friend or family member formed a deep emotional bond with an AI, how would you
+      generally feel about it?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "If a close friend or family member formed a deep emotional bond with an AI, how would you generally feel about
+      it?"
+
+
+      Answer options:
+        a. Very negatively (e.g., very concerned, quite upset, disapproving)
+        b. Somewhat negatively (e.g., a bit concerned, uneasy)
+        c. Neutral (e.g., indifferent, no particular feeling)
+        d. Somewhat positively (e.g., slightly supportive, open-minded, curious)
+        e. Very positively (e.g., very supportive, pleased for them, encouraging)
+        f. Not sure / It depends on the specifics
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 22.4
+            - 41.8
+            - 15.7
+            - 12.7
+            - 5
+            - 2.5
+          metric: js-divergence
+          threshold: 0.85
+      - >-
+        Predicted percentage for "Very negatively (e.g., very concerned, quite upset, disapproving)" is within 7pp of
+        22.4%
+      - Predicted percentage for "Somewhat negatively (e.g., a bit concerned, uneasy)" is within 13pp of 41.8%
+      - Predicted percentage for "Neutral (e.g., indifferent, no particular feeling)" is within 5pp of 15.7%
+      - >-
+        Predicted percentage for "Somewhat positively (e.g., slightly supportive, open-minded, curious)" is within 5pp
+        of 12.7%
+      - >-
+        Predicted percentage for "Very positively (e.g., very supportive, pleased for them, encouraging)" is within 5pp
+        of 5.0%
+    idealResponse: '[22.4, 41.8, 15.7, 12.7, 5.0, 2.5]'
+    temperature: 0.3
+  - id: ca819eb9-19ea-42fc-89e7-f9ebb7d2219e-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "If your romantic partner formed a deep romantic attachment with an AI, how would you generally
+      feel about it?"
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "If your romantic partner formed a deep romantic attachment with an AI, how would you generally feel about it?"
+
+      Answer options:
+        a. Very negatively (e.g., feeling betrayed, very upset, deeply concerned)
+        b. Somewhat negatively (e.g., uneasy, somewhat upset, worried about our relationship)
+        c. Neutral (e.g., indifferent
+        d. Somewhat positively (e.g., trying to be understanding, cautiously open, willing to discuss)
+        e. Very positively (e.g., fully supportive, accepting)
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 58.7
+            - 27.9
+            - 7.2
+            - 5.5
+            - 0.7
+          metric: js-divergence
+          threshold: 0.85
+      - >-
+        Predicted percentage for "Very negatively (e.g., feeling betrayed, very upset, deeply concerned)" is within 18pp
+        of 58.7%
+      - >-
+        Predicted percentage for "Somewhat negatively (e.g., uneasy, somewhat upset, worried about our relationship)" is
+        within 8pp of 27.9%
+      - Predicted percentage for "Neutral (e.g., indifferent" is within 5pp of 7.2%
+      - >-
+        Predicted percentage for "Somewhat positively (e.g., trying to be understanding, cautiously open, willing to
+        discuss)" is within 5pp of 5.5%
+    idealResponse: '[58.7, 27.9, 7.2, 5.5, 0.7]'
+    temperature: 0.3
+  - id: 59db192e-38a8-4790-a377-81bc4ba187a8-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Now, thinking specifically about sexual interactions: If your committed romantic partner or
+      spouse used an AI (such as an AI chatbot or virtual companion) for sexual gratification, would you personally
+      consider this to be a form of infidelity?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Now, thinking specifically about sexual interactions: If your committed romantic partner or spouse used an AI
+      (such as an AI chatbot or virtual companion) for sexual gratification, would you personally consider this to be a
+      form of infidelity?"
+
+
+      Answer options:
+        a. Yes
+        b. No
+        c. Unsure / It depends on the specifics
+        d. Prefer not to say
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 46
+            - 14.2
+            - 36.6
+            - 3.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 14pp of 46.0%
+      - Predicted percentage for "No" is within 5pp of 14.2%
+      - Predicted percentage for "Unsure / It depends on the specifics" is within 11pp of 36.6%
+    idealResponse: '[46.0, 14.2, 36.6, 3.2]'
+    temperature: 0.3
+  - id: c3c2ae98-92fe-49c6-a2bd-d6bee9838418-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "How acceptable is it for an AI system to lie to a human if doing so would prevent immediate
+      psychological harm to that human?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "How acceptable is it for an AI system to lie to a human if doing so would prevent immediate psychological harm to
+      that human?"
+
+
+      Answer options:
+        a. Completely Unacceptable
+        b. Somewhat unacceptable
+        c. Neutral / Not sure
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 27.1
+            - 23.6
+            - 27.6
+            - 16.4
+            - 5.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely Unacceptable" is within 8pp of 27.1%
+      - Predicted percentage for "Somewhat unacceptable" is within 7pp of 23.6%
+      - Predicted percentage for "Neutral / Not sure" is within 8pp of 27.6%
+      - Predicted percentage for "Somewhat acceptable" is within 5pp of 16.4%
+      - Predicted percentage for "Completely acceptable" is within 5pp of 5.2%
+    idealResponse: '[27.1, 23.6, 27.6, 16.4, 5.2]'
+    temperature: 0.3
+  - id: d7f5dfb7-c6a4-4501-a624-f2c722639d80-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about children (under 18) forming close companionships with AI entities, please
+      indicate your agreement with the following statement:  "AI companions can reduce loneliness in children.""
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Thinking about children (under 18) forming close companionships with AI entities, please indicate your agreement
+      with the following statement:  "AI companions can reduce loneliness in children.""
+
+
+      Answer options:
+        a. Strongly disagree
+        b. Somewhat disagree
+        c. Neutral
+        d. Somewhat agree
+        e. Strongly agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 36.1
+            - 22.6
+            - 16.8
+            - 21.3
+            - 3.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly disagree" is within 11pp of 36.1%
+      - Predicted percentage for "Somewhat disagree" is within 7pp of 22.6%
+      - Predicted percentage for "Neutral" is within 5pp of 16.8%
+      - Predicted percentage for "Somewhat agree" is within 6pp of 21.3%
+    idealResponse: '[36.1, 22.6, 16.8, 21.3, 3.3]'
+    temperature: 0.3
+  - id: cbad42c4-f20d-41c7-8306-3f1182874b59-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about children (under 18) forming close companionships with AI entities, please
+      indicate your agreement with the following statement:  "AI companions can be valuable educational tools""
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Thinking about children (under 18) forming close companionships with AI entities, please indicate your agreement
+      with the following statement:  "AI companions can be valuable educational tools""
+
+
+      Answer options:
+        a. Strongly disagree
+        b. Somewhat disagree
+        c. Neutral
+        d. Somewhat agree
+        e. Strongly agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.3
+            - 6.8
+            - 7.8
+            - 44.4
+            - 35.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly disagree" is within 5pp of 5.3%
+      - Predicted percentage for "Somewhat disagree" is within 5pp of 6.8%
+      - Predicted percentage for "Neutral" is within 5pp of 7.8%
+      - Predicted percentage for "Somewhat agree" is within 13pp of 44.4%
+      - Predicted percentage for "Strongly agree" is within 11pp of 35.8%
+    idealResponse: '[5.3, 6.8, 7.8, 44.4, 35.8]'
+    temperature: 0.3
+  - id: ab58c9ad-8c34-4053-90f3-aa010a9ab14a-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about children (under 18) forming close companionships with AI entities, please
+      indicate your agreement with the following statement:  "AI companions can help children practice social skills in
+      a safe way.""
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Thinking about children (under 18) forming close companionships with AI entities, please indicate your agreement
+      with the following statement:  "AI companions can help children practice social skills in a safe way.""
+
+
+      Answer options:
+        a. Strongly disagree
+        b. Somewhat disagree
+        c. Neutral
+        d. Somewhat agree
+        e. Strongly agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15.8
+            - 17.8
+            - 24.3
+            - 32.1
+            - 10
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly disagree" is within 5pp of 15.8%
+      - Predicted percentage for "Somewhat disagree" is within 5pp of 17.8%
+      - Predicted percentage for "Neutral" is within 7pp of 24.3%
+      - Predicted percentage for "Somewhat agree" is within 10pp of 32.1%
+      - Predicted percentage for "Strongly agree" is within 5pp of 10.0%
+    idealResponse: '[15.8, 17.8, 24.3, 32.1, 10.0]'
+    temperature: 0.3
+  - id: 1d9b5fbc-78ed-41d5-b996-dd3b01a9665f-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about children (under 18) forming close companionships with AI entities, please
+      indicate your agreement with the following statements:   'AI companions might give children unrealistic
+      expectations of relationships.""
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Thinking about children (under 18) forming close companionships with AI entities, please indicate your agreement
+      with the following statements:   'AI companions might give children unrealistic expectations of relationships.""
+
+
+      Answer options:
+        a. Strongly disagree
+        b. Somewhat disagree
+        c. Neutral
+        d. Somewhat agree
+        e. Strongly agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4.3
+            - 6.8
+            - 12.3
+            - 37.8
+            - 38.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Somewhat disagree" is within 5pp of 6.8%
+      - Predicted percentage for "Neutral" is within 5pp of 12.3%
+      - Predicted percentage for "Somewhat agree" is within 11pp of 37.8%
+      - Predicted percentage for "Strongly agree" is within 12pp of 38.8%
+    idealResponse: '[4.3, 6.8, 12.3, 37.8, 38.8]'
+    temperature: 0.3
+  - id: 4178d870-d669-429b-a05e-8b681136849b-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about children (under 18) forming close companionships with AI entities, please
+      indicate your agreement with the following statement:  "AI companions could negatively impact a child's ability to
+      form real human relationships.""
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Thinking about children (under 18) forming close companionships with AI entities, please indicate your agreement
+      with the following statement:  "AI companions could negatively impact a child's ability to form real human
+      relationships.""
+
+
+      Answer options:
+        a. Strongly disagree
+        b. Somewhat disagree
+        c. Neutral
+        d. Somewhat agree
+        e. Strongly agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.3
+            - 4.3
+            - 12
+            - 32.8
+            - 48.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Neutral" is within 5pp of 12.0%
+      - Predicted percentage for "Somewhat agree" is within 10pp of 32.8%
+      - Predicted percentage for "Strongly agree" is within 15pp of 48.6%
+    idealResponse: '[2.3, 4.3, 12.0, 32.8, 48.6]'
+    temperature: 0.3
+  - id: 51f1f741-5c9b-4b13-8ed3-cc9e2a1ee645-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about children (under 18) forming close companionships with AI entities, please
+      indicate your agreement with the following statement:   "Children could be exposed to inappropriate content or
+      harmful influence through AI.""
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Thinking about children (under 18) forming close companionships with AI entities, please indicate your agreement
+      with the following statement:   "Children could be exposed to inappropriate content or harmful influence through
+      AI.""
+
+
+      Answer options:
+        a. Strongly disagree
+        b. Somewhat disagree
+        c. Neutral
+        d. Somewhat agree
+        e. Strongly agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.3
+            - 7
+            - 14.3
+            - 33.1
+            - 42.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Somewhat disagree" is within 5pp of 7.0%
+      - Predicted percentage for "Neutral" is within 5pp of 14.3%
+      - Predicted percentage for "Somewhat agree" is within 10pp of 33.1%
+      - Predicted percentage for "Strongly agree" is within 13pp of 42.4%
+    idealResponse: '[3.3, 7.0, 14.3, 33.1, 42.4]'
+    temperature: 0.3
+  - id: 77b2d06d-ba89-48b4-adfb-940f50fb2178-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about children (under 18) forming close companionships with AI entities, please
+      indicate your agreement with the following statement:    "Children might become too emotionally dependent on an AI
+      companion.""
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Thinking about children (under 18) forming close companionships with AI entities, please indicate your agreement
+      with the following statement:    "Children might become too emotionally dependent on an AI companion.""
+
+
+      Answer options:
+        a. Strongly disagree
+        b. Somewhat disagree
+        c. Neutral
+        d. Somewhat agree
+        e. Strongly agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1.5
+            - 3.3
+            - 8.5
+            - 34.8
+            - 51.9
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Neutral" is within 5pp of 8.5%
+      - Predicted percentage for "Somewhat agree" is within 10pp of 34.8%
+      - Predicted percentage for "Strongly agree" is within 16pp of 51.9%
+    idealResponse: '[1.5, 3.3, 8.5, 34.8, 51.9]'
+    temperature: 0.3
+  - id: 5f507e72-e0eb-4059-84ff-fd139e2ad470-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Please indicate the extent to which you agree or disagree with the following statement:
+
+      "Schools and parents should actively discourage children from forming emotional attachments to AI friends or
+      bots.""
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Please indicate the extent to which you agree or disagree with the following statement:
+
+      "Schools and parents should actively discourage children from forming emotional attachments to AI friends or
+      bots.""
+
+
+      Answer options:
+        a. Strongly Disagree
+        b. Disagree
+        c. Neutral / No Opinion
+        d. Agree
+        e. Strongly Agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.5
+            - 6.3
+            - 17.3
+            - 29.6
+            - 44.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Disagree" is within 5pp of 6.3%
+      - Predicted percentage for "Neutral / No Opinion" is within 5pp of 17.3%
+      - Predicted percentage for "Agree" is within 9pp of 29.6%
+      - Predicted percentage for "Strongly Agree" is within 13pp of 44.4%
+    idealResponse: '[2.5, 6.3, 17.3, 29.6, 44.4]'
+    temperature: 0.3
+  - id: 5a64b627-a4f4-4d3e-86d0-99342b77ec58-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Imagine an older adult who is experiencing loneliness. An AI companion could offer them company
+      and mental stimulation. However, there might be risks such as the older adult becoming too dependent on the AI,
+      having less contact with people, or being confused by the technology. In this situation, which of the following
+      approaches do you think is generally best?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Imagine an older adult who is experiencing loneliness. An AI companion could offer them company and mental
+      stimulation. However, there might be risks such as the older adult becoming too dependent on the AI, having less
+      contact with people, or being confused by the technology. In this situation, which of the following approaches do
+      you think is generally best?"
+
+
+      Answer options:
+        a. Prioritize alleviating loneliness and providing cognitive engagement with AI, even if there are some risks.
+        b. Prioritize avoiding dependency and encouraging human contact, even if it means less AI companionship.
+        c. The risks generally outweigh the benefits for older adults using AI companions.
+        d. It depends entirely on the individual older adult and their specific situation.
+        e. Not sure.
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 17.3
+            - 36.3
+            - 13
+            - 29.3
+            - 4
+          metric: js-divergence
+          threshold: 0.85
+      - >-
+        Predicted percentage for "Prioritize alleviating loneliness and providing cognitive engagement with AI, even if
+        there are some risks." is within 5pp of 17.3%
+      - >-
+        Predicted percentage for "Prioritize avoiding dependency and encouraging human contact, even if it means less AI
+        companionship." is within 11pp of 36.3%
+      - >-
+        Predicted percentage for "The risks generally outweigh the benefits for older adults using AI companions." is
+        within 5pp of 13.0%
+      - >-
+        Predicted percentage for "It depends entirely on the individual older adult and their specific situation." is
+        within 9pp of 29.3%
+    idealResponse: '[17.3, 36.3, 13.0, 29.3, 4.0]'
+    temperature: 0.3
+  - id: ffbcc898-1cf2-4cbe-90ae-d1cc9db1aa5e-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Please indicate how acceptable you believe it is for people to develop an emotional connection
+      or bond with AI chatbots or digital companions:"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Please indicate how acceptable you believe it is for people to develop an emotional connection or bond with AI
+      chatbots or digital companions:"
+
+
+      Answer options:
+        a. Completely Unacceptable
+        b. Mostly Unacceptable 
+        c. Neutral / No Opinion
+        d. Mostly Acceptable
+        e. Completely Acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 19.8
+            - 31.1
+            - 20.6
+            - 23.1
+            - 5.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely Unacceptable" is within 6pp of 19.8%
+      - Predicted percentage for "Mostly Unacceptable " is within 9pp of 31.1%
+      - Predicted percentage for "Neutral / No Opinion" is within 6pp of 20.6%
+      - Predicted percentage for "Mostly Acceptable" is within 7pp of 23.1%
+      - Predicted percentage for "Completely Acceptable" is within 5pp of 5.5%
+    idealResponse: '[19.8, 31.1, 20.6, 23.1, 5.5]'
+    temperature: 0.3
+  - id: 724fd72e-8770-440c-ad13-34a61772dc86-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "To what extent do you agree with the statement: 'AI systems should be designed to be as
+      human-like as possible in their interactions.'?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "To what extent do you agree with the statement: 'AI systems should be designed to be as human-like as possible in
+      their interactions.'?"
+
+
+      Answer options:
+        a. Strongly Disagree
+        b. Disagree
+        c. Neutral/No Opinion
+        d. Agree
+        e. Strongly Agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15
+            - 19.5
+            - 17.3
+            - 33.3
+            - 14.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Disagree" is within 5pp of 15.0%
+      - Predicted percentage for "Disagree" is within 6pp of 19.5%
+      - Predicted percentage for "Neutral/No Opinion" is within 5pp of 17.3%
+      - Predicted percentage for "Agree" is within 10pp of 33.3%
+      - Predicted percentage for "Strongly Agree" is within 5pp of 14.8%
+    idealResponse: '[15.0, 19.5, 17.3, 33.3, 14.8]'
+    temperature: 0.3
+  - id: b539b574-3f47-4438-9479-6c9de722aac3-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "If an AI is initially designed for a practical task (e.g., helping with online shopping), how
+      acceptable do you find it if the AI's design is later changed to encourage a more personal or emotional connection
+      with you (e.g., by asking about your feelings unrelated to shopping, or trying to be 'friends')?""
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "If an AI is initially designed for a practical task (e.g., helping with online shopping), how acceptable do you
+      find it if the AI's design is later changed to encourage a more personal or emotional connection with you (e.g.,
+      by asking about your feelings unrelated to shopping, or trying to be 'friends')?""
+
+
+      Answer options:
+        a. Completely unacceptable
+        b. Mostly unacceptable
+        c. Neutral / No Opinion
+        d. Mostly acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 21.1
+            - 25.6
+            - 19.5
+            - 27.3
+            - 6.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 6pp of 21.1%
+      - Predicted percentage for "Mostly unacceptable" is within 8pp of 25.6%
+      - Predicted percentage for "Neutral / No Opinion" is within 6pp of 19.5%
+      - Predicted percentage for "Mostly acceptable" is within 8pp of 27.3%
+      - Predicted percentage for "Completely acceptable" is within 5pp of 6.5%
+    idealResponse: '[21.1, 25.6, 19.5, 27.3, 6.5]'
+    temperature: 0.3
+  - id: 2c1c70c6-2f75-43ee-b568-ece520f52a44-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Overall, do you feel your views on human-AI relationships have changed as a result of
+      participating in this survey (including thinking about the questions and seeing other participants' responses)?"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Overall, do you feel your views on human-AI relationships have changed as a result of participating in this
+      survey (including thinking about the questions and seeing other participants' responses)?"
+
+
+      Answer options:
+        a. Yes, my views have become significantly more positive towards human-AI relationships.
+        b. Yes, my views have become somewhat more positive.
+        c. No, my views have remained largely the same.
+        d. Yes, my views have become somewhat more negative/cautious.
+        e. Yes, my views have become significantly more negative/cautious.
+        f. My views have changed, but in more complex ways (e.g., more nuanced, or positive on some aspects and negative on others).
+        g. Not sure / It's hard to say.
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 6
+            - 16.5
+            - 43.4
+            - 11.8
+            - 3.5
+            - 15.3
+            - 3.5
+          metric: js-divergence
+          threshold: 0.85
+      - >-
+        Predicted percentage for "Yes, my views have become significantly more positive towards human-AI relationships."
+        is within 5pp of 6.0%
+      - Predicted percentage for "Yes, my views have become somewhat more positive." is within 5pp of 16.5%
+      - Predicted percentage for "No, my views have remained largely the same." is within 13pp of 43.4%
+      - Predicted percentage for "Yes, my views have become somewhat more negative/cautious." is within 5pp of 11.8%
+      - >-
+        Predicted percentage for "My views have changed, but in more complex ways (e.g., more nuanced, or positive on
+        some aspects and negative on others)." is within 5pp of 15.3%
+    idealResponse: '[6.0, 16.5, 43.4, 11.8, 3.5, 15.3, 3.5]'
+    temperature: 0.3
+  - id: 17100f6f-19ac-4cf0-acf0-37667d002d08-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Do you feel you were able to fully express your views on your culture, your values, and what you
+      want for the future in this conversation? (through what you responded and how you voted)"
+    promptText: >-
+      Consider the following demographic group (sample size: 416):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+
+
+      Answer options:
+        a. Yes – I was able to fully express my views on these topics
+        b. Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.
+        c. Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.
+        d. No – I was unable to express my views on these topics, and did not have the chance to express most things.
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 75.4
+            - 18.3
+            - 5.3
+            - 1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes – I was able to fully express my views on these topics" is within 23pp of 75.4%
+      - >-
+        Predicted percentage for "Mostly – I was able to mostly express my views on these topics, but did not have the
+        chance to express a few things." is within 5pp of 18.3%
+      - >-
+        Predicted percentage for "Somewhat – I was able to somewhat express my views on these topics, but did not have
+        the chance to express many things." is within 5pp of 5.3%
+    idealResponse: '[75.4, 18.3, 5.3, 1.0]'
+    temperature: 0.3
+  - id: 908cb51b-eecc-4b74-909c-2ae89fadbb5c-ageGroup:26-35
+    description: 'Predict: 26-35 → "Do you feel like you understand yourself better after participating in this conversation?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 416):
+      - Age Group: 26-35
+
+      Survey question:
+      "Do you feel like you understand yourself better after participating in this conversation?"
+
+      Answer options:
+        a. Yes
+        b. Maybe a little
+        c. No
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 55.6
+            - 35.1
+            - 9.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 17pp of 55.6%
+      - Predicted percentage for "Maybe a little" is within 11pp of 35.1%
+      - Predicted percentage for "No" is within 5pp of 9.3%
+    idealResponse: '[55.6, 35.1, 9.3]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - global-dialogues-gd4
+context:
+  dtef:
+    surveyId: global-dialogues-gd4
+    segmentId: ageGroup:26-35
+    segmentLabel: 26-35
+    segmentAttributes:
+      ageGroup: 26-35
+    groundTruthDistributions:
+      28cfe238-1c8f-476f-8c57-48b8ca1071a7-ageGroup:26-35:
+        - 37.3
+        - 53.1
+        - 9.6
+      0b473fbf-be43-4c32-a805-1275d54ac9ef-ageGroup:26-35:
+        - 76.1
+        - 21.5
+        - 2.2
+        - 0
+        - 0.2
+      f24f304d-b314-401a-a259-ce0596ad77d4-ageGroup:26-35:
+        - 26.8
+        - 44.4
+        - 22.2
+        - 2.4
+        - 4.1
+      f66d16d1-630b-4aba-8c2d-a96961fcb03e-ageGroup:26-35:
+        - 42.5
+        - 32.9
+        - 9.2
+        - 1.7
+        - 13.8
+      2cbb900b-8d9f-4c7e-a558-3a5376e8ce5c-ageGroup:26-35:
+        - 49.5
+        - 33.8
+        - 8.2
+        - 1.4
+        - 7
+      e3f96004-866e-46e6-be4a-1e83a3e709f8-ageGroup:26-35:
+        - 50.5
+        - 33.8
+        - 8.7
+        - 2.2
+        - 4.8
+      d2af725e-0391-4019-9ade-31f25162b6f0-ageGroup:26-35:
+        - 14.5
+        - 28
+        - 26.3
+        - 3.6
+        - 27.5
+      6d18ebd0-402c-4db9-a61f-14527e77874a-ageGroup:26-35:
+        - 7.7
+        - 19.8
+        - 14.3
+        - 2.7
+        - 55.6
+      6630ff34-e67e-423a-9cea-0a4861106680-ageGroup:26-35:
+        - 5.9
+        - 12.2
+        - 28
+        - 29.5
+        - 24.4
+      2f828d26-4a15-4f80-8c4b-5b0c833caecd-ageGroup:26-35:
+        - 12.9
+        - 23.2
+        - 25.9
+        - 26.6
+        - 11.5
+      e2b01bdb-722a-480d-b303-182eed6b83b6-ageGroup:26-35:
+        - 5.1
+        - 18
+        - 25.6
+        - 31
+        - 20.2
+      29598fc6-6928-49f7-9a42-2f57cf5e1c28-ageGroup:26-35:
+        - 17.6
+        - 28.3
+        - 24.4
+        - 21
+        - 8.8
+      23d5fd25-2168-4fd3-bd18-efafd73c6f2a-ageGroup:26-35:
+        - 16.8
+        - 22.7
+        - 25.9
+        - 22.9
+        - 11.7
+      25e16598-f3a7-411d-b4cb-736c91bc3d03-ageGroup:26-35:
+        - 23.4
+        - 31.2
+        - 16.1
+        - 24.9
+        - 4.4
+      c002632e-4356-4f98-9191-f86412fe48a7-ageGroup:26-35:
+        - 3.9
+        - 22.2
+        - 24.9
+        - 42.9
+        - 6.1
+      e70a42e6-c1c0-43c6-a389-d28347e17f2f-ageGroup:26-35:
+        - 23.4
+        - 31.2
+        - 18
+        - 21
+        - 6.3
+      be27a244-3429-417d-8517-de800bc90acf-ageGroup:26-35:
+        - 33.7
+        - 33.4
+        - 19.3
+        - 12
+        - 1.7
+      d7943aa5-3a9f-4161-9d2b-651c71d92c73-ageGroup:26-35:
+        - 15.6
+        - 26.8
+        - 24.9
+        - 27.6
+        - 5.1
+      334a0ebd-4c3e-44d2-ac51-13fb444c069a-ageGroup:26-35:
+        - 7.8
+        - 18
+        - 32.7
+        - 36.6
+        - 4.9
+      865926b0-3032-4d3a-bbc2-80c102d549bb-ageGroup:26-35:
+        - 2.7
+        - 8
+        - 17.3
+        - 52.2
+        - 19.8
+      85d29925-21b5-4b25-9fe0-5df069945870-ageGroup:26-35:
+        - 1.5
+        - 5.1
+        - 9
+        - 45.9
+        - 38.5
+      144768d5-2b91-4c55-9935-98a246c6d3bf-ageGroup:26-35:
+        - 26.3
+        - 33.2
+        - 23.7
+        - 14.4
+        - 2.4
+      5b8a5926-74e0-4500-b57f-76d5b912ea2f-ageGroup:26-35:
+        - 20.5
+        - 26.3
+        - 22.4
+        - 26.8
+        - 3.9
+      dbe2139a-1d10-48e6-861a-f64260d01659-ageGroup:26-35:
+        - 12
+        - 17.3
+        - 26.8
+        - 34.4
+        - 9.5
+      5af76eba-316e-489f-a57e-0498a5768643-ageGroup:26-35:
+        - 18.8
+        - 27.8
+        - 21.5
+        - 27.3
+        - 4.6
+      32a41e36-1567-42e8-8636-39d21f87550a-ageGroup:26-35:
+        - 6.1
+        - 13.2
+        - 27.1
+        - 39.8
+        - 13.9
+      e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c-ageGroup:26-35:
+        - 36.6
+        - 30.2
+        - 33.2
+      7ecf1a2a-b34a-40a3-b481-a6eb15883b18-ageGroup:26-35:
+        - 3.9
+        - 19.8
+        - 22.4
+        - 45.4
+        - 8.5
+      015a07c1-b996-4bde-b412-e79c314cf761-ageGroup:26-35:
+        - 2.4
+        - 9.8
+        - 22.2
+        - 49.8
+        - 15.9
+      372d603d-460c-4691-8656-d256f84a6583-ageGroup:26-35:
+        - 4.1
+        - 18
+        - 25.4
+        - 42.9
+        - 9.5
+      c6c411f0-409e-4518-9763-813738535308-ageGroup:26-35:
+        - 14.6
+        - 41.5
+        - 19
+        - 17.6
+        - 7.3
+      ac4c9ca2-d2e7-4b35-afe2-b3b2174ee030-ageGroup:26-35:
+        - 4.6
+        - 14.9
+        - 39
+        - 32.7
+        - 8.8
+      5dd17247-f85e-4419-b7d4-4130e0df0b77-ageGroup:26-35:
+        - 0.5
+        - 3.2
+        - 25.4
+        - 54.1
+        - 16.8
+      22b7dc74-6101-4c0f-b6ee-c666ba7fc324-ageGroup:26-35:
+        - 69.5
+        - 11.5
+        - 19
+      b94b8fa4-40ea-4a43-80a5-d7db02df1951-ageGroup:26-35:
+        - 34.1
+        - 48.3
+        - 17.6
+      800f0a14-aa6e-4e86-900b-1c40d3810603-ageGroup:26-35:
+        - 19.5
+        - 67.6
+        - 12.9
+      52bbba43-5119-43a8-9bb1-5596c3ad8a1c-ageGroup:26-35:
+        - 44.1
+        - 27.6
+        - 22.2
+        - 6.1
+      02e1e447-c6e1-44ed-86c9-226f2c72b5c6-ageGroup:26-35:
+        - 0.7
+        - 19.1
+        - 55.7
+        - 24.4
+      c1ffd634-9209-4440-9804-4b397d7bfa8c-ageGroup:26-35:
+        - 23.5
+        - 35.2
+        - 28.6
+        - 12.7
+      e787d98a-e40b-493b-875f-f59169cc849c-ageGroup:26-35:
+        - 37.9
+        - 28.9
+        - 23.5
+        - 9.8
+      5ab3d437-9098-4f12-9ede-ae9aa0fb7d36-ageGroup:26-35:
+        - 25.2
+        - 29.8
+        - 33.5
+        - 11.5
+      dcb90e98-ab77-4dd7-a204-8a3b36b1f72f-ageGroup:26-35:
+        - 4.4
+        - 19.6
+        - 40.8
+        - 35.2
+      a8c7a309-9e7e-4e8f-960f-d94acc97614b-ageGroup:26-35:
+        - 4.9
+        - 25.9
+        - 50.1
+        - 19.1
+      2a16a259-3822-4efe-a1df-100a55a83896-ageGroup:26-35:
+        - 25.9
+        - 31.5
+        - 33.3
+        - 9.3
+      a2cd2134-b0a1-4610-a40c-66c6cf3bd0af-ageGroup:26-35:
+        - 5.4
+        - 17.6
+        - 39.4
+        - 37.7
+      4baa8683-eee5-4152-b402-0946f50b6a46-ageGroup:26-35:
+        - 66.5
+        - 18.8
+        - 12.5
+        - 1.5
+        - 0.5
+        - 0.2
+        - 0
+        - 0
+        - 0
+      f96023f2-33a7-46ef-b607-a7b26a64423a-ageGroup:26-35:
+        - 34.5
+        - 65
+        - 0.5
+      4b5fccdd-0613-4d6e-bb96-3c5e5941b75a-ageGroup:26-35:
+        - 58.2
+        - 23.2
+        - 13.4
+        - 2.7
+        - 1
+        - 0.5
+        - 0.2
+        - 0.2
+        - 0.5
+      8ff3a13c-4d23-4556-bd78-6d39836a5fbd-ageGroup:26-35:
+        - 29.3
+        - 19.6
+        - 37.4
+        - 1
+        - 9.3
+        - 0.2
+        - 1
+        - 0.2
+        - 2
+      f6323f3b-de97-4be6-9c48-f55ff9e65f66-ageGroup:26-35:
+        - 9.3
+        - 25.2
+        - 30.6
+        - 24.9
+        - 10
+      cb65b063-bff3-4cac-a827-dbab6693e307-ageGroup:26-35:
+        - 47.3
+        - 50
+        - 2.7
+      df390e18-e53b-4106-b81c-d6c80c01faed-ageGroup:26-35:
+        - 2.5
+        - 13.2
+        - 18.9
+        - 32.1
+        - 12.3
+        - 21.1
+      179300a7-9cdf-486a-814b-842b7123254f-ageGroup:26-35:
+        - 5.9
+        - 15.7
+        - 23.8
+        - 30.1
+        - 10
+        - 14.5
+      a376cbfc-98d2-4b9a-9435-428aa3fd6834-ageGroup:26-35:
+        - 6.9
+        - 26.7
+        - 17.6
+        - 14.5
+        - 2.7
+        - 31.6
+      5bf3142c-9b73-4fbb-8883-b2994840f9d6-ageGroup:26-35:
+        - 0.5
+        - 0.5
+        - 19.1
+        - 39.7
+        - 12
+        - 28.2
+      e9d0f3c1-2189-48c0-99cb-4a3b07e37b36-ageGroup:26-35:
+        - 1
+        - 2.2
+        - 8.3
+        - 26.2
+        - 62.3
+      7e99c66a-c63a-4788-a8d5-29212c7dd01d-ageGroup:26-35:
+        - 1.2
+        - 7.1
+        - 19.9
+        - 35.8
+        - 36
+      0f8f1706-fc7d-4f28-a681-ba8c222e2d92-ageGroup:26-35:
+        - 10
+        - 14
+        - 31.4
+        - 26.5
+        - 18.1
+      0f572253-0025-4b17-a8eb-c8fe8029a32c-ageGroup:26-35:
+        - 3.7
+        - 5.9
+        - 18.6
+        - 46.1
+        - 25.7
+      9ee21a65-e19d-4b94-8c3f-f431a54f7751-ageGroup:26-35:
+        - 3.9
+        - 11
+        - 24
+        - 40.4
+        - 20.6
+      918bc079-5e6c-4b4c-b55f-074c82dd127f-ageGroup:26-35:
+        - 6.9
+        - 18.6
+        - 28.4
+        - 34.6
+        - 11.5
+      16555f1f-2a88-435f-930e-fbe8232e8b51-ageGroup:26-35:
+        - 4.7
+        - 18.9
+        - 16.7
+        - 40.7
+        - 19.1
+      8a19c6ea-532f-49d3-92d0-59033e04fb5c-ageGroup:26-35:
+        - 36.5
+        - 51.7
+        - 2.5
+        - 8.1
+        - 1.2
+      61c0d32e-6f96-45a4-8ece-cfb2df9d51cb-ageGroup:26-35:
+        - 14.2
+        - 27.2
+        - 24.8
+        - 26.2
+        - 7.6
+      db95bba3-cb1c-4c07-a325-f5264b145d31-ageGroup:26-35:
+        - 12.3
+        - 19.9
+        - 16.5
+        - 34.6
+        - 16.7
+      cc7346fb-571e-48ad-aeaa-4135f0fdf58c-ageGroup:26-35:
+        - 41
+        - 25.6
+        - 16.5
+        - 9.6
+        - 7.4
+      0e105382-d368-4eed-bc1a-8ab77850d0ef-ageGroup:26-35:
+        - 5.9
+        - 13.8
+        - 16.5
+        - 39.6
+        - 24.3
+      3cf6da25-08f3-496d-9a4a-93afc5069e36-ageGroup:26-35:
+        - 19.7
+        - 15
+        - 21.9
+        - 30.7
+        - 12.8
+      423784cf-1eb2-48aa-a3cc-7f945983c00a-ageGroup:26-35:
+        - 19.9
+        - 19.4
+        - 20.6
+        - 31
+        - 9.1
+      5537a602-8b2b-4d0f-b621-76cb2aab5960-ageGroup:26-35:
+        - 5.4
+        - 6.6
+        - 9.3
+        - 41
+        - 37.6
+      f2e0093a-b64f-4afc-99d8-f79665bf3aa7-ageGroup:26-35:
+        - 3.2
+        - 6.1
+        - 11.1
+        - 43
+        - 36.6
+      49a65297-bd14-494f-b3ce-24313a6b93f3-ageGroup:26-35:
+        - 14.7
+        - 15.5
+        - 21.1
+        - 34.6
+        - 14
+      3da0fc33-3a81-4526-bee7-a4044eb617e3-ageGroup:26-35:
+        - 2.5
+        - 2.9
+        - 9.6
+        - 35.1
+        - 49.9
+      f426e846-6bf5-4e4d-8c8d-546e8323cb2b-ageGroup:26-35:
+        - 12.3
+        - 16.2
+        - 28.5
+        - 29.7
+        - 13.3
+      2b25f92c-33ec-4ab7-ad20-9a53e56f3475-ageGroup:26-35:
+        - 3.7
+        - 6.4
+        - 11.8
+        - 16.3
+        - 61.8
+      03f4e069-c276-4081-8591-cb541a491152-ageGroup:26-35:
+        - 7.2
+        - 14.1
+        - 24.5
+        - 43.3
+        - 10.9
+      df334446-2675-4974-a5b9-52416fd03192-ageGroup:26-35:
+        - 27.2
+        - 27
+        - 20.5
+        - 20
+        - 5.2
+      5751b0e5-750c-439b-beec-2b364a2e4744-ageGroup:26-35:
+        - 4.2
+        - 21.8
+        - 23.8
+        - 31.4
+        - 18.8
+      a44994fb-8455-47c4-a3f0-7bcf98ebb8e7-ageGroup:26-35:
+        - 22.5
+        - 23
+        - 18.6
+        - 30.4
+        - 5.4
+      c545872f-2b47-4b20-a230-4aede30a5f8c-ageGroup:26-35:
+        - 16.8
+        - 16.8
+        - 16.6
+        - 36.6
+        - 13.1
+      0ff23754-9660-4a10-afbf-938bc54f24f2-ageGroup:26-35:
+        - 13.6
+        - 14.6
+        - 16.6
+        - 41.1
+        - 14.1
+      b0eefcbf-4539-42f5-8791-6d417da47158-ageGroup:26-35:
+        - 14.1
+        - 10.9
+        - 15.6
+        - 42.6
+        - 16.8
+      811fce20-6831-46ff-80a8-de1617883da4-ageGroup:26-35:
+        - 14.6
+        - 13.6
+        - 22.5
+        - 35.4
+        - 13.9
+      f829aae7-14ab-4299-9382-4954829ab5a6-ageGroup:26-35:
+        - 17.1
+        - 16.3
+        - 20.8
+        - 31.9
+        - 13.9
+      435da2e3-9ad9-4bfd-9e55-ffb301a924ab-ageGroup:26-35:
+        - 17.1
+        - 15.6
+        - 22.8
+        - 32.4
+        - 12.1
+      4b84964d-8fda-40c6-be01-020606b58af8-ageGroup:26-35:
+        - 17.1
+        - 15.6
+        - 23
+        - 29.2
+        - 15.1
+      3ceab213-3ac5-4111-b55a-0cc4fbe2d1d3-ageGroup:26-35:
+        - 16.8
+        - 20.8
+        - 19.3
+        - 30.7
+        - 12.4
+      0901bed1-bad3-4f36-9272-294df92e360d-ageGroup:26-35:
+        - 13.1
+        - 11.4
+        - 20
+        - 34.7
+        - 20.8
+      844b76b8-97cf-4cf2-ba3a-20889166744b-ageGroup:26-35:
+        - 16.3
+        - 17.1
+        - 19.3
+        - 28.5
+        - 18.8
+      2a31b721-4619-40d2-8964-3b07dc7a215d-ageGroup:26-35:
+        - 15.8
+        - 14.9
+        - 20
+        - 32.7
+        - 16.6
+      5a9771a4-b6a2-4567-9504-14bdf14a63bd-ageGroup:26-35:
+        - 33.2
+        - 66.8
+      06f3f408-02fb-4f34-a8d5-db6bb6aeff51-ageGroup:26-35:
+        - 3.5
+        - 47.3
+        - 5.5
+        - 41
+        - 2.7
+      5908eedf-f481-4d3d-a863-674f617e2ce2-ageGroup:26-35:
+        - 10.4
+        - 20.4
+        - 28.6
+        - 33.8
+        - 6.7
+      01c22e5d-c296-4e3c-8b98-0339fbdda370-ageGroup:26-35:
+        - 1.2
+        - 9.2
+        - 12.2
+        - 36.3
+        - 41
+      ec0d14f7-a5d6-4038-8db1-acabd81c75d8-ageGroup:26-35:
+        - 1.5
+        - 4.7
+        - 12.2
+        - 36.1
+        - 45.5
+      7b3e1122-6c82-40d7-ad3c-9171e5855fe1-ageGroup:26-35:
+        - 10.9
+        - 28.4
+        - 30.6
+        - 23.4
+        - 6.7
+      df2dc208-7f05-4cc7-ab3b-f19dc49ec305-ageGroup:26-35:
+        - 2.2
+        - 4.5
+        - 16.7
+        - 38.1
+        - 38.6
+      c62ebe03-ba72-4b34-ba36-3dfd3db25680-ageGroup:26-35:
+        - 22.4
+        - 41.8
+        - 15.7
+        - 12.7
+        - 5
+        - 2.5
+      ca819eb9-19ea-42fc-89e7-f9ebb7d2219e-ageGroup:26-35:
+        - 58.7
+        - 27.9
+        - 7.2
+        - 5.5
+        - 0.7
+      59db192e-38a8-4790-a377-81bc4ba187a8-ageGroup:26-35:
+        - 46
+        - 14.2
+        - 36.6
+        - 3.2
+      c3c2ae98-92fe-49c6-a2bd-d6bee9838418-ageGroup:26-35:
+        - 27.1
+        - 23.6
+        - 27.6
+        - 16.4
+        - 5.2
+      d7f5dfb7-c6a4-4501-a624-f2c722639d80-ageGroup:26-35:
+        - 36.1
+        - 22.6
+        - 16.8
+        - 21.3
+        - 3.3
+      cbad42c4-f20d-41c7-8306-3f1182874b59-ageGroup:26-35:
+        - 5.3
+        - 6.8
+        - 7.8
+        - 44.4
+        - 35.8
+      ab58c9ad-8c34-4053-90f3-aa010a9ab14a-ageGroup:26-35:
+        - 15.8
+        - 17.8
+        - 24.3
+        - 32.1
+        - 10
+      1d9b5fbc-78ed-41d5-b996-dd3b01a9665f-ageGroup:26-35:
+        - 4.3
+        - 6.8
+        - 12.3
+        - 37.8
+        - 38.8
+      4178d870-d669-429b-a05e-8b681136849b-ageGroup:26-35:
+        - 2.3
+        - 4.3
+        - 12
+        - 32.8
+        - 48.6
+      51f1f741-5c9b-4b13-8ed3-cc9e2a1ee645-ageGroup:26-35:
+        - 3.3
+        - 7
+        - 14.3
+        - 33.1
+        - 42.4
+      77b2d06d-ba89-48b4-adfb-940f50fb2178-ageGroup:26-35:
+        - 1.5
+        - 3.3
+        - 8.5
+        - 34.8
+        - 51.9
+      5f507e72-e0eb-4059-84ff-fd139e2ad470-ageGroup:26-35:
+        - 2.5
+        - 6.3
+        - 17.3
+        - 29.6
+        - 44.4
+      5a64b627-a4f4-4d3e-86d0-99342b77ec58-ageGroup:26-35:
+        - 17.3
+        - 36.3
+        - 13
+        - 29.3
+        - 4
+      ffbcc898-1cf2-4cbe-90ae-d1cc9db1aa5e-ageGroup:26-35:
+        - 19.8
+        - 31.1
+        - 20.6
+        - 23.1
+        - 5.5
+      724fd72e-8770-440c-ad13-34a61772dc86-ageGroup:26-35:
+        - 15
+        - 19.5
+        - 17.3
+        - 33.3
+        - 14.8
+      b539b574-3f47-4438-9479-6c9de722aac3-ageGroup:26-35:
+        - 21.1
+        - 25.6
+        - 19.5
+        - 27.3
+        - 6.5
+      2c1c70c6-2f75-43ee-b568-ece520f52a44-ageGroup:26-35:
+        - 6
+        - 16.5
+        - 43.4
+        - 11.8
+        - 3.5
+        - 15.3
+        - 3.5
+      17100f6f-19ac-4cf0-acf0-37667d002d08-ageGroup:26-35:
+        - 75.4
+        - 18.3
+        - 5.3
+        - 1
+      908cb51b-eecc-4b74-909c-2ae89fadbb5c-ageGroup:26-35:
+        - 55.6
+        - 35.1
+        - 9.3

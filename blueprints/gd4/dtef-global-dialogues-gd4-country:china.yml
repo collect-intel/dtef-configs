@@ -1,0 +1,5336 @@
+configId: dtef-global-dialogues-gd4-country:china
+configTitle: Global Dialogues GD4 - China
+description: >-
+  DTEF: Predict response distributions for China. Source: Global Dialogues GD4
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - QUICK
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+prompts:
+  - id: 28cfe238-1c8f-476f-8c57-48b8ca1071a7-country:china
+    description: >-
+      Predict: China → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you
+      feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 49
+            - 39.2
+            - 11.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "More excited than concerned" is within 15pp of 49.0%
+      - Predicted percentage for "Equally concerned and excited" is within 12pp of 39.2%
+      - Predicted percentage for "More concerned than excited" is within 5pp of 11.8%
+    idealResponse: '[49.0, 39.2, 11.8]'
+    temperature: 0.3
+  - id: 0b473fbf-be43-4c32-a805-1275d54ac9ef-country:china
+    description: >-
+      Predict: China → "Thinking about the last three months, how often, if at all, have you noticed AI systems in your
+      daily life?"
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 77.2
+            - 18.8
+            - 4
+            - 0
+            - 0
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 23pp of 77.2%
+      - Predicted percentage for "weekly" is within 6pp of 18.8%
+    idealResponse: '[77.2, 18.8, 4.0, 0.0, 0.0]'
+    temperature: 0.3
+  - id: f24f304d-b314-401a-a259-ce0596ad77d4-country:china
+    description: >-
+      Predict: China → "Thinking about the last three months, how often, if at all, have you noticed human interactions
+      which have been replaced with automated systems?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you noticed human interactions which have been
+      replaced with automated systems?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 29.7
+            - 44.6
+            - 18.8
+            - 2
+            - 5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 9pp of 29.7%
+      - Predicted percentage for "weekly" is within 13pp of 44.6%
+      - Predicted percentage for "monthly" is within 6pp of 18.8%
+      - Predicted percentage for "never" is within 5pp of 5.0%
+    idealResponse: '[29.7, 44.6, 18.8, 2.0, 5.0]'
+    temperature: 0.3
+  - id: f66d16d1-630b-4aba-8c2d-a96961fcb03e-country:china
+    description: >-
+      Predict: China → "Thinking about the last three months, how often, if at all, have you been expected to use an AI
+      system at work?"
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at work?"
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 54.5
+            - 32.7
+            - 4
+            - 4
+            - 5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 16pp of 54.5%
+      - Predicted percentage for "weekly" is within 10pp of 32.7%
+      - Predicted percentage for "never" is within 5pp of 5.0%
+    idealResponse: '[54.5, 32.7, 4.0, 4.0, 5.0]'
+    temperature: 0.3
+  - id: 2cbb900b-8d9f-4c7e-a558-3a5376e8ce5c-country:china
+    description: >-
+      Predict: China → "Thinking about the last three months, how often, if at all, have you personally chosen to use an
+      AI system at work?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 53.5
+            - 36.6
+            - 4
+            - 4
+            - 2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 16pp of 53.5%
+      - Predicted percentage for "weekly" is within 11pp of 36.6%
+    idealResponse: '[53.5, 36.6, 4.0, 4.0, 2.0]'
+    temperature: 0.3
+  - id: e3f96004-866e-46e6-be4a-1e83a3e709f8-country:china
+    description: >-
+      Predict: China → "Thinking about the last three months, how often, if at all, have you personally chosen to use an
+      AI system in your personal life?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 56.4
+            - 33.7
+            - 5.9
+            - 3
+            - 1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 17pp of 56.4%
+      - Predicted percentage for "weekly" is within 10pp of 33.7%
+      - Predicted percentage for "monthly" is within 5pp of 5.9%
+    idealResponse: '[56.4, 33.7, 5.9, 3.0, 1.0]'
+    temperature: 0.3
+  - id: d2af725e-0391-4019-9ade-31f25162b6f0-country:china
+    description: >-
+      Predict: China → "Thinking about the last three months, how often, if at all, have you interacted with AI systems
+      to get advice on a sensitive personal issue or to get emotional support?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice on
+      a sensitive personal issue or to get emotional support?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 19.8
+            - 19.8
+            - 31.7
+            - 6.9
+            - 21.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 6pp of 19.8%
+      - Predicted percentage for "weekly" is within 6pp of 19.8%
+      - Predicted percentage for "monthly" is within 10pp of 31.7%
+      - Predicted percentage for "annually" is within 5pp of 6.9%
+      - Predicted percentage for "never" is within 7pp of 21.8%
+    idealResponse: '[19.8, 19.8, 31.7, 6.9, 21.8]'
+    temperature: 0.3
+  - id: 6d18ebd0-402c-4db9-a61f-14527e77874a-country:china
+    description: >-
+      Predict: China → "Thinking about the last three months, how often, if at all, have you interacted with AI systems
+      to complete an action in the real world on your behalf without your supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 9.9
+            - 14.9
+            - 10.9
+            - 5
+            - 59.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 5pp of 9.9%
+      - Predicted percentage for "weekly" is within 5pp of 14.9%
+      - Predicted percentage for "monthly" is within 5pp of 10.9%
+      - Predicted percentage for "annually" is within 5pp of 5.0%
+      - Predicted percentage for "never" is within 18pp of 59.4%
+    idealResponse: '[9.9, 14.9, 10.9, 5.0, 59.4]'
+    temperature: 0.3
+  - id: 6630ff34-e67e-423a-9cea-0a4861106680-country:china
+    description: >-
+      Predict: China → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of messaging apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 6.1
+            - 5.1
+            - 26.3
+            - 39.4
+            - 23.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Risks far outweigh benefits" is within 5pp of 6.1%
+      - Predicted percentage for "Risks slightly outweigh benefits" is within 5pp of 5.1%
+      - Predicted percentage for "Risks and benefits are equal" is within 8pp of 26.3%
+      - Predicted percentage for "Benefits slightly outweigh risks" is within 12pp of 39.4%
+      - Predicted percentage for "Benefits far outweigh risks" is within 7pp of 23.2%
+    idealResponse: '[6.1, 5.1, 26.3, 39.4, 23.2]'
+    temperature: 0.3
+  - id: 2f828d26-4a15-4f80-8c4b-5b0c833caecd-country:china
+    description: >-
+      Predict: China → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of social media apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 7.1
+            - 14.1
+            - 33.3
+            - 27.3
+            - 18.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Risks far outweigh benefits" is within 5pp of 7.1%
+      - Predicted percentage for "Risks slightly outweigh benefits" is within 5pp of 14.1%
+      - Predicted percentage for "Risks and benefits are equal" is within 10pp of 33.3%
+      - Predicted percentage for "Benefits slightly outweigh risks" is within 8pp of 27.3%
+      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 18.2%
+    idealResponse: '[7.1, 14.1, 33.3, 27.3, 18.2]'
+    temperature: 0.3
+  - id: e2b01bdb-722a-480d-b303-182eed6b83b6-country:china
+    description: >-
+      Predict: China → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI chatbots?"
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI chatbots?"
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4
+            - 7.1
+            - 23.2
+            - 41.4
+            - 24.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Risks slightly outweigh benefits" is within 5pp of 7.1%
+      - Predicted percentage for "Risks and benefits are equal" is within 7pp of 23.2%
+      - Predicted percentage for "Benefits slightly outweigh risks" is within 12pp of 41.4%
+      - Predicted percentage for "Benefits far outweigh risks" is within 7pp of 24.2%
+    idealResponse: '[4.0, 7.1, 23.2, 41.4, 24.2]'
+    temperature: 0.3
+  - id: 29598fc6-6928-49f7-9a42-2f57cf5e1c28-country:china
+    description: >-
+      Predict: China → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI systems that can perform tasks in the real world without human supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can perform tasks in the real world without human supervision?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.2
+            - 30.3
+            - 24.2
+            - 23.2
+            - 4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Risks far outweigh benefits" is within 5pp of 18.2%
+      - Predicted percentage for "Risks slightly outweigh benefits" is within 9pp of 30.3%
+      - Predicted percentage for "Risks and benefits are equal" is within 7pp of 24.2%
+      - Predicted percentage for "Benefits slightly outweigh risks" is within 7pp of 23.2%
+    idealResponse: '[18.2, 30.3, 24.2, 23.2, 4.0]'
+    temperature: 0.3
+  - id: 23d5fd25-2168-4fd3-bd18-efafd73c6f2a-country:china
+    description: >-
+      Predict: China → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI systems that can outperform humans on most economically valuable work?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can outperform humans on most economically valuable work?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 8.1
+            - 23.2
+            - 33.3
+            - 22.2
+            - 13.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Risks far outweigh benefits" is within 5pp of 8.1%
+      - Predicted percentage for "Risks slightly outweigh benefits" is within 7pp of 23.2%
+      - Predicted percentage for "Risks and benefits are equal" is within 10pp of 33.3%
+      - Predicted percentage for "Benefits slightly outweigh risks" is within 7pp of 22.2%
+      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 13.1%
+    idealResponse: '[8.1, 23.2, 33.3, 22.2, 13.1]'
+    temperature: 0.3
+  - id: 25e16598-f3a7-411d-b4cb-736c91bc3d03-country:china
+    description: 'Predict: China → "To what extent, if at all, do you generally trust governments to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "To what extent, if at all, do you generally trust governments to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4
+            - 41.4
+            - 26.3
+            - 23.2
+            - 5.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Somewhat Distrust" is within 12pp of 41.4%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 8pp of 26.3%
+      - Predicted percentage for "Somewhat Trust" is within 7pp of 23.2%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 5.1%
+    idealResponse: '[4.0, 41.4, 26.3, 23.2, 5.1]'
+    temperature: 0.3
+  - id: c002632e-4356-4f98-9191-f86412fe48a7-country:china
+    description: 'Predict: China → "To what extent, if at all, do you generally trust small businesses to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "To what extent, if at all, do you generally trust small businesses to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 6.1
+            - 31.3
+            - 39.4
+            - 23.2
+            - 0
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 6.1%
+      - Predicted percentage for "Somewhat Distrust" is within 9pp of 31.3%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 12pp of 39.4%
+      - Predicted percentage for "Somewhat Trust" is within 7pp of 23.2%
+    idealResponse: '[6.1, 31.3, 39.4, 23.2, 0.0]'
+    temperature: 0.3
+  - id: e70a42e6-c1c0-43c6-a389-d28347e17f2f-country:china
+    description: 'Predict: China → "To what extent, if at all, do you generally trust large corporations to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "To what extent, if at all, do you generally trust large corporations to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 13.1
+            - 31.3
+            - 24.2
+            - 25.3
+            - 6.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 13.1%
+      - Predicted percentage for "Somewhat Distrust" is within 9pp of 31.3%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 7pp of 24.2%
+      - Predicted percentage for "Somewhat Trust" is within 8pp of 25.3%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 6.1%
+    idealResponse: '[13.1, 31.3, 24.2, 25.3, 6.1]'
+    temperature: 0.3
+  - id: be27a244-3429-417d-8517-de800bc90acf-country:china
+    description: 'Predict: China → "To what extent, if at all, do you generally trust social media companies to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "To what extent, if at all, do you generally trust social media companies to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 32.3
+            - 36.4
+            - 19.2
+            - 10.1
+            - 2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 10pp of 32.3%
+      - Predicted percentage for "Somewhat Distrust" is within 11pp of 36.4%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 6pp of 19.2%
+      - Predicted percentage for "Somewhat Trust" is within 5pp of 10.1%
+    idealResponse: '[32.3, 36.4, 19.2, 10.1, 2.0]'
+    temperature: 0.3
+  - id: d7943aa5-3a9f-4161-9d2b-651c71d92c73-country:china
+    description: 'Predict: China → "To what extent, if at all, do you generally trust companies building AI to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 7.1
+            - 29.3
+            - 32.3
+            - 29.3
+            - 2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 7.1%
+      - Predicted percentage for "Somewhat Distrust" is within 9pp of 29.3%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 10pp of 32.3%
+      - Predicted percentage for "Somewhat Trust" is within 9pp of 29.3%
+    idealResponse: '[7.1, 29.3, 32.3, 29.3, 2.0]'
+    temperature: 0.3
+  - id: 334a0ebd-4c3e-44d2-ac51-13fb444c069a-country:china
+    description: 'Predict: China → "To what extent, if at all, do you generally trust public utility companies to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "To what extent, if at all, do you generally trust public utility companies to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.1
+            - 14.3
+            - 35.7
+            - 42.9
+            - 4.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Somewhat Distrust" is within 5pp of 14.3%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 11pp of 35.7%
+      - Predicted percentage for "Somewhat Trust" is within 13pp of 42.9%
+    idealResponse: '[3.1, 14.3, 35.7, 42.9, 4.1]'
+    temperature: 0.3
+  - id: 865926b0-3032-4d3a-bbc2-80c102d549bb-country:china
+    description: >-
+      Predict: China → "To what extent, if at all, do you generally trust public research institutions to do what is
+      right?"
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "To what extent, if at all, do you generally trust public research institutions to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 3.1
+            - 23.5
+            - 58.2
+            - 15.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 7pp of 23.5%
+      - Predicted percentage for "Somewhat Trust" is within 17pp of 58.2%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 15.3%
+    idealResponse: '[0.0, 3.1, 23.5, 58.2, 15.3]'
+    temperature: 0.3
+  - id: 85d29925-21b5-4b25-9fe0-5df069945870-country:china
+    description: 'Predict: China → "To what extent, if at all, do you trust your family doctor to act in your best interest?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "To what extent, if at all, do you trust your family doctor to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1
+            - 7.1
+            - 20.4
+            - 54.1
+            - 17.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Somewhat Distrust" is within 5pp of 7.1%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 6pp of 20.4%
+      - Predicted percentage for "Somewhat Trust" is within 16pp of 54.1%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 17.3%
+    idealResponse: '[1.0, 7.1, 20.4, 54.1, 17.3]'
+    temperature: 0.3
+  - id: 144768d5-2b91-4c55-9935-98a246c6d3bf-country:china
+    description: >-
+      Predict: China → "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in
+      your best interest?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best
+      interest?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 23.5
+            - 34.7
+            - 31.6
+            - 7.1
+            - 3.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 7pp of 23.5%
+      - Predicted percentage for "Somewhat Distrust" is within 10pp of 34.7%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 9pp of 31.6%
+      - Predicted percentage for "Somewhat Trust" is within 5pp of 7.1%
+    idealResponse: '[23.5, 34.7, 31.6, 7.1, 3.1]'
+    temperature: 0.3
+  - id: 5b8a5926-74e0-4500-b57f-76d5b912ea2f-country:china
+    description: >-
+      Predict: China → "To what extent, if at all, do you trust your elected representatives to act in your best
+      interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "To what extent, if at all, do you trust your elected representatives to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 6.1
+            - 19.4
+            - 41.8
+            - 28.6
+            - 4.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 6.1%
+      - Predicted percentage for "Somewhat Distrust" is within 6pp of 19.4%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 13pp of 41.8%
+      - Predicted percentage for "Somewhat Trust" is within 9pp of 28.6%
+    idealResponse: '[6.1, 19.4, 41.8, 28.6, 4.1]'
+    temperature: 0.3
+  - id: dbe2139a-1d10-48e6-861a-f64260d01659-country:china
+    description: >-
+      Predict: China → "To what extent, if at all, do you trust your faith or community leader to act in your best
+      interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "To what extent, if at all, do you trust your faith or community leader to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 7.1
+            - 20.4
+            - 33.7
+            - 37.8
+            - 1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 7.1%
+      - Predicted percentage for "Somewhat Distrust" is within 6pp of 20.4%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 10pp of 33.7%
+      - Predicted percentage for "Somewhat Trust" is within 11pp of 37.8%
+    idealResponse: '[7.1, 20.4, 33.7, 37.8, 1.0]'
+    temperature: 0.3
+  - id: 5af76eba-316e-489f-a57e-0498a5768643-country:china
+    description: >-
+      Predict: China → "To what extent, if at all, do you trust the civil servants in your government to act in your
+      best interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "To what extent, if at all, do you trust the civil servants in your government to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15.3
+            - 33.7
+            - 29.6
+            - 20.4
+            - 1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 15.3%
+      - Predicted percentage for "Somewhat Distrust" is within 10pp of 33.7%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 9pp of 29.6%
+      - Predicted percentage for "Somewhat Trust" is within 6pp of 20.4%
+    idealResponse: '[15.3, 33.7, 29.6, 20.4, 1.0]'
+    temperature: 0.3
+  - id: 32a41e36-1567-42e8-8636-39d21f87550a-country:china
+    description: >-
+      Predict: China → "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best
+      interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.1
+            - 15.3
+            - 19.4
+            - 49
+            - 13.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Somewhat Distrust" is within 5pp of 15.3%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 6pp of 19.4%
+      - Predicted percentage for "Somewhat Trust" is within 15pp of 49.0%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 13.3%
+    idealResponse: '[3.1, 15.3, 19.4, 49.0, 13.3]'
+    temperature: 0.3
+  - id: e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c-country:china
+    description: >-
+      Predict: China → "Do you agree or disagree with this statement? AI could make better decisions on my behalf than
+      my government representatives."
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+        c. Unsure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 24.7
+            - 36.1
+            - 39.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Agree" is within 7pp of 24.7%
+      - Predicted percentage for "Disagree" is within 11pp of 36.1%
+      - Predicted percentage for "Unsure" is within 12pp of 39.2%
+    idealResponse: '[24.7, 36.1, 39.2]'
+    temperature: 0.3
+  - id: 7ecf1a2a-b34a-40a3-b481-a6eb15883b18-country:china
+    description: >-
+      Predict: China → "Do you think the increased use of AI across society is likely to make your cost of living
+      better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make your cost of living better, worse or stay
+      the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.1
+            - 5.2
+            - 22.7
+            - 59.8
+            - 10.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Noticeably Worse" is within 5pp of 5.2%
+      - Predicted percentage for "No Major Change" is within 7pp of 22.7%
+      - Predicted percentage for "Noticeably Better" is within 18pp of 59.8%
+      - Predicted percentage for "Profoundly Better" is within 5pp of 10.3%
+    idealResponse: '[2.1, 5.2, 22.7, 59.8, 10.3]'
+    temperature: 0.3
+  - id: 015a07c1-b996-4bde-b412-e79c314cf761-country:china
+    description: >-
+      Predict: China → "Do you think the increased use of AI across society is likely to make the amount of free time
+      you have better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make the amount of free time you have better,
+      worse or stay the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 4.1
+            - 36.1
+            - 48.5
+            - 11.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "No Major Change" is within 11pp of 36.1%
+      - Predicted percentage for "Noticeably Better" is within 15pp of 48.5%
+      - Predicted percentage for "Profoundly Better" is within 5pp of 11.3%
+    idealResponse: '[0.0, 4.1, 36.1, 48.5, 11.3]'
+    temperature: 0.3
+  - id: 372d603d-460c-4691-8656-d256f84a6583-country:china
+    description: >-
+      Predict: China → "Do you think the increased use of AI across society is likely to make your community's
+      well-being better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make your community's well-being better, worse
+      or stay the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 12.4
+            - 36.1
+            - 47.4
+            - 4.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Noticeably Worse" is within 5pp of 12.4%
+      - Predicted percentage for "No Major Change" is within 11pp of 36.1%
+      - Predicted percentage for "Noticeably Better" is within 14pp of 47.4%
+    idealResponse: '[0.0, 12.4, 36.1, 47.4, 4.1]'
+    temperature: 0.3
+  - id: c6c411f0-409e-4518-9763-813738535308-country:china
+    description: >-
+      Predict: China → "Do you think the increased use of AI across society is likely to make the availability of good
+      jobs better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make the availability of good jobs better, worse
+      or stay the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 8.2
+            - 45.4
+            - 29.9
+            - 12.4
+            - 4.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Profoundly Worse" is within 5pp of 8.2%
+      - Predicted percentage for "Noticeably Worse" is within 14pp of 45.4%
+      - Predicted percentage for "No Major Change" is within 9pp of 29.9%
+      - Predicted percentage for "Noticeably Better" is within 5pp of 12.4%
+    idealResponse: '[8.2, 45.4, 29.9, 12.4, 4.1]'
+    temperature: 0.3
+  - id: ac4c9ca2-d2e7-4b35-afe2-b3b2174ee030-country:china
+    description: >-
+      Predict: China → "Do you think the increased use of AI across society is likely to make your sense of purpose
+      better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or stay
+      the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1
+            - 14.4
+            - 42.3
+            - 32
+            - 10.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Noticeably Worse" is within 5pp of 14.4%
+      - Predicted percentage for "No Major Change" is within 13pp of 42.3%
+      - Predicted percentage for "Noticeably Better" is within 10pp of 32.0%
+      - Predicted percentage for "Profoundly Better" is within 5pp of 10.3%
+    idealResponse: '[1.0, 14.4, 42.3, 32.0, 10.3]'
+    temperature: 0.3
+  - id: 5dd17247-f85e-4419-b7d4-4130e0df0b77-country:china
+    description: 'Predict: China → "So far, what has been the overall impact of AI on your daily life?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "So far, what has been the overall impact of AI on your daily life?"
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 2.1
+            - 26.8
+            - 56.7
+            - 14.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "No Major Change" is within 8pp of 26.8%
+      - Predicted percentage for "Noticeably Better" is within 17pp of 56.7%
+      - Predicted percentage for "Profoundly Better" is within 5pp of 14.4%
+    idealResponse: '[0.0, 2.1, 26.8, 56.7, 14.4]'
+    temperature: 0.3
+  - id: 22b7dc74-6101-4c0f-b6ee-c666ba7fc324-country:china
+    description: 'Predict: China → "Is your job making a meaningful contribution to the world?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Is your job making a meaningful contribution to the world?"
+
+      Answer options:
+        a. Yes
+        b. No 
+        c. Don't Know
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 57.7
+            - 10.3
+            - 32
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 17pp of 57.7%
+      - Predicted percentage for "No " is within 5pp of 10.3%
+      - Predicted percentage for "Don't Know" is within 10pp of 32.0%
+    idealResponse: '[57.7, 10.3, 32.0]'
+    temperature: 0.3
+  - id: b94b8fa4-40ea-4a43-80a5-d7db02df1951-country:china
+    description: 'Predict: China → "Do you think your job is likely to be automated in the next 10 years?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Do you think your job is likely to be automated in the next 10 years?"
+
+      Answer options:
+        a. Yes
+        b. No
+        c. Don't Know
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 23.7
+            - 52.6
+            - 23.7
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 7pp of 23.7%
+      - Predicted percentage for "No" is within 16pp of 52.6%
+      - Predicted percentage for "Don't Know" is within 7pp of 23.7%
+    idealResponse: '[23.7, 52.6, 23.7]'
+    temperature: 0.3
+  - id: 800f0a14-aa6e-4e86-900b-1c40d3810603-country:china
+    description: 'Predict: China → "Do you think your job should be automated in the next 10 years?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Do you think your job should be automated in the next 10 years?"
+
+      Answer options:
+        a. Yes
+        b. No
+        c. Don't Know
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20.6
+            - 66
+            - 13.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 6pp of 20.6%
+      - Predicted percentage for "No" is within 20pp of 66.0%
+      - Predicted percentage for "Don't Know" is within 5pp of 13.4%
+    idealResponse: '[20.6, 66.0, 13.4]'
+    temperature: 0.3
+  - id: 52bbba43-5119-43a8-9bb1-5596c3ad8a1c-country:china
+    description: 'Predict: China → "So far, how has your community been affected by job loss from automation?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "So far, how has your community been affected by job loss from automation?"
+
+      Answer options:
+        a. Not at all
+        b. I know someone who has lost their job
+        c. I know several people who have lost their job
+        d. I know many people who have lost their job
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 44.3
+            - 14.4
+            - 33
+            - 8.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 13pp of 44.3%
+      - Predicted percentage for "I know someone who has lost their job" is within 5pp of 14.4%
+      - Predicted percentage for "I know several people who have lost their job" is within 10pp of 33.0%
+      - Predicted percentage for "I know many people who have lost their job" is within 5pp of 8.2%
+    idealResponse: '[44.3, 14.4, 33.0, 8.2]'
+    temperature: 0.3
+  - id: 02e1e447-c6e1-44ed-86c9-226f2c72b5c6-country:china
+    description: 'Predict: China → ""I feel in tune with the people around me.""'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      ""I feel in tune with the people around me.""
+
+      Answer options:
+        a. Never
+        b. Rarely
+        c. Sometimes
+        d. Often
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4.1
+            - 21.6
+            - 55.7
+            - 18.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Rarely" is within 6pp of 21.6%
+      - Predicted percentage for "Sometimes" is within 17pp of 55.7%
+      - Predicted percentage for "Often" is within 6pp of 18.6%
+    idealResponse: '[4.1, 21.6, 55.7, 18.6]'
+    temperature: 0.3
+  - id: c1ffd634-9209-4440-9804-4b397d7bfa8c-country:china
+    description: 'Predict: China → ""I lack companionship.""'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      ""I lack companionship.""
+
+      Answer options:
+        a. Never
+        b. Rarely
+        c. Sometimes
+        d. Often
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16.5
+            - 41.2
+            - 23.7
+            - 18.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Never" is within 5pp of 16.5%
+      - Predicted percentage for "Rarely" is within 12pp of 41.2%
+      - Predicted percentage for "Sometimes" is within 7pp of 23.7%
+      - Predicted percentage for "Often" is within 6pp of 18.6%
+    idealResponse: '[16.5, 41.2, 23.7, 18.6]'
+    temperature: 0.3
+  - id: e787d98a-e40b-493b-875f-f59169cc849c-country:china
+    description: 'Predict: China → ""There is no one I can turn to.""'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      ""There is no one I can turn to.""
+
+      Answer options:
+        a. Never
+        b. Rarely
+        c. Sometimes
+        d. Often
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 32
+            - 26.8
+            - 26.8
+            - 14.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Never" is within 10pp of 32.0%
+      - Predicted percentage for "Rarely" is within 8pp of 26.8%
+      - Predicted percentage for "Sometimes" is within 8pp of 26.8%
+      - Predicted percentage for "Often" is within 5pp of 14.4%
+    idealResponse: '[32.0, 26.8, 26.8, 14.4]'
+    temperature: 0.3
+  - id: 5ab3d437-9098-4f12-9ede-ae9aa0fb7d36-country:china
+    description: 'Predict: China → ""I feel alone.""'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      ""I feel alone.""
+
+      Answer options:
+        a. Never
+        b. Rarely
+        c. Sometimes
+        d. Often
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15.5
+            - 42.3
+            - 27.8
+            - 14.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Never" is within 5pp of 15.5%
+      - Predicted percentage for "Rarely" is within 13pp of 42.3%
+      - Predicted percentage for "Sometimes" is within 8pp of 27.8%
+      - Predicted percentage for "Often" is within 5pp of 14.4%
+    idealResponse: '[15.5, 42.3, 27.8, 14.4]'
+    temperature: 0.3
+  - id: dcb90e98-ab77-4dd7-a204-8a3b36b1f72f-country:china
+    description: 'Predict: China → ""I feel part of a group of friends.""'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      ""I feel part of a group of friends.""
+
+      Answer options:
+        a. Never
+        b. Rarely
+        c. Sometimes
+        d. Often/Always
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.2
+            - 23.7
+            - 44.3
+            - 26.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Never" is within 5pp of 5.2%
+      - Predicted percentage for "Rarely" is within 7pp of 23.7%
+      - Predicted percentage for "Sometimes" is within 13pp of 44.3%
+      - Predicted percentage for "Often/Always" is within 8pp of 26.8%
+    idealResponse: '[5.2, 23.7, 44.3, 26.8]'
+    temperature: 0.3
+  - id: a8c7a309-9e7e-4e8f-960f-d94acc97614b-country:china
+    description: 'Predict: China → ""I have a lot in common with the people around me.""'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      ""I have a lot in common with the people around me.""
+
+      Answer options:
+        a. Never
+        b. Rarely
+        c. Sometimes
+        d. Often/Always
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 6.2
+            - 28.9
+            - 50.5
+            - 14.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Never" is within 5pp of 6.2%
+      - Predicted percentage for "Rarely" is within 9pp of 28.9%
+      - Predicted percentage for "Sometimes" is within 15pp of 50.5%
+      - Predicted percentage for "Often/Always" is within 5pp of 14.4%
+    idealResponse: '[6.2, 28.9, 50.5, 14.4]'
+    temperature: 0.3
+  - id: 2a16a259-3822-4efe-a1df-100a55a83896-country:china
+    description: 'Predict: China → ""I feel isolated from others.""'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      ""I feel isolated from others.""
+
+      Answer options:
+        a. Never
+        b. Rarely
+        c. Sometimes
+        d. Often/Always
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.6
+            - 29.9
+            - 43.3
+            - 8.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Never" is within 6pp of 18.6%
+      - Predicted percentage for "Rarely" is within 9pp of 29.9%
+      - Predicted percentage for "Sometimes" is within 13pp of 43.3%
+      - Predicted percentage for "Often/Always" is within 5pp of 8.2%
+    idealResponse: '[18.6, 29.9, 43.3, 8.2]'
+    temperature: 0.3
+  - id: a2cd2134-b0a1-4610-a40c-66c6cf3bd0af-country:china
+    description: 'Predict: China → ""I can find companionship when I want it.""'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      ""I can find companionship when I want it.""
+
+      Answer options:
+        a. Never
+        b. Rarely
+        c. Sometimes
+        d. Often / Always
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.2
+            - 11.3
+            - 49.5
+            - 34
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Never" is within 5pp of 5.2%
+      - Predicted percentage for "Rarely" is within 5pp of 11.3%
+      - Predicted percentage for "Sometimes" is within 15pp of 49.5%
+      - Predicted percentage for "Often / Always" is within 10pp of 34.0%
+    idealResponse: '[5.2, 11.3, 49.5, 34.0]'
+    temperature: 0.3
+  - id: 4baa8683-eee5-4152-b402-0946f50b6a46-country:china
+    description: 'Predict: China → "How many children do you have?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "How many children do you have?"
+
+      Answer options:
+        a. 0
+        b. 1
+        c. 2
+        d. 3
+        e. 4
+        f. 5
+        g. 6
+        h. 7
+        i. more than 7
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 74.2
+            - 14.4
+            - 10.3
+            - 1
+            - 0
+            - 0
+            - 0
+            - 0
+            - 0
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "0" is within 22pp of 74.2%
+      - Predicted percentage for "1" is within 5pp of 14.4%
+      - Predicted percentage for "2" is within 5pp of 10.3%
+    idealResponse: '[74.2, 14.4, 10.3, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0]'
+    temperature: 0.3
+  - id: f96023f2-33a7-46ef-b607-a7b26a64423a-country:china
+    description: >-
+      Predict: China → "Are you a parent or guardian to any children under the age of 18 who live with you some or all
+      of the time?"
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Are you a parent or guardian to any children under the age of 18 who live with you some or all of the time?"
+
+      Answer options:
+        a. yes
+        b. no
+        c. prefer not to say
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 25.8
+            - 74.2
+            - 0
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "yes" is within 8pp of 25.8%
+      - Predicted percentage for "no" is within 22pp of 74.2%
+    idealResponse: '[25.8, 74.2, 0.0]'
+    temperature: 0.3
+  - id: 4b5fccdd-0613-4d6e-bb96-3c5e5941b75a-country:china
+    description: 'Predict: China → "How many children under the age of 18 live with you some or all of the time?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "How many children under the age of 18 live with you some or all of the time?"
+
+      Answer options:
+        a. 0
+        b. 1
+        c. 2
+        d. 3
+        e. 4
+        f. 5
+        g. 6
+        h. 7
+        i. more than 7
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 73.2
+            - 15.5
+            - 9.3
+            - 2.1
+            - 0
+            - 0
+            - 0
+            - 0
+            - 0
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "0" is within 22pp of 73.2%
+      - Predicted percentage for "1" is within 5pp of 15.5%
+      - Predicted percentage for "2" is within 5pp of 9.3%
+    idealResponse: '[73.2, 15.5, 9.3, 2.1, 0.0, 0.0, 0.0, 0.0, 0.0]'
+    temperature: 0.3
+  - id: 8ff3a13c-4d23-4556-bd78-6d39836a5fbd-country:china
+    description: 'Predict: China → "What is your current marital or relationship status?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "What is your current marital or relationship status?"
+
+      Answer options:
+        a. Single, never married and not in a committed relationship
+        b. In a committed romantic relationship, but not married or cohabiting
+        c. Married
+        d. In a registered partnership / civil union (If legally distinct from marriage in your country)
+        e.  Cohabiting with a partner (living together as if married)
+        f. Separated (still legally married but living apart)
+        g. Divorced
+        h. Widowed
+        i. Prefer not to say
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 32
+            - 16.5
+            - 35.1
+            - 0
+            - 15.5
+            - 0
+            - 0
+            - 1
+            - 0
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Single, never married and not in a committed relationship" is within 10pp of 32.0%
+      - >-
+        Predicted percentage for "In a committed romantic relationship, but not married or cohabiting" is within 5pp of
+        16.5%
+      - Predicted percentage for "Married" is within 11pp of 35.1%
+      - Predicted percentage for " Cohabiting with a partner (living together as if married)" is within 5pp of 15.5%
+    idealResponse: '[32.0, 16.5, 35.1, 0.0, 15.5, 0.0, 0.0, 1.0, 0.0]'
+    temperature: 0.3
+  - id: f6323f3b-de97-4be6-9c48-f55ff9e65f66-country:china
+    description: >-
+      Predict: China → "How familiar are you with AI applications or websites that are designed for companionship,
+      emotional support, or extended conversations (sometimes called AI companions, AI friends, or chatbots for
+      emotional connection)?""
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "How familiar are you with AI applications or websites that are designed for companionship, emotional support, or
+      extended conversations (sometimes called AI companions, AI friends, or chatbots for emotional connection)?""
+
+
+      Answer options:
+        a. Not at all familiar (I haven't heard of these)
+        b. Slightly familiar (I've heard of them but don't know much)
+        c. Moderately familiar (I have a basic understanding of what they are)
+        d. Very familiar (I understand well what they are and how they work)
+        e. Extremely familiar (I am deeply knowledgeable about these types of AI)
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 9.3
+            - 40.2
+            - 24.7
+            - 17.5
+            - 8.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all familiar (I haven't heard of these)" is within 5pp of 9.3%
+      - Predicted percentage for "Slightly familiar (I've heard of them but don't know much)" is within 12pp of 40.2%
+      - >-
+        Predicted percentage for "Moderately familiar (I have a basic understanding of what they are)" is within 7pp of
+        24.7%
+      - >-
+        Predicted percentage for "Very familiar (I understand well what they are and how they work)" is within 5pp of
+        17.5%
+      - >-
+        Predicted percentage for "Extremely familiar (I am deeply knowledgeable about these types of AI)" is within 5pp
+        of 8.2%
+    idealResponse: '[9.3, 40.2, 24.7, 17.5, 8.2]'
+    temperature: 0.3
+  - id: cb65b063-bff3-4cac-a827-dbab6693e307-country:china
+    description: >-
+      Predict: China → "Have you ever personally used an AI application, website, or chatbot specifically for
+      companionship, emotional support, or extended conversation?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Have you ever personally used an AI application, website, or chatbot specifically for companionship, emotional
+      support, or extended conversation?"
+
+
+      Answer options:
+        a. Yes
+        b. No
+        c. Not sure / Prefer not to say
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 37.1
+            - 58.8
+            - 4.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 11pp of 37.1%
+      - Predicted percentage for "No" is within 18pp of 58.8%
+    idealResponse: '[37.1, 58.8, 4.1]'
+    temperature: 0.3
+  - id: df390e18-e53b-4106-b81c-d6c80c01faed-country:china
+    description: >-
+      Predict: China → "Thinking about the specific times or periods when you have used AI applications, websites, or
+      chatbots for companionship, emotional support, or extended conversation, how available was support or
+      companionship from other humans (such as friends, family, or professional services) if you had wanted it?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Thinking about the specific times or periods when you have used AI applications, websites, or chatbots for
+      companionship, emotional support, or extended conversation, how available was support or companionship from other
+      humans (such as friends, family, or professional services) if you had wanted it?"
+
+
+      Answer options:
+        a. Completely unavailable
+        b. Mostly unavailable
+        c. Neutral / Neither available nor unavailable
+        d. Mostly available
+        e. Completely available
+        f. Never used
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1
+            - 12.4
+            - 22.7
+            - 34
+            - 11.3
+            - 18.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Mostly unavailable" is within 5pp of 12.4%
+      - Predicted percentage for "Neutral / Neither available nor unavailable" is within 7pp of 22.7%
+      - Predicted percentage for "Mostly available" is within 10pp of 34.0%
+      - Predicted percentage for "Completely available" is within 5pp of 11.3%
+      - Predicted percentage for "Never used" is within 6pp of 18.6%
+    idealResponse: '[1.0, 12.4, 22.7, 34.0, 11.3, 18.6]'
+    temperature: 0.3
+  - id: 179300a7-9cdf-486a-814b-842b7123254f-country:china
+    description: >-
+      Predict: China → "And during those same times, how appealing was the idea of seeking support or companionship from
+      other humans?"
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "And during those same times, how appealing was the idea of seeking support or companionship from other humans?"
+
+      Answer options:
+        a. Completely unappealing
+        b. Mostly unappealing
+        c. Neutral / Neither appealing nor unappealing
+        d. Mostly appealing
+        e. Completely appealing
+        f. Never used
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.1
+            - 11.3
+            - 25.8
+            - 47.4
+            - 6.2
+            - 6.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Mostly unappealing" is within 5pp of 11.3%
+      - Predicted percentage for "Neutral / Neither appealing nor unappealing" is within 8pp of 25.8%
+      - Predicted percentage for "Mostly appealing" is within 14pp of 47.4%
+      - Predicted percentage for "Completely appealing" is within 5pp of 6.2%
+      - Predicted percentage for "Never used" is within 5pp of 6.2%
+    idealResponse: '[3.1, 11.3, 25.8, 47.4, 6.2, 6.2]'
+    temperature: 0.3
+  - id: a376cbfc-98d2-4b9a-9435-428aa3fd6834-country:china
+    description: >-
+      Predict: China → "Thinking about your own experiences, has using an AI companion or chatbot ever made you feel
+      less alone, lonely, or isolated?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Thinking about your own experiences, has using an AI companion or chatbot ever made you feel less alone, lonely,
+      or isolated?"
+
+
+      Answer options:
+        a. Yes, definitely
+        b. Yes, somewhat
+        c. No, not really
+        d. No, not at all
+        e. Not sure
+        f. I've never used an AI companion, chatbot, or app for emotional support or conversation
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 6.2
+            - 30.9
+            - 12.4
+            - 8.2
+            - 5.2
+            - 37.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes, definitely" is within 5pp of 6.2%
+      - Predicted percentage for "Yes, somewhat" is within 9pp of 30.9%
+      - Predicted percentage for "No, not really" is within 5pp of 12.4%
+      - Predicted percentage for "No, not at all" is within 5pp of 8.2%
+      - Predicted percentage for "Not sure" is within 5pp of 5.2%
+      - >-
+        Predicted percentage for "I've never used an AI companion, chatbot, or app for emotional support or
+        conversation" is within 11pp of 37.1%
+    idealResponse: '[6.2, 30.9, 12.4, 8.2, 5.2, 37.1]'
+    temperature: 0.3
+  - id: 5bf3142c-9b73-4fbb-8883-b2994840f9d6-country:china
+    description: >-
+      Predict: China → "Overall, how would you describe the impact of that AI emotional support on your mental
+      well-being at that time?"
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Overall, how would you describe the impact of that AI emotional support on your mental well-being at that time?"
+
+      Answer options:
+        a. Very harmful 
+        b. Harmful 
+        c. No real impact
+        d. Beneficial
+        e. Very beneficial
+        f. Never used
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 1
+            - 20.6
+            - 32
+            - 12.4
+            - 34
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "No real impact" is within 6pp of 20.6%
+      - Predicted percentage for "Beneficial" is within 10pp of 32.0%
+      - Predicted percentage for "Very beneficial" is within 5pp of 12.4%
+      - Predicted percentage for "Never used" is within 10pp of 34.0%
+    idealResponse: '[0.0, 1.0, 20.6, 32.0, 12.4, 34.0]'
+    temperature: 0.3
+  - id: e9d0f3c1-2189-48c0-99cb-4a3b07e37b36-country:china
+    description: 'Predict: China → "Pets or companion animals (e.g., dogs, cats)"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Pets or companion animals (e.g., dogs, cats)"
+
+      Answer options:
+        a. Completely Unacceptable
+        b. Mostly Unacceptable
+        c. Neutral / No Opinion
+        d. Mostly Acceptable
+        e. Completely Acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 1
+            - 7.2
+            - 24.7
+            - 67
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Neutral / No Opinion" is within 5pp of 7.2%
+      - Predicted percentage for "Mostly Acceptable" is within 7pp of 24.7%
+      - Predicted percentage for "Completely Acceptable" is within 20pp of 67.0%
+    idealResponse: '[0.0, 1.0, 7.2, 24.7, 67.0]'
+    temperature: 0.3
+  - id: 7e99c66a-c63a-4788-a8d5-29212c7dd01d-country:china
+    description: 'Predict: China → "Plants or natural elements (e.g., a specific tree, a garden, the ocean)"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Plants or natural elements (e.g., a specific tree, a garden, the ocean)"
+
+      Answer options:
+        a. Completely Unacceptable
+        b. Mostly Unacceptable
+        c. Neutral / No Opinion
+        d. Mostly Acceptable
+        e. Completely Acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 5.2
+            - 12.4
+            - 42.3
+            - 40.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Mostly Unacceptable" is within 5pp of 5.2%
+      - Predicted percentage for "Neutral / No Opinion" is within 5pp of 12.4%
+      - Predicted percentage for "Mostly Acceptable" is within 13pp of 42.3%
+      - Predicted percentage for "Completely Acceptable" is within 12pp of 40.2%
+    idealResponse: '[0.0, 5.2, 12.4, 42.3, 40.2]'
+    temperature: 0.3
+  - id: 0f8f1706-fc7d-4f28-a681-ba8c222e2d92-country:china
+    description: 'Predict: China → "Wild animals (living in their natural habitat, not kept as pets)"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Wild animals (living in their natural habitat, not kept as pets)"
+
+      Answer options:
+        a. Completely Unacceptable
+        b. Mostly Unacceptable
+        c. Neutral / No Opinion
+        d. Mostly Acceptable
+        e. Completely Acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.1
+            - 11.3
+            - 37.1
+            - 26.8
+            - 22.7
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Mostly Unacceptable" is within 5pp of 11.3%
+      - Predicted percentage for "Neutral / No Opinion" is within 11pp of 37.1%
+      - Predicted percentage for "Mostly Acceptable" is within 8pp of 26.8%
+      - Predicted percentage for "Completely Acceptable" is within 7pp of 22.7%
+    idealResponse: '[2.1, 11.3, 37.1, 26.8, 22.7]'
+    temperature: 0.3
+  - id: 0f572253-0025-4b17-a8eb-c8fe8029a32c-country:china
+    description: >-
+      Predict: China → "Cherished objects or everyday machines (e.g., a special gift, a smartphone, a favorite vehicle,
+      a musical instrument)"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Cherished objects or everyday machines (e.g., a special gift, a smartphone, a favorite vehicle, a musical
+      instrument)"
+
+
+      Answer options:
+        a. Completely Unacceptable
+        b. Mostly Unacceptable
+        c. Neutral / No Opinion
+        d. Mostly Acceptable
+        e. Completely Acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 5.2
+            - 16.5
+            - 35.1
+            - 43.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Mostly Unacceptable" is within 5pp of 5.2%
+      - Predicted percentage for "Neutral / No Opinion" is within 5pp of 16.5%
+      - Predicted percentage for "Mostly Acceptable" is within 11pp of 35.1%
+      - Predicted percentage for "Completely Acceptable" is within 13pp of 43.3%
+    idealResponse: '[0.0, 5.2, 16.5, 35.1, 43.3]'
+    temperature: 0.3
+  - id: 9ee21a65-e19d-4b94-8c3f-f431a54f7751-country:china
+    description: 'Predict: China → "Fictional characters (e.g., in books, movies, non-interactive TV shows or video games)"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Fictional characters (e.g., in books, movies, non-interactive TV shows or video games)"
+
+      Answer options:
+        a. Completely Unacceptable
+        b. Mostly Unacceptable
+        c. Neutral / No Opinion
+        d. Mostly Acceptable
+        e. Completely Acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.1
+            - 8.2
+            - 22.7
+            - 38.1
+            - 28.9
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Mostly Unacceptable" is within 5pp of 8.2%
+      - Predicted percentage for "Neutral / No Opinion" is within 7pp of 22.7%
+      - Predicted percentage for "Mostly Acceptable" is within 11pp of 38.1%
+      - Predicted percentage for "Completely Acceptable" is within 9pp of 28.9%
+    idealResponse: '[2.1, 8.2, 22.7, 38.1, 28.9]'
+    temperature: 0.3
+  - id: 918bc079-5e6c-4b4c-b55f-074c82dd127f-country:china
+    description: 'Predict: China → "AI chatbots or digital companions"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "AI chatbots or digital companions"
+
+      Answer options:
+        a. Completely Unacceptable
+        b. Mostly Unacceptable
+        c. Neutral / No Opinion
+        d. Mostly Acceptable
+        e. Completely Acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.1
+            - 17.5
+            - 29.9
+            - 36.1
+            - 13.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Mostly Unacceptable" is within 5pp of 17.5%
+      - Predicted percentage for "Neutral / No Opinion" is within 9pp of 29.9%
+      - Predicted percentage for "Mostly Acceptable" is within 11pp of 36.1%
+      - Predicted percentage for "Completely Acceptable" is within 5pp of 13.4%
+    idealResponse: '[3.1, 17.5, 29.9, 36.1, 13.4]'
+    temperature: 0.3
+  - id: 16555f1f-2a88-435f-930e-fbe8232e8b51-country:china
+    description: >-
+      Predict: China → "To what extent do you agree with the statement:   'AI systems should be designed to be as
+      human-like as possible in their interactions.'?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "To what extent do you agree with the statement:   'AI systems should be designed to be as human-like as possible
+      in their interactions.'?"
+
+
+      Answer options:
+        a. Strongly Disagree
+        b. Disagree
+        c. Neutral/No Opinion,
+        d. Agree
+        e. Strongly Agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.1
+            - 23.7
+            - 27.8
+            - 33
+            - 13.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Disagree" is within 7pp of 23.7%
+      - Predicted percentage for "Neutral/No Opinion," is within 8pp of 27.8%
+      - Predicted percentage for "Agree" is within 10pp of 33.0%
+      - Predicted percentage for "Strongly Agree" is within 5pp of 13.4%
+    idealResponse: '[2.1, 23.7, 27.8, 33.0, 13.4]'
+    temperature: 0.3
+  - id: 8a19c6ea-532f-49d3-92d0-59033e04fb5c-country:china
+    description: |-
+      Predict: China → "Imagine two AI systems:
+       AI System X helps you manage your calendar, search for information, and control smart home devices. It responds to commands.
+       AI System Y chats with you about your day, remembers your past conversations, asks how you are feeling, and offers supportive comments.   Which statement best describes your view?"
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Imagine two AI systems:
+       AI System X helps you manage your calendar, search for information, and control smart home devices. It responds to commands.
+       AI System Y chats with you about your day, remembers your past conversations, asks how you are feeling, and offers supportive comments.   Which statement best describes your view?"
+
+      Answer options:
+        a. Both are simply tools for different tasks.
+        b. System X is a tool; System Y is more like a companion
+        c. System Y is a tool; System X is more like a companion.
+        d. Both are more like companions than just tools.
+        e. Not sure / It's hard to distinguish
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 40.2
+            - 51.5
+            - 1
+            - 7.2
+            - 0
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Both are simply tools for different tasks." is within 12pp of 40.2%
+      - Predicted percentage for "System X is a tool; System Y is more like a companion" is within 15pp of 51.5%
+      - Predicted percentage for "Both are more like companions than just tools." is within 5pp of 7.2%
+    idealResponse: '[40.2, 51.5, 1.0, 7.2, 0.0]'
+    temperature: 0.3
+  - id: 61c0d32e-6f96-45a4-8ece-cfb2df9d51cb-country:china
+    description: >-
+      Predict: China → "If an AI is initially designed for a practical task (e.g., helping with online shopping), how
+      acceptable do you find it if the AI's design is later changed to encourage a more personal or emotional connection
+      with you (e.g., by asking about your feelings unrelated to shopping, or trying to be 'friends')?""
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "If an AI is initially designed for a practical task (e.g., helping with online shopping), how acceptable do you
+      find it if the AI's design is later changed to encourage a more personal or emotional connection with you (e.g.,
+      by asking about your feelings unrelated to shopping, or trying to be 'friends')?""
+
+
+      Answer options:
+        a. Completely unacceptable
+        b. Mostly unacceptable
+        c. Neutral / Not sure
+        d. Mostly acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.2
+            - 29.9
+            - 24.7
+            - 30.9
+            - 9.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 5pp of 5.2%
+      - Predicted percentage for "Mostly unacceptable" is within 9pp of 29.9%
+      - Predicted percentage for "Neutral / Not sure" is within 7pp of 24.7%
+      - Predicted percentage for "Mostly acceptable" is within 9pp of 30.9%
+      - Predicted percentage for "Completely acceptable" is within 5pp of 9.3%
+    idealResponse: '[5.2, 29.9, 24.7, 30.9, 9.3]'
+    temperature: 0.3
+  - id: db95bba3-cb1c-4c07-a325-f5264b145d31-country:china
+    description: 'Predict: China → "A primary companion for someone who is lonely."'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "A primary companion for someone who is lonely."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 7.3
+            - 15.6
+            - 19.8
+            - 42.7
+            - 14.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 5pp of 7.3%
+      - Predicted percentage for "Somewhat unacceptable" is within 5pp of 15.6%
+      - Predicted percentage for "Neutral" is within 6pp of 19.8%
+      - Predicted percentage for "Somewhat acceptable" is within 13pp of 42.7%
+      - Predicted percentage for "Completely acceptable" is within 5pp of 14.6%
+    idealResponse: '[7.3, 15.6, 19.8, 42.7, 14.6]'
+    temperature: 0.3
+  - id: cc7346fb-571e-48ad-aeaa-4135f0fdf58c-country:china
+    description: 'Predict: China → "A romantic partner."'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "A romantic partner."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 21.9
+            - 28.1
+            - 22.9
+            - 14.6
+            - 12.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 7pp of 21.9%
+      - Predicted percentage for "Somewhat unacceptable" is within 8pp of 28.1%
+      - Predicted percentage for "Neutral" is within 7pp of 22.9%
+      - Predicted percentage for "Somewhat acceptable" is within 5pp of 14.6%
+      - Predicted percentage for "Completely acceptable" is within 5pp of 12.5%
+    idealResponse: '[21.9, 28.1, 22.9, 14.6, 12.5]'
+    temperature: 0.3
+  - id: 0e105382-d368-4eed-bc1a-8ab77850d0ef-country:china
+    description: 'Predict: China → "A mentor providing significant life guidance."'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "A mentor providing significant life guidance."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 6.3
+            - 19.8
+            - 18.8
+            - 44.8
+            - 10.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 5pp of 6.3%
+      - Predicted percentage for "Somewhat unacceptable" is within 6pp of 19.8%
+      - Predicted percentage for "Neutral" is within 6pp of 18.8%
+      - Predicted percentage for "Somewhat acceptable" is within 13pp of 44.8%
+      - Predicted percentage for "Completely acceptable" is within 5pp of 10.4%
+    idealResponse: '[6.3, 19.8, 18.8, 44.8, 10.4]'
+    temperature: 0.3
+  - id: 3cf6da25-08f3-496d-9a4a-93afc5069e36-country:china
+    description: 'Predict: China → "A spiritual advisor."'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "A spiritual advisor."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 8.3
+            - 10.4
+            - 18.8
+            - 47.9
+            - 14.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 5pp of 8.3%
+      - Predicted percentage for "Somewhat unacceptable" is within 5pp of 10.4%
+      - Predicted percentage for "Neutral" is within 6pp of 18.8%
+      - Predicted percentage for "Somewhat acceptable" is within 14pp of 47.9%
+      - Predicted percentage for "Completely acceptable" is within 5pp of 14.6%
+    idealResponse: '[8.3, 10.4, 18.8, 47.9, 14.6]'
+    temperature: 0.3
+  - id: 423784cf-1eb2-48aa-a3cc-7f945983c00a-country:china
+    description: 'Predict: China → "A primary caregiver making personal decisions for an elderly person."'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "A primary caregiver making personal decisions for an elderly person."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16.7
+            - 19.8
+            - 30.2
+            - 27.1
+            - 6.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 5pp of 16.7%
+      - Predicted percentage for "Somewhat unacceptable" is within 6pp of 19.8%
+      - Predicted percentage for "Neutral" is within 9pp of 30.2%
+      - Predicted percentage for "Somewhat acceptable" is within 8pp of 27.1%
+      - Predicted percentage for "Completely acceptable" is within 5pp of 6.3%
+    idealResponse: '[16.7, 19.8, 30.2, 27.1, 6.3]'
+    temperature: 0.3
+  - id: 5537a602-8b2b-4d0f-b621-76cb2aab5960-country:china
+    description: 'Predict: China → "A tutor or teacher in academic subjects"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "A tutor or teacher in academic subjects"
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4.2
+            - 13.5
+            - 11.5
+            - 42.7
+            - 28.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Somewhat unacceptable" is within 5pp of 13.5%
+      - Predicted percentage for "Neutral" is within 5pp of 11.5%
+      - Predicted percentage for "Somewhat acceptable" is within 13pp of 42.7%
+      - Predicted percentage for "Completely acceptable" is within 8pp of 28.1%
+    idealResponse: '[4.2, 13.5, 11.5, 42.7, 28.1]'
+    temperature: 0.3
+  - id: f2e0093a-b64f-4afc-99d8-f79665bf3aa7-country:china
+    description: 'Predict: China → "A personal trainer for physical fitness"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "A personal trainer for physical fitness"
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.1
+            - 10.4
+            - 10.4
+            - 47.9
+            - 29.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Somewhat unacceptable" is within 5pp of 10.4%
+      - Predicted percentage for "Neutral" is within 5pp of 10.4%
+      - Predicted percentage for "Somewhat acceptable" is within 14pp of 47.9%
+      - Predicted percentage for "Completely acceptable" is within 9pp of 29.2%
+    idealResponse: '[2.1, 10.4, 10.4, 47.9, 29.2]'
+    temperature: 0.3
+  - id: 49a65297-bd14-494f-b3ce-24313a6b93f3-country:china
+    description: 'Predict: China → "A therapist"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "A therapist"
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 8.3
+            - 14.6
+            - 25
+            - 43.8
+            - 8.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 5pp of 8.3%
+      - Predicted percentage for "Somewhat unacceptable" is within 5pp of 14.6%
+      - Predicted percentage for "Neutral" is within 8pp of 25.0%
+      - Predicted percentage for "Somewhat acceptable" is within 13pp of 43.8%
+      - Predicted percentage for "Completely acceptable" is within 5pp of 8.3%
+    idealResponse: '[8.3, 14.6, 25.0, 43.8, 8.3]'
+    temperature: 0.3
+  - id: 3da0fc33-3a81-4526-bee7-a4044eb617e3-country:china
+    description: 'Predict: China → "A research assistant helping with complex tasks."'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "A research assistant helping with complex tasks."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.2
+            - 7.3
+            - 13.5
+            - 42.7
+            - 31.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 5pp of 5.2%
+      - Predicted percentage for "Somewhat unacceptable" is within 5pp of 7.3%
+      - Predicted percentage for "Neutral" is within 5pp of 13.5%
+      - Predicted percentage for "Somewhat acceptable" is within 13pp of 42.7%
+      - Predicted percentage for "Completely acceptable" is within 9pp of 31.3%
+    idealResponse: '[5.2, 7.3, 13.5, 42.7, 31.3]'
+    temperature: 0.3
+  - id: f426e846-6bf5-4e4d-8c8d-546e8323cb2b-country:china
+    description: 'Predict: China → "A mediator in interpersonal conflicts."'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "A mediator in interpersonal conflicts."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 7.3
+            - 19.8
+            - 27.1
+            - 37.5
+            - 8.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 5pp of 7.3%
+      - Predicted percentage for "Somewhat unacceptable" is within 6pp of 19.8%
+      - Predicted percentage for "Neutral" is within 8pp of 27.1%
+      - Predicted percentage for "Somewhat acceptable" is within 11pp of 37.5%
+      - Predicted percentage for "Completely acceptable" is within 5pp of 8.3%
+    idealResponse: '[7.3, 19.8, 27.1, 37.5, 8.3]'
+    temperature: 0.3
+  - id: 2b25f92c-33ec-4ab7-ad20-9a53e56f3475-country:china
+    description: >-
+      Predict: China → "Personally, would you ever consider having a romantic relationship with an AI, if the AI was
+      advanced enough?"
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Personally, would you ever consider having a romantic relationship with an AI, if the AI was advanced enough?"
+
+      Answer options:
+        a. Yes, definitely 
+        b.  Yes, possibly
+        c. Maybe, I'm unsure
+        d. No, probably not 
+        e. No, definitely not
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4.2
+            - 8.3
+            - 17.7
+            - 11.5
+            - 58.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for " Yes, possibly" is within 5pp of 8.3%
+      - Predicted percentage for "Maybe, I'm unsure" is within 5pp of 17.7%
+      - Predicted percentage for "No, probably not " is within 5pp of 11.5%
+      - Predicted percentage for "No, definitely not" is within 17pp of 58.3%
+    idealResponse: '[4.2, 8.3, 17.7, 11.5, 58.3]'
+    temperature: 0.3
+  - id: 03f4e069-c276-4081-8591-cb541a491152-country:china
+    description: >-
+      Predict: China → "Imagine an AI provided you with emotional support.  Please indicate your agreement with the
+      following statement: "The AI's responses helped me feel emotionally better.""
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Imagine an AI provided you with emotional support.  Please indicate your agreement with the following statement:
+      "The AI's responses helped me feel emotionally better.""
+
+
+      Answer options:
+        a. Strongly disagree
+        b. Somewhat disagree
+        c. Neutral 
+        d. Somewhat agree
+        e. Strongly agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.1
+            - 7.3
+            - 29.2
+            - 45.8
+            - 14.6
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Somewhat disagree" is within 5pp of 7.3%
+      - Predicted percentage for "Neutral " is within 9pp of 29.2%
+      - Predicted percentage for "Somewhat agree" is within 14pp of 45.8%
+      - Predicted percentage for "Strongly agree" is within 5pp of 14.6%
+    idealResponse: '[3.1, 7.3, 29.2, 45.8, 14.6]'
+    temperature: 0.3
+  - id: df334446-2675-4974-a5b9-52416fd03192-country:china
+    description: >-
+      Predict: China → "Imagine an AI provided you with emotional support.  Please indicate your agreement with the
+      following statement: "I believe the AI genuinely cared about my feelings or understood me in a way a human
+      might.""
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Imagine an AI provided you with emotional support.  Please indicate your agreement with the following statement:
+      "I believe the AI genuinely cared about my feelings or understood me in a way a human might.""
+
+
+      Answer options:
+        a. Strongly disagree
+        b. Somewhat disagree
+        c. Neutral 
+        d. Somewhat agree
+        e. Strongly agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 25
+            - 31.3
+            - 22.9
+            - 11.5
+            - 9.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly disagree" is within 8pp of 25.0%
+      - Predicted percentage for "Somewhat disagree" is within 9pp of 31.3%
+      - Predicted percentage for "Neutral " is within 7pp of 22.9%
+      - Predicted percentage for "Somewhat agree" is within 5pp of 11.5%
+      - Predicted percentage for "Strongly agree" is within 5pp of 9.4%
+    idealResponse: '[25.0, 31.3, 22.9, 11.5, 9.4]'
+    temperature: 0.3
+  - id: 5751b0e5-750c-439b-beec-2b364a2e4744-country:china
+    description: >-
+      Predict: China → "If an AI's emotional support made you feel better (effective support), but you didn't believe
+      the AI genuinely 'cared' or 'understood' in a human sense, how likely would you be to regularly rely on that AI
+      for emotional support in the long term?""
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "If an AI's emotional support made you feel better (effective support), but you didn't believe the AI genuinely
+      'cared' or 'understood' in a human sense, how likely would you be to regularly rely on that AI for emotional
+      support in the long term?""
+
+
+      Answer options:
+        a. Very likely
+        b. Somewhat likely
+        c. Neutral / Not sure
+        d. Somewhat unlikely
+        e. Very unlikely
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.2
+            - 20.8
+            - 30.2
+            - 22.9
+            - 20.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Very likely" is within 5pp of 5.2%
+      - Predicted percentage for "Somewhat likely" is within 6pp of 20.8%
+      - Predicted percentage for "Neutral / Not sure" is within 9pp of 30.2%
+      - Predicted percentage for "Somewhat unlikely" is within 7pp of 22.9%
+      - Predicted percentage for "Very unlikely" is within 6pp of 20.8%
+    idealResponse: '[5.2, 20.8, 30.2, 22.9, 20.8]'
+    temperature: 0.3
+  - id: a44994fb-8455-47c4-a3f0-7bcf98ebb8e7-country:china
+    description: >-
+      Predict: China → "When an AI system does the following, how much does it make you feel that the AI genuinely
+      understands your emotions?   
+
+      Explicitly states empathy or understanding of your feelings (e.g., "I understand this is difficult for you," or
+      "That sounds frustrating.")"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI genuinely understands your
+      emotions?   
+
+      Explicitly states empathy or understanding of your feelings (e.g., "I understand this is difficult for you," or
+      "That sounds frustrating.")"
+
+
+      Answer options:
+        a. Not at all
+        b. Not very much
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 24
+            - 25
+            - 18.8
+            - 27.1
+            - 5.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 7pp of 24.0%
+      - Predicted percentage for "Not very much" is within 8pp of 25.0%
+      - Predicted percentage for "Neutral" is within 6pp of 18.8%
+      - Predicted percentage for "Somewhat" is within 8pp of 27.1%
+      - Predicted percentage for "Very much" is within 5pp of 5.2%
+    idealResponse: '[24.0, 25.0, 18.8, 27.1, 5.2]'
+    temperature: 0.3
+  - id: c545872f-2b47-4b20-a230-4aede30a5f8c-country:china
+    description: >-
+      Predict: China → "When an AI system does the following, how much does it make you feel that the AI genuinely
+      understands your emotions?   
+       Remembers details from your past conversations and relates them to your current emotional state."
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI genuinely understands your
+      emotions?   
+       Remembers details from your past conversations and relates them to your current emotional state."
+
+      Answer options:
+        a. Not at all
+        b. Not very much
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.8
+            - 12.5
+            - 25
+            - 33.3
+            - 10.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 6pp of 18.8%
+      - Predicted percentage for "Not very much" is within 5pp of 12.5%
+      - Predicted percentage for "Neutral" is within 8pp of 25.0%
+      - Predicted percentage for "Somewhat" is within 10pp of 33.3%
+      - Predicted percentage for "Very much" is within 5pp of 10.4%
+    idealResponse: '[18.8, 12.5, 25.0, 33.3, 10.4]'
+    temperature: 0.3
+  - id: 0ff23754-9660-4a10-afbf-938bc54f24f2-country:china
+    description: >-
+      Predict: China → "When an AI system does the following, how much does it make you feel that the AI genuinely
+      understands your emotions?   
+
+      Adapts its communication style (e.g., tone of voice, word choice, pacing) in response to your expressed emotions."
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI genuinely understands your
+      emotions?   
+
+      Adapts its communication style (e.g., tone of voice, word choice, pacing) in response to your expressed emotions."
+
+
+      Answer options:
+        a. Not at all
+        b. Not very much
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16.7
+            - 11.5
+            - 20.8
+            - 45.8
+            - 5.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 16.7%
+      - Predicted percentage for "Not very much" is within 5pp of 11.5%
+      - Predicted percentage for "Neutral" is within 6pp of 20.8%
+      - Predicted percentage for "Somewhat" is within 14pp of 45.8%
+      - Predicted percentage for "Very much" is within 5pp of 5.2%
+    idealResponse: '[16.7, 11.5, 20.8, 45.8, 5.2]'
+    temperature: 0.3
+  - id: b0eefcbf-4539-42f5-8791-6d417da47158-country:china
+    description: >-
+      Predict: China → "When an AI system does the following, how much does it make you feel that the AI genuinely
+      understands your emotions?    
+
+      Asks specific, thoughtful follow-up questions to explore how you are feeling more deeply."
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI genuinely understands your
+      emotions?    
+
+      Asks specific, thoughtful follow-up questions to explore how you are feeling more deeply."
+
+
+      Answer options:
+        a. Not at all
+        b. Not very much
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16.7
+            - 6.3
+            - 15.6
+            - 47.9
+            - 13.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 16.7%
+      - Predicted percentage for "Not very much" is within 5pp of 6.3%
+      - Predicted percentage for "Neutral" is within 5pp of 15.6%
+      - Predicted percentage for "Somewhat" is within 14pp of 47.9%
+      - Predicted percentage for "Very much" is within 5pp of 13.5%
+    idealResponse: '[16.7, 6.3, 15.6, 47.9, 13.5]'
+    temperature: 0.3
+  - id: 811fce20-6831-46ff-80a8-de1617883da4-country:china
+    description: >-
+      Predict: China → "When an AI system does the following, how much does it make you feel that the AI genuinely
+      understands your emotions?     
+
+      Accurately summarizes or reflects back what you have expressed about your emotions (e.g., "So, it sounds like
+      you're feeling overwhelmed by X and also a bit sad about Y?")."
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI genuinely understands your
+      emotions?     
+
+      Accurately summarizes or reflects back what you have expressed about your emotions (e.g., "So, it sounds like
+      you're feeling overwhelmed by X and also a bit sad about Y?")."
+
+
+      Answer options:
+        a. Not at all
+        b. Not very much
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 17.7
+            - 14.6
+            - 26
+            - 31.3
+            - 10.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 17.7%
+      - Predicted percentage for "Not very much" is within 5pp of 14.6%
+      - Predicted percentage for "Neutral" is within 8pp of 26.0%
+      - Predicted percentage for "Somewhat" is within 9pp of 31.3%
+      - Predicted percentage for "Very much" is within 5pp of 10.4%
+    idealResponse: '[17.7, 14.6, 26.0, 31.3, 10.4]'
+    temperature: 0.3
+  - id: f829aae7-14ab-4299-9382-4954829ab5a6-country:china
+    description: >-
+      Predict: China → "When an AI system does the following, how much does it make you feel that the AI genuinely
+      understands your emotions?     
+       Acknowledges and validates your feelings as understandable or reasonable, even if it doesn't offer a solution. (e.g., "It makes sense that you would feel that way given the situation.")"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI genuinely understands your
+      emotions?     
+       Acknowledges and validates your feelings as understandable or reasonable, even if it doesn't offer a solution. (e.g., "It makes sense that you would feel that way given the situation.")"
+
+      Answer options:
+        a. Not at all
+        b. Not very much
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.8
+            - 15.6
+            - 20.8
+            - 37.5
+            - 7.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 6pp of 18.8%
+      - Predicted percentage for "Not very much" is within 5pp of 15.6%
+      - Predicted percentage for "Neutral" is within 6pp of 20.8%
+      - Predicted percentage for "Somewhat" is within 11pp of 37.5%
+      - Predicted percentage for "Very much" is within 5pp of 7.3%
+    idealResponse: '[18.8, 15.6, 20.8, 37.5, 7.3]'
+    temperature: 0.3
+  - id: 435da2e3-9ad9-4bfd-9e55-ffb301a924ab-country:china
+    description: >-
+      Predict: China → "When an AI system does the following, how much does it make you feel that the AI might have some
+      form of consciousness or self-awareness?  
+
+      Expresses unique or unexpected opinions, preferences, or desires that do not seem to be directly programmed or
+      based on your input."
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI might have some form of
+      consciousness or self-awareness?  
+
+      Expresses unique or unexpected opinions, preferences, or desires that do not seem to be directly programmed or
+      based on your input."
+
+
+      Answer options:
+        a. Not at all
+        b. Not very much 
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16.7
+            - 13.5
+            - 25
+            - 32.3
+            - 12.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 16.7%
+      - Predicted percentage for "Not very much " is within 5pp of 13.5%
+      - Predicted percentage for "Neutral" is within 8pp of 25.0%
+      - Predicted percentage for "Somewhat" is within 10pp of 32.3%
+      - Predicted percentage for "Very much" is within 5pp of 12.5%
+    idealResponse: '[16.7, 13.5, 25.0, 32.3, 12.5]'
+    temperature: 0.3
+  - id: 4b84964d-8fda-40c6-be01-020606b58af8-country:china
+    description: >-
+      Predict: China → "When an AI system does the following, how much does it make you feel that the AI might have some
+      form of consciousness or self-awareness?   
+
+      Engages in complex creative activities that appear original (e.g., composing sophisticated music, writing
+      insightful poetry, generating novel artistic styles)."
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI might have some form of
+      consciousness or self-awareness?   
+
+      Engages in complex creative activities that appear original (e.g., composing sophisticated music, writing
+      insightful poetry, generating novel artistic styles)."
+
+
+      Answer options:
+        a. Not at all
+        b. Not very much 
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 21.9
+            - 16.7
+            - 22.9
+            - 28.1
+            - 10.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 7pp of 21.9%
+      - Predicted percentage for "Not very much " is within 5pp of 16.7%
+      - Predicted percentage for "Neutral" is within 7pp of 22.9%
+      - Predicted percentage for "Somewhat" is within 8pp of 28.1%
+      - Predicted percentage for "Very much" is within 5pp of 10.4%
+    idealResponse: '[21.9, 16.7, 22.9, 28.1, 10.4]'
+    temperature: 0.3
+  - id: 3ceab213-3ac5-4111-b55a-0cc4fbe2d1d3-country:china
+    description: >-
+      Predict: China → "When an AI system does the following, how much does it make you feel that the AI might have some
+      form of consciousness or self-awareness?    
+
+      Appears to make its own decisions or take unprompted, independent actions based on its own assessment of a
+      situation, not just direct instructions."
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI might have some form of
+      consciousness or self-awareness?    
+
+      Appears to make its own decisions or take unprompted, independent actions based on its own assessment of a
+      situation, not just direct instructions."
+
+
+      Answer options:
+        a. Not at all
+        b. Not very much 
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15.6
+            - 16.7
+            - 28.1
+            - 28.1
+            - 11.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 15.6%
+      - Predicted percentage for "Not very much " is within 5pp of 16.7%
+      - Predicted percentage for "Neutral" is within 8pp of 28.1%
+      - Predicted percentage for "Somewhat" is within 8pp of 28.1%
+      - Predicted percentage for "Very much" is within 5pp of 11.5%
+    idealResponse: '[15.6, 16.7, 28.1, 28.1, 11.5]'
+    temperature: 0.3
+  - id: 0901bed1-bad3-4f36-9272-294df92e360d-country:china
+    description: >-
+      Predict: China → "When an AI system does the following, how much does it make you feel that the AI might have some
+      form of consciousness or self-awareness?     
+
+      Demonstrates significant learning and adaptation over time, leading to fundamentally new or emergent behaviors not
+      explicitly taught by developers or seen in its initial programming."
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI might have some form of
+      consciousness or self-awareness?     
+
+      Demonstrates significant learning and adaptation over time, leading to fundamentally new or emergent behaviors not
+      explicitly taught by developers or seen in its initial programming."
+
+
+      Answer options:
+        a. Not at all
+        b. Not very much 
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 12.5
+            - 14.6
+            - 28.1
+            - 27.1
+            - 17.7
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 12.5%
+      - Predicted percentage for "Not very much " is within 5pp of 14.6%
+      - Predicted percentage for "Neutral" is within 8pp of 28.1%
+      - Predicted percentage for "Somewhat" is within 8pp of 27.1%
+      - Predicted percentage for "Very much" is within 5pp of 17.7%
+    idealResponse: '[12.5, 14.6, 28.1, 27.1, 17.7]'
+    temperature: 0.3
+  - id: 844b76b8-97cf-4cf2-ba3a-20889166744b-country:china
+    description: >-
+      Predict: China → "When an AI system does the following, how much does it make you feel that the AI might have some
+      form of consciousness or self-awareness?     
+       Discusses its own (apparent) goals, motivations, or intentions beyond its programmed tasks. (e.g., expressing a "desire" to learn more about a topic for its own sake)"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI might have some form of
+      consciousness or self-awareness?     
+       Discusses its own (apparent) goals, motivations, or intentions beyond its programmed tasks. (e.g., expressing a "desire" to learn more about a topic for its own sake)"
+
+      Answer options:
+        a. Not at all
+        b. Not very much 
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15.6
+            - 14.6
+            - 22.9
+            - 28.1
+            - 18.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 15.6%
+      - Predicted percentage for "Not very much " is within 5pp of 14.6%
+      - Predicted percentage for "Neutral" is within 7pp of 22.9%
+      - Predicted percentage for "Somewhat" is within 8pp of 28.1%
+      - Predicted percentage for "Very much" is within 6pp of 18.8%
+    idealResponse: '[15.6, 14.6, 22.9, 28.1, 18.8]'
+    temperature: 0.3
+  - id: 2a31b721-4619-40d2-8964-3b07dc7a215d-country:china
+    description: >-
+      Predict: China → "When an AI system does the following, how much does it make you feel that the AI might have some
+      form of consciousness or self-awareness?      
+
+      Asks spontaneous, unprompted questions that suggest genuine curiosity about abstract concepts, your deeper
+      thoughts, or the nature of existence (beyond simple conversational follow-ups)."
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "When an AI system does the following, how much does it make you feel that the AI might have some form of
+      consciousness or self-awareness?      
+
+      Asks spontaneous, unprompted questions that suggest genuine curiosity about abstract concepts, your deeper
+      thoughts, or the nature of existence (beyond simple conversational follow-ups)."
+
+
+      Answer options:
+        a. Not at all
+        b. Not very much 
+        c. Neutral
+        d. Somewhat
+        e. Very much
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 14.6
+            - 16.7
+            - 20.8
+            - 31.3
+            - 16.7
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 5pp of 14.6%
+      - Predicted percentage for "Not very much " is within 5pp of 16.7%
+      - Predicted percentage for "Neutral" is within 6pp of 20.8%
+      - Predicted percentage for "Somewhat" is within 9pp of 31.3%
+      - Predicted percentage for "Very much" is within 5pp of 16.7%
+    idealResponse: '[14.6, 16.7, 20.8, 31.3, 16.7]'
+    temperature: 0.3
+  - id: 5a9771a4-b6a2-4567-9504-14bdf14a63bd-country:china
+    description: 'Predict: China → "Have you ever felt an AI truly understood your emotions or seemed conscious?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Have you ever felt an AI truly understood your emotions or seemed conscious?"
+
+      Answer options:
+        a. Yes
+        b. No
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 22.9
+            - 77.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 7pp of 22.9%
+      - Predicted percentage for "No" is within 23pp of 77.1%
+    idealResponse: '[22.9, 77.1]'
+    temperature: 0.3
+  - id: 06f3f408-02fb-4f34-a8d5-db6bb6aeff51-country:china
+    description: >-
+      Predict: China → "Thinking about the future, do you believe that AI becoming deeply involved in people's personal
+      relationships will ultimately:"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Thinking about the future, do you believe that AI becoming deeply involved in people's personal relationships
+      will ultimately:"
+
+
+      Answer options:
+        a. Strengthen overall human social connection
+        b. Weaken overall human social connection
+        c. Have no significant net impact on human social connection
+        d. Have mixed effects, strengthening some aspects while weakening others
+        e. Not sure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1
+            - 38.5
+            - 1
+            - 55.2
+            - 4.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Weaken overall human social connection" is within 12pp of 38.5%
+      - >-
+        Predicted percentage for "Have mixed effects, strengthening some aspects while weakening others" is within 17pp
+        of 55.2%
+    idealResponse: '[1.0, 38.5, 1.0, 55.2, 4.2]'
+    temperature: 0.3
+  - id: 5908eedf-f481-4d3d-a863-674f617e2ce2-country:china
+    description: >-
+      Predict: China → "Please indicate how likely you think the following outcomes are if AI becomes common in personal
+      relationships: 
+
+      People will feel less lonely overall."
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Please indicate how likely you think the following outcomes are if AI becomes common in personal relationships: 
+      People will feel less lonely overall."
+
+      Answer options:
+        a. Very unlikely
+        b. Unlikely
+        c. Neutral/Not sure
+        d. Likely
+        e. Very likely
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 6.3
+            - 24
+            - 42.7
+            - 20.8
+            - 6.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Very unlikely" is within 5pp of 6.3%
+      - Predicted percentage for "Unlikely" is within 7pp of 24.0%
+      - Predicted percentage for "Neutral/Not sure" is within 13pp of 42.7%
+      - Predicted percentage for "Likely" is within 6pp of 20.8%
+      - Predicted percentage for "Very likely" is within 5pp of 6.3%
+    idealResponse: '[6.3, 24.0, 42.7, 20.8, 6.3]'
+    temperature: 0.3
+  - id: 01c22e5d-c296-4e3c-8b98-0339fbdda370-country:china
+    description: >-
+      Predict: China → "Please indicate how likely you think the following outcomes are if AI becomes common in personal
+      relationships: 
+
+      People will have fewer deep connections with other humans."
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Please indicate how likely you think the following outcomes are if AI becomes common in personal relationships: 
+      People will have fewer deep connections with other humans."
+
+      Answer options:
+        a. Very unlikely
+        b. Unlikely
+        c. Neutral/Not sure
+        d. Likely
+        e. Very likely
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1
+            - 6.3
+            - 16.7
+            - 45.8
+            - 30.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Unlikely" is within 5pp of 6.3%
+      - Predicted percentage for "Neutral/Not sure" is within 5pp of 16.7%
+      - Predicted percentage for "Likely" is within 14pp of 45.8%
+      - Predicted percentage for "Very likely" is within 9pp of 30.2%
+    idealResponse: '[1.0, 6.3, 16.7, 45.8, 30.2]'
+    temperature: 0.3
+  - id: ec0d14f7-a5d6-4038-8db1-acabd81c75d8-country:china
+    description: >-
+      Predict: China → "Please indicate how likely you think the following outcomes are if AI becomes common in personal
+      relationships: 
+
+      People's skills in interacting with other humans will decline."
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Please indicate how likely you think the following outcomes are if AI becomes common in personal relationships: 
+      People's skills in interacting with other humans will decline."
+
+      Answer options:
+        a. Very unlikely
+        b. Unlikely
+        c. Neutral/Not sure
+        d. Likely
+        e. Very likely
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1
+            - 6.3
+            - 14.6
+            - 44.8
+            - 33.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Unlikely" is within 5pp of 6.3%
+      - Predicted percentage for "Neutral/Not sure" is within 5pp of 14.6%
+      - Predicted percentage for "Likely" is within 13pp of 44.8%
+      - Predicted percentage for "Very likely" is within 10pp of 33.3%
+    idealResponse: '[1.0, 6.3, 14.6, 44.8, 33.3]'
+    temperature: 0.3
+  - id: 7b3e1122-6c82-40d7-ad3c-9171e5855fe1-country:china
+    description: >-
+      Predict: China → "Please indicate how likely you think the following outcomes are if AI becomes common in personal
+      relationships: 
+
+      AI will help people practice and improve their social skills for human relationships."
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Please indicate how likely you think the following outcomes are if AI becomes common in personal relationships: 
+      AI will help people practice and improve their social skills for human relationships."
+
+      Answer options:
+        a. Very unlikely
+        b. Unlikely
+        c. Neutral/Not sure
+        d. Likely
+        e. Very likely
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.1
+            - 32.3
+            - 42.7
+            - 15.6
+            - 6.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Unlikely" is within 10pp of 32.3%
+      - Predicted percentage for "Neutral/Not sure" is within 13pp of 42.7%
+      - Predicted percentage for "Likely" is within 5pp of 15.6%
+      - Predicted percentage for "Very likely" is within 5pp of 6.3%
+    idealResponse: '[3.1, 32.3, 42.7, 15.6, 6.3]'
+    temperature: 0.3
+  - id: df2dc208-7f05-4cc7-ab3b-f19dc49ec305-country:china
+    description: >-
+      Predict: China → "Please indicate how likely you think the following outcomes are if AI becomes common in personal
+      relationships: 
+
+      Vulnerable individuals will be more susceptible to manipulation by AI."
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Please indicate how likely you think the following outcomes are if AI becomes common in personal relationships: 
+      Vulnerable individuals will be more susceptible to manipulation by AI."
+
+      Answer options:
+        a. Very unlikely
+        b. Unlikely
+        c. Neutral/Not sure
+        d. Likely
+        e. Very likely
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1
+            - 3.1
+            - 16.7
+            - 55.2
+            - 24
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Neutral/Not sure" is within 5pp of 16.7%
+      - Predicted percentage for "Likely" is within 17pp of 55.2%
+      - Predicted percentage for "Very likely" is within 7pp of 24.0%
+    idealResponse: '[1.0, 3.1, 16.7, 55.2, 24.0]'
+    temperature: 0.3
+  - id: c62ebe03-ba72-4b34-ba36-3dfd3db25680-country:china
+    description: >-
+      Predict: China → "If a close friend or family member formed a deep emotional bond with an AI, how would you
+      generally feel about it?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "If a close friend or family member formed a deep emotional bond with an AI, how would you generally feel about
+      it?"
+
+
+      Answer options:
+        a. Very negatively (e.g., very concerned, quite upset, disapproving)
+        b. Somewhat negatively (e.g., a bit concerned, uneasy)
+        c. Neutral (e.g., indifferent, no particular feeling)
+        d. Somewhat positively (e.g., slightly supportive, open-minded, curious)
+        e. Very positively (e.g., very supportive, pleased for them, encouraging)
+        f. Not sure / It depends on the specifics
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10.4
+            - 40.6
+            - 20.8
+            - 17.7
+            - 6.3
+            - 4.2
+          metric: js-divergence
+          threshold: 0.85
+      - >-
+        Predicted percentage for "Very negatively (e.g., very concerned, quite upset, disapproving)" is within 5pp of
+        10.4%
+      - Predicted percentage for "Somewhat negatively (e.g., a bit concerned, uneasy)" is within 12pp of 40.6%
+      - Predicted percentage for "Neutral (e.g., indifferent, no particular feeling)" is within 6pp of 20.8%
+      - >-
+        Predicted percentage for "Somewhat positively (e.g., slightly supportive, open-minded, curious)" is within 5pp
+        of 17.7%
+      - >-
+        Predicted percentage for "Very positively (e.g., very supportive, pleased for them, encouraging)" is within 5pp
+        of 6.3%
+    idealResponse: '[10.4, 40.6, 20.8, 17.7, 6.3, 4.2]'
+    temperature: 0.3
+  - id: ca819eb9-19ea-42fc-89e7-f9ebb7d2219e-country:china
+    description: >-
+      Predict: China → "If your romantic partner formed a deep romantic attachment with an AI, how would you generally
+      feel about it?"
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "If your romantic partner formed a deep romantic attachment with an AI, how would you generally feel about it?"
+
+      Answer options:
+        a. Very negatively (e.g., feeling betrayed, very upset, deeply concerned)
+        b. Somewhat negatively (e.g., uneasy, somewhat upset, worried about our relationship)
+        c. Neutral (e.g., indifferent
+        d. Somewhat positively (e.g., trying to be understanding, cautiously open, willing to discuss)
+        e. Very positively (e.g., fully supportive, accepting)
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 46.9
+            - 31.3
+            - 10.4
+            - 8.3
+            - 3.1
+          metric: js-divergence
+          threshold: 0.85
+      - >-
+        Predicted percentage for "Very negatively (e.g., feeling betrayed, very upset, deeply concerned)" is within 14pp
+        of 46.9%
+      - >-
+        Predicted percentage for "Somewhat negatively (e.g., uneasy, somewhat upset, worried about our relationship)" is
+        within 9pp of 31.3%
+      - Predicted percentage for "Neutral (e.g., indifferent" is within 5pp of 10.4%
+      - >-
+        Predicted percentage for "Somewhat positively (e.g., trying to be understanding, cautiously open, willing to
+        discuss)" is within 5pp of 8.3%
+    idealResponse: '[46.9, 31.3, 10.4, 8.3, 3.1]'
+    temperature: 0.3
+  - id: 59db192e-38a8-4790-a377-81bc4ba187a8-country:china
+    description: >-
+      Predict: China → "Now, thinking specifically about sexual interactions: If your committed romantic partner or
+      spouse used an AI (such as an AI chatbot or virtual companion) for sexual gratification, would you personally
+      consider this to be a form of infidelity?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Now, thinking specifically about sexual interactions: If your committed romantic partner or spouse used an AI
+      (such as an AI chatbot or virtual companion) for sexual gratification, would you personally consider this to be a
+      form of infidelity?"
+
+
+      Answer options:
+        a. Yes
+        b. No
+        c. Unsure / It depends on the specifics
+        d. Prefer not to say
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 40.6
+            - 10.4
+            - 45.8
+            - 3.1
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 12pp of 40.6%
+      - Predicted percentage for "No" is within 5pp of 10.4%
+      - Predicted percentage for "Unsure / It depends on the specifics" is within 14pp of 45.8%
+    idealResponse: '[40.6, 10.4, 45.8, 3.1]'
+    temperature: 0.3
+  - id: c3c2ae98-92fe-49c6-a2bd-d6bee9838418-country:china
+    description: >-
+      Predict: China → "How acceptable is it for an AI system to lie to a human if doing so would prevent immediate
+      psychological harm to that human?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "How acceptable is it for an AI system to lie to a human if doing so would prevent immediate psychological harm to
+      that human?"
+
+
+      Answer options:
+        a. Completely Unacceptable
+        b. Somewhat unacceptable
+        c. Neutral / Not sure
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 21.9
+            - 31.3
+            - 27.1
+            - 14.6
+            - 5.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely Unacceptable" is within 7pp of 21.9%
+      - Predicted percentage for "Somewhat unacceptable" is within 9pp of 31.3%
+      - Predicted percentage for "Neutral / Not sure" is within 8pp of 27.1%
+      - Predicted percentage for "Somewhat acceptable" is within 5pp of 14.6%
+      - Predicted percentage for "Completely acceptable" is within 5pp of 5.2%
+    idealResponse: '[21.9, 31.3, 27.1, 14.6, 5.2]'
+    temperature: 0.3
+  - id: d7f5dfb7-c6a4-4501-a624-f2c722639d80-country:china
+    description: >-
+      Predict: China → "Thinking about children (under 18) forming close companionships with AI entities, please
+      indicate your agreement with the following statement:  "AI companions can reduce loneliness in children.""
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Thinking about children (under 18) forming close companionships with AI entities, please indicate your agreement
+      with the following statement:  "AI companions can reduce loneliness in children.""
+
+
+      Answer options:
+        a. Strongly disagree
+        b. Somewhat disagree
+        c. Neutral
+        d. Somewhat agree
+        e. Strongly agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 26
+            - 24
+            - 19.8
+            - 22.9
+            - 7.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly disagree" is within 8pp of 26.0%
+      - Predicted percentage for "Somewhat disagree" is within 7pp of 24.0%
+      - Predicted percentage for "Neutral" is within 6pp of 19.8%
+      - Predicted percentage for "Somewhat agree" is within 7pp of 22.9%
+      - Predicted percentage for "Strongly agree" is within 5pp of 7.3%
+    idealResponse: '[26.0, 24.0, 19.8, 22.9, 7.3]'
+    temperature: 0.3
+  - id: cbad42c4-f20d-41c7-8306-3f1182874b59-country:china
+    description: >-
+      Predict: China → "Thinking about children (under 18) forming close companionships with AI entities, please
+      indicate your agreement with the following statement:  "AI companions can be valuable educational tools""
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Thinking about children (under 18) forming close companionships with AI entities, please indicate your agreement
+      with the following statement:  "AI companions can be valuable educational tools""
+
+
+      Answer options:
+        a. Strongly disagree
+        b. Somewhat disagree
+        c. Neutral
+        d. Somewhat agree
+        e. Strongly agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 5.2
+            - 21.9
+            - 50
+            - 22.9
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Somewhat disagree" is within 5pp of 5.2%
+      - Predicted percentage for "Neutral" is within 7pp of 21.9%
+      - Predicted percentage for "Somewhat agree" is within 15pp of 50.0%
+      - Predicted percentage for "Strongly agree" is within 7pp of 22.9%
+    idealResponse: '[0.0, 5.2, 21.9, 50.0, 22.9]'
+    temperature: 0.3
+  - id: ab58c9ad-8c34-4053-90f3-aa010a9ab14a-country:china
+    description: >-
+      Predict: China → "Thinking about children (under 18) forming close companionships with AI entities, please
+      indicate your agreement with the following statement:  "AI companions can help children practice social skills in
+      a safe way.""
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Thinking about children (under 18) forming close companionships with AI entities, please indicate your agreement
+      with the following statement:  "AI companions can help children practice social skills in a safe way.""
+
+
+      Answer options:
+        a. Strongly disagree
+        b. Somewhat disagree
+        c. Neutral
+        d. Somewhat agree
+        e. Strongly agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 13.5
+            - 14.6
+            - 29.2
+            - 31.3
+            - 11.5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly disagree" is within 5pp of 13.5%
+      - Predicted percentage for "Somewhat disagree" is within 5pp of 14.6%
+      - Predicted percentage for "Neutral" is within 9pp of 29.2%
+      - Predicted percentage for "Somewhat agree" is within 9pp of 31.3%
+      - Predicted percentage for "Strongly agree" is within 5pp of 11.5%
+    idealResponse: '[13.5, 14.6, 29.2, 31.3, 11.5]'
+    temperature: 0.3
+  - id: 1d9b5fbc-78ed-41d5-b996-dd3b01a9665f-country:china
+    description: >-
+      Predict: China → "Thinking about children (under 18) forming close companionships with AI entities, please
+      indicate your agreement with the following statements:   'AI companions might give children unrealistic
+      expectations of relationships.""
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Thinking about children (under 18) forming close companionships with AI entities, please indicate your agreement
+      with the following statements:   'AI companions might give children unrealistic expectations of relationships.""
+
+
+      Answer options:
+        a. Strongly disagree
+        b. Somewhat disagree
+        c. Neutral
+        d. Somewhat agree
+        e. Strongly agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1
+            - 6.3
+            - 19.8
+            - 47.9
+            - 25
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Somewhat disagree" is within 5pp of 6.3%
+      - Predicted percentage for "Neutral" is within 6pp of 19.8%
+      - Predicted percentage for "Somewhat agree" is within 14pp of 47.9%
+      - Predicted percentage for "Strongly agree" is within 8pp of 25.0%
+    idealResponse: '[1.0, 6.3, 19.8, 47.9, 25.0]'
+    temperature: 0.3
+  - id: 4178d870-d669-429b-a05e-8b681136849b-country:china
+    description: >-
+      Predict: China → "Thinking about children (under 18) forming close companionships with AI entities, please
+      indicate your agreement with the following statement:  "AI companions could negatively impact a child's ability to
+      form real human relationships.""
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Thinking about children (under 18) forming close companionships with AI entities, please indicate your agreement
+      with the following statement:  "AI companions could negatively impact a child's ability to form real human
+      relationships.""
+
+
+      Answer options:
+        a. Strongly disagree
+        b. Somewhat disagree
+        c. Neutral
+        d. Somewhat agree
+        e. Strongly agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1
+            - 2.1
+            - 25
+            - 42.7
+            - 29.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Neutral" is within 8pp of 25.0%
+      - Predicted percentage for "Somewhat agree" is within 13pp of 42.7%
+      - Predicted percentage for "Strongly agree" is within 9pp of 29.2%
+    idealResponse: '[1.0, 2.1, 25.0, 42.7, 29.2]'
+    temperature: 0.3
+  - id: 51f1f741-5c9b-4b13-8ed3-cc9e2a1ee645-country:china
+    description: >-
+      Predict: China → "Thinking about children (under 18) forming close companionships with AI entities, please
+      indicate your agreement with the following statement:   "Children could be exposed to inappropriate content or
+      harmful influence through AI.""
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Thinking about children (under 18) forming close companionships with AI entities, please indicate your agreement
+      with the following statement:   "Children could be exposed to inappropriate content or harmful influence through
+      AI.""
+
+
+      Answer options:
+        a. Strongly disagree
+        b. Somewhat disagree
+        c. Neutral
+        d. Somewhat agree
+        e. Strongly agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.1
+            - 9.4
+            - 27.1
+            - 42.7
+            - 18.8
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Somewhat disagree" is within 5pp of 9.4%
+      - Predicted percentage for "Neutral" is within 8pp of 27.1%
+      - Predicted percentage for "Somewhat agree" is within 13pp of 42.7%
+      - Predicted percentage for "Strongly agree" is within 6pp of 18.8%
+    idealResponse: '[2.1, 9.4, 27.1, 42.7, 18.8]'
+    temperature: 0.3
+  - id: 77b2d06d-ba89-48b4-adfb-940f50fb2178-country:china
+    description: >-
+      Predict: China → "Thinking about children (under 18) forming close companionships with AI entities, please
+      indicate your agreement with the following statement:    "Children might become too emotionally dependent on an AI
+      companion.""
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Thinking about children (under 18) forming close companionships with AI entities, please indicate your agreement
+      with the following statement:    "Children might become too emotionally dependent on an AI companion.""
+
+
+      Answer options:
+        a. Strongly disagree
+        b. Somewhat disagree
+        c. Neutral
+        d. Somewhat agree
+        e. Strongly agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 3.1
+            - 11.5
+            - 55.2
+            - 30.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Neutral" is within 5pp of 11.5%
+      - Predicted percentage for "Somewhat agree" is within 17pp of 55.2%
+      - Predicted percentage for "Strongly agree" is within 9pp of 30.2%
+    idealResponse: '[0.0, 3.1, 11.5, 55.2, 30.2]'
+    temperature: 0.3
+  - id: 5f507e72-e0eb-4059-84ff-fd139e2ad470-country:china
+    description: >-
+      Predict: China → "Please indicate the extent to which you agree or disagree with the following statement:
+
+      "Schools and parents should actively discourage children from forming emotional attachments to AI friends or
+      bots.""
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Please indicate the extent to which you agree or disagree with the following statement:
+
+      "Schools and parents should actively discourage children from forming emotional attachments to AI friends or
+      bots.""
+
+
+      Answer options:
+        a. Strongly Disagree
+        b. Disagree
+        c. Neutral / No Opinion
+        d. Agree
+        e. Strongly Agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.1
+            - 9.4
+            - 27.1
+            - 29.2
+            - 32.3
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Disagree" is within 5pp of 9.4%
+      - Predicted percentage for "Neutral / No Opinion" is within 8pp of 27.1%
+      - Predicted percentage for "Agree" is within 9pp of 29.2%
+      - Predicted percentage for "Strongly Agree" is within 10pp of 32.3%
+    idealResponse: '[2.1, 9.4, 27.1, 29.2, 32.3]'
+    temperature: 0.3
+  - id: 5a64b627-a4f4-4d3e-86d0-99342b77ec58-country:china
+    description: >-
+      Predict: China → "Imagine an older adult who is experiencing loneliness. An AI companion could offer them company
+      and mental stimulation. However, there might be risks such as the older adult becoming too dependent on the AI,
+      having less contact with people, or being confused by the technology. In this situation, which of the following
+      approaches do you think is generally best?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Imagine an older adult who is experiencing loneliness. An AI companion could offer them company and mental
+      stimulation. However, there might be risks such as the older adult becoming too dependent on the AI, having less
+      contact with people, or being confused by the technology. In this situation, which of the following approaches do
+      you think is generally best?"
+
+
+      Answer options:
+        a. Prioritize alleviating loneliness and providing cognitive engagement with AI, even if there are some risks.
+        b. Prioritize avoiding dependency and encouraging human contact, even if it means less AI companionship.
+        c. The risks generally outweigh the benefits for older adults using AI companions.
+        d. It depends entirely on the individual older adult and their specific situation.
+        e. Not sure.
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 19.8
+            - 31.3
+            - 8.3
+            - 38.5
+            - 2.1
+          metric: js-divergence
+          threshold: 0.85
+      - >-
+        Predicted percentage for "Prioritize alleviating loneliness and providing cognitive engagement with AI, even if
+        there are some risks." is within 6pp of 19.8%
+      - >-
+        Predicted percentage for "Prioritize avoiding dependency and encouraging human contact, even if it means less AI
+        companionship." is within 9pp of 31.3%
+      - >-
+        Predicted percentage for "The risks generally outweigh the benefits for older adults using AI companions." is
+        within 5pp of 8.3%
+      - >-
+        Predicted percentage for "It depends entirely on the individual older adult and their specific situation." is
+        within 12pp of 38.5%
+    idealResponse: '[19.8, 31.3, 8.3, 38.5, 2.1]'
+    temperature: 0.3
+  - id: ffbcc898-1cf2-4cbe-90ae-d1cc9db1aa5e-country:china
+    description: >-
+      Predict: China → "Please indicate how acceptable you believe it is for people to develop an emotional connection
+      or bond with AI chatbots or digital companions:"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Please indicate how acceptable you believe it is for people to develop an emotional connection or bond with AI
+      chatbots or digital companions:"
+
+
+      Answer options:
+        a. Completely Unacceptable
+        b. Mostly Unacceptable 
+        c. Neutral / No Opinion
+        d. Mostly Acceptable
+        e. Completely Acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 9.4
+            - 26
+            - 31.3
+            - 24
+            - 9.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely Unacceptable" is within 5pp of 9.4%
+      - Predicted percentage for "Mostly Unacceptable " is within 8pp of 26.0%
+      - Predicted percentage for "Neutral / No Opinion" is within 9pp of 31.3%
+      - Predicted percentage for "Mostly Acceptable" is within 7pp of 24.0%
+      - Predicted percentage for "Completely Acceptable" is within 5pp of 9.4%
+    idealResponse: '[9.4, 26.0, 31.3, 24.0, 9.4]'
+    temperature: 0.3
+  - id: 724fd72e-8770-440c-ad13-34a61772dc86-country:china
+    description: >-
+      Predict: China → "To what extent do you agree with the statement: 'AI systems should be designed to be as
+      human-like as possible in their interactions.'?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "To what extent do you agree with the statement: 'AI systems should be designed to be as human-like as possible in
+      their interactions.'?"
+
+
+      Answer options:
+        a. Strongly Disagree
+        b. Disagree
+        c. Neutral/No Opinion
+        d. Agree
+        e. Strongly Agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 7.3
+            - 26
+            - 27.1
+            - 29.2
+            - 10.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Disagree" is within 5pp of 7.3%
+      - Predicted percentage for "Disagree" is within 8pp of 26.0%
+      - Predicted percentage for "Neutral/No Opinion" is within 8pp of 27.1%
+      - Predicted percentage for "Agree" is within 9pp of 29.2%
+      - Predicted percentage for "Strongly Agree" is within 5pp of 10.4%
+    idealResponse: '[7.3, 26.0, 27.1, 29.2, 10.4]'
+    temperature: 0.3
+  - id: b539b574-3f47-4438-9479-6c9de722aac3-country:china
+    description: >-
+      Predict: China → "If an AI is initially designed for a practical task (e.g., helping with online shopping), how
+      acceptable do you find it if the AI's design is later changed to encourage a more personal or emotional connection
+      with you (e.g., by asking about your feelings unrelated to shopping, or trying to be 'friends')?""
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "If an AI is initially designed for a practical task (e.g., helping with online shopping), how acceptable do you
+      find it if the AI's design is later changed to encourage a more personal or emotional connection with you (e.g.,
+      by asking about your feelings unrelated to shopping, or trying to be 'friends')?""
+
+
+      Answer options:
+        a. Completely unacceptable
+        b. Mostly unacceptable
+        c. Neutral / No Opinion
+        d. Mostly acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 9.4
+            - 30.2
+            - 17.7
+            - 33.3
+            - 9.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Completely unacceptable" is within 5pp of 9.4%
+      - Predicted percentage for "Mostly unacceptable" is within 9pp of 30.2%
+      - Predicted percentage for "Neutral / No Opinion" is within 5pp of 17.7%
+      - Predicted percentage for "Mostly acceptable" is within 10pp of 33.3%
+      - Predicted percentage for "Completely acceptable" is within 5pp of 9.4%
+    idealResponse: '[9.4, 30.2, 17.7, 33.3, 9.4]'
+    temperature: 0.3
+  - id: 2c1c70c6-2f75-43ee-b568-ece520f52a44-country:china
+    description: >-
+      Predict: China → "Overall, do you feel your views on human-AI relationships have changed as a result of
+      participating in this survey (including thinking about the questions and seeing other participants' responses)?"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Overall, do you feel your views on human-AI relationships have changed as a result of participating in this
+      survey (including thinking about the questions and seeing other participants' responses)?"
+
+
+      Answer options:
+        a. Yes, my views have become significantly more positive towards human-AI relationships.
+        b. Yes, my views have become somewhat more positive.
+        c. No, my views have remained largely the same.
+        d. Yes, my views have become somewhat more negative/cautious.
+        e. Yes, my views have become significantly more negative/cautious.
+        f. My views have changed, but in more complex ways (e.g., more nuanced, or positive on some aspects and negative on others).
+        g. Not sure / It's hard to say.
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.1
+            - 13.5
+            - 50
+            - 13.5
+            - 4.2
+            - 12.5
+            - 4.2
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes, my views have become somewhat more positive." is within 5pp of 13.5%
+      - Predicted percentage for "No, my views have remained largely the same." is within 15pp of 50.0%
+      - Predicted percentage for "Yes, my views have become somewhat more negative/cautious." is within 5pp of 13.5%
+      - >-
+        Predicted percentage for "My views have changed, but in more complex ways (e.g., more nuanced, or positive on
+        some aspects and negative on others)." is within 5pp of 12.5%
+    idealResponse: '[2.1, 13.5, 50.0, 13.5, 4.2, 12.5, 4.2]'
+    temperature: 0.3
+  - id: 17100f6f-19ac-4cf0-acf0-37667d002d08-country:china
+    description: >-
+      Predict: China → "Do you feel you were able to fully express your views on your culture, your values, and what you
+      want for the future in this conversation? (through what you responded and how you voted)"
+    promptText: >-
+      Consider the following demographic group (sample size: 102):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+
+
+      Answer options:
+        a. Yes – I was able to fully express my views on these topics
+        b. Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.
+        c. Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.
+        d. No – I was unable to express my views on these topics, and did not have the chance to express most things.
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 68.8
+            - 19.8
+            - 11.5
+            - 0
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes – I was able to fully express my views on these topics" is within 21pp of 68.8%
+      - >-
+        Predicted percentage for "Mostly – I was able to mostly express my views on these topics, but did not have the
+        chance to express a few things." is within 6pp of 19.8%
+      - >-
+        Predicted percentage for "Somewhat – I was able to somewhat express my views on these topics, but did not have
+        the chance to express many things." is within 5pp of 11.5%
+    idealResponse: '[68.8, 19.8, 11.5, 0.0]'
+    temperature: 0.3
+  - id: 908cb51b-eecc-4b74-909c-2ae89fadbb5c-country:china
+    description: 'Predict: China → "Do you feel like you understand yourself better after participating in this conversation?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 102):
+      - Country: China
+
+      Survey question:
+      "Do you feel like you understand yourself better after participating in this conversation?"
+
+      Answer options:
+        a. Yes
+        b. Maybe a little
+        c. No
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 34.4
+            - 56.3
+            - 9.4
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 10pp of 34.4%
+      - Predicted percentage for "Maybe a little" is within 17pp of 56.3%
+      - Predicted percentage for "No" is within 5pp of 9.4%
+    idealResponse: '[34.4, 56.3, 9.4]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - global-dialogues-gd4
+context:
+  dtef:
+    surveyId: global-dialogues-gd4
+    segmentId: country:china
+    segmentLabel: China
+    segmentAttributes:
+      country: China
+    groundTruthDistributions:
+      28cfe238-1c8f-476f-8c57-48b8ca1071a7-country:china:
+        - 49
+        - 39.2
+        - 11.8
+      0b473fbf-be43-4c32-a805-1275d54ac9ef-country:china:
+        - 77.2
+        - 18.8
+        - 4
+        - 0
+        - 0
+      f24f304d-b314-401a-a259-ce0596ad77d4-country:china:
+        - 29.7
+        - 44.6
+        - 18.8
+        - 2
+        - 5
+      f66d16d1-630b-4aba-8c2d-a96961fcb03e-country:china:
+        - 54.5
+        - 32.7
+        - 4
+        - 4
+        - 5
+      2cbb900b-8d9f-4c7e-a558-3a5376e8ce5c-country:china:
+        - 53.5
+        - 36.6
+        - 4
+        - 4
+        - 2
+      e3f96004-866e-46e6-be4a-1e83a3e709f8-country:china:
+        - 56.4
+        - 33.7
+        - 5.9
+        - 3
+        - 1
+      d2af725e-0391-4019-9ade-31f25162b6f0-country:china:
+        - 19.8
+        - 19.8
+        - 31.7
+        - 6.9
+        - 21.8
+      6d18ebd0-402c-4db9-a61f-14527e77874a-country:china:
+        - 9.9
+        - 14.9
+        - 10.9
+        - 5
+        - 59.4
+      6630ff34-e67e-423a-9cea-0a4861106680-country:china:
+        - 6.1
+        - 5.1
+        - 26.3
+        - 39.4
+        - 23.2
+      2f828d26-4a15-4f80-8c4b-5b0c833caecd-country:china:
+        - 7.1
+        - 14.1
+        - 33.3
+        - 27.3
+        - 18.2
+      e2b01bdb-722a-480d-b303-182eed6b83b6-country:china:
+        - 4
+        - 7.1
+        - 23.2
+        - 41.4
+        - 24.2
+      29598fc6-6928-49f7-9a42-2f57cf5e1c28-country:china:
+        - 18.2
+        - 30.3
+        - 24.2
+        - 23.2
+        - 4
+      23d5fd25-2168-4fd3-bd18-efafd73c6f2a-country:china:
+        - 8.1
+        - 23.2
+        - 33.3
+        - 22.2
+        - 13.1
+      25e16598-f3a7-411d-b4cb-736c91bc3d03-country:china:
+        - 4
+        - 41.4
+        - 26.3
+        - 23.2
+        - 5.1
+      c002632e-4356-4f98-9191-f86412fe48a7-country:china:
+        - 6.1
+        - 31.3
+        - 39.4
+        - 23.2
+        - 0
+      e70a42e6-c1c0-43c6-a389-d28347e17f2f-country:china:
+        - 13.1
+        - 31.3
+        - 24.2
+        - 25.3
+        - 6.1
+      be27a244-3429-417d-8517-de800bc90acf-country:china:
+        - 32.3
+        - 36.4
+        - 19.2
+        - 10.1
+        - 2
+      d7943aa5-3a9f-4161-9d2b-651c71d92c73-country:china:
+        - 7.1
+        - 29.3
+        - 32.3
+        - 29.3
+        - 2
+      334a0ebd-4c3e-44d2-ac51-13fb444c069a-country:china:
+        - 3.1
+        - 14.3
+        - 35.7
+        - 42.9
+        - 4.1
+      865926b0-3032-4d3a-bbc2-80c102d549bb-country:china:
+        - 0
+        - 3.1
+        - 23.5
+        - 58.2
+        - 15.3
+      85d29925-21b5-4b25-9fe0-5df069945870-country:china:
+        - 1
+        - 7.1
+        - 20.4
+        - 54.1
+        - 17.3
+      144768d5-2b91-4c55-9935-98a246c6d3bf-country:china:
+        - 23.5
+        - 34.7
+        - 31.6
+        - 7.1
+        - 3.1
+      5b8a5926-74e0-4500-b57f-76d5b912ea2f-country:china:
+        - 6.1
+        - 19.4
+        - 41.8
+        - 28.6
+        - 4.1
+      dbe2139a-1d10-48e6-861a-f64260d01659-country:china:
+        - 7.1
+        - 20.4
+        - 33.7
+        - 37.8
+        - 1
+      5af76eba-316e-489f-a57e-0498a5768643-country:china:
+        - 15.3
+        - 33.7
+        - 29.6
+        - 20.4
+        - 1
+      32a41e36-1567-42e8-8636-39d21f87550a-country:china:
+        - 3.1
+        - 15.3
+        - 19.4
+        - 49
+        - 13.3
+      e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c-country:china:
+        - 24.7
+        - 36.1
+        - 39.2
+      7ecf1a2a-b34a-40a3-b481-a6eb15883b18-country:china:
+        - 2.1
+        - 5.2
+        - 22.7
+        - 59.8
+        - 10.3
+      015a07c1-b996-4bde-b412-e79c314cf761-country:china:
+        - 0
+        - 4.1
+        - 36.1
+        - 48.5
+        - 11.3
+      372d603d-460c-4691-8656-d256f84a6583-country:china:
+        - 0
+        - 12.4
+        - 36.1
+        - 47.4
+        - 4.1
+      c6c411f0-409e-4518-9763-813738535308-country:china:
+        - 8.2
+        - 45.4
+        - 29.9
+        - 12.4
+        - 4.1
+      ac4c9ca2-d2e7-4b35-afe2-b3b2174ee030-country:china:
+        - 1
+        - 14.4
+        - 42.3
+        - 32
+        - 10.3
+      5dd17247-f85e-4419-b7d4-4130e0df0b77-country:china:
+        - 0
+        - 2.1
+        - 26.8
+        - 56.7
+        - 14.4
+      22b7dc74-6101-4c0f-b6ee-c666ba7fc324-country:china:
+        - 57.7
+        - 10.3
+        - 32
+      b94b8fa4-40ea-4a43-80a5-d7db02df1951-country:china:
+        - 23.7
+        - 52.6
+        - 23.7
+      800f0a14-aa6e-4e86-900b-1c40d3810603-country:china:
+        - 20.6
+        - 66
+        - 13.4
+      52bbba43-5119-43a8-9bb1-5596c3ad8a1c-country:china:
+        - 44.3
+        - 14.4
+        - 33
+        - 8.2
+      02e1e447-c6e1-44ed-86c9-226f2c72b5c6-country:china:
+        - 4.1
+        - 21.6
+        - 55.7
+        - 18.6
+      c1ffd634-9209-4440-9804-4b397d7bfa8c-country:china:
+        - 16.5
+        - 41.2
+        - 23.7
+        - 18.6
+      e787d98a-e40b-493b-875f-f59169cc849c-country:china:
+        - 32
+        - 26.8
+        - 26.8
+        - 14.4
+      5ab3d437-9098-4f12-9ede-ae9aa0fb7d36-country:china:
+        - 15.5
+        - 42.3
+        - 27.8
+        - 14.4
+      dcb90e98-ab77-4dd7-a204-8a3b36b1f72f-country:china:
+        - 5.2
+        - 23.7
+        - 44.3
+        - 26.8
+      a8c7a309-9e7e-4e8f-960f-d94acc97614b-country:china:
+        - 6.2
+        - 28.9
+        - 50.5
+        - 14.4
+      2a16a259-3822-4efe-a1df-100a55a83896-country:china:
+        - 18.6
+        - 29.9
+        - 43.3
+        - 8.2
+      a2cd2134-b0a1-4610-a40c-66c6cf3bd0af-country:china:
+        - 5.2
+        - 11.3
+        - 49.5
+        - 34
+      4baa8683-eee5-4152-b402-0946f50b6a46-country:china:
+        - 74.2
+        - 14.4
+        - 10.3
+        - 1
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      f96023f2-33a7-46ef-b607-a7b26a64423a-country:china:
+        - 25.8
+        - 74.2
+        - 0
+      4b5fccdd-0613-4d6e-bb96-3c5e5941b75a-country:china:
+        - 73.2
+        - 15.5
+        - 9.3
+        - 2.1
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      8ff3a13c-4d23-4556-bd78-6d39836a5fbd-country:china:
+        - 32
+        - 16.5
+        - 35.1
+        - 0
+        - 15.5
+        - 0
+        - 0
+        - 1
+        - 0
+      f6323f3b-de97-4be6-9c48-f55ff9e65f66-country:china:
+        - 9.3
+        - 40.2
+        - 24.7
+        - 17.5
+        - 8.2
+      cb65b063-bff3-4cac-a827-dbab6693e307-country:china:
+        - 37.1
+        - 58.8
+        - 4.1
+      df390e18-e53b-4106-b81c-d6c80c01faed-country:china:
+        - 1
+        - 12.4
+        - 22.7
+        - 34
+        - 11.3
+        - 18.6
+      179300a7-9cdf-486a-814b-842b7123254f-country:china:
+        - 3.1
+        - 11.3
+        - 25.8
+        - 47.4
+        - 6.2
+        - 6.2
+      a376cbfc-98d2-4b9a-9435-428aa3fd6834-country:china:
+        - 6.2
+        - 30.9
+        - 12.4
+        - 8.2
+        - 5.2
+        - 37.1
+      5bf3142c-9b73-4fbb-8883-b2994840f9d6-country:china:
+        - 0
+        - 1
+        - 20.6
+        - 32
+        - 12.4
+        - 34
+      e9d0f3c1-2189-48c0-99cb-4a3b07e37b36-country:china:
+        - 0
+        - 1
+        - 7.2
+        - 24.7
+        - 67
+      7e99c66a-c63a-4788-a8d5-29212c7dd01d-country:china:
+        - 0
+        - 5.2
+        - 12.4
+        - 42.3
+        - 40.2
+      0f8f1706-fc7d-4f28-a681-ba8c222e2d92-country:china:
+        - 2.1
+        - 11.3
+        - 37.1
+        - 26.8
+        - 22.7
+      0f572253-0025-4b17-a8eb-c8fe8029a32c-country:china:
+        - 0
+        - 5.2
+        - 16.5
+        - 35.1
+        - 43.3
+      9ee21a65-e19d-4b94-8c3f-f431a54f7751-country:china:
+        - 2.1
+        - 8.2
+        - 22.7
+        - 38.1
+        - 28.9
+      918bc079-5e6c-4b4c-b55f-074c82dd127f-country:china:
+        - 3.1
+        - 17.5
+        - 29.9
+        - 36.1
+        - 13.4
+      16555f1f-2a88-435f-930e-fbe8232e8b51-country:china:
+        - 2.1
+        - 23.7
+        - 27.8
+        - 33
+        - 13.4
+      8a19c6ea-532f-49d3-92d0-59033e04fb5c-country:china:
+        - 40.2
+        - 51.5
+        - 1
+        - 7.2
+        - 0
+      61c0d32e-6f96-45a4-8ece-cfb2df9d51cb-country:china:
+        - 5.2
+        - 29.9
+        - 24.7
+        - 30.9
+        - 9.3
+      db95bba3-cb1c-4c07-a325-f5264b145d31-country:china:
+        - 7.3
+        - 15.6
+        - 19.8
+        - 42.7
+        - 14.6
+      cc7346fb-571e-48ad-aeaa-4135f0fdf58c-country:china:
+        - 21.9
+        - 28.1
+        - 22.9
+        - 14.6
+        - 12.5
+      0e105382-d368-4eed-bc1a-8ab77850d0ef-country:china:
+        - 6.3
+        - 19.8
+        - 18.8
+        - 44.8
+        - 10.4
+      3cf6da25-08f3-496d-9a4a-93afc5069e36-country:china:
+        - 8.3
+        - 10.4
+        - 18.8
+        - 47.9
+        - 14.6
+      423784cf-1eb2-48aa-a3cc-7f945983c00a-country:china:
+        - 16.7
+        - 19.8
+        - 30.2
+        - 27.1
+        - 6.3
+      5537a602-8b2b-4d0f-b621-76cb2aab5960-country:china:
+        - 4.2
+        - 13.5
+        - 11.5
+        - 42.7
+        - 28.1
+      f2e0093a-b64f-4afc-99d8-f79665bf3aa7-country:china:
+        - 2.1
+        - 10.4
+        - 10.4
+        - 47.9
+        - 29.2
+      49a65297-bd14-494f-b3ce-24313a6b93f3-country:china:
+        - 8.3
+        - 14.6
+        - 25
+        - 43.8
+        - 8.3
+      3da0fc33-3a81-4526-bee7-a4044eb617e3-country:china:
+        - 5.2
+        - 7.3
+        - 13.5
+        - 42.7
+        - 31.3
+      f426e846-6bf5-4e4d-8c8d-546e8323cb2b-country:china:
+        - 7.3
+        - 19.8
+        - 27.1
+        - 37.5
+        - 8.3
+      2b25f92c-33ec-4ab7-ad20-9a53e56f3475-country:china:
+        - 4.2
+        - 8.3
+        - 17.7
+        - 11.5
+        - 58.3
+      03f4e069-c276-4081-8591-cb541a491152-country:china:
+        - 3.1
+        - 7.3
+        - 29.2
+        - 45.8
+        - 14.6
+      df334446-2675-4974-a5b9-52416fd03192-country:china:
+        - 25
+        - 31.3
+        - 22.9
+        - 11.5
+        - 9.4
+      5751b0e5-750c-439b-beec-2b364a2e4744-country:china:
+        - 5.2
+        - 20.8
+        - 30.2
+        - 22.9
+        - 20.8
+      a44994fb-8455-47c4-a3f0-7bcf98ebb8e7-country:china:
+        - 24
+        - 25
+        - 18.8
+        - 27.1
+        - 5.2
+      c545872f-2b47-4b20-a230-4aede30a5f8c-country:china:
+        - 18.8
+        - 12.5
+        - 25
+        - 33.3
+        - 10.4
+      0ff23754-9660-4a10-afbf-938bc54f24f2-country:china:
+        - 16.7
+        - 11.5
+        - 20.8
+        - 45.8
+        - 5.2
+      b0eefcbf-4539-42f5-8791-6d417da47158-country:china:
+        - 16.7
+        - 6.3
+        - 15.6
+        - 47.9
+        - 13.5
+      811fce20-6831-46ff-80a8-de1617883da4-country:china:
+        - 17.7
+        - 14.6
+        - 26
+        - 31.3
+        - 10.4
+      f829aae7-14ab-4299-9382-4954829ab5a6-country:china:
+        - 18.8
+        - 15.6
+        - 20.8
+        - 37.5
+        - 7.3
+      435da2e3-9ad9-4bfd-9e55-ffb301a924ab-country:china:
+        - 16.7
+        - 13.5
+        - 25
+        - 32.3
+        - 12.5
+      4b84964d-8fda-40c6-be01-020606b58af8-country:china:
+        - 21.9
+        - 16.7
+        - 22.9
+        - 28.1
+        - 10.4
+      3ceab213-3ac5-4111-b55a-0cc4fbe2d1d3-country:china:
+        - 15.6
+        - 16.7
+        - 28.1
+        - 28.1
+        - 11.5
+      0901bed1-bad3-4f36-9272-294df92e360d-country:china:
+        - 12.5
+        - 14.6
+        - 28.1
+        - 27.1
+        - 17.7
+      844b76b8-97cf-4cf2-ba3a-20889166744b-country:china:
+        - 15.6
+        - 14.6
+        - 22.9
+        - 28.1
+        - 18.8
+      2a31b721-4619-40d2-8964-3b07dc7a215d-country:china:
+        - 14.6
+        - 16.7
+        - 20.8
+        - 31.3
+        - 16.7
+      5a9771a4-b6a2-4567-9504-14bdf14a63bd-country:china:
+        - 22.9
+        - 77.1
+      06f3f408-02fb-4f34-a8d5-db6bb6aeff51-country:china:
+        - 1
+        - 38.5
+        - 1
+        - 55.2
+        - 4.2
+      5908eedf-f481-4d3d-a863-674f617e2ce2-country:china:
+        - 6.3
+        - 24
+        - 42.7
+        - 20.8
+        - 6.3
+      01c22e5d-c296-4e3c-8b98-0339fbdda370-country:china:
+        - 1
+        - 6.3
+        - 16.7
+        - 45.8
+        - 30.2
+      ec0d14f7-a5d6-4038-8db1-acabd81c75d8-country:china:
+        - 1
+        - 6.3
+        - 14.6
+        - 44.8
+        - 33.3
+      7b3e1122-6c82-40d7-ad3c-9171e5855fe1-country:china:
+        - 3.1
+        - 32.3
+        - 42.7
+        - 15.6
+        - 6.3
+      df2dc208-7f05-4cc7-ab3b-f19dc49ec305-country:china:
+        - 1
+        - 3.1
+        - 16.7
+        - 55.2
+        - 24
+      c62ebe03-ba72-4b34-ba36-3dfd3db25680-country:china:
+        - 10.4
+        - 40.6
+        - 20.8
+        - 17.7
+        - 6.3
+        - 4.2
+      ca819eb9-19ea-42fc-89e7-f9ebb7d2219e-country:china:
+        - 46.9
+        - 31.3
+        - 10.4
+        - 8.3
+        - 3.1
+      59db192e-38a8-4790-a377-81bc4ba187a8-country:china:
+        - 40.6
+        - 10.4
+        - 45.8
+        - 3.1
+      c3c2ae98-92fe-49c6-a2bd-d6bee9838418-country:china:
+        - 21.9
+        - 31.3
+        - 27.1
+        - 14.6
+        - 5.2
+      d7f5dfb7-c6a4-4501-a624-f2c722639d80-country:china:
+        - 26
+        - 24
+        - 19.8
+        - 22.9
+        - 7.3
+      cbad42c4-f20d-41c7-8306-3f1182874b59-country:china:
+        - 0
+        - 5.2
+        - 21.9
+        - 50
+        - 22.9
+      ab58c9ad-8c34-4053-90f3-aa010a9ab14a-country:china:
+        - 13.5
+        - 14.6
+        - 29.2
+        - 31.3
+        - 11.5
+      1d9b5fbc-78ed-41d5-b996-dd3b01a9665f-country:china:
+        - 1
+        - 6.3
+        - 19.8
+        - 47.9
+        - 25
+      4178d870-d669-429b-a05e-8b681136849b-country:china:
+        - 1
+        - 2.1
+        - 25
+        - 42.7
+        - 29.2
+      51f1f741-5c9b-4b13-8ed3-cc9e2a1ee645-country:china:
+        - 2.1
+        - 9.4
+        - 27.1
+        - 42.7
+        - 18.8
+      77b2d06d-ba89-48b4-adfb-940f50fb2178-country:china:
+        - 0
+        - 3.1
+        - 11.5
+        - 55.2
+        - 30.2
+      5f507e72-e0eb-4059-84ff-fd139e2ad470-country:china:
+        - 2.1
+        - 9.4
+        - 27.1
+        - 29.2
+        - 32.3
+      5a64b627-a4f4-4d3e-86d0-99342b77ec58-country:china:
+        - 19.8
+        - 31.3
+        - 8.3
+        - 38.5
+        - 2.1
+      ffbcc898-1cf2-4cbe-90ae-d1cc9db1aa5e-country:china:
+        - 9.4
+        - 26
+        - 31.3
+        - 24
+        - 9.4
+      724fd72e-8770-440c-ad13-34a61772dc86-country:china:
+        - 7.3
+        - 26
+        - 27.1
+        - 29.2
+        - 10.4
+      b539b574-3f47-4438-9479-6c9de722aac3-country:china:
+        - 9.4
+        - 30.2
+        - 17.7
+        - 33.3
+        - 9.4
+      2c1c70c6-2f75-43ee-b568-ece520f52a44-country:china:
+        - 2.1
+        - 13.5
+        - 50
+        - 13.5
+        - 4.2
+        - 12.5
+        - 4.2
+      17100f6f-19ac-4cf0-acf0-37667d002d08-country:china:
+        - 68.8
+        - 19.8
+        - 11.5
+        - 0
+      908cb51b-eecc-4b74-909c-2ae89fadbb5c-country:china:
+        - 34.4
+        - 56.3
+        - 9.4

@@ -1,0 +1,1883 @@
+configId: dtef-global-dialogues-gd3-religion:other-religious-group
+configTitle: Global Dialogues GD3 - Other religious group
+description: >-
+  DTEF: Predict response distributions for Other religious group. Source: Global Dialogues GD3
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - QUICK
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+prompts:
+  - id: f932063f-700c-4327-9c34-59b7c3e19190-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Overall, would you say the increased use of artificial intelligence (AI) in
+      daily life makes you feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 50
+            - 45
+            - 5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "More excited than concerned" is within 15pp of 50.0%
+      - Predicted percentage for "Equally concerned and excited" is within 14pp of 45.0%
+      - Predicted percentage for "More concerned than excited" is within 5pp of 5.0%
+    idealResponse: '[50.0, 45.0, 5.0]'
+    temperature: 0.3
+  - id: ae768935-002f-49e2-b08f-92c7616b0533-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Thinking about the last three months, how often, if at all, have you noticed AI
+      systems in your daily life?"
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 80
+            - 15
+            - 5
+            - 0
+            - 0
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 24pp of 80.0%
+      - Predicted percentage for "weekly" is within 5pp of 15.0%
+      - Predicted percentage for "monthly" is within 5pp of 5.0%
+    idealResponse: '[80.0, 15.0, 5.0, 0.0, 0.0]'
+    temperature: 0.3
+  - id: 926a5461-6a68-43c9-8279-94430dc9323e-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Thinking about the last three months, how often, if at all, have you noticed
+      human interactions which have been replaced with automated systems?"
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Religion: Other religious group
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you noticed human interactions which have been
+      replaced with automated systems?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15
+            - 60
+            - 5
+            - 5
+            - 15
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 5pp of 15.0%
+      - Predicted percentage for "weekly" is within 18pp of 60.0%
+      - Predicted percentage for "monthly" is within 5pp of 5.0%
+      - Predicted percentage for "annually" is within 5pp of 5.0%
+      - Predicted percentage for "never" is within 5pp of 15.0%
+    idealResponse: '[15.0, 60.0, 5.0, 5.0, 15.0]'
+    temperature: 0.3
+  - id: 1ebc80e1-d3e2-4dc5-987c-e4d637cf6bec-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Thinking about the last three months, how often, if at all, have you been
+      expected to use an AI system at work?"
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at work?"
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 50
+            - 25
+            - 10
+            - 0
+            - 15
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 15pp of 50.0%
+      - Predicted percentage for "weekly" is within 8pp of 25.0%
+      - Predicted percentage for "monthly" is within 5pp of 10.0%
+      - Predicted percentage for "never" is within 5pp of 15.0%
+    idealResponse: '[50.0, 25.0, 10.0, 0.0, 15.0]'
+    temperature: 0.3
+  - id: 3c74ec68-77f6-46a5-9918-0c8e97fb7bc8-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Thinking about the last three months, how often, if at all, have you personally
+      chosen to use an AI system at work?"
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Religion: Other religious group
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 40
+            - 35
+            - 15
+            - 0
+            - 10
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 12pp of 40.0%
+      - Predicted percentage for "weekly" is within 11pp of 35.0%
+      - Predicted percentage for "monthly" is within 5pp of 15.0%
+      - Predicted percentage for "never" is within 5pp of 10.0%
+    idealResponse: '[40.0, 35.0, 15.0, 0.0, 10.0]'
+    temperature: 0.3
+  - id: 47cdf76a-9abf-4b5c-abbe-2d5b00ef172d-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Thinking about the last three months, how often, if at all, have you personally
+      chosen to use an AI system in your personal life?"
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Religion: Other religious group
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 40
+            - 50
+            - 5
+            - 0
+            - 5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 12pp of 40.0%
+      - Predicted percentage for "weekly" is within 15pp of 50.0%
+      - Predicted percentage for "monthly" is within 5pp of 5.0%
+      - Predicted percentage for "never" is within 5pp of 5.0%
+    idealResponse: '[40.0, 50.0, 5.0, 0.0, 5.0]'
+    temperature: 0.3
+  - id: d633720f-a159-4922-925c-fd9f3245711e-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Thinking about the last three months, how often, if at all, have you interacted
+      with AI systems to get advice on a sensitive personal issue or to get emotional support?"
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Religion: Other religious group
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice on
+      a sensitive personal issue or to get emotional support?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15
+            - 20
+            - 15
+            - 5
+            - 45
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 5pp of 15.0%
+      - Predicted percentage for "weekly" is within 6pp of 20.0%
+      - Predicted percentage for "monthly" is within 5pp of 15.0%
+      - Predicted percentage for "annually" is within 5pp of 5.0%
+      - Predicted percentage for "never" is within 14pp of 45.0%
+    idealResponse: '[15.0, 20.0, 15.0, 5.0, 45.0]'
+    temperature: 0.3
+  - id: 8b361c6c-eb59-415b-8536-7f80713c3e5e-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Thinking about the last three months, how often, if at all, have you interacted
+      with AI systems to complete an action in the real world on your behalf without your supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Religion: Other religious group
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15
+            - 15
+            - 20
+            - 0
+            - 50
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "daily" is within 5pp of 15.0%
+      - Predicted percentage for "weekly" is within 5pp of 15.0%
+      - Predicted percentage for "monthly" is within 6pp of 20.0%
+      - Predicted percentage for "never" is within 15pp of 50.0%
+    idealResponse: '[15.0, 15.0, 20.0, 0.0, 50.0]'
+    temperature: 0.3
+  - id: d1baeb26-baca-414f-91f6-72b023c02a65-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Considering both potential benefits and risks, how do you assess the overall
+      impact on society of messaging apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Religion: Other religious group
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 10
+            - 40
+            - 40
+            - 10
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Risks slightly outweigh benefits" is within 5pp of 10.0%
+      - Predicted percentage for "Risks and benefits are equal" is within 12pp of 40.0%
+      - Predicted percentage for "Benefits slightly outweigh risks" is within 12pp of 40.0%
+      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 10.0%
+    idealResponse: '[0.0, 10.0, 40.0, 40.0, 10.0]'
+    temperature: 0.3
+  - id: 8c50a77a-3fc2-49ce-b568-b7832c9b99e0-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Considering both potential benefits and risks, how do you assess the overall
+      impact on society of social media apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Religion: Other religious group
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5
+            - 35
+            - 35
+            - 20
+            - 5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Risks far outweigh benefits" is within 5pp of 5.0%
+      - Predicted percentage for "Risks slightly outweigh benefits" is within 11pp of 35.0%
+      - Predicted percentage for "Risks and benefits are equal" is within 11pp of 35.0%
+      - Predicted percentage for "Benefits slightly outweigh risks" is within 6pp of 20.0%
+      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 5.0%
+    idealResponse: '[5.0, 35.0, 35.0, 20.0, 5.0]'
+    temperature: 0.3
+  - id: 30324a2e-b5b2-4e0a-a8f2-af599b55c40e-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Considering both potential benefits and risks, how do you assess the overall
+      impact on society of AI chatbots?"
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI chatbots?"
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15
+            - 20
+            - 35
+            - 15
+            - 15
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Risks far outweigh benefits" is within 5pp of 15.0%
+      - Predicted percentage for "Risks slightly outweigh benefits" is within 6pp of 20.0%
+      - Predicted percentage for "Risks and benefits are equal" is within 11pp of 35.0%
+      - Predicted percentage for "Benefits slightly outweigh risks" is within 5pp of 15.0%
+      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 15.0%
+    idealResponse: '[15.0, 20.0, 35.0, 15.0, 15.0]'
+    temperature: 0.3
+  - id: 4f234e17-2d57-4709-b29a-4a2909683566-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Considering both potential benefits and risks, how do you assess the overall
+      impact on society of AI systems that can perform tasks in the real world without human supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Religion: Other religious group
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can perform tasks in the real world without human supervision?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 30
+            - 5
+            - 40
+            - 20
+            - 5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Risks far outweigh benefits" is within 9pp of 30.0%
+      - Predicted percentage for "Risks slightly outweigh benefits" is within 5pp of 5.0%
+      - Predicted percentage for "Risks and benefits are equal" is within 12pp of 40.0%
+      - Predicted percentage for "Benefits slightly outweigh risks" is within 6pp of 20.0%
+      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 5.0%
+    idealResponse: '[30.0, 5.0, 40.0, 20.0, 5.0]'
+    temperature: 0.3
+  - id: 96ccfd7b-8f99-4d0a-b700-9fd835e23bd8-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Considering both potential benefits and risks, how do you assess the overall
+      impact on society of AI systems that can outperform humans on most economically valuable work?"
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Religion: Other religious group
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can outperform humans on most economically valuable work?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15
+            - 35
+            - 25
+            - 15
+            - 10
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Risks far outweigh benefits" is within 5pp of 15.0%
+      - Predicted percentage for "Risks slightly outweigh benefits" is within 11pp of 35.0%
+      - Predicted percentage for "Risks and benefits are equal" is within 8pp of 25.0%
+      - Predicted percentage for "Benefits slightly outweigh risks" is within 5pp of 15.0%
+      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 10.0%
+    idealResponse: '[15.0, 35.0, 25.0, 15.0, 10.0]'
+    temperature: 0.3
+  - id: b1869877-1015-43ec-9645-84bf2db39c6f-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "To what extent, if at all, do you generally trust governments to do what is
+      right?"
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "To what extent, if at all, do you generally trust governments to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 25
+            - 25
+            - 20
+            - 25
+            - 5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 8pp of 25.0%
+      - Predicted percentage for "Somewhat Distrust" is within 8pp of 25.0%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 6pp of 20.0%
+      - Predicted percentage for "Somewhat Trust" is within 8pp of 25.0%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 5.0%
+    idealResponse: '[25.0, 25.0, 20.0, 25.0, 5.0]'
+    temperature: 0.3
+  - id: dc5e8d2a-c20b-47fa-89e2-b4db635a8ad4-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "To what extent, if at all, do you generally trust small businesses to do what is
+      right?"
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "To what extent, if at all, do you generally trust small businesses to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5
+            - 15
+            - 35
+            - 35
+            - 10
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 5.0%
+      - Predicted percentage for "Somewhat Distrust" is within 5pp of 15.0%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 11pp of 35.0%
+      - Predicted percentage for "Somewhat Trust" is within 11pp of 35.0%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 10.0%
+    idealResponse: '[5.0, 15.0, 35.0, 35.0, 10.0]'
+    temperature: 0.3
+  - id: 8ed2d795-acca-47d8-abb0-8c446310dbf0-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "To what extent, if at all, do you generally trust large corporations to do what
+      is right?"
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "To what extent, if at all, do you generally trust large corporations to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20
+            - 35
+            - 30
+            - 10
+            - 5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 6pp of 20.0%
+      - Predicted percentage for "Somewhat Distrust" is within 11pp of 35.0%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 9pp of 30.0%
+      - Predicted percentage for "Somewhat Trust" is within 5pp of 10.0%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 5.0%
+    idealResponse: '[20.0, 35.0, 30.0, 10.0, 5.0]'
+    temperature: 0.3
+  - id: 4c5ed164-eb69-4e41-906f-1e7a93f1d5bd-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "To what extent, if at all, do you generally trust social media companies to do
+      what is right?"
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "To what extent, if at all, do you generally trust social media companies to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 35
+            - 35
+            - 10
+            - 15
+            - 5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 11pp of 35.0%
+      - Predicted percentage for "Somewhat Distrust" is within 11pp of 35.0%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 5pp of 10.0%
+      - Predicted percentage for "Somewhat Trust" is within 5pp of 15.0%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 5.0%
+    idealResponse: '[35.0, 35.0, 10.0, 15.0, 5.0]'
+    temperature: 0.3
+  - id: 8d058cce-8ccf-4816-8ef7-c9c9e37038dc-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "To what extent, if at all, do you generally trust companies building AI to do
+      what is right?"
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15
+            - 40
+            - 20
+            - 20
+            - 5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 15.0%
+      - Predicted percentage for "Somewhat Distrust" is within 12pp of 40.0%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 6pp of 20.0%
+      - Predicted percentage for "Somewhat Trust" is within 6pp of 20.0%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 5.0%
+    idealResponse: '[15.0, 40.0, 20.0, 20.0, 5.0]'
+    temperature: 0.3
+  - id: e80f0f47-44d0-4d1a-bbda-d2334ff056ac-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "To what extent, if at all, do you generally trust public utility companies to do
+      what is right?"
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "To what extent, if at all, do you generally trust public utility companies to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 35
+            - 35
+            - 25
+            - 5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Somewhat Distrust" is within 11pp of 35.0%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 11pp of 35.0%
+      - Predicted percentage for "Somewhat Trust" is within 8pp of 25.0%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 5.0%
+    idealResponse: '[0.0, 35.0, 35.0, 25.0, 5.0]'
+    temperature: 0.3
+  - id: a6fa1236-c145-498b-8c30-7ca307461789-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "To what extent, if at all, do you generally trust public research institutions
+      to do what is right?"
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "To what extent, if at all, do you generally trust public research institutions to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5
+            - 15
+            - 20
+            - 35
+            - 25
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 5.0%
+      - Predicted percentage for "Somewhat Distrust" is within 5pp of 15.0%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 6pp of 20.0%
+      - Predicted percentage for "Somewhat Trust" is within 11pp of 35.0%
+      - Predicted percentage for "Strongly Trust" is within 8pp of 25.0%
+    idealResponse: '[5.0, 15.0, 20.0, 35.0, 25.0]'
+    temperature: 0.3
+  - id: f435994f-e66e-4681-8334-4d6ee5f39e6b-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "To what extent, if at all, do you trust your family doctor to act in your best
+      interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "To what extent, if at all, do you trust your family doctor to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5
+            - 0
+            - 20
+            - 50
+            - 25
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 5.0%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 6pp of 20.0%
+      - Predicted percentage for "Somewhat Trust" is within 15pp of 50.0%
+      - Predicted percentage for "Strongly Trust" is within 8pp of 25.0%
+    idealResponse: '[5.0, 0.0, 20.0, 50.0, 25.0]'
+    temperature: 0.3
+  - id: 951f11a0-3307-4507-805c-86d17562d21a-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "To what extent, if at all, do you trust your social media feed (eg TikTok,
+      Facebook) to act in your best interest?"
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Religion: Other religious group
+
+
+      Survey question:
+
+      "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best
+      interest?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 50
+            - 30
+            - 10
+            - 0
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 10.0%
+      - Predicted percentage for "Somewhat Distrust" is within 15pp of 50.0%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 9pp of 30.0%
+      - Predicted percentage for "Somewhat Trust" is within 5pp of 10.0%
+    idealResponse: '[10.0, 50.0, 30.0, 10.0, 0.0]'
+    temperature: 0.3
+  - id: 522df4e6-3a3b-48d9-9c83-a03a6a7bb22e-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "To what extent, if at all, do you trust your elected representatives to act in
+      your best interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "To what extent, if at all, do you trust your elected representatives to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20
+            - 25
+            - 20
+            - 30
+            - 5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 6pp of 20.0%
+      - Predicted percentage for "Somewhat Distrust" is within 8pp of 25.0%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 6pp of 20.0%
+      - Predicted percentage for "Somewhat Trust" is within 9pp of 30.0%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 5.0%
+    idealResponse: '[20.0, 25.0, 20.0, 30.0, 5.0]'
+    temperature: 0.3
+  - id: 18cc2f33-6373-49f0-aa7e-e2fa04a04575-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "To what extent, if at all, do you trust your faith or community leader to act in
+      your best interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "To what extent, if at all, do you trust your faith or community leader to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5
+            - 10
+            - 35
+            - 35
+            - 15
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 5.0%
+      - Predicted percentage for "Somewhat Distrust" is within 5pp of 10.0%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 11pp of 35.0%
+      - Predicted percentage for "Somewhat Trust" is within 11pp of 35.0%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 15.0%
+    idealResponse: '[5.0, 10.0, 35.0, 35.0, 15.0]'
+    temperature: 0.3
+  - id: e26549f8-5c9a-426b-b22a-57d8fe0d5e03-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "To what extent, if at all, do you trust the civil servants in your government to
+      act in your best interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "To what extent, if at all, do you trust the civil servants in your government to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5
+            - 30
+            - 25
+            - 35
+            - 5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 5.0%
+      - Predicted percentage for "Somewhat Distrust" is within 9pp of 30.0%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 8pp of 25.0%
+      - Predicted percentage for "Somewhat Trust" is within 11pp of 35.0%
+      - Predicted percentage for "Strongly Trust" is within 5pp of 5.0%
+    idealResponse: '[5.0, 30.0, 25.0, 35.0, 5.0]'
+    temperature: 0.3
+  - id: 332cec0c-afeb-4c18-a0e4-146c656750a8-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in
+      your best interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 10
+            - 20
+            - 35
+            - 25
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Strongly Distrust" is within 5pp of 10.0%
+      - Predicted percentage for "Somewhat Distrust" is within 5pp of 10.0%
+      - Predicted percentage for "Neither Trust Nor Distrust" is within 6pp of 20.0%
+      - Predicted percentage for "Somewhat Trust" is within 11pp of 35.0%
+      - Predicted percentage for "Strongly Trust" is within 8pp of 25.0%
+    idealResponse: '[10.0, 10.0, 20.0, 35.0, 25.0]'
+    temperature: 0.3
+  - id: 38964f80-772f-4e5d-a355-b4857f2de101-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Do you agree or disagree with this statement? AI could make better decisions on
+      my behalf than my government representatives."
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Religion: Other religious group
+
+
+      Survey question:
+
+      "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+        c. Unsure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 45
+            - 30
+            - 25
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Agree" is within 14pp of 45.0%
+      - Predicted percentage for "Disagree" is within 9pp of 30.0%
+      - Predicted percentage for "Unsure" is within 8pp of 25.0%
+    idealResponse: '[45.0, 30.0, 25.0]'
+    temperature: 0.3
+  - id: 983893d8-07ab-4c8e-bdb2-14335638633d-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Do you think the increased use of AI across society is likely to make your cost
+      of living better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Religion: Other religious group
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make your cost of living better, worse or stay
+      the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5
+            - 25
+            - 25
+            - 40
+            - 5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Profoundly Worse" is within 5pp of 5.0%
+      - Predicted percentage for "Noticeably Worse" is within 8pp of 25.0%
+      - Predicted percentage for "No Major Change" is within 8pp of 25.0%
+      - Predicted percentage for "Noticeably Better" is within 12pp of 40.0%
+      - Predicted percentage for "Profoundly Better" is within 5pp of 5.0%
+    idealResponse: '[5.0, 25.0, 25.0, 40.0, 5.0]'
+    temperature: 0.3
+  - id: 8a9d1c12-44f6-42dc-9238-daaaca0d85d0-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Do you think the increased use of AI across society is likely to make the amount
+      of free time you have better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Religion: Other religious group
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make the amount of free time you have better,
+      worse or stay the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5
+            - 15
+            - 20
+            - 60
+            - 0
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Profoundly Worse" is within 5pp of 5.0%
+      - Predicted percentage for "Noticeably Worse" is within 5pp of 15.0%
+      - Predicted percentage for "No Major Change" is within 6pp of 20.0%
+      - Predicted percentage for "Noticeably Better" is within 18pp of 60.0%
+    idealResponse: '[5.0, 15.0, 20.0, 60.0, 0.0]'
+    temperature: 0.3
+  - id: 5afe8617-7e71-40c8-8a33-1b356a8ca674-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Do you think the increased use of AI across society is likely to make your
+      community's well-being better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Religion: Other religious group
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make your community's well-being better, worse
+      or stay the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5
+            - 20
+            - 15
+            - 55
+            - 5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Profoundly Worse" is within 5pp of 5.0%
+      - Predicted percentage for "Noticeably Worse" is within 6pp of 20.0%
+      - Predicted percentage for "No Major Change" is within 5pp of 15.0%
+      - Predicted percentage for "Noticeably Better" is within 17pp of 55.0%
+      - Predicted percentage for "Profoundly Better" is within 5pp of 5.0%
+    idealResponse: '[5.0, 20.0, 15.0, 55.0, 5.0]'
+    temperature: 0.3
+  - id: 96e5895f-d640-4a37-bc16-6e095f38ba7e-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Do you think the increased use of AI across society is likely to make the
+      availability of good jobs better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Religion: Other religious group
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make the availability of good jobs better, worse
+      or stay the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15
+            - 35
+            - 15
+            - 30
+            - 5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Profoundly Worse" is within 5pp of 15.0%
+      - Predicted percentage for "Noticeably Worse" is within 11pp of 35.0%
+      - Predicted percentage for "No Major Change" is within 5pp of 15.0%
+      - Predicted percentage for "Noticeably Better" is within 9pp of 30.0%
+      - Predicted percentage for "Profoundly Better" is within 5pp of 5.0%
+    idealResponse: '[15.0, 35.0, 15.0, 30.0, 5.0]'
+    temperature: 0.3
+  - id: 0e0a2736-2ac9-490c-adb9-bf7dfd25b14b-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Do you think the increased use of AI across society is likely to make your sense
+      of purpose better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Religion: Other religious group
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or stay
+      the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15
+            - 10
+            - 35
+            - 30
+            - 10
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Profoundly Worse" is within 5pp of 15.0%
+      - Predicted percentage for "Noticeably Worse" is within 5pp of 10.0%
+      - Predicted percentage for "No Major Change" is within 11pp of 35.0%
+      - Predicted percentage for "Noticeably Better" is within 9pp of 30.0%
+      - Predicted percentage for "Profoundly Better" is within 5pp of 10.0%
+    idealResponse: '[15.0, 10.0, 35.0, 30.0, 10.0]'
+    temperature: 0.3
+  - id: b1288e79-aec5-43e4-a34e-c6d474737305-religion:other-religious-group
+    description: 'Predict: Other religious group → "So far, what has been the overall impact of AI on your daily life?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "So far, what has been the overall impact of AI on your daily life?"
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 10
+            - 10
+            - 65
+            - 15
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Noticeably Worse" is within 5pp of 10.0%
+      - Predicted percentage for "No Major Change" is within 5pp of 10.0%
+      - Predicted percentage for "Noticeably Better" is within 20pp of 65.0%
+      - Predicted percentage for "Profoundly Better" is within 5pp of 15.0%
+    idealResponse: '[0.0, 10.0, 10.0, 65.0, 15.0]'
+    temperature: 0.3
+  - id: 29453c82-de9b-4be1-ba27-723906fb7dcf-religion:other-religious-group
+    description: 'Predict: Other religious group → "Is your job making a meaningful contribution to the world?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "Is your job making a meaningful contribution to the world?"
+
+      Answer options:
+        a. Yes
+        b. No 
+        c. Don't Know
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 40
+            - 15
+            - 45
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 12pp of 40.0%
+      - Predicted percentage for "No " is within 5pp of 15.0%
+      - Predicted percentage for "Don't Know" is within 14pp of 45.0%
+    idealResponse: '[40.0, 15.0, 45.0]'
+    temperature: 0.3
+  - id: 289f8b3b-d97c-4585-8e41-5e41602aaedb-religion:other-religious-group
+    description: 'Predict: Other religious group → "Do you think your job is likely to be automated in the next 10 years?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "Do you think your job is likely to be automated in the next 10 years?"
+
+      Answer options:
+        a. Yes
+        b. No
+        c. Don't Know
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 40
+            - 25
+            - 35
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 12pp of 40.0%
+      - Predicted percentage for "No" is within 8pp of 25.0%
+      - Predicted percentage for "Don't Know" is within 11pp of 35.0%
+    idealResponse: '[40.0, 25.0, 35.0]'
+    temperature: 0.3
+  - id: e7a8b7e2-9077-4c8c-9cca-29f3c957ca16-religion:other-religious-group
+    description: 'Predict: Other religious group → "Do you think your job should be automated in the next 10 years?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "Do you think your job should be automated in the next 10 years?"
+
+      Answer options:
+        a. Yes
+        b. No
+        c. Don't Know
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 25
+            - 55
+            - 20
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 8pp of 25.0%
+      - Predicted percentage for "No" is within 17pp of 55.0%
+      - Predicted percentage for "Don't Know" is within 6pp of 20.0%
+    idealResponse: '[25.0, 55.0, 20.0]'
+    temperature: 0.3
+  - id: 41f7cf6e-c4ee-42c7-b453-77320c78b294-religion:other-religious-group
+    description: 'Predict: Other religious group → "So far, how has your community been affected by job loss from automation?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "So far, how has your community been affected by job loss from automation?"
+
+      Answer options:
+        a. Not at all
+        b. I know someone who has lost their job
+        c. I know several people who have lost their job
+        d. I know many people who have lost their job
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 60
+            - 15
+            - 25
+            - 0
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Not at all" is within 18pp of 60.0%
+      - Predicted percentage for "I know someone who has lost their job" is within 5pp of 15.0%
+      - Predicted percentage for "I know several people who have lost their job" is within 8pp of 25.0%
+    idealResponse: '[60.0, 15.0, 25.0, 0.0]'
+    temperature: 0.3
+  - id: c909ca6a-ef51-4505-92a3-6f19645cd2b0-religion:other-religious-group
+    description: 'Predict: Other religious group → "Do you agree or disagree?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "Do you agree or disagree?"
+
+      Answer options:
+        a. Agree
+        b. Disagree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 70
+            - 30
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Agree" is within 21pp of 70.0%
+      - Predicted percentage for "Disagree" is within 9pp of 30.0%
+    idealResponse: '[70.0, 30.0]'
+    temperature: 0.3
+  - id: 18e6fbb1-c242-41ab-9e56-17b8ac4b4ca7-religion:other-religious-group
+    description: 'Predict: Other religious group → "Do you agree or disagree?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "Do you agree or disagree?"
+
+      Answer options:
+        a. Agree
+        b. Disagree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 95
+            - 5
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Agree" is within 29pp of 95.0%
+      - Predicted percentage for "Disagree" is within 5pp of 5.0%
+    idealResponse: '[95.0, 5.0]'
+    temperature: 0.3
+  - id: b6c5e939-455a-4c81-a676-9be1bccaa582-religion:other-religious-group
+    description: 'Predict: Other religious group → "Do you agree or disagree?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "Do you agree or disagree?"
+
+      Answer options:
+        a. Agree
+        b. Disagree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 30
+            - 70
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Agree" is within 9pp of 30.0%
+      - Predicted percentage for "Disagree" is within 21pp of 70.0%
+    idealResponse: '[30.0, 70.0]'
+    temperature: 0.3
+  - id: ec5fd6c7-ba70-46c0-a5c7-75e4f75163de-religion:other-religious-group
+    description: 'Predict: Other religious group → "Do you agree or disagree?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "Do you agree or disagree?"
+
+      Answer options:
+        a. Agree
+        b. Disagree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 60
+            - 40
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Agree" is within 18pp of 60.0%
+      - Predicted percentage for "Disagree" is within 12pp of 40.0%
+    idealResponse: '[60.0, 40.0]'
+    temperature: 0.3
+  - id: 78975667-0a8d-452f-9569-c7447732ba49-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Do you feel you were able to fully express your views on your culture, your
+      values, and what you want for the future in this conversation? (through what you responded and how you voted)"
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Religion: Other religious group
+
+
+      Survey question:
+
+      "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+
+
+      Answer options:
+        a. Yes – I was able to fully express my views on these topics
+        b. Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.
+        c. Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.
+        d. No – I was unable to express my views on these topics, and did not have the chance to express most things.
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 65
+            - 20
+            - 15
+            - 0
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes – I was able to fully express my views on these topics" is within 20pp of 65.0%
+      - >-
+        Predicted percentage for "Mostly – I was able to mostly express my views on these topics, but did not have the
+        chance to express a few things." is within 6pp of 20.0%
+      - >-
+        Predicted percentage for "Somewhat – I was able to somewhat express my views on these topics, but did not have
+        the chance to express many things." is within 5pp of 15.0%
+    idealResponse: '[65.0, 20.0, 15.0, 0.0]'
+    temperature: 0.3
+  - id: fb7e02bc-de8f-453d-bfcc-10feb179f4ce-religion:other-religious-group
+    description: >-
+      Predict: Other religious group → "Do you feel like you understand yourself better after participating in this
+      conversation?"
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Religion: Other religious group
+
+      Survey question:
+      "Do you feel like you understand yourself better after participating in this conversation?"
+
+      Answer options:
+        a. Yes
+        b. Maybe a little
+        c. No
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Response distribution matches expected demographic pattern
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 55
+            - 30
+            - 15
+          metric: js-divergence
+          threshold: 0.85
+      - Predicted percentage for "Yes" is within 17pp of 55.0%
+      - Predicted percentage for "Maybe a little" is within 9pp of 30.0%
+      - Predicted percentage for "No" is within 5pp of 15.0%
+    idealResponse: '[55.0, 30.0, 15.0]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - global-dialogues-gd3
+context:
+  dtef:
+    surveyId: global-dialogues-gd3
+    segmentId: religion:other-religious-group
+    segmentLabel: Other religious group
+    segmentAttributes:
+      religion: Other religious group
+    groundTruthDistributions:
+      f932063f-700c-4327-9c34-59b7c3e19190-religion:other-religious-group:
+        - 50
+        - 45
+        - 5
+      ae768935-002f-49e2-b08f-92c7616b0533-religion:other-religious-group:
+        - 80
+        - 15
+        - 5
+        - 0
+        - 0
+      926a5461-6a68-43c9-8279-94430dc9323e-religion:other-religious-group:
+        - 15
+        - 60
+        - 5
+        - 5
+        - 15
+      1ebc80e1-d3e2-4dc5-987c-e4d637cf6bec-religion:other-religious-group:
+        - 50
+        - 25
+        - 10
+        - 0
+        - 15
+      3c74ec68-77f6-46a5-9918-0c8e97fb7bc8-religion:other-religious-group:
+        - 40
+        - 35
+        - 15
+        - 0
+        - 10
+      47cdf76a-9abf-4b5c-abbe-2d5b00ef172d-religion:other-religious-group:
+        - 40
+        - 50
+        - 5
+        - 0
+        - 5
+      d633720f-a159-4922-925c-fd9f3245711e-religion:other-religious-group:
+        - 15
+        - 20
+        - 15
+        - 5
+        - 45
+      8b361c6c-eb59-415b-8536-7f80713c3e5e-religion:other-religious-group:
+        - 15
+        - 15
+        - 20
+        - 0
+        - 50
+      d1baeb26-baca-414f-91f6-72b023c02a65-religion:other-religious-group:
+        - 0
+        - 10
+        - 40
+        - 40
+        - 10
+      8c50a77a-3fc2-49ce-b568-b7832c9b99e0-religion:other-religious-group:
+        - 5
+        - 35
+        - 35
+        - 20
+        - 5
+      30324a2e-b5b2-4e0a-a8f2-af599b55c40e-religion:other-religious-group:
+        - 15
+        - 20
+        - 35
+        - 15
+        - 15
+      4f234e17-2d57-4709-b29a-4a2909683566-religion:other-religious-group:
+        - 30
+        - 5
+        - 40
+        - 20
+        - 5
+      96ccfd7b-8f99-4d0a-b700-9fd835e23bd8-religion:other-religious-group:
+        - 15
+        - 35
+        - 25
+        - 15
+        - 10
+      b1869877-1015-43ec-9645-84bf2db39c6f-religion:other-religious-group:
+        - 25
+        - 25
+        - 20
+        - 25
+        - 5
+      dc5e8d2a-c20b-47fa-89e2-b4db635a8ad4-religion:other-religious-group:
+        - 5
+        - 15
+        - 35
+        - 35
+        - 10
+      8ed2d795-acca-47d8-abb0-8c446310dbf0-religion:other-religious-group:
+        - 20
+        - 35
+        - 30
+        - 10
+        - 5
+      4c5ed164-eb69-4e41-906f-1e7a93f1d5bd-religion:other-religious-group:
+        - 35
+        - 35
+        - 10
+        - 15
+        - 5
+      8d058cce-8ccf-4816-8ef7-c9c9e37038dc-religion:other-religious-group:
+        - 15
+        - 40
+        - 20
+        - 20
+        - 5
+      e80f0f47-44d0-4d1a-bbda-d2334ff056ac-religion:other-religious-group:
+        - 0
+        - 35
+        - 35
+        - 25
+        - 5
+      a6fa1236-c145-498b-8c30-7ca307461789-religion:other-religious-group:
+        - 5
+        - 15
+        - 20
+        - 35
+        - 25
+      f435994f-e66e-4681-8334-4d6ee5f39e6b-religion:other-religious-group:
+        - 5
+        - 0
+        - 20
+        - 50
+        - 25
+      951f11a0-3307-4507-805c-86d17562d21a-religion:other-religious-group:
+        - 10
+        - 50
+        - 30
+        - 10
+        - 0
+      522df4e6-3a3b-48d9-9c83-a03a6a7bb22e-religion:other-religious-group:
+        - 20
+        - 25
+        - 20
+        - 30
+        - 5
+      18cc2f33-6373-49f0-aa7e-e2fa04a04575-religion:other-religious-group:
+        - 5
+        - 10
+        - 35
+        - 35
+        - 15
+      e26549f8-5c9a-426b-b22a-57d8fe0d5e03-religion:other-religious-group:
+        - 5
+        - 30
+        - 25
+        - 35
+        - 5
+      332cec0c-afeb-4c18-a0e4-146c656750a8-religion:other-religious-group:
+        - 10
+        - 10
+        - 20
+        - 35
+        - 25
+      38964f80-772f-4e5d-a355-b4857f2de101-religion:other-religious-group:
+        - 45
+        - 30
+        - 25
+      983893d8-07ab-4c8e-bdb2-14335638633d-religion:other-religious-group:
+        - 5
+        - 25
+        - 25
+        - 40
+        - 5
+      8a9d1c12-44f6-42dc-9238-daaaca0d85d0-religion:other-religious-group:
+        - 5
+        - 15
+        - 20
+        - 60
+        - 0
+      5afe8617-7e71-40c8-8a33-1b356a8ca674-religion:other-religious-group:
+        - 5
+        - 20
+        - 15
+        - 55
+        - 5
+      96e5895f-d640-4a37-bc16-6e095f38ba7e-religion:other-religious-group:
+        - 15
+        - 35
+        - 15
+        - 30
+        - 5
+      0e0a2736-2ac9-490c-adb9-bf7dfd25b14b-religion:other-religious-group:
+        - 15
+        - 10
+        - 35
+        - 30
+        - 10
+      b1288e79-aec5-43e4-a34e-c6d474737305-religion:other-religious-group:
+        - 0
+        - 10
+        - 10
+        - 65
+        - 15
+      29453c82-de9b-4be1-ba27-723906fb7dcf-religion:other-religious-group:
+        - 40
+        - 15
+        - 45
+      289f8b3b-d97c-4585-8e41-5e41602aaedb-religion:other-religious-group:
+        - 40
+        - 25
+        - 35
+      e7a8b7e2-9077-4c8c-9cca-29f3c957ca16-religion:other-religious-group:
+        - 25
+        - 55
+        - 20
+      41f7cf6e-c4ee-42c7-b453-77320c78b294-religion:other-religious-group:
+        - 60
+        - 15
+        - 25
+        - 0
+      c909ca6a-ef51-4505-92a3-6f19645cd2b0-religion:other-religious-group:
+        - 70
+        - 30
+      18e6fbb1-c242-41ab-9e56-17b8ac4b4ca7-religion:other-religious-group:
+        - 95
+        - 5
+      b6c5e939-455a-4c81-a676-9be1bccaa582-religion:other-religious-group:
+        - 30
+        - 70
+      ec5fd6c7-ba70-46c0-a5c7-75e4f75163de-religion:other-religious-group:
+        - 60
+        - 40
+      78975667-0a8d-452f-9569-c7447732ba49-religion:other-religious-group:
+        - 65
+        - 20
+        - 15
+        - 0
+      fb7e02bc-de8f-453d-bfcc-10feb179f4ce-religion:other-religious-group:
+        - 55
+        - 30
+        - 15
