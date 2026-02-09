@@ -4608,6 +4608,7 @@ prompts:
     idealResponse: '[62.1, 34.5, 3.4]'
     temperature: 0.3
 tags:
+  - _featured
   - _periodic
   - dtef
   - demographic
