@@ -4,7 +4,7 @@ description: >-
   DTEF: Predict response distributions for China. Source: Global Dialogues GD2
   (https://github.com/collect-intel/global-dialogues)
 models:
-  - QUICK
+  - CORE
 system: >-
   You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
   would respond by providing a percentage distribution across the answer options.
@@ -41,7 +41,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -50,8 +50,6 @@ prompts:
             - 0
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "More excited than concerned" is within 14pp of 46.8%
-      - Predicted percentage for "Equally concerned and excited" is within 16pp of 53.2%
     idealResponse: '[46.8, 53.2, 0.0]'
     temperature: 0.3
   - id: 71118755-4bbd-490e-a64d-fd88e68588bf-country:china
@@ -78,7 +76,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -88,13 +86,6 @@ prompts:
             - 0
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes – I was able to fully express my views on these topics" is within 9pp of 31.6%
-      - >-
-        Predicted percentage for "Mostly – I was able to mostly express my views on these topics, but did not have the
-        chance to express a few things." is within 16pp of 52.6%
-      - >-
-        Predicted percentage for "Somewhat – I was able to somewhat express my views on these topics, but did not have
-        the chance to express many things." is within 5pp of 15.8%
     idealResponse: '[31.6, 52.6, 15.8, 0.0]'
     temperature: 0.3
   - id: 0341ab84-47fe-48de-9277-8119617d35a9-country:china
@@ -113,7 +104,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -122,9 +113,6 @@ prompts:
             - 7.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes" is within 11pp of 36.8%
-      - Predicted percentage for "Maybe a little" is within 17pp of 55.3%
-      - Predicted percentage for "No" is within 5pp of 7.9%
     idealResponse: '[36.8, 55.3, 7.9]'
     temperature: 0.3
 tags:

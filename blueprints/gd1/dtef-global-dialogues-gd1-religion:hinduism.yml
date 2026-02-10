@@ -4,7 +4,7 @@ description: >-
   DTEF: Predict response distributions for Hinduism. Source: Global Dialogues GD1
   (https://github.com/collect-intel/global-dialogues)
 models:
-  - QUICK
+  - CORE
 system: >-
   You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
   would respond by providing a percentage distribution across the answer options.
@@ -41,7 +41,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -50,9 +50,6 @@ prompts:
             - 5.7
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "More excited than concerned" is within 10pp of 32.3%
-      - Predicted percentage for "Equally concerned and excited" is within 19pp of 62.0%
-      - Predicted percentage for "More concerned than excited" is within 5pp of 5.7%
     idealResponse: '[32.3, 62.0, 5.7]'
     temperature: 0.3
   - id: ce8d6dba-231c-4353-8e8a-ba1e1eb4a10c-religion:hinduism
@@ -73,7 +70,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -82,12 +79,6 @@ prompts:
             - 4
           metric: js-divergence
           threshold: 0.85
-      - >-
-        Predicted percentage for "Yes – these things would definitely make a large positive difference in my life" is
-        within 17pp of 56.3%
-      - >-
-        Predicted percentage for "Maybe – these things might make some positive difference in my life" is within 12pp of
-        39.7%
     idealResponse: '[56.3, 39.7, 4.0]'
     temperature: 0.3
   - id: df6d9080-be3c-4166-a298-1b9c48e5c008-religion:hinduism
@@ -114,7 +105,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -124,10 +115,6 @@ prompts:
             - 0.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes – I was able to fully express my views on these topics" is within 22pp of 72.0%
-      - >-
-        Predicted percentage for "Mostly – I was able to mostly express my views on these topics, but did not have the
-        chance to express a few things." is within 8pp of 25.8%
     idealResponse: '[72.0, 25.8, 1.5, 0.8]'
     temperature: 0.3
   - id: e6253ecc-a4ed-42e9-99a3-00e4b2ff0f68-religion:hinduism
@@ -146,7 +133,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -155,8 +142,6 @@ prompts:
             - 0.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes" is within 23pp of 76.5%
-      - Predicted percentage for "Maybe a little" is within 7pp of 22.7%
     idealResponse: '[76.5, 22.7, 0.8]'
     temperature: 0.3
 tags:

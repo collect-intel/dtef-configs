@@ -4,7 +4,7 @@ description: >-
   DTEF: Predict response distributions for I do not identify with any religious group or faith. Source: Global Dialogues
   GD1 (https://github.com/collect-intel/global-dialogues)
 models:
-  - QUICK
+  - CORE
 system: >-
   You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
   would respond by providing a percentage distribution across the answer options.
@@ -41,7 +41,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -50,9 +50,6 @@ prompts:
             - 11.3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "More excited than concerned" is within 11pp of 36.7%
-      - Predicted percentage for "Equally concerned and excited" is within 16pp of 52.0%
-      - Predicted percentage for "More concerned than excited" is within 5pp of 11.3%
     idealResponse: '[36.7, 52.0, 11.3]'
     temperature: 0.3
   - id: ce8d6dba-231c-4353-8e8a-ba1e1eb4a10c-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -73,7 +70,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -82,12 +79,6 @@ prompts:
             - 4.7
           metric: js-divergence
           threshold: 0.85
-      - >-
-        Predicted percentage for "Yes – these things would definitely make a large positive difference in my life" is
-        within 15pp of 49.0%
-      - >-
-        Predicted percentage for "Maybe – these things might make some positive difference in my life" is within 14pp of
-        46.3%
     idealResponse: '[49.0, 46.3, 4.7]'
     temperature: 0.3
   - id: df6d9080-be3c-4166-a298-1b9c48e5c008-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -115,7 +106,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -125,13 +116,6 @@ prompts:
             - 0.3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes – I was able to fully express my views on these topics" is within 17pp of 57.6%
-      - >-
-        Predicted percentage for "Mostly – I was able to mostly express my views on these topics, but did not have the
-        chance to express a few things." is within 11pp of 36.0%
-      - >-
-        Predicted percentage for "Somewhat – I was able to somewhat express my views on these topics, but did not have
-        the chance to express many things." is within 5pp of 6.1%
     idealResponse: '[57.6, 36.0, 6.1, 0.3]'
     temperature: 0.3
   - id: e6253ecc-a4ed-42e9-99a3-00e4b2ff0f68-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -152,7 +136,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -161,9 +145,6 @@ prompts:
             - 11.6
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes" is within 12pp of 41.0%
-      - Predicted percentage for "Maybe a little" is within 14pp of 47.4%
-      - Predicted percentage for "No" is within 5pp of 11.6%
     idealResponse: '[41.0, 47.4, 11.6]'
     temperature: 0.3
 tags:

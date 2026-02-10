@@ -4,7 +4,7 @@ description: >-
   DTEF: Predict response distributions for Indonesia. Source: Global Dialogues GD2
   (https://github.com/collect-intel/global-dialogues)
 models:
-  - QUICK
+  - CORE
 system: >-
   You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
   would respond by providing a percentage distribution across the answer options.
@@ -41,7 +41,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -50,9 +50,6 @@ prompts:
             - 10
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "More excited than concerned" is within 13pp of 42.5%
-      - Predicted percentage for "Equally concerned and excited" is within 14pp of 47.5%
-      - Predicted percentage for "More concerned than excited" is within 5pp of 10.0%
     idealResponse: '[42.5, 47.5, 10.0]'
     temperature: 0.3
   - id: 71118755-4bbd-490e-a64d-fd88e68588bf-country:indonesia
@@ -79,7 +76,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -89,13 +86,6 @@ prompts:
             - 0
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes – I was able to fully express my views on these topics" is within 16pp of 52.9%
-      - >-
-        Predicted percentage for "Mostly – I was able to mostly express my views on these topics, but did not have the
-        chance to express a few things." is within 12pp of 41.2%
-      - >-
-        Predicted percentage for "Somewhat – I was able to somewhat express my views on these topics, but did not have
-        the chance to express many things." is within 5pp of 5.9%
     idealResponse: '[52.9, 41.2, 5.9, 0.0]'
     temperature: 0.3
   - id: 0341ab84-47fe-48de-9277-8119617d35a9-country:indonesia
@@ -114,7 +104,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -123,8 +113,6 @@ prompts:
             - 2.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes" is within 19pp of 64.7%
-      - Predicted percentage for "Maybe a little" is within 10pp of 32.4%
     idealResponse: '[64.7, 32.4, 2.9]'
     temperature: 0.3
 tags:

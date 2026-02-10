@@ -4,7 +4,7 @@ description: >-
   DTEF: Predict response distributions for Hinduism. Source: Global Dialogues GD3
   (https://github.com/collect-intel/global-dialogues)
 models:
-  - QUICK
+  - CORE
 system: >-
   You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
   would respond by providing a percentage distribution across the answer options.
@@ -41,7 +41,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -50,9 +50,6 @@ prompts:
             - 9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "More excited than concerned" is within 9pp of 29.1%
-      - Predicted percentage for "Equally concerned and excited" is within 19pp of 61.9%
-      - Predicted percentage for "More concerned than excited" is within 5pp of 9.0%
     idealResponse: '[29.1, 61.9, 9.0]'
     temperature: 0.3
   - id: ae768935-002f-49e2-b08f-92c7616b0533-religion:hinduism
@@ -75,7 +72,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -86,9 +83,6 @@ prompts:
             - 0
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 22pp of 72.0%
-      - Predicted percentage for "weekly" is within 7pp of 22.0%
-      - Predicted percentage for "monthly" is within 5pp of 5.3%
     idealResponse: '[72.0, 22.0, 5.3, 0.8, 0.0]'
     temperature: 0.3
   - id: 926a5461-6a68-43c9-8279-94430dc9323e-religion:hinduism
@@ -116,7 +110,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -127,10 +121,6 @@ prompts:
             - 5.3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 9pp of 31.1%
-      - Predicted percentage for "weekly" is within 14pp of 47.0%
-      - Predicted percentage for "monthly" is within 5pp of 12.9%
-      - Predicted percentage for "never" is within 5pp of 5.3%
     idealResponse: '[31.1, 47.0, 12.9, 3.8, 5.3]'
     temperature: 0.3
   - id: 1ebc80e1-d3e2-4dc5-987c-e4d637cf6bec-religion:hinduism
@@ -153,7 +143,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -164,10 +154,6 @@ prompts:
             - 6.1
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 15pp of 50.0%
-      - Predicted percentage for "weekly" is within 10pp of 34.1%
-      - Predicted percentage for "monthly" is within 5pp of 9.8%
-      - Predicted percentage for "never" is within 5pp of 6.1%
     idealResponse: '[50.0, 34.1, 9.8, 0.0, 6.1]'
     temperature: 0.3
   - id: 3c74ec68-77f6-46a5-9918-0c8e97fb7bc8-religion:hinduism
@@ -195,7 +181,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -206,9 +192,6 @@ prompts:
             - 3.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 15pp of 50.0%
-      - Predicted percentage for "weekly" is within 11pp of 35.6%
-      - Predicted percentage for "monthly" is within 5pp of 9.1%
     idealResponse: '[50.0, 35.6, 9.1, 1.5, 3.8]'
     temperature: 0.3
   - id: 47cdf76a-9abf-4b5c-abbe-2d5b00ef172d-religion:hinduism
@@ -236,7 +219,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -247,10 +230,6 @@ prompts:
             - 7.6
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 15pp of 48.5%
-      - Predicted percentage for "weekly" is within 10pp of 34.1%
-      - Predicted percentage for "monthly" is within 5pp of 8.3%
-      - Predicted percentage for "never" is within 5pp of 7.6%
     idealResponse: '[48.5, 34.1, 8.3, 1.5, 7.6]'
     temperature: 0.3
   - id: d633720f-a159-4922-925c-fd9f3245711e-religion:hinduism
@@ -278,7 +257,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -289,10 +268,6 @@ prompts:
             - 43.2
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 5pp of 7.6%
-      - Predicted percentage for "weekly" is within 7pp of 22.7%
-      - Predicted percentage for "monthly" is within 7pp of 22.7%
-      - Predicted percentage for "never" is within 13pp of 43.2%
     idealResponse: '[7.6, 22.7, 22.7, 3.8, 43.2]'
     temperature: 0.3
   - id: 8b361c6c-eb59-415b-8536-7f80713c3e5e-religion:hinduism
@@ -320,7 +295,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -331,10 +306,6 @@ prompts:
             - 59.1
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 5pp of 8.3%
-      - Predicted percentage for "weekly" is within 5pp of 17.4%
-      - Predicted percentage for "monthly" is within 5pp of 13.6%
-      - Predicted percentage for "never" is within 18pp of 59.1%
     idealResponse: '[8.3, 17.4, 13.6, 1.5, 59.1]'
     temperature: 0.3
   - id: d1baeb26-baca-414f-91f6-72b023c02a65-religion:hinduism
@@ -362,7 +333,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -373,10 +344,6 @@ prompts:
             - 13.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Risks slightly outweigh benefits" is within 5pp of 10.0%
-      - Predicted percentage for "Risks and benefits are equal" is within 14pp of 46.2%
-      - Predicted percentage for "Benefits slightly outweigh risks" is within 8pp of 26.2%
-      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 13.8%
     idealResponse: '[3.8, 10.0, 46.2, 26.2, 13.8]'
     temperature: 0.3
   - id: 8c50a77a-3fc2-49ce-b568-b7832c9b99e0-religion:hinduism
@@ -404,7 +371,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -415,10 +382,6 @@ prompts:
             - 4.6
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Risks far outweigh benefits" is within 5pp of 13.1%
-      - Predicted percentage for "Risks slightly outweigh benefits" is within 9pp of 30.0%
-      - Predicted percentage for "Risks and benefits are equal" is within 11pp of 35.4%
-      - Predicted percentage for "Benefits slightly outweigh risks" is within 5pp of 16.9%
     idealResponse: '[13.1, 30.0, 35.4, 16.9, 4.6]'
     temperature: 0.3
   - id: 30324a2e-b5b2-4e0a-a8f2-af599b55c40e-religion:hinduism
@@ -441,7 +404,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -452,10 +415,6 @@ prompts:
             - 17.7
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Risks slightly outweigh benefits" is within 6pp of 19.2%
-      - Predicted percentage for "Risks and benefits are equal" is within 7pp of 23.8%
-      - Predicted percentage for "Benefits slightly outweigh risks" is within 10pp of 34.6%
-      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 17.7%
     idealResponse: '[4.6, 19.2, 23.8, 34.6, 17.7]'
     temperature: 0.3
   - id: 4f234e17-2d57-4709-b29a-4a2909683566-religion:hinduism
@@ -483,7 +442,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -494,11 +453,6 @@ prompts:
             - 6.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Risks far outweigh benefits" is within 5pp of 13.8%
-      - Predicted percentage for "Risks slightly outweigh benefits" is within 9pp of 31.5%
-      - Predicted percentage for "Risks and benefits are equal" is within 9pp of 30.0%
-      - Predicted percentage for "Benefits slightly outweigh risks" is within 5pp of 17.7%
-      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 6.9%
     idealResponse: '[13.8, 31.5, 30.0, 17.7, 6.9]'
     temperature: 0.3
   - id: 96ccfd7b-8f99-4d0a-b700-9fd835e23bd8-religion:hinduism
@@ -526,7 +480,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -537,11 +491,6 @@ prompts:
             - 10
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Risks far outweigh benefits" is within 5pp of 11.5%
-      - Predicted percentage for "Risks slightly outweigh benefits" is within 10pp of 33.8%
-      - Predicted percentage for "Risks and benefits are equal" is within 8pp of 25.4%
-      - Predicted percentage for "Benefits slightly outweigh risks" is within 6pp of 19.2%
-      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 10.0%
     idealResponse: '[11.5, 33.8, 25.4, 19.2, 10.0]'
     temperature: 0.3
   - id: b1869877-1015-43ec-9645-84bf2db39c6f-religion:hinduism
@@ -562,7 +511,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -573,11 +522,6 @@ prompts:
             - 11.5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 5pp of 8.5%
-      - Predicted percentage for "Somewhat Distrust" is within 7pp of 23.8%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 6pp of 18.5%
-      - Predicted percentage for "Somewhat Trust" is within 11pp of 37.7%
-      - Predicted percentage for "Strongly Trust" is within 5pp of 11.5%
     idealResponse: '[8.5, 23.8, 18.5, 37.7, 11.5]'
     temperature: 0.3
   - id: dc5e8d2a-c20b-47fa-89e2-b4db635a8ad4-religion:hinduism
@@ -598,7 +542,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -609,10 +553,6 @@ prompts:
             - 12.3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Somewhat Distrust" is within 5pp of 12.3%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 7pp of 24.6%
-      - Predicted percentage for "Somewhat Trust" is within 14pp of 46.9%
-      - Predicted percentage for "Strongly Trust" is within 5pp of 12.3%
     idealResponse: '[3.8, 12.3, 24.6, 46.9, 12.3]'
     temperature: 0.3
   - id: 8ed2d795-acca-47d8-abb0-8c446310dbf0-religion:hinduism
@@ -633,7 +573,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -644,11 +584,6 @@ prompts:
             - 7.7
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 5pp of 17.7%
-      - Predicted percentage for "Somewhat Distrust" is within 6pp of 21.5%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 6pp of 20.0%
-      - Predicted percentage for "Somewhat Trust" is within 10pp of 33.1%
-      - Predicted percentage for "Strongly Trust" is within 5pp of 7.7%
     idealResponse: '[17.7, 21.5, 20.0, 33.1, 7.7]'
     temperature: 0.3
   - id: 4c5ed164-eb69-4e41-906f-1e7a93f1d5bd-religion:hinduism
@@ -671,7 +606,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -682,10 +617,6 @@ prompts:
             - 1.5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 7pp of 23.1%
-      - Predicted percentage for "Somewhat Distrust" is within 9pp of 30.8%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 7pp of 24.6%
-      - Predicted percentage for "Somewhat Trust" is within 6pp of 20.0%
     idealResponse: '[23.1, 30.8, 24.6, 20.0, 1.5]'
     temperature: 0.3
   - id: 8d058cce-8ccf-4816-8ef7-c9c9e37038dc-religion:hinduism
@@ -706,7 +637,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -717,11 +648,6 @@ prompts:
             - 9.2
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 5pp of 8.5%
-      - Predicted percentage for "Somewhat Distrust" is within 6pp of 20.0%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 9pp of 28.5%
-      - Predicted percentage for "Somewhat Trust" is within 10pp of 33.8%
-      - Predicted percentage for "Strongly Trust" is within 5pp of 9.2%
     idealResponse: '[8.5, 20.0, 28.5, 33.8, 9.2]'
     temperature: 0.3
   - id: e80f0f47-44d0-4d1a-bbda-d2334ff056ac-religion:hinduism
@@ -744,7 +670,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -755,10 +681,6 @@ prompts:
             - 7.7
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Somewhat Distrust" is within 5pp of 11.5%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 9pp of 28.5%
-      - Predicted percentage for "Somewhat Trust" is within 15pp of 50.8%
-      - Predicted percentage for "Strongly Trust" is within 5pp of 7.7%
     idealResponse: '[1.5, 11.5, 28.5, 50.8, 7.7]'
     temperature: 0.3
   - id: a6fa1236-c145-498b-8c30-7ca307461789-religion:hinduism
@@ -781,7 +703,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -792,9 +714,6 @@ prompts:
             - 26.2
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 5pp of 13.8%
-      - Predicted percentage for "Somewhat Trust" is within 16pp of 53.8%
-      - Predicted percentage for "Strongly Trust" is within 8pp of 26.2%
     idealResponse: '[1.5, 4.6, 13.8, 53.8, 26.2]'
     temperature: 0.3
   - id: f435994f-e66e-4681-8334-4d6ee5f39e6b-religion:hinduism
@@ -815,7 +734,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -826,8 +745,6 @@ prompts:
             - 60.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Somewhat Trust" is within 9pp of 31.5%
-      - Predicted percentage for "Strongly Trust" is within 18pp of 60.8%
     idealResponse: '[1.5, 2.3, 3.8, 31.5, 60.8]'
     temperature: 0.3
   - id: 951f11a0-3307-4507-805c-86d17562d21a-religion:hinduism
@@ -855,7 +772,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -866,10 +783,6 @@ prompts:
             - 3.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 7pp of 23.1%
-      - Predicted percentage for "Somewhat Distrust" is within 8pp of 27.7%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 8pp of 26.2%
-      - Predicted percentage for "Somewhat Trust" is within 6pp of 19.2%
     idealResponse: '[23.1, 27.7, 26.2, 19.2, 3.8]'
     temperature: 0.3
   - id: 522df4e6-3a3b-48d9-9c83-a03a6a7bb22e-religion:hinduism
@@ -892,7 +805,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -903,11 +816,6 @@ prompts:
             - 9.2
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 5pp of 9.2%
-      - Predicted percentage for "Somewhat Distrust" is within 6pp of 21.5%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 7pp of 24.6%
-      - Predicted percentage for "Somewhat Trust" is within 11pp of 35.4%
-      - Predicted percentage for "Strongly Trust" is within 5pp of 9.2%
     idealResponse: '[9.2, 21.5, 24.6, 35.4, 9.2]'
     temperature: 0.3
   - id: 18cc2f33-6373-49f0-aa7e-e2fa04a04575-religion:hinduism
@@ -930,7 +838,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -941,10 +849,6 @@ prompts:
             - 11.5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Somewhat Distrust" is within 6pp of 20.0%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 7pp of 23.8%
-      - Predicted percentage for "Somewhat Trust" is within 12pp of 40.0%
-      - Predicted percentage for "Strongly Trust" is within 5pp of 11.5%
     idealResponse: '[4.6, 20.0, 23.8, 40.0, 11.5]'
     temperature: 0.3
   - id: e26549f8-5c9a-426b-b22a-57d8fe0d5e03-religion:hinduism
@@ -967,7 +871,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -978,11 +882,6 @@ prompts:
             - 16.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 5pp of 11.5%
-      - Predicted percentage for "Somewhat Distrust" is within 5pp of 15.4%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 5pp of 17.7%
-      - Predicted percentage for "Somewhat Trust" is within 12pp of 38.5%
-      - Predicted percentage for "Strongly Trust" is within 5pp of 16.9%
     idealResponse: '[11.5, 15.4, 17.7, 38.5, 16.9]'
     temperature: 0.3
   - id: 332cec0c-afeb-4c18-a0e4-146c656750a8-religion:hinduism
@@ -1005,7 +904,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1016,10 +915,6 @@ prompts:
             - 21.5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Somewhat Distrust" is within 5pp of 8.5%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 7pp of 23.1%
-      - Predicted percentage for "Somewhat Trust" is within 13pp of 43.8%
-      - Predicted percentage for "Strongly Trust" is within 6pp of 21.5%
     idealResponse: '[3.1, 8.5, 23.1, 43.8, 21.5]'
     temperature: 0.3
   - id: 38964f80-772f-4e5d-a355-b4857f2de101-religion:hinduism
@@ -1045,7 +940,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1054,9 +949,6 @@ prompts:
             - 33.1
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Agree" is within 9pp of 30.0%
-      - Predicted percentage for "Disagree" is within 11pp of 36.9%
-      - Predicted percentage for "Unsure" is within 10pp of 33.1%
     idealResponse: '[30.0, 36.9, 33.1]'
     temperature: 0.3
   - id: 983893d8-07ab-4c8e-bdb2-14335638633d-religion:hinduism
@@ -1084,7 +976,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1095,10 +987,6 @@ prompts:
             - 7.7
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Noticeably Worse" is within 5pp of 17.7%
-      - Predicted percentage for "No Major Change" is within 5pp of 13.8%
-      - Predicted percentage for "Noticeably Better" is within 18pp of 58.5%
-      - Predicted percentage for "Profoundly Better" is within 5pp of 7.7%
     idealResponse: '[2.3, 17.7, 13.8, 58.5, 7.7]'
     temperature: 0.3
   - id: 8a9d1c12-44f6-42dc-9238-daaaca0d85d0-religion:hinduism
@@ -1126,7 +1014,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1137,10 +1025,6 @@ prompts:
             - 13.1
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Noticeably Worse" is within 5pp of 8.5%
-      - Predicted percentage for "No Major Change" is within 6pp of 18.5%
-      - Predicted percentage for "Noticeably Better" is within 17pp of 56.9%
-      - Predicted percentage for "Profoundly Better" is within 5pp of 13.1%
     idealResponse: '[3.1, 8.5, 18.5, 56.9, 13.1]'
     temperature: 0.3
   - id: 5afe8617-7e71-40c8-8a33-1b356a8ca674-religion:hinduism
@@ -1168,7 +1052,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1179,11 +1063,6 @@ prompts:
             - 13.1
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Profoundly Worse" is within 5pp of 6.9%
-      - Predicted percentage for "Noticeably Worse" is within 5pp of 12.3%
-      - Predicted percentage for "No Major Change" is within 6pp of 20.8%
-      - Predicted percentage for "Noticeably Better" is within 14pp of 46.9%
-      - Predicted percentage for "Profoundly Better" is within 5pp of 13.1%
     idealResponse: '[6.9, 12.3, 20.8, 46.9, 13.1]'
     temperature: 0.3
   - id: 96e5895f-d640-4a37-bc16-6e095f38ba7e-religion:hinduism
@@ -1211,7 +1090,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1222,11 +1101,6 @@ prompts:
             - 9.2
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Profoundly Worse" is within 5pp of 13.1%
-      - Predicted percentage for "Noticeably Worse" is within 12pp of 40.0%
-      - Predicted percentage for "No Major Change" is within 5pp of 12.3%
-      - Predicted percentage for "Noticeably Better" is within 8pp of 25.4%
-      - Predicted percentage for "Profoundly Better" is within 5pp of 9.2%
     idealResponse: '[13.1, 40.0, 12.3, 25.4, 9.2]'
     temperature: 0.3
   - id: 0e0a2736-2ac9-490c-adb9-bf7dfd25b14b-religion:hinduism
@@ -1254,7 +1128,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1265,10 +1139,6 @@ prompts:
             - 9.2
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Noticeably Worse" is within 5pp of 17.7%
-      - Predicted percentage for "No Major Change" is within 10pp of 33.1%
-      - Predicted percentage for "Noticeably Better" is within 11pp of 35.4%
-      - Predicted percentage for "Profoundly Better" is within 5pp of 9.2%
     idealResponse: '[4.6, 17.7, 33.1, 35.4, 9.2]'
     temperature: 0.3
   - id: b1288e79-aec5-43e4-a34e-c6d474737305-religion:hinduism
@@ -1289,7 +1159,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1300,10 +1170,6 @@ prompts:
             - 16.2
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Noticeably Worse" is within 5pp of 5.4%
-      - Predicted percentage for "No Major Change" is within 7pp of 23.8%
-      - Predicted percentage for "Noticeably Better" is within 16pp of 53.8%
-      - Predicted percentage for "Profoundly Better" is within 5pp of 16.2%
     idealResponse: '[0.8, 5.4, 23.8, 53.8, 16.2]'
     temperature: 0.3
   - id: 29453c82-de9b-4be1-ba27-723906fb7dcf-religion:hinduism
@@ -1322,7 +1188,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1331,9 +1197,6 @@ prompts:
             - 11.5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes" is within 24pp of 78.5%
-      - Predicted percentage for "No " is within 5pp of 10.0%
-      - Predicted percentage for "Don't Know" is within 5pp of 11.5%
     idealResponse: '[78.5, 10.0, 11.5]'
     temperature: 0.3
   - id: 289f8b3b-d97c-4585-8e41-5e41602aaedb-religion:hinduism
@@ -1352,7 +1215,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1361,9 +1224,6 @@ prompts:
             - 20
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes" is within 12pp of 38.5%
-      - Predicted percentage for "No" is within 12pp of 41.5%
-      - Predicted percentage for "Don't Know" is within 6pp of 20.0%
     idealResponse: '[38.5, 41.5, 20.0]'
     temperature: 0.3
   - id: e7a8b7e2-9077-4c8c-9cca-29f3c957ca16-religion:hinduism
@@ -1382,7 +1242,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1391,9 +1251,6 @@ prompts:
             - 8.5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes" is within 8pp of 26.9%
-      - Predicted percentage for "No" is within 19pp of 64.6%
-      - Predicted percentage for "Don't Know" is within 5pp of 8.5%
     idealResponse: '[26.9, 64.6, 8.5]'
     temperature: 0.3
   - id: 41f7cf6e-c4ee-42c7-b453-77320c78b294-religion:hinduism
@@ -1413,7 +1270,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1423,10 +1280,6 @@ prompts:
             - 8.5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Not at all" is within 9pp of 31.5%
-      - Predicted percentage for "I know someone who has lost their job" is within 9pp of 30.8%
-      - Predicted percentage for "I know several people who have lost their job" is within 9pp of 29.2%
-      - Predicted percentage for "I know many people who have lost their job" is within 5pp of 8.5%
     idealResponse: '[31.5, 30.8, 29.2, 8.5]'
     temperature: 0.3
   - id: c909ca6a-ef51-4505-92a3-6f19645cd2b0-religion:hinduism
@@ -1444,7 +1297,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1452,7 +1305,6 @@ prompts:
             - 2.3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Agree" is within 29pp of 97.7%
     idealResponse: '[97.7, 2.3]'
     temperature: 0.3
   - id: 18e6fbb1-c242-41ab-9e56-17b8ac4b4ca7-religion:hinduism
@@ -1470,7 +1322,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1478,7 +1330,6 @@ prompts:
             - 4.7
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Agree" is within 29pp of 95.3%
     idealResponse: '[95.3, 4.7]'
     temperature: 0.3
   - id: b6c5e939-455a-4c81-a676-9be1bccaa582-religion:hinduism
@@ -1496,7 +1347,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1504,8 +1355,6 @@ prompts:
             - 58.1
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Agree" is within 13pp of 41.9%
-      - Predicted percentage for "Disagree" is within 17pp of 58.1%
     idealResponse: '[41.9, 58.1]'
     temperature: 0.3
   - id: ec5fd6c7-ba70-46c0-a5c7-75e4f75163de-religion:hinduism
@@ -1523,7 +1372,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1531,8 +1380,6 @@ prompts:
             - 32.6
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Agree" is within 20pp of 67.4%
-      - Predicted percentage for "Disagree" is within 10pp of 32.6%
     idealResponse: '[67.4, 32.6]'
     temperature: 0.3
   - id: 78975667-0a8d-452f-9569-c7447732ba49-religion:hinduism
@@ -1559,7 +1406,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1569,10 +1416,6 @@ prompts:
             - 0
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes – I was able to fully express my views on these topics" is within 22pp of 73.6%
-      - >-
-        Predicted percentage for "Mostly – I was able to mostly express my views on these topics, but did not have the
-        chance to express a few things." is within 7pp of 24.0%
     idealResponse: '[73.6, 24.0, 2.3, 0.0]'
     temperature: 0.3
   - id: fb7e02bc-de8f-453d-bfcc-10feb179f4ce-religion:hinduism
@@ -1591,7 +1434,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1600,8 +1443,6 @@ prompts:
             - 0
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes" is within 22pp of 72.1%
-      - Predicted percentage for "Maybe a little" is within 8pp of 27.9%
     idealResponse: '[72.1, 27.9, 0.0]'
     temperature: 0.3
 tags:

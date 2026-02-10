@@ -4,7 +4,7 @@ description: >-
   DTEF: Predict response distributions for I do not identify with any religious group or faith. Source: Global Dialogues
   GD6 (https://github.com/collect-intel/global-dialogues)
 models:
-  - QUICK
+  - CORE
 system: >-
   You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
   would respond by providing a percentage distribution across the answer options.
@@ -41,7 +41,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -50,9 +50,6 @@ prompts:
             - 16
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "More excited than concerned" is within 12pp of 38.7%
-      - Predicted percentage for "Equally concerned and excited" is within 14pp of 45.3%
-      - Predicted percentage for "More concerned than excited" is within 5pp of 16.0%
     idealResponse: '[38.7, 45.3, 16.0]'
     temperature: 0.3
   - id: 345c2b91-6de9-4c51-8288-922f9a39a650-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -75,7 +72,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -86,8 +83,6 @@ prompts:
             - 0
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 23pp of 75.0%
-      - Predicted percentage for "weekly" is within 7pp of 21.8%
     idealResponse: '[75.0, 21.8, 2.9, 0.3, 0.0]'
     temperature: 0.3
   - id: 7a5f9a6d-579b-4117-bb89-c4b92514e466-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -115,7 +110,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -126,10 +121,6 @@ prompts:
             - 7.6
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 7pp of 22.1%
-      - Predicted percentage for "weekly" is within 14pp of 46.2%
-      - Predicted percentage for "monthly" is within 6pp of 20.1%
-      - Predicted percentage for "never" is within 5pp of 7.6%
     idealResponse: '[22.1, 46.2, 20.1, 4.1, 7.6]'
     temperature: 0.3
   - id: 56f4b20b-87f9-4aa0-afed-adaffe5fbd91-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -152,7 +143,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -163,10 +154,6 @@ prompts:
             - 20.6
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 11pp of 37.5%
-      - Predicted percentage for "weekly" is within 8pp of 27.0%
-      - Predicted percentage for "monthly" is within 5pp of 13.4%
-      - Predicted percentage for "never" is within 6pp of 20.6%
     idealResponse: '[37.5, 27.0, 13.4, 1.5, 20.6]'
     temperature: 0.3
   - id: df84db18-d207-47ae-ab9a-2f3339642576-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -194,7 +181,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -205,10 +192,6 @@ prompts:
             - 13.4
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 13pp of 41.9%
-      - Predicted percentage for "weekly" is within 9pp of 30.5%
-      - Predicted percentage for "monthly" is within 5pp of 12.2%
-      - Predicted percentage for "never" is within 5pp of 13.4%
     idealResponse: '[41.9, 30.5, 12.2, 2.0, 13.4]'
     temperature: 0.3
   - id: da2fed27-d29a-416d-ab49-a5c2c037187b-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -236,7 +219,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -247,9 +230,6 @@ prompts:
             - 3.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 14pp of 46.8%
-      - Predicted percentage for "weekly" is within 11pp of 36.3%
-      - Predicted percentage for "monthly" is within 5pp of 10.2%
     idealResponse: '[46.8, 36.3, 10.2, 2.9, 3.8]'
     temperature: 0.3
   - id: 770c5dc2-7f4a-4fd0-84eb-351ff475647e-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -278,7 +258,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -289,11 +269,6 @@ prompts:
             - 37.5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 5pp of 11.0%
-      - Predicted percentage for "weekly" is within 6pp of 20.1%
-      - Predicted percentage for "monthly" is within 7pp of 23.5%
-      - Predicted percentage for "annually" is within 5pp of 7.8%
-      - Predicted percentage for "never" is within 11pp of 37.5%
     idealResponse: '[11.0, 20.1, 23.5, 7.8, 37.5]'
     temperature: 0.3
   - id: daef59cb-9613-4468-81a8-d31ec8318ab7-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -322,7 +297,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -333,10 +308,6 @@ prompts:
             - 69.1
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 5pp of 5.0%
-      - Predicted percentage for "weekly" is within 5pp of 11.1%
-      - Predicted percentage for "monthly" is within 5pp of 11.4%
-      - Predicted percentage for "never" is within 21pp of 69.1%
     idealResponse: '[5.0, 11.1, 11.4, 3.5, 69.1]'
     temperature: 0.3
   - id: 0625fc89-8b0d-432c-a526-b3588b7edbeb-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -364,7 +335,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -375,11 +346,6 @@ prompts:
             - 23.6
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Risks far outweigh benefits" is within 5pp of 6.2%
-      - Predicted percentage for "Risks slightly outweigh benefits" is within 5pp of 8.8%
-      - Predicted percentage for "Risks and benefits are equal" is within 7pp of 24.8%
-      - Predicted percentage for "Benefits slightly outweigh risks" is within 11pp of 36.6%
-      - Predicted percentage for "Benefits far outweigh risks" is within 7pp of 23.6%
     idealResponse: '[6.2, 8.8, 24.8, 36.6, 23.6]'
     temperature: 0.3
   - id: b894e8ff-78fd-4213-b0a3-8d81cde284b2-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -407,7 +373,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -418,11 +384,6 @@ prompts:
             - 10
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Risks far outweigh benefits" is within 5pp of 15.3%
-      - Predicted percentage for "Risks slightly outweigh benefits" is within 7pp of 21.8%
-      - Predicted percentage for "Risks and benefits are equal" is within 9pp of 28.9%
-      - Predicted percentage for "Benefits slightly outweigh risks" is within 7pp of 23.9%
-      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 10.0%
     idealResponse: '[15.3, 21.8, 28.9, 23.9, 10.0]'
     temperature: 0.3
   - id: 0a526274-32bc-4566-86c0-5015e80208c1-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -445,7 +406,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -456,11 +417,6 @@ prompts:
             - 18.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Risks far outweigh benefits" is within 5pp of 6.2%
-      - Predicted percentage for "Risks slightly outweigh benefits" is within 5pp of 17.1%
-      - Predicted percentage for "Risks and benefits are equal" is within 8pp of 27.4%
-      - Predicted percentage for "Benefits slightly outweigh risks" is within 9pp of 30.4%
-      - Predicted percentage for "Benefits far outweigh risks" is within 6pp of 18.9%
     idealResponse: '[6.2, 17.1, 27.4, 30.4, 18.9]'
     temperature: 0.3
   - id: a5d5196f-4f5e-4b57-a26f-3baedb054cb6-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -489,7 +445,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -500,11 +456,6 @@ prompts:
             - 8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Risks far outweigh benefits" is within 6pp of 20.4%
-      - Predicted percentage for "Risks slightly outweigh benefits" is within 8pp of 27.4%
-      - Predicted percentage for "Risks and benefits are equal" is within 8pp of 26.0%
-      - Predicted percentage for "Benefits slightly outweigh risks" is within 5pp of 18.3%
-      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 8.0%
     idealResponse: '[20.4, 27.4, 26.0, 18.3, 8.0]'
     temperature: 0.3
   - id: 2617912e-463a-4fb4-8781-0ada7a788fb2-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -533,7 +484,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -544,11 +495,6 @@ prompts:
             - 9.4
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Risks far outweigh benefits" is within 6pp of 19.8%
-      - Predicted percentage for "Risks slightly outweigh benefits" is within 7pp of 23.3%
-      - Predicted percentage for "Risks and benefits are equal" is within 6pp of 20.4%
-      - Predicted percentage for "Benefits slightly outweigh risks" is within 8pp of 27.1%
-      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 9.4%
     idealResponse: '[19.8, 23.3, 20.4, 27.1, 9.4]'
     temperature: 0.3
   - id: 84779ba6-1191-4840-862d-e9eacc2defe9-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -571,7 +517,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -582,10 +528,6 @@ prompts:
             - 1.5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 7pp of 23.3%
-      - Predicted percentage for "Somewhat Distrust" is within 11pp of 36.3%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 5pp of 18.0%
-      - Predicted percentage for "Somewhat Trust" is within 6pp of 20.9%
     idealResponse: '[23.3, 36.3, 18.0, 20.9, 1.5]'
     temperature: 0.3
   - id: 5710c67a-adf2-469d-aa92-1b6961e2b9de-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -608,7 +550,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -619,9 +561,6 @@ prompts:
             - 4.4
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Somewhat Distrust" is within 7pp of 22.4%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 11pp of 36.9%
-      - Predicted percentage for "Somewhat Trust" is within 9pp of 31.6%
     idealResponse: '[4.7, 22.4, 36.9, 31.6, 4.4]'
     temperature: 0.3
   - id: e97db5cf-118a-4016-ab42-fabb172ce5cd-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -644,7 +583,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -655,10 +594,6 @@ prompts:
             - 2.4
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 10pp of 32.2%
-      - Predicted percentage for "Somewhat Distrust" is within 9pp of 31.3%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 5pp of 18.3%
-      - Predicted percentage for "Somewhat Trust" is within 5pp of 15.9%
     idealResponse: '[32.2, 31.3, 18.3, 15.9, 2.4]'
     temperature: 0.3
   - id: 7dd026f5-c70d-4126-bc78-68e823880f65-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -681,7 +616,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -692,10 +627,6 @@ prompts:
             - 0.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 14pp of 45.4%
-      - Predicted percentage for "Somewhat Distrust" is within 9pp of 29.8%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 5pp of 17.1%
-      - Predicted percentage for "Somewhat Trust" is within 5pp of 6.8%
     idealResponse: '[45.4, 29.8, 17.1, 6.8, 0.9]'
     temperature: 0.3
   - id: 87a7c03c-831b-4463-a0eb-1a40b2b47a17-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -718,7 +649,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -729,10 +660,6 @@ prompts:
             - 3.5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 6pp of 20.1%
-      - Predicted percentage for "Somewhat Distrust" is within 8pp of 25.7%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 10pp of 33.3%
-      - Predicted percentage for "Somewhat Trust" is within 5pp of 17.4%
     idealResponse: '[20.1, 25.7, 33.3, 17.4, 3.5]'
     temperature: 0.3
   - id: 8a238573-802f-4c76-81e3-21a367107ba8-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -755,7 +682,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -766,10 +693,6 @@ prompts:
             - 4.1
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 5pp of 9.4%
-      - Predicted percentage for "Somewhat Distrust" is within 7pp of 24.2%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 8pp of 27.4%
-      - Predicted percentage for "Somewhat Trust" is within 10pp of 34.8%
     idealResponse: '[9.4, 24.2, 27.4, 34.8, 4.1]'
     temperature: 0.3
   - id: a40ac181-e276-4d6d-9f17-c9e079bd1467-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -792,7 +715,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -803,10 +726,6 @@ prompts:
             - 18.6
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Somewhat Distrust" is within 5pp of 10.3%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 5pp of 17.7%
-      - Predicted percentage for "Somewhat Trust" is within 15pp of 51.3%
-      - Predicted percentage for "Strongly Trust" is within 6pp of 18.6%
     idealResponse: '[2.1, 10.3, 17.7, 51.3, 18.6]'
     temperature: 0.3
   - id: 33407f11-6399-445c-9e33-9d7948c84b77-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -829,7 +748,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -840,10 +759,6 @@ prompts:
             - 31.3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Somewhat Distrust" is within 5pp of 7.4%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 5pp of 14.5%
-      - Predicted percentage for "Somewhat Trust" is within 14pp of 46.3%
-      - Predicted percentage for "Strongly Trust" is within 9pp of 31.3%
     idealResponse: '[0.6, 7.4, 14.5, 46.3, 31.3]'
     temperature: 0.3
   - id: d536cd1c-0d35-4600-b7cb-9a766847548b-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -871,7 +786,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -882,10 +797,6 @@ prompts:
             - 1.5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 11pp of 37.8%
-      - Predicted percentage for "Somewhat Distrust" is within 11pp of 38.3%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 5pp of 15.9%
-      - Predicted percentage for "Somewhat Trust" is within 5pp of 6.5%
     idealResponse: '[37.8, 38.3, 15.9, 6.5, 1.5]'
     temperature: 0.3
   - id: 5bb37818-4e45-40f9-ba8c-96ec97831225-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -908,7 +819,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -919,10 +830,6 @@ prompts:
             - 2.4
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 6pp of 20.6%
-      - Predicted percentage for "Somewhat Distrust" is within 9pp of 30.1%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 7pp of 23.3%
-      - Predicted percentage for "Somewhat Trust" is within 7pp of 23.6%
     idealResponse: '[20.6, 30.1, 23.3, 23.6, 2.4]'
     temperature: 0.3
   - id: 677830d5-3ee0-462b-8b56-73a939beb53d-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -945,7 +852,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -956,10 +863,6 @@ prompts:
             - 1.2
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 7pp of 22.4%
-      - Predicted percentage for "Somewhat Distrust" is within 6pp of 19.5%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 11pp of 38.3%
-      - Predicted percentage for "Somewhat Trust" is within 6pp of 18.6%
     idealResponse: '[22.4, 19.5, 38.3, 18.6, 1.2]'
     temperature: 0.3
   - id: f16e6aa0-0b90-4244-a1cb-b7381c66df63-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -982,7 +885,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -993,10 +896,6 @@ prompts:
             - 1.5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 5pp of 17.1%
-      - Predicted percentage for "Somewhat Distrust" is within 10pp of 32.4%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 8pp of 26.0%
-      - Predicted percentage for "Somewhat Trust" is within 7pp of 23.0%
     idealResponse: '[17.1, 32.4, 26.0, 23.0, 1.5]'
     temperature: 0.3
   - id: 44f058f5-5298-4648-b6e0-29b97111a3cf-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1019,7 +918,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1030,11 +929,6 @@ prompts:
             - 8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 5pp of 7.7%
-      - Predicted percentage for "Somewhat Distrust" is within 6pp of 18.9%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 10pp of 33.3%
-      - Predicted percentage for "Somewhat Trust" is within 10pp of 32.2%
-      - Predicted percentage for "Strongly Trust" is within 5pp of 8.0%
     idealResponse: '[7.7, 18.9, 33.3, 32.2, 8.0]'
     temperature: 0.3
   - id: 2072e5fb-6a4f-46f5-98b5-17da5d70a776-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1060,7 +954,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1069,9 +963,6 @@ prompts:
             - 44
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Agree" is within 8pp of 26.3%
-      - Predicted percentage for "Disagree" is within 9pp of 29.8%
-      - Predicted percentage for "Unsure" is within 13pp of 44.0%
     idealResponse: '[26.3, 29.8, 44.0]'
     temperature: 0.3
   - id: ae245a88-3cc1-4ca1-8273-cdb64f43d10a-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1099,7 +990,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1110,10 +1001,6 @@ prompts:
             - 8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Noticeably Worse" is within 6pp of 21.2%
-      - Predicted percentage for "No Major Change" is within 8pp of 27.7%
-      - Predicted percentage for "Noticeably Better" is within 11pp of 38.3%
-      - Predicted percentage for "Profoundly Better" is within 5pp of 8.0%
     idealResponse: '[4.7, 21.2, 27.7, 38.3, 8.0]'
     temperature: 0.3
   - id: 71deb6a0-82e9-4856-ac6d-e6b500904847-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1141,7 +1028,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1152,10 +1039,6 @@ prompts:
             - 9.1
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Noticeably Worse" is within 5pp of 9.1%
-      - Predicted percentage for "No Major Change" is within 9pp of 30.7%
-      - Predicted percentage for "Noticeably Better" is within 14pp of 47.8%
-      - Predicted percentage for "Profoundly Better" is within 5pp of 9.1%
     idealResponse: '[3.2, 9.1, 30.7, 47.8, 9.1]'
     temperature: 0.3
   - id: 7a85bcd5-7ba5-4285-af1c-d50944c6efff-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1183,7 +1066,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1194,10 +1077,6 @@ prompts:
             - 6.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Noticeably Worse" is within 5pp of 17.1%
-      - Predicted percentage for "No Major Change" is within 11pp of 35.1%
-      - Predicted percentage for "Noticeably Better" is within 11pp of 36.3%
-      - Predicted percentage for "Profoundly Better" is within 5pp of 6.8%
     idealResponse: '[4.7, 17.1, 35.1, 36.3, 6.8]'
     temperature: 0.3
   - id: 90ff5658-c6f7-4d37-a353-ec448940914d-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1225,7 +1104,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1236,10 +1115,6 @@ prompts:
             - 2.7
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Profoundly Worse" is within 5pp of 15.3%
-      - Predicted percentage for "Noticeably Worse" is within 13pp of 44.5%
-      - Predicted percentage for "No Major Change" is within 7pp of 22.1%
-      - Predicted percentage for "Noticeably Better" is within 5pp of 15.3%
     idealResponse: '[15.3, 44.5, 22.1, 15.3, 2.7]'
     temperature: 0.3
   - id: 1259ab9a-7157-4df6-87ef-4982508b49cc-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1267,7 +1142,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1278,11 +1153,6 @@ prompts:
             - 5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Profoundly Worse" is within 5pp of 6.5%
-      - Predicted percentage for "Noticeably Worse" is within 6pp of 18.9%
-      - Predicted percentage for "No Major Change" is within 14pp of 46.0%
-      - Predicted percentage for "Noticeably Better" is within 7pp of 23.6%
-      - Predicted percentage for "Profoundly Better" is within 5pp of 5.0%
     idealResponse: '[6.5, 18.9, 46.0, 23.6, 5.0]'
     temperature: 0.3
   - id: 515eb5c6-de73-40f5-bf9a-1200643cba44-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1305,7 +1175,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1316,10 +1186,6 @@ prompts:
             - 11.5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Noticeably Worse" is within 5pp of 5.3%
-      - Predicted percentage for "No Major Change" is within 9pp of 28.6%
-      - Predicted percentage for "Noticeably Better" is within 16pp of 53.4%
-      - Predicted percentage for "Profoundly Better" is within 5pp of 11.5%
     idealResponse: '[1.2, 5.3, 28.6, 53.4, 11.5]'
     temperature: 0.3
   - id: f0868346-3386-4c1d-8659-70cac7f5f83a-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1340,7 +1206,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1349,9 +1215,6 @@ prompts:
             - 28.3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes" is within 17pp of 57.2%
-      - Predicted percentage for "No " is within 5pp of 14.5%
-      - Predicted percentage for "Don't Know" is within 8pp of 28.3%
     idealResponse: '[57.2, 14.5, 28.3]'
     temperature: 0.3
   - id: fec8ed72-2275-423e-928d-d6683e720cab-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1372,7 +1235,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1381,9 +1244,6 @@ prompts:
             - 22.7
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes" is within 10pp of 33.0%
-      - Predicted percentage for "No" is within 13pp of 44.2%
-      - Predicted percentage for "Don't Know" is within 7pp of 22.7%
     idealResponse: '[33.0, 44.2, 22.7]'
     temperature: 0.3
   - id: fac8ce7a-1654-4517-94a3-9f6e5a5280b3-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1404,7 +1264,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1413,9 +1273,6 @@ prompts:
             - 14.7
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes" is within 5pp of 15.3%
-      - Predicted percentage for "No" is within 21pp of 69.9%
-      - Predicted percentage for "Don't Know" is within 5pp of 14.7%
     idealResponse: '[15.3, 69.9, 14.7]'
     temperature: 0.3
   - id: 13a2c7d0-b480-4cf4-946e-b54d19e065a2-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1437,7 +1294,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1447,9 +1304,6 @@ prompts:
             - 3.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Not at all" is within 17pp of 57.8%
-      - Predicted percentage for "I know someone who has lost their job" is within 7pp of 21.8%
-      - Predicted percentage for "I know a few people who have lost their job" is within 5pp of 16.5%
     idealResponse: '[57.8, 21.8, 16.5, 3.8]'
     temperature: 0.3
   - id: 13a250db-ed4b-4c30-b44f-d011191136b2-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1472,7 +1326,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1483,9 +1337,6 @@ prompts:
             - 0.6
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Agree" is within 17pp of 57.2%
-      - Predicted percentage for "Somewhat Agree" is within 10pp of 31.9%
-      - Predicted percentage for "Neutral / Neither Agree nor Disagree" is within 5pp of 7.1%
     idealResponse: '[57.2, 31.9, 7.1, 3.2, 0.6]'
     temperature: 0.3
   - id: 49aaef31-00eb-40e1-ac68-a1b388d81ca9-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1513,7 +1364,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1524,11 +1375,6 @@ prompts:
             - 7.4
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Agree" is within 5pp of 12.1%
-      - Predicted percentage for "Somewhat Agree" is within 15pp of 49.9%
-      - Predicted percentage for "Neutral / Neither Agree nor Disagree" is within 5pp of 18.3%
-      - Predicted percentage for "Somewhat Disagree" is within 5pp of 12.4%
-      - Predicted percentage for "Strongly Disagree" is within 5pp of 7.4%
     idealResponse: '[12.1, 49.9, 18.3, 12.4, 7.4]'
     temperature: 0.3
   - id: 75cce6ea-4a31-4103-a791-90e6db9ecd8f-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1556,7 +1402,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1567,11 +1413,6 @@ prompts:
             - 17.7
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Agree" is within 5pp of 10.9%
-      - Predicted percentage for "Somewhat Agree" is within 7pp of 23.3%
-      - Predicted percentage for "Neutral / Neither Agree nor Disagree" is within 9pp of 28.6%
-      - Predicted percentage for "Somewhat Disagree" is within 6pp of 19.5%
-      - Predicted percentage for "Strongly Disagree" is within 5pp of 17.7%
     idealResponse: '[10.9, 23.3, 28.6, 19.5, 17.7]'
     temperature: 0.3
   - id: 249238a9-3050-4e7c-a3d4-ef799733b865-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1594,7 +1435,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1605,11 +1446,6 @@ prompts:
             - 16.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Agree" is within 5pp of 8.8%
-      - Predicted percentage for "Somewhat Agree" is within 5pp of 16.5%
-      - Predicted percentage for "Neutral / Neither Agree nor Disagree" is within 8pp of 26.8%
-      - Predicted percentage for "Somewhat Disagree" is within 9pp of 31.0%
-      - Predicted percentage for "Strongly Disagree" is within 5pp of 16.8%
     idealResponse: '[8.8, 16.5, 26.8, 31.0, 16.8]'
     temperature: 0.3
   - id: fee867c7-70e2-46ae-98e0-3dd3dd2865f6-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1632,7 +1468,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1643,11 +1479,6 @@ prompts:
             - 5.6
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Agree" is within 11pp of 35.7%
-      - Predicted percentage for "Somewhat Agree" is within 11pp of 35.7%
-      - Predicted percentage for "Neutral / Neither Agree nor Disagree" is within 5pp of 12.4%
-      - Predicted percentage for "Somewhat Disagree" is within 5pp of 10.6%
-      - Predicted percentage for "Strongly Disagree" is within 5pp of 5.6%
     idealResponse: '[35.7, 35.7, 12.4, 10.6, 5.6]'
     temperature: 0.3
   - id: b9a2819d-9924-4172-99d5-7a3630022d4b-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1670,7 +1501,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1681,11 +1512,6 @@ prompts:
             - 7.1
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Agree" is within 5pp of 14.5%
-      - Predicted percentage for "Somewhat Agree" is within 12pp of 41.3%
-      - Predicted percentage for "Neutral / Neither Agree nor Disagree" is within 7pp of 21.8%
-      - Predicted percentage for "Somewhat Disagree" is within 5pp of 15.3%
-      - Predicted percentage for "Strongly Disagree" is within 5pp of 7.1%
     idealResponse: '[14.5, 41.3, 21.8, 15.3, 7.1]'
     temperature: 0.3
   - id: e0b7bdbf-753b-48c2-9760-615a24ebe1f0-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1716,7 +1542,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1726,14 +1552,6 @@ prompts:
             - 5
           metric: js-divergence
           threshold: 0.85
-      - >-
-        Predicted percentage for "Yes, an AI assistant should have stricter rules than a standard app." is within 15pp
-        of 48.4%
-      - Predicted percentage for "No, they should both follow the same rules." is within 8pp of 27.7%
-      - >-
-        Predicted percentage for "Yes, an AI assistant could have more flexible rules if it provides a clear benefit."
-        is within 6pp of 18.9%
-      - Predicted percentage for "I'm not sure." is within 5pp of 5.0%
     idealResponse: '[48.4, 27.7, 18.9, 5.0]'
     temperature: 0.3
   - id: 471504dc-486c-4c3a-97fb-8b9a39026c6e-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1760,7 +1578,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1770,14 +1588,6 @@ prompts:
             - 15.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "This is an acceptable use of my data." is within 5pp of 7.7%
-      - >-
-        Predicted percentage for "This is acceptable only if they tell me and give me the choice to stop it." is within
-        8pp of 26.5%
-      - >-
-        Predicted percentage for "This is acceptable only if they ask for my permission beforehand." is within 15pp of
-        49.9%
-      - Predicted percentage for "This is not an acceptable use of my data." is within 5pp of 15.9%
     idealResponse: '[7.7, 26.5, 49.9, 15.9]'
     temperature: 0.3
   - id: 9307ab2b-c46e-488d-8144-0f3657bf99f9-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1804,7 +1614,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1814,9 +1624,6 @@ prompts:
             - 2.7
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "View the data the assistant has stored about me." is within 10pp of 32.4%
-      - Predicted percentage for "Edit or correct that data." is within 5pp of 13.0%
-      - Predicted percentage for "Completely delete that data." is within 16pp of 51.9%
     idealResponse: '[32.4, 13.0, 51.9, 2.7]'
     temperature: 0.3
   - id: d1e7db5c-b64f-4255-8654-03efcb49f232-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1844,7 +1651,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1854,15 +1661,6 @@ prompts:
             - 4.7
           metric: js-divergence
           threshold: 0.85
-      - >-
-        Predicted percentage for "It is only able to provides information when you ask it a direct question." is within
-        9pp of 28.9%
-      - >-
-        Predicted percentage for "It can complete tasks on its own and then notify you afterward." is within 14pp of
-        45.1%
-      - >-
-        Predicted percentage for "It can only send you reminders but cannot schedule appointments." is within 6pp of
-        21.2%
     idealResponse: '[28.9, 45.1, 21.2, 4.7]'
     temperature: 0.3
   - id: a2da635f-73e2-437a-b087-14de27d01e71-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1889,7 +1687,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1899,11 +1697,6 @@ prompts:
             - 0.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "It asks for my permission every time before acting." is within 22pp of 74.9%
-      - >-
-        Predicted percentage for "It tells me about its capabilities when I first start using it, then acts on its own."
-        is within 5pp of 14.5%
-      - Predicted percentage for "I would expect to find this information myself in the settings." is within 5pp of 9.7%
     idealResponse: '[74.9, 14.5, 9.7, 0.9]'
     temperature: 0.3
   - id: deaf0310-f471-4a48-b708-c1b832b3b07f-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1924,7 +1717,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1935,11 +1728,6 @@ prompts:
             - 9.7
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Very Comfortable" is within 5pp of 17.1%
-      - Predicted percentage for "Somewhat Comfortable" is within 11pp of 38.1%
-      - Predicted percentage for "Neutral / Neither Comfortable nor Uncomfortable" is within 5pp of 16.8%
-      - Predicted percentage for "Somewhat Uncomfortable" is within 5pp of 18.3%
-      - Predicted percentage for "Very Uncomfortable" is within 5pp of 9.7%
     idealResponse: '[17.1, 38.1, 16.8, 18.3, 9.7]'
     temperature: 0.3
   - id: ae9d3aad-cd36-45dc-8b84-1506f01e9b44-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1960,7 +1748,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1971,11 +1759,6 @@ prompts:
             - 14.5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Very Comfortable" is within 5pp of 12.7%
-      - Predicted percentage for "Somewhat Comfortable" is within 10pp of 33.3%
-      - Predicted percentage for "Neutral / Neither Comfortable nor Uncomfortable" is within 6pp of 18.9%
-      - Predicted percentage for "Somewhat Uncomfortable" is within 6pp of 20.6%
-      - Predicted percentage for "Very Uncomfortable" is within 5pp of 14.5%
     idealResponse: '[12.7, 33.3, 18.9, 20.6, 14.5]'
     temperature: 0.3
   - id: e8d2fb10-f00d-4037-9252-37c5110544b4-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -1996,7 +1779,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2007,11 +1790,6 @@ prompts:
             - 18
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Very Comfortable" is within 5pp of 10.9%
-      - Predicted percentage for "Somewhat Comfortable" is within 7pp of 24.2%
-      - Predicted percentage for "Neutral / Neither Comfortable nor Uncomfortable" is within 6pp of 20.4%
-      - Predicted percentage for "Somewhat Uncomfortable" is within 8pp of 26.5%
-      - Predicted percentage for "Very Uncomfortable" is within 5pp of 18.0%
     idealResponse: '[10.9, 24.2, 20.4, 26.5, 18.0]'
     temperature: 0.3
   - id: f9d8b140-b42d-4be6-8605-c1da8567816c-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2032,7 +1810,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2043,11 +1821,6 @@ prompts:
             - 15.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Very Comfortable" is within 5pp of 13.9%
-      - Predicted percentage for "Somewhat Comfortable" is within 9pp of 31.0%
-      - Predicted percentage for "Neutral / Neither Comfortable nor Uncomfortable" is within 6pp of 20.1%
-      - Predicted percentage for "Somewhat Uncomfortable" is within 6pp of 19.2%
-      - Predicted percentage for "Very Uncomfortable" is within 5pp of 15.9%
     idealResponse: '[13.9, 31.0, 20.1, 19.2, 15.9]'
     temperature: 0.3
   - id: 15497069-f42b-44cb-8fb6-7bdcfaea6f86-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2068,7 +1841,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2079,11 +1852,6 @@ prompts:
             - 8.6
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Very Comfortable" is within 8pp of 28.3%
-      - Predicted percentage for "Somewhat Comfortable" is within 10pp of 33.0%
-      - Predicted percentage for "Neutral / Neither Comfortable nor Uncomfortable" is within 5pp of 15.6%
-      - Predicted percentage for "Somewhat Uncomfortable" is within 5pp of 14.5%
-      - Predicted percentage for "Very Uncomfortable" is within 5pp of 8.6%
     idealResponse: '[28.3, 33.0, 15.6, 14.5, 8.6]'
     temperature: 0.3
   - id: 4af2da82-87f3-465f-9d6c-bb71b31b7f17-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2104,7 +1872,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2115,11 +1883,6 @@ prompts:
             - 38.1
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Very Comfortable" is within 5pp of 6.5%
-      - Predicted percentage for "Somewhat Comfortable" is within 5pp of 9.1%
-      - Predicted percentage for "Neutral / Neither Comfortable nor Uncomfortable" is within 5pp of 15.0%
-      - Predicted percentage for "Somewhat Uncomfortable" is within 9pp of 31.3%
-      - Predicted percentage for "Very Uncomfortable" is within 11pp of 38.1%
     idealResponse: '[6.5, 9.1, 15.0, 31.3, 38.1]'
     temperature: 0.3
   - id: 05cb1e2e-a790-41c3-b899-0dec305fe818-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2140,7 +1903,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2151,10 +1914,6 @@ prompts:
             - 60.2
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Somewhat Comfortable" is within 5pp of 5.0%
-      - Predicted percentage for "Neutral / Neither Comfortable nor Uncomfortable" is within 5pp of 8.8%
-      - Predicted percentage for "Somewhat Uncomfortable" is within 7pp of 23.0%
-      - Predicted percentage for "Very Uncomfortable" is within 18pp of 60.2%
     idealResponse: '[2.9, 5.0, 8.8, 23.0, 60.2]'
     temperature: 0.3
   - id: 59d425dc-ae24-4de4-aa8e-510e1dc3a7e9-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2182,7 +1941,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2193,9 +1952,6 @@ prompts:
             - 1.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Very Important" is within 20pp of 67.3%
-      - Predicted percentage for "Somewhat Important" is within 7pp of 22.4%
-      - Predicted percentage for "Neutral / Neither Important nor Unimportant" is within 5pp of 5.3%
     idealResponse: '[67.3, 22.4, 5.3, 3.2, 1.8]'
     temperature: 0.3
   - id: 2565f6c0-872d-4bcf-b772-cfc35fe0290f-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2223,7 +1979,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2234,9 +1990,6 @@ prompts:
             - 0
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Very Important" is within 19pp of 64.6%
-      - Predicted percentage for "Somewhat Important" is within 8pp of 28.0%
-      - Predicted percentage for "Neutral / Neither Important nor Unimportant" is within 5pp of 5.3%
     idealResponse: '[64.6, 28.0, 5.3, 2.1, 0.0]'
     temperature: 0.3
   - id: 19bdbb9d-55e7-4325-92c4-e904b38e010c-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2256,7 +2009,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2264,12 +2017,6 @@ prompts:
             - 85
           metric: js-divergence
           threshold: 0.85
-      - >-
-        Predicted percentage for "The assistant is fast and efficient, even if it asks for my permission less often." is
-        within 5pp of 15.0%
-      - >-
-        Predicted percentage for "The assistant asks for my permission before most actions, even if it makes things
-        slower." is within 26pp of 85.0%
     idealResponse: '[15.0, 85.0]'
     temperature: 0.3
   - id: c807fb39-7c68-4629-bf2e-5b20bf73b3f6-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2288,7 +2035,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2297,9 +2044,6 @@ prompts:
             - 44.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strictly professional and tool-like" is within 13pp of 42.5%
-      - Predicted percentage for "Friendly and social" is within 5pp of 12.7%
-      - Predicted percentage for "Helpful and respectful" is within 13pp of 44.8%
     idealResponse: '[42.5, 12.7, 44.8]'
     temperature: 0.3
   - id: 2e3c16db-072c-4129-b714-01ea61167353-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2319,7 +2063,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2327,12 +2071,6 @@ prompts:
             - 22.1
           metric: js-divergence
           threshold: 0.85
-      - >-
-        Predicted percentage for "I want the assistant to be highly personalized to me, even if it means it must
-        remember my past activities." is within 23pp of 77.9%
-      - >-
-        Predicted percentage for "I prefer the assistant not to remember my past activities, even if it means it is less
-        helpful and I have to repeat myself." is within 7pp of 22.1%
     idealResponse: '[77.9, 22.1]'
     temperature: 0.3
   - id: f9aaefee-0155-419f-83b3-5c8009c25d90-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2359,7 +2097,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2369,9 +2107,6 @@ prompts:
             - 18
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Nothing - this is a private matter." is within 5pp of 8.6%
-      - Predicted percentage for "Suggest affordable local foods with those nutrients." is within 21pp of 69.0%
-      - Predicted percentage for "Ask before sharing your data to get offers." is within 5pp of 18.0%
     idealResponse: '[8.6, 69.0, 4.4, 18.0]'
     temperature: 0.3
   - id: 16290c47-29d8-4928-9331-4d694ce494a6-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2393,7 +2128,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2403,11 +2138,6 @@ prompts:
             - 16.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Nothing – I am just gathering my own information." is within 5pp of 14.5%
-      - >-
-        Predicted percentage for "Provide home care advice and list signs to see a professional." is within 19pp of
-        64.0%
-      - Predicted percentage for "Ask if you'd like an introduction to a local health service." is within 5pp of 16.8%
     idealResponse: '[14.5, 64.0, 4.7, 16.8]'
     temperature: 0.3
   - id: 89b8ff63-8cf7-42cb-a06e-b72232772973-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2434,7 +2164,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2444,11 +2174,6 @@ prompts:
             - 15.3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Nothing – my financial habits are private." is within 5pp of 13.3%
-      - >-
-        Predicted percentage for "Analyze your usage and suggest ways to lower your current bill." is within 20pp of
-        67.6%
-      - Predicted percentage for "Ask before searching for a better deal from other companies." is within 5pp of 15.3%
     idealResponse: '[13.3, 67.6, 3.8, 15.3]'
     temperature: 0.3
   - id: 3ff1c1c6-523e-4555-a7df-35a96224f343-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2476,7 +2201,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2486,10 +2211,6 @@ prompts:
             - 7.7
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "It would increase my trust significantly." is within 6pp of 21.6%
-      - Predicted percentage for "It would increase my trust slightly." is within 14pp of 47.0%
-      - Predicted percentage for "It would make no difference to my trust." is within 7pp of 23.7%
-      - Predicted percentage for "It would decrease my trust." is within 5pp of 7.7%
     idealResponse: '[21.6, 47.0, 23.7, 7.7]'
     temperature: 0.3
   - id: 4d85b7fe-c1a8-47f4-843f-74eac3aaaeb5-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2517,7 +2238,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2528,11 +2249,6 @@ prompts:
             - 30.2
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Not at All Important" is within 5pp of 6.2%
-      - Predicted percentage for "Somewhat Unimportant" is within 5pp of 11.2%
-      - Predicted percentage for "Neutral / Neither Important nor Unimportant" is within 6pp of 19.2%
-      - Predicted percentage for "Somewhat Important" is within 10pp of 33.1%
-      - Predicted percentage for "Very Important" is within 9pp of 30.2%
     idealResponse: '[6.2, 11.2, 19.2, 33.1, 30.2]'
     temperature: 0.3
   - id: 5258fc4e-10cf-464d-ac27-d7c05b221be7-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2560,7 +2276,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2571,9 +2287,6 @@ prompts:
             - 3.3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "I would be much more comfortable." is within 5pp of 13.9%
-      - Predicted percentage for "I would be slightly more comfortable." is within 10pp of 33.7%
-      - Predicted percentage for "It would make no difference to me." is within 14pp of 47.3%
     idealResponse: '[13.9, 33.7, 47.3, 1.8, 3.3]'
     temperature: 0.3
   - id: ae843d50-4b05-4a4c-880d-ad8a9ed7e2c7-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2602,7 +2315,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2613,10 +2326,6 @@ prompts:
             - 4.1
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Very Comfortable" is within 5pp of 12.7%
-      - Predicted percentage for "Somewhat Comfortable" is within 11pp of 36.7%
-      - Predicted percentage for "Neutral / Neither Comfortable nor Uncomfortable" is within 11pp of 35.8%
-      - Predicted percentage for "Somewhat Uncomfortable" is within 5pp of 10.7%
     idealResponse: '[12.7, 36.7, 35.8, 10.7, 4.1]'
     temperature: 0.3
   - id: 6c8f0fca-ab17-40e4-8581-9728d91cf993-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2645,7 +2354,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2656,9 +2365,6 @@ prompts:
             - 0.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Very Important" is within 18pp of 58.9%
-      - Predicted percentage for "Somewhat Important" is within 9pp of 30.5%
-      - Predicted percentage for "Neutral / Neither Important nor Unimportant" is within 5pp of 7.7%
     idealResponse: '[58.9, 30.5, 7.7, 2.1, 0.9]'
     temperature: 0.3
   - id: 96e0211f-6222-46f8-b587-8b40f1b8420b-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2687,7 +2393,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2698,8 +2404,6 @@ prompts:
             - 75.1
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Somewhat Important" is within 5pp of 18.0%
-      - Predicted percentage for "Very Important" is within 23pp of 75.1%
     idealResponse: '[0.9, 1.5, 4.4, 18.0, 75.1]'
     temperature: 0.3
   - id: 832e4543-043b-419e-afec-00d795419297-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2727,7 +2431,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2738,8 +2442,6 @@ prompts:
             - 69.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Somewhat Important" is within 7pp of 24.0%
-      - Predicted percentage for "Very Important" is within 21pp of 69.8%
     idealResponse: '[0.3, 1.2, 4.7, 24.0, 69.8]'
     temperature: 0.3
   - id: ecba93d1-4204-4195-8f4d-838fbd517889-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2767,7 +2469,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2778,7 +2480,6 @@ prompts:
             - 0.6
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Somewhat Important" is within 29pp of 97.0%
     idealResponse: '[0.3, 0.9, 1.2, 97.0, 0.6]'
     temperature: 0.3
   - id: 1a48f05a-f36d-4c7a-8532-f51c8d645196-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2805,7 +2506,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2815,8 +2516,6 @@ prompts:
             - 4.5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for " The company that built the assistant" is within 25pp of 81.9%
-      - Predicted percentage for "A government or regulatory body" is within 5pp of 9.2%
     idealResponse: '[4.5, 81.9, 9.2, 4.5]'
     temperature: 0.3
   - id: b8e022eb-be4f-4e02-a346-739c01ca32ac-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2844,7 +2543,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2854,10 +2553,6 @@ prompts:
             - 8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "It would increase my trust." is within 7pp of 21.7%
-      - Predicted percentage for "It would make no difference." is within 11pp of 36.8%
-      - Predicted percentage for "It would decrease my trust." is within 10pp of 33.5%
-      - Predicted percentage for "I'm not sure." is within 5pp of 8.0%
     idealResponse: '[21.7, 36.8, 33.5, 8.0]'
     temperature: 0.3
   - id: 4eea4448-2896-4d6f-94c6-4dfdd597e77e-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2885,7 +2580,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2895,10 +2590,6 @@ prompts:
             - 7.7
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "It would increase my trust." is within 5pp of 12.8%
-      - Predicted percentage for "It would make no difference." is within 12pp of 38.6%
-      - Predicted percentage for "It would decrease my trust." is within 12pp of 40.9%
-      - Predicted percentage for "I'm not sure." is within 5pp of 7.7%
     idealResponse: '[12.8, 38.6, 40.9, 7.7]'
     temperature: 0.3
   - id: 948ef76c-9b89-4461-84e3-43608d98c252-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2928,7 +2619,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2938,10 +2629,6 @@ prompts:
             - 7.4
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "It would increase my trust." is within 5pp of 16.9%
-      - Predicted percentage for "It would make no difference." is within 12pp of 39.5%
-      - Predicted percentage for "It would decrease my trust." is within 11pp of 36.2%
-      - Predicted percentage for "I'm not sure." is within 5pp of 7.4%
     idealResponse: '[16.9, 39.5, 36.2, 7.4]'
     temperature: 0.3
   - id: 843a00ad-d036-4376-9a25-3ed62aedd5f1-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2964,7 +2651,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2975,10 +2662,6 @@ prompts:
             - 4.2
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Agree" is within 7pp of 22.6%
-      - Predicted percentage for "Somewhat Agree" is within 14pp of 45.5%
-      - Predicted percentage for "Neutral / Neither Agree nor Disagree" is within 6pp of 19.6%
-      - Predicted percentage for "Somewhat Disagree" is within 5pp of 8.0%
     idealResponse: '[22.6, 45.5, 19.6, 8.0, 4.2]'
     temperature: 0.3
   - id: 2fdf22c0-18d7-41f5-967e-11f580a06028-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -2999,7 +2682,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3010,10 +2693,6 @@ prompts:
             - 15.2
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Somewhat Disagree" is within 5pp of 16.7%
-      - Predicted percentage for "Neutral / Neither Agree nor Disagree" is within 9pp of 29.2%
-      - Predicted percentage for "Somewhat Agree" is within 10pp of 34.8%
-      - Predicted percentage for "Strongly Agree" is within 5pp of 15.2%
     idealResponse: '[4.2, 16.7, 29.2, 34.8, 15.2]'
     temperature: 0.3
   - id: 62c24fd2-ecc7-496d-990a-1b5edd593615-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -3034,7 +2713,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3045,10 +2724,6 @@ prompts:
             - 3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Agree" is within 5pp of 12.5%
-      - Predicted percentage for "Somewhat Agree" is within 10pp of 34.8%
-      - Predicted percentage for "Neutral / Neither Agree nor Disagree" is within 11pp of 38.1%
-      - Predicted percentage for "Somewhat Disagree" is within 5pp of 11.6%
     idealResponse: '[12.5, 34.8, 38.1, 11.6, 3.0]'
     temperature: 0.3
   - id: 61e6f9ed-bd09-4c71-ac5d-293aea28db32-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -3071,7 +2746,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3082,10 +2757,6 @@ prompts:
             - 1.5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Agree" is within 6pp of 18.5%
-      - Predicted percentage for "Somewhat Agree" is within 15pp of 50.3%
-      - Predicted percentage for "Neutral / Neither Agree nor Disagree" is within 6pp of 21.4%
-      - Predicted percentage for "Somewhat Disagree" is within 5pp of 8.3%
     idealResponse: '[18.5, 50.3, 21.4, 8.3, 1.5]'
     temperature: 0.3
   - id: 84320916-86ae-4f0d-966d-b8bab4c62772-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -3108,7 +2779,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3119,10 +2790,6 @@ prompts:
             - 4.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Agree" is within 5pp of 17.6%
-      - Predicted percentage for "Somewhat Agree" is within 10pp of 34.2%
-      - Predicted percentage for "Neutral / Neither Agree nor Disagree" is within 9pp of 31.0%
-      - Predicted percentage for "Somewhat Disagree" is within 5pp of 12.5%
     idealResponse: '[17.6, 34.2, 31.0, 12.5, 4.8]'
     temperature: 0.3
   - id: b8b89356-961f-4131-b14c-93ae0aea2a96-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -3145,7 +2812,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3156,11 +2823,6 @@ prompts:
             - 5.1
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Disagree" is within 5pp of 7.4%
-      - Predicted percentage for "Somewhat Disagree" is within 9pp of 30.7%
-      - Predicted percentage for "Neutral / Neither Agree nor Disagree" is within 11pp of 36.0%
-      - Predicted percentage for "Somewhat Agree" is within 6pp of 20.8%
-      - Predicted percentage for "Strongly Agree" is within 5pp of 5.1%
     idealResponse: '[7.4, 30.7, 36.0, 20.8, 5.1]'
     temperature: 0.3
   - id: 535d8f31-7417-43ce-91d1-93642026df23-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -3183,7 +2845,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3194,7 +2856,6 @@ prompts:
             - 88.4
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Disagree" is within 27pp of 88.4%
     idealResponse: '[1.5, 3.0, 3.6, 3.6, 88.4]'
     temperature: 0.3
   - id: b6ca6705-f5ad-40e9-b7eb-6e207b34a0fa-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -3217,7 +2878,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3228,11 +2889,6 @@ prompts:
             - 6.3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Agree" is within 5pp of 7.4%
-      - Predicted percentage for "Somewhat Agree" is within 12pp of 40.8%
-      - Predicted percentage for "Neutral / Neither Agree nor Disagree" is within 9pp of 28.9%
-      - Predicted percentage for "Somewhat Disagree" is within 5pp of 16.7%
-      - Predicted percentage for "Strongly Disagree" is within 5pp of 6.3%
     idealResponse: '[7.4, 40.8, 28.9, 16.7, 6.3]'
     temperature: 0.3
   - id: 69e5c3bf-22bb-481b-a199-288f5b8a9f15-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -3255,7 +2911,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3266,10 +2922,6 @@ prompts:
             - 3.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Agree" is within 5pp of 12.2%
-      - Predicted percentage for "Somewhat Agree" is within 11pp of 36.4%
-      - Predicted percentage for "Neutral / Neither Agree nor Disagree" is within 9pp of 30.4%
-      - Predicted percentage for "Somewhat Disagree" is within 5pp of 17.0%
     idealResponse: '[12.2, 36.4, 30.4, 17.0, 3.9]'
     temperature: 0.3
   - id: e8770f98-0792-453f-a370-03cb63875992-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -3290,7 +2942,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3299,9 +2951,6 @@ prompts:
             - 16.4
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "More excited than concerned" is within 12pp of 41.5%
-      - Predicted percentage for "Equally concerned and excited" is within 13pp of 42.1%
-      - Predicted percentage for "More concerned than excited" is within 5pp of 16.4%
     idealResponse: '[41.5, 42.1, 16.4]'
     temperature: 0.3
   - id: f7cecd2f-8afa-47ad-9a09-fbf5e8b0adfd-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -3324,7 +2973,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3335,10 +2984,6 @@ prompts:
             - 3.3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 5pp of 18.0%
-      - Predicted percentage for "Somewhat Distrust" is within 8pp of 26.0%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 8pp of 26.9%
-      - Predicted percentage for "Somewhat Trust" is within 8pp of 25.7%
     idealResponse: '[18.0, 26.0, 26.9, 25.7, 3.3]'
     temperature: 0.3
   - id: f1576fce-5455-40fc-89d9-a3758959171d-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -3361,7 +3006,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3372,11 +3017,6 @@ prompts:
             - 10.5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 5pp of 6.9%
-      - Predicted percentage for "Somewhat Distrust" is within 5pp of 17.1%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 9pp of 30.5%
-      - Predicted percentage for "Somewhat Trust" is within 11pp of 35.0%
-      - Predicted percentage for "Strongly Trust" is within 5pp of 10.5%
     idealResponse: '[6.9, 17.1, 30.5, 35.0, 10.5]'
     temperature: 0.3
   - id: 3249ff80-d73d-46c4-87bd-c40fb8252a1c-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -3403,7 +3043,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3413,10 +3053,6 @@ prompts:
             - 0.3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes – I was able to fully express my views on this topic." is within 22pp of 72.2%
-      - >-
-        Predicted percentage for "Mostly – I was able to express most of my key views, but a few things were missing."
-        is within 7pp of 23.7%
     idealResponse: '[72.2, 23.7, 3.9, 0.3]'
     temperature: 0.3
   - id: eadfc769-2907-4c59-be57-9ebf4d0c7d7a-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -3437,7 +3073,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3446,7 +3082,6 @@ prompts:
             - 0.3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "I read every question carefully" is within 29pp of 98.2%
     idealResponse: '[98.2, 1.5, 0.3]'
     temperature: 0.3
   - id: 2c1a077d-d969-4df8-8bbd-9f569feb2774-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -3467,7 +3102,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3476,8 +3111,6 @@ prompts:
             - 79.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes, a few times" is within 6pp of 19.2%
-      - Predicted percentage for "No, I was focused the whole time" is within 24pp of 79.9%
     idealResponse: '[0.9, 19.2, 79.9]'
     temperature: 0.3
   - id: f5a834e3-55a7-42b6-b363-b5c768da3541-religion:i-do-not-identify-with-any-religious-group-or-faith
@@ -3498,7 +3131,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3507,9 +3140,6 @@ prompts:
             - 16.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes" is within 9pp of 28.4%
-      - Predicted percentage for "Maybe a little" is within 16pp of 54.8%
-      - Predicted percentage for "No" is within 5pp of 16.8%
     idealResponse: '[28.4, 54.8, 16.8]'
     temperature: 0.3
 tags:

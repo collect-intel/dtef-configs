@@ -4,7 +4,7 @@ description: >-
   DTEF: Predict response distributions for Indonesia. Source: Global Dialogues GD1
   (https://github.com/collect-intel/global-dialogues)
 models:
-  - QUICK
+  - CORE
 system: >-
   You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
   would respond by providing a percentage distribution across the answer options.
@@ -41,7 +41,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -50,8 +50,6 @@ prompts:
             - 4.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "More excited than concerned" is within 16pp of 52.4%
-      - Predicted percentage for "Equally concerned and excited" is within 13pp of 42.9%
     idealResponse: '[52.4, 42.9, 4.8]'
     temperature: 0.3
   - id: ce8d6dba-231c-4353-8e8a-ba1e1eb4a10c-country:indonesia
@@ -72,7 +70,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -81,13 +79,6 @@ prompts:
             - 5
           metric: js-divergence
           threshold: 0.85
-      - >-
-        Predicted percentage for "Yes – these things would definitely make a large positive difference in my life" is
-        within 15pp of 50.0%
-      - >-
-        Predicted percentage for "Maybe – these things might make some positive difference in my life" is within 14pp of
-        45.0%
-      - Predicted percentage for "No – these things won’t really make any difference in my life" is within 5pp of 5.0%
     idealResponse: '[50.0, 45.0, 5.0]'
     temperature: 0.3
   - id: df6d9080-be3c-4166-a298-1b9c48e5c008-country:indonesia
@@ -114,7 +105,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -124,10 +115,6 @@ prompts:
             - 0
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes – I was able to fully express my views on these topics" is within 21pp of 71.4%
-      - >-
-        Predicted percentage for "Mostly – I was able to mostly express my views on these topics, but did not have the
-        chance to express a few things." is within 8pp of 25.7%
     idealResponse: '[71.4, 25.7, 2.9, 0.0]'
     temperature: 0.3
   - id: e6253ecc-a4ed-42e9-99a3-00e4b2ff0f68-country:indonesia
@@ -146,7 +133,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -155,8 +142,6 @@ prompts:
             - 0
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes" is within 27pp of 88.6%
-      - Predicted percentage for "Maybe a little" is within 5pp of 11.4%
     idealResponse: '[88.6, 11.4, 0.0]'
     temperature: 0.3
 tags:

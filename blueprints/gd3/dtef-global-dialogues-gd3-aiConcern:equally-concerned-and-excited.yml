@@ -4,7 +4,7 @@ description: >-
   DTEF: Predict response distributions for Equally concerned and excited. Source: Global Dialogues GD3
   (https://github.com/collect-intel/global-dialogues)
 models:
-  - QUICK
+  - CORE
 system: >-
   You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
   would respond by providing a percentage distribution across the answer options.
@@ -41,7 +41,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -50,7 +50,6 @@ prompts:
             - 0
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Equally concerned and excited" is within 30pp of 100.0%
     idealResponse: '[0.0, 100.0, 0.0]'
     temperature: 0.3
   - id: ae768935-002f-49e2-b08f-92c7616b0533-aiConcern:equally-concerned-and-excited
@@ -73,7 +72,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -84,9 +83,6 @@ prompts:
             - 1.3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 20pp of 66.3%
-      - Predicted percentage for "weekly" is within 8pp of 26.4%
-      - Predicted percentage for "monthly" is within 5pp of 5.8%
     idealResponse: '[66.3, 26.4, 5.8, 0.2, 1.3]'
     temperature: 0.3
   - id: 926a5461-6a68-43c9-8279-94430dc9323e-aiConcern:equally-concerned-and-excited
@@ -114,7 +110,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -125,10 +121,6 @@ prompts:
             - 5.2
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 9pp of 29.0%
-      - Predicted percentage for "weekly" is within 13pp of 44.0%
-      - Predicted percentage for "monthly" is within 5pp of 18.2%
-      - Predicted percentage for "never" is within 5pp of 5.2%
     idealResponse: '[29.0, 44.0, 18.2, 3.6, 5.2]'
     temperature: 0.3
   - id: 1ebc80e1-d3e2-4dc5-987c-e4d637cf6bec-aiConcern:equally-concerned-and-excited
@@ -151,7 +143,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -162,10 +154,6 @@ prompts:
             - 13.3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 13pp of 42.0%
-      - Predicted percentage for "weekly" is within 9pp of 31.5%
-      - Predicted percentage for "monthly" is within 5pp of 10.9%
-      - Predicted percentage for "never" is within 5pp of 13.3%
     idealResponse: '[42.0, 31.5, 10.9, 2.3, 13.3]'
     temperature: 0.3
   - id: 3c74ec68-77f6-46a5-9918-0c8e97fb7bc8-aiConcern:equally-concerned-and-excited
@@ -193,7 +181,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -204,10 +192,6 @@ prompts:
             - 7.3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 14pp of 45.0%
-      - Predicted percentage for "weekly" is within 10pp of 34.1%
-      - Predicted percentage for "monthly" is within 5pp of 11.3%
-      - Predicted percentage for "never" is within 5pp of 7.3%
     idealResponse: '[45.0, 34.1, 11.3, 2.3, 7.3]'
     temperature: 0.3
   - id: 47cdf76a-9abf-4b5c-abbe-2d5b00ef172d-aiConcern:equally-concerned-and-excited
@@ -235,7 +219,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -246,9 +230,6 @@ prompts:
             - 4.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 13pp of 43.7%
-      - Predicted percentage for "weekly" is within 11pp of 36.0%
-      - Predicted percentage for "monthly" is within 5pp of 13.7%
     idealResponse: '[43.7, 36.0, 13.7, 1.7, 4.9]'
     temperature: 0.3
   - id: d633720f-a159-4922-925c-fd9f3245711e-aiConcern:equally-concerned-and-excited
@@ -276,7 +257,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -287,11 +268,6 @@ prompts:
             - 32.5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 5pp of 12.0%
-      - Predicted percentage for "weekly" is within 8pp of 27.4%
-      - Predicted percentage for "monthly" is within 6pp of 21.6%
-      - Predicted percentage for "annually" is within 5pp of 6.6%
-      - Predicted percentage for "never" is within 10pp of 32.5%
     idealResponse: '[12.0, 27.4, 21.6, 6.6, 32.5]'
     temperature: 0.3
   - id: 8b361c6c-eb59-415b-8536-7f80713c3e5e-aiConcern:equally-concerned-and-excited
@@ -319,7 +295,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -330,10 +306,6 @@ prompts:
             - 55.7
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "daily" is within 5pp of 7.9%
-      - Predicted percentage for "weekly" is within 5pp of 18.2%
-      - Predicted percentage for "monthly" is within 5pp of 15.8%
-      - Predicted percentage for "never" is within 17pp of 55.7%
     idealResponse: '[7.9, 18.2, 15.8, 2.4, 55.7]'
     temperature: 0.3
   - id: d1baeb26-baca-414f-91f6-72b023c02a65-aiConcern:equally-concerned-and-excited
@@ -361,7 +333,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -372,10 +344,6 @@ prompts:
             - 17.4
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Risks slightly outweigh benefits" is within 5pp of 9.8%
-      - Predicted percentage for "Risks and benefits are equal" is within 11pp of 35.7%
-      - Predicted percentage for "Benefits slightly outweigh risks" is within 10pp of 34.0%
-      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 17.4%
     idealResponse: '[3.0, 9.8, 35.7, 34.0, 17.4]'
     temperature: 0.3
   - id: 8c50a77a-3fc2-49ce-b568-b7832c9b99e0-aiConcern:equally-concerned-and-excited
@@ -403,7 +371,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -414,11 +382,6 @@ prompts:
             - 8.1
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Risks far outweigh benefits" is within 5pp of 10.8%
-      - Predicted percentage for "Risks slightly outweigh benefits" is within 7pp of 23.6%
-      - Predicted percentage for "Risks and benefits are equal" is within 10pp of 33.5%
-      - Predicted percentage for "Benefits slightly outweigh risks" is within 7pp of 24.0%
-      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 8.1%
     idealResponse: '[10.8, 23.6, 33.5, 24.0, 8.1]'
     temperature: 0.3
   - id: 30324a2e-b5b2-4e0a-a8f2-af599b55c40e-aiConcern:equally-concerned-and-excited
@@ -441,7 +404,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -452,10 +415,6 @@ prompts:
             - 14.4
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Risks slightly outweigh benefits" is within 5pp of 18.0%
-      - Predicted percentage for "Risks and benefits are equal" is within 9pp of 30.4%
-      - Predicted percentage for "Benefits slightly outweigh risks" is within 10pp of 32.9%
-      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 14.4%
     idealResponse: '[4.3, 18.0, 30.4, 32.9, 14.4]'
     temperature: 0.3
   - id: 4f234e17-2d57-4709-b29a-4a2909683566-aiConcern:equally-concerned-and-excited
@@ -483,7 +442,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -494,11 +453,6 @@ prompts:
             - 5.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Risks far outweigh benefits" is within 6pp of 20.3%
-      - Predicted percentage for "Risks slightly outweigh benefits" is within 7pp of 24.4%
-      - Predicted percentage for "Risks and benefits are equal" is within 9pp of 30.5%
-      - Predicted percentage for "Benefits slightly outweigh risks" is within 6pp of 18.9%
-      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 5.9%
     idealResponse: '[20.3, 24.4, 30.5, 18.9, 5.9]'
     temperature: 0.3
   - id: 96ccfd7b-8f99-4d0a-b700-9fd835e23bd8-aiConcern:equally-concerned-and-excited
@@ -526,7 +480,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -537,11 +491,6 @@ prompts:
             - 5.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Risks far outweigh benefits" is within 6pp of 20.1%
-      - Predicted percentage for "Risks slightly outweigh benefits" is within 9pp of 28.8%
-      - Predicted percentage for "Risks and benefits are equal" is within 8pp of 26.9%
-      - Predicted percentage for "Benefits slightly outweigh risks" is within 6pp of 18.4%
-      - Predicted percentage for "Benefits far outweigh risks" is within 5pp of 5.9%
     idealResponse: '[20.1, 28.8, 26.9, 18.4, 5.9]'
     temperature: 0.3
   - id: b1869877-1015-43ec-9645-84bf2db39c6f-aiConcern:equally-concerned-and-excited
@@ -564,7 +513,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -575,10 +524,6 @@ prompts:
             - 3.4
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 6pp of 21.2%
-      - Predicted percentage for "Somewhat Distrust" is within 9pp of 30.5%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 6pp of 19.5%
-      - Predicted percentage for "Somewhat Trust" is within 8pp of 25.4%
     idealResponse: '[21.2, 30.5, 19.5, 25.4, 3.4]'
     temperature: 0.3
   - id: dc5e8d2a-c20b-47fa-89e2-b4db635a8ad4-aiConcern:equally-concerned-and-excited
@@ -601,7 +546,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -612,10 +557,6 @@ prompts:
             - 7.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Somewhat Distrust" is within 5pp of 15.0%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 8pp of 25.6%
-      - Predicted percentage for "Somewhat Trust" is within 14pp of 48.3%
-      - Predicted percentage for "Strongly Trust" is within 5pp of 7.8%
     idealResponse: '[3.4, 15.0, 25.6, 48.3, 7.8]'
     temperature: 0.3
   - id: 8ed2d795-acca-47d8-abb0-8c446310dbf0-aiConcern:equally-concerned-and-excited
@@ -638,7 +579,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -649,10 +590,6 @@ prompts:
             - 4.2
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 6pp of 20.3%
-      - Predicted percentage for "Somewhat Distrust" is within 9pp of 29.2%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 7pp of 21.8%
-      - Predicted percentage for "Somewhat Trust" is within 7pp of 24.6%
     idealResponse: '[20.3, 29.2, 21.8, 24.6, 4.2]'
     temperature: 0.3
   - id: 4c5ed164-eb69-4e41-906f-1e7a93f1d5bd-aiConcern:equally-concerned-and-excited
@@ -675,7 +612,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -686,10 +623,6 @@ prompts:
             - 1.7
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 9pp of 29.5%
-      - Predicted percentage for "Somewhat Distrust" is within 10pp of 32.0%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 7pp of 22.0%
-      - Predicted percentage for "Somewhat Trust" is within 5pp of 14.8%
     idealResponse: '[29.5, 32.0, 22.0, 14.8, 1.7]'
     temperature: 0.3
   - id: 8d058cce-8ccf-4816-8ef7-c9c9e37038dc-aiConcern:equally-concerned-and-excited
@@ -712,7 +645,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -723,10 +656,6 @@ prompts:
             - 4
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 5pp of 12.1%
-      - Predicted percentage for "Somewhat Distrust" is within 8pp of 26.9%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 10pp of 33.1%
-      - Predicted percentage for "Somewhat Trust" is within 7pp of 23.9%
     idealResponse: '[12.1, 26.9, 33.1, 23.9, 4.0]'
     temperature: 0.3
   - id: e80f0f47-44d0-4d1a-bbda-d2334ff056ac-aiConcern:equally-concerned-and-excited
@@ -749,7 +678,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -760,9 +689,6 @@ prompts:
             - 3.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Somewhat Distrust" is within 6pp of 19.1%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 10pp of 33.7%
-      - Predicted percentage for "Somewhat Trust" is within 12pp of 38.4%
     idealResponse: '[4.9, 19.1, 33.7, 38.4, 3.8]'
     temperature: 0.3
   - id: a6fa1236-c145-498b-8c30-7ca307461789-aiConcern:equally-concerned-and-excited
@@ -785,7 +711,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -796,10 +722,6 @@ prompts:
             - 19.1
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Somewhat Distrust" is within 5pp of 8.1%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 6pp of 20.3%
-      - Predicted percentage for "Somewhat Trust" is within 15pp of 49.8%
-      - Predicted percentage for "Strongly Trust" is within 6pp of 19.1%
     idealResponse: '[2.7, 8.1, 20.3, 49.8, 19.1]'
     temperature: 0.3
   - id: f435994f-e66e-4681-8334-4d6ee5f39e6b-aiConcern:equally-concerned-and-excited
@@ -822,7 +744,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -833,9 +755,6 @@ prompts:
             - 44.1
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 5pp of 11.7%
-      - Predicted percentage for "Somewhat Trust" is within 12pp of 39.6%
-      - Predicted percentage for "Strongly Trust" is within 13pp of 44.1%
     idealResponse: '[0.9, 3.6, 11.7, 39.6, 44.1]'
     temperature: 0.3
   - id: 951f11a0-3307-4507-805c-86d17562d21a-aiConcern:equally-concerned-and-excited
@@ -863,7 +782,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -874,10 +793,6 @@ prompts:
             - 1.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 8pp of 25.6%
-      - Predicted percentage for "Somewhat Distrust" is within 10pp of 32.2%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 7pp of 23.3%
-      - Predicted percentage for "Somewhat Trust" is within 5pp of 17.0%
     idealResponse: '[25.6, 32.2, 23.3, 17.0, 1.9]'
     temperature: 0.3
   - id: 522df4e6-3a3b-48d9-9c83-a03a6a7bb22e-aiConcern:equally-concerned-and-excited
@@ -900,7 +815,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -911,10 +826,6 @@ prompts:
             - 3.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 6pp of 18.9%
-      - Predicted percentage for "Somewhat Distrust" is within 9pp of 29.5%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 7pp of 24.2%
-      - Predicted percentage for "Somewhat Trust" is within 7pp of 23.5%
     idealResponse: '[18.9, 29.5, 24.2, 23.5, 3.8]'
     temperature: 0.3
   - id: 18cc2f33-6373-49f0-aa7e-e2fa04a04575-aiConcern:equally-concerned-and-excited
@@ -937,7 +848,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -948,11 +859,6 @@ prompts:
             - 9.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 5pp of 11.6%
-      - Predicted percentage for "Somewhat Distrust" is within 5pp of 16.9%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 8pp of 27.8%
-      - Predicted percentage for "Somewhat Trust" is within 10pp of 33.9%
-      - Predicted percentage for "Strongly Trust" is within 5pp of 9.8%
     idealResponse: '[11.6, 16.9, 27.8, 33.9, 9.8]'
     temperature: 0.3
   - id: e26549f8-5c9a-426b-b22a-57d8fe0d5e03-aiConcern:equally-concerned-and-excited
@@ -975,7 +881,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -986,11 +892,6 @@ prompts:
             - 5.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Strongly Distrust" is within 5pp of 16.9%
-      - Predicted percentage for "Somewhat Distrust" is within 9pp of 29.7%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 7pp of 21.8%
-      - Predicted percentage for "Somewhat Trust" is within 8pp of 25.8%
-      - Predicted percentage for "Strongly Trust" is within 5pp of 5.9%
     idealResponse: '[16.9, 29.7, 21.8, 25.8, 5.9]'
     temperature: 0.3
   - id: 332cec0c-afeb-4c18-a0e4-146c656750a8-aiConcern:equally-concerned-and-excited
@@ -1013,7 +914,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1024,10 +925,6 @@ prompts:
             - 12.5
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Somewhat Distrust" is within 5pp of 11.2%
-      - Predicted percentage for "Neither Trust Nor Distrust" is within 10pp of 32.2%
-      - Predicted percentage for "Somewhat Trust" is within 12pp of 40.7%
-      - Predicted percentage for "Strongly Trust" is within 5pp of 12.5%
     idealResponse: '[3.4, 11.2, 32.2, 40.7, 12.5]'
     temperature: 0.3
   - id: 38964f80-772f-4e5d-a355-b4857f2de101-aiConcern:equally-concerned-and-excited
@@ -1053,7 +950,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1062,9 +959,6 @@ prompts:
             - 35.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Agree" is within 10pp of 34.0%
-      - Predicted percentage for "Disagree" is within 9pp of 30.0%
-      - Predicted percentage for "Unsure" is within 11pp of 35.9%
     idealResponse: '[34.0, 30.0, 35.9]'
     temperature: 0.3
   - id: 983893d8-07ab-4c8e-bdb2-14335638633d-aiConcern:equally-concerned-and-excited
@@ -1092,7 +986,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1103,9 +997,6 @@ prompts:
             - 4
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Noticeably Worse" is within 7pp of 22.1%
-      - Predicted percentage for "No Major Change" is within 7pp of 24.7%
-      - Predicted percentage for "Noticeably Better" is within 14pp of 46.2%
     idealResponse: '[3.0, 22.1, 24.7, 46.2, 4.0]'
     temperature: 0.3
   - id: 8a9d1c12-44f6-42dc-9238-daaaca0d85d0-aiConcern:equally-concerned-and-excited
@@ -1133,7 +1024,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1144,10 +1035,6 @@ prompts:
             - 11.2
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Noticeably Worse" is within 5pp of 9.3%
-      - Predicted percentage for "No Major Change" is within 7pp of 24.1%
-      - Predicted percentage for "Noticeably Better" is within 16pp of 53.6%
-      - Predicted percentage for "Profoundly Better" is within 5pp of 11.2%
     idealResponse: '[1.7, 9.3, 24.1, 53.6, 11.2]'
     temperature: 0.3
   - id: 5afe8617-7e71-40c8-8a33-1b356a8ca674-aiConcern:equally-concerned-and-excited
@@ -1175,7 +1062,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1186,10 +1073,6 @@ prompts:
             - 7
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Noticeably Worse" is within 6pp of 19.2%
-      - Predicted percentage for "No Major Change" is within 9pp of 28.8%
-      - Predicted percentage for "Noticeably Better" is within 12pp of 41.5%
-      - Predicted percentage for "Profoundly Better" is within 5pp of 7.0%
     idealResponse: '[3.4, 19.2, 28.8, 41.5, 7.0]'
     temperature: 0.3
   - id: 96e5895f-d640-4a37-bc16-6e095f38ba7e-aiConcern:equally-concerned-and-excited
@@ -1217,7 +1100,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1228,10 +1111,6 @@ prompts:
             - 4.2
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Profoundly Worse" is within 5pp of 13.7%
-      - Predicted percentage for "Noticeably Worse" is within 13pp of 43.6%
-      - Predicted percentage for "No Major Change" is within 5pp of 17.3%
-      - Predicted percentage for "Noticeably Better" is within 6pp of 21.1%
     idealResponse: '[13.7, 43.6, 17.3, 21.1, 4.2]'
     temperature: 0.3
   - id: 0e0a2736-2ac9-490c-adb9-bf7dfd25b14b-aiConcern:equally-concerned-and-excited
@@ -1259,7 +1138,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1270,11 +1149,6 @@ prompts:
             - 5.1
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Profoundly Worse" is within 5pp of 5.1%
-      - Predicted percentage for "Noticeably Worse" is within 5pp of 17.3%
-      - Predicted percentage for "No Major Change" is within 13pp of 44.4%
-      - Predicted percentage for "Noticeably Better" is within 8pp of 28.0%
-      - Predicted percentage for "Profoundly Better" is within 5pp of 5.1%
     idealResponse: '[5.1, 17.3, 44.4, 28.0, 5.1]'
     temperature: 0.3
   - id: b1288e79-aec5-43e4-a34e-c6d474737305-aiConcern:equally-concerned-and-excited
@@ -1295,7 +1169,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1306,9 +1180,6 @@ prompts:
             - 11.4
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "No Major Change" is within 8pp of 27.8%
-      - Predicted percentage for "Noticeably Better" is within 17pp of 55.6%
-      - Predicted percentage for "Profoundly Better" is within 5pp of 11.4%
     idealResponse: '[0.8, 4.4, 27.8, 55.6, 11.4]'
     temperature: 0.3
   - id: 29453c82-de9b-4be1-ba27-723906fb7dcf-aiConcern:equally-concerned-and-excited
@@ -1327,7 +1198,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1336,9 +1207,6 @@ prompts:
             - 19.2
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes" is within 21pp of 69.5%
-      - Predicted percentage for "No " is within 5pp of 11.2%
-      - Predicted percentage for "Don't Know" is within 6pp of 19.2%
     idealResponse: '[69.5, 11.2, 19.2]'
     temperature: 0.3
   - id: 289f8b3b-d97c-4585-8e41-5e41602aaedb-aiConcern:equally-concerned-and-excited
@@ -1357,7 +1225,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1366,9 +1234,6 @@ prompts:
             - 18.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes" is within 12pp of 38.5%
-      - Predicted percentage for "No" is within 13pp of 42.7%
-      - Predicted percentage for "Don't Know" is within 6pp of 18.9%
     idealResponse: '[38.5, 42.7, 18.9]'
     temperature: 0.3
   - id: e7a8b7e2-9077-4c8c-9cca-29f3c957ca16-aiConcern:equally-concerned-and-excited
@@ -1387,7 +1252,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1396,9 +1261,6 @@ prompts:
             - 11.8
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes" is within 6pp of 19.6%
-      - Predicted percentage for "No" is within 21pp of 68.6%
-      - Predicted percentage for "Don't Know" is within 5pp of 11.8%
     idealResponse: '[19.6, 68.6, 11.8]'
     temperature: 0.3
   - id: 41f7cf6e-c4ee-42c7-b453-77320c78b294-aiConcern:equally-concerned-and-excited
@@ -1420,7 +1282,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1430,10 +1292,6 @@ prompts:
             - 5.3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Not at all" is within 13pp of 42.5%
-      - Predicted percentage for "I know someone who has lost their job" is within 8pp of 28.2%
-      - Predicted percentage for "I know several people who have lost their job" is within 7pp of 24.0%
-      - Predicted percentage for "I know many people who have lost their job" is within 5pp of 5.3%
     idealResponse: '[42.5, 28.2, 24.0, 5.3]'
     temperature: 0.3
   - id: c909ca6a-ef51-4505-92a3-6f19645cd2b0-aiConcern:equally-concerned-and-excited
@@ -1451,7 +1309,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1459,8 +1317,6 @@ prompts:
             - 5.3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Agree" is within 28pp of 94.7%
-      - Predicted percentage for "Disagree" is within 5pp of 5.3%
     idealResponse: '[94.7, 5.3]'
     temperature: 0.3
   - id: 18e6fbb1-c242-41ab-9e56-17b8ac4b4ca7-aiConcern:equally-concerned-and-excited
@@ -1478,7 +1334,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1486,8 +1342,6 @@ prompts:
             - 9.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Agree" is within 27pp of 90.1%
-      - Predicted percentage for "Disagree" is within 5pp of 9.9%
     idealResponse: '[90.1, 9.9]'
     temperature: 0.3
   - id: b6c5e939-455a-4c81-a676-9be1bccaa582-aiConcern:equally-concerned-and-excited
@@ -1505,7 +1359,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1513,8 +1367,6 @@ prompts:
             - 66.7
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Agree" is within 10pp of 33.3%
-      - Predicted percentage for "Disagree" is within 20pp of 66.7%
     idealResponse: '[33.3, 66.7]'
     temperature: 0.3
   - id: ec5fd6c7-ba70-46c0-a5c7-75e4f75163de-aiConcern:equally-concerned-and-excited
@@ -1532,7 +1384,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1540,8 +1392,6 @@ prompts:
             - 38.1
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Agree" is within 19pp of 61.9%
-      - Predicted percentage for "Disagree" is within 11pp of 38.1%
     idealResponse: '[61.9, 38.1]'
     temperature: 0.3
   - id: 78975667-0a8d-452f-9569-c7447732ba49-aiConcern:equally-concerned-and-excited
@@ -1569,7 +1419,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1579,10 +1429,6 @@ prompts:
             - 0.4
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes – I was able to fully express my views on these topics" is within 21pp of 69.9%
-      - >-
-        Predicted percentage for "Mostly – I was able to mostly express my views on these topics, but did not have the
-        chance to express a few things." is within 8pp of 25.4%
     idealResponse: '[69.9, 25.4, 4.3, 0.4]'
     temperature: 0.3
   - id: fb7e02bc-de8f-453d-bfcc-10feb179f4ce-aiConcern:equally-concerned-and-excited
@@ -1603,7 +1449,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1612,8 +1458,6 @@ prompts:
             - 3.7
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes" is within 18pp of 61.1%
-      - Predicted percentage for "Maybe a little" is within 11pp of 35.2%
     idealResponse: '[61.1, 35.2, 3.7]'
     temperature: 0.3
 tags:

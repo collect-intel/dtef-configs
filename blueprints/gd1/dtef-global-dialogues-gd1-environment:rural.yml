@@ -4,7 +4,7 @@ description: >-
   DTEF: Predict response distributions for Rural. Source: Global Dialogues GD1
   (https://github.com/collect-intel/global-dialogues)
 models:
-  - QUICK
+  - CORE
 system: >-
   You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
   would respond by providing a percentage distribution across the answer options.
@@ -41,7 +41,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -50,9 +50,6 @@ prompts:
             - 14.4
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "More excited than concerned" is within 10pp of 32.0%
-      - Predicted percentage for "Equally concerned and excited" is within 16pp of 53.6%
-      - Predicted percentage for "More concerned than excited" is within 5pp of 14.4%
     idealResponse: '[32.0, 53.6, 14.4]'
     temperature: 0.3
   - id: ce8d6dba-231c-4353-8e8a-ba1e1eb4a10c-environment:rural
@@ -71,7 +68,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -80,13 +77,6 @@ prompts:
             - 5.4
           metric: js-divergence
           threshold: 0.85
-      - >-
-        Predicted percentage for "Yes – these things would definitely make a large positive difference in my life" is
-        within 15pp of 51.1%
-      - >-
-        Predicted percentage for "Maybe – these things might make some positive difference in my life" is within 13pp of
-        43.5%
-      - Predicted percentage for "No – these things won’t really make any difference in my life" is within 5pp of 5.4%
     idealResponse: '[51.1, 43.5, 5.4]'
     temperature: 0.3
   - id: df6d9080-be3c-4166-a298-1b9c48e5c008-environment:rural
@@ -113,7 +103,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -123,13 +113,6 @@ prompts:
             - 2.4
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes – I was able to fully express my views on these topics" is within 19pp of 63.9%
-      - >-
-        Predicted percentage for "Mostly – I was able to mostly express my views on these topics, but did not have the
-        chance to express a few things." is within 8pp of 27.7%
-      - >-
-        Predicted percentage for "Somewhat – I was able to somewhat express my views on these topics, but did not have
-        the chance to express many things." is within 5pp of 6.0%
     idealResponse: '[63.9, 27.7, 6.0, 2.4]'
     temperature: 0.3
   - id: e6253ecc-a4ed-42e9-99a3-00e4b2ff0f68-environment:rural
@@ -148,7 +131,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -157,9 +140,6 @@ prompts:
             - 6
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes" is within 17pp of 57.8%
-      - Predicted percentage for "Maybe a little" is within 11pp of 36.1%
-      - Predicted percentage for "No" is within 5pp of 6.0%
     idealResponse: '[57.8, 36.1, 6.0]'
     temperature: 0.3
 tags:

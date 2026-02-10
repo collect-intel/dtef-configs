@@ -4,7 +4,7 @@ description: >-
   DTEF: Predict response distributions for More excited than concerned. Source: Global Dialogues GD2
   (https://github.com/collect-intel/global-dialogues)
 models:
-  - QUICK
+  - CORE
 system: >-
   You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
   would respond by providing a percentage distribution across the answer options.
@@ -41,7 +41,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -50,7 +50,6 @@ prompts:
             - 0
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "More excited than concerned" is within 30pp of 100.0%
     idealResponse: '[100.0, 0.0, 0.0]'
     temperature: 0.3
   - id: 71118755-4bbd-490e-a64d-fd88e68588bf-aiConcern:more-excited-than-concerned
@@ -78,7 +77,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -88,10 +87,6 @@ prompts:
             - 0.3
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes – I was able to fully express my views on these topics" is within 21pp of 68.8%
-      - >-
-        Predicted percentage for "Mostly – I was able to mostly express my views on these topics, but did not have the
-        chance to express a few things." is within 8pp of 26.9%
     idealResponse: '[68.8, 26.9, 4.0, 0.3]'
     temperature: 0.3
   - id: 0341ab84-47fe-48de-9277-8119617d35a9-aiConcern:more-excited-than-concerned
@@ -112,7 +107,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Response distribution matches expected demographic pattern
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -121,9 +116,6 @@ prompts:
             - 8.9
           metric: js-divergence
           threshold: 0.85
-      - Predicted percentage for "Yes" is within 18pp of 58.4%
-      - Predicted percentage for "Maybe a little" is within 10pp of 32.7%
-      - Predicted percentage for "No" is within 5pp of 8.9%
     idealResponse: '[58.4, 32.7, 8.9]'
     temperature: 0.3
 tags:
