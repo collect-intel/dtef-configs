@@ -1,0 +1,174 @@
+configId: dtef-global-dialogues-gd2-country:canada-ctx
+configTitle: Global Dialogues GD2 - Canada (with context)
+description: >-
+  DTEF: Predict response distributions for Canada. Source: Global Dialogues GD2
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+prompts:
+  - id: 80e40224-43ef-440c-b8ca-6138a862e509-country:canada
+    description: >-
+      Predict: Canada → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes
+      you feel…"
+    promptText: >-
+      Consider the following demographic group (sample size: 31):
+
+      - Country: Canada
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+        Response distribution: Yes – I was able to fully express my views on these topics: 44.4%, Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.: 48.1%, Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.: 7.4%, No – I was unable to express my views on these topics, and did not have the chance to express most things.: 0.0%
+      Q: "Do you feel like you understand yourself better after participating in this conversation?"
+        Response distribution: Yes: 48.1%, Maybe a little: 48.1%, No: 3.7%
+
+      Survey question:
+
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 45.2
+            - 41.9
+            - 12.9
+          metric: js-divergence
+          threshold: 0.85
+    idealResponse: '[45.2, 41.9, 12.9]'
+    temperature: 0.3
+  - id: 71118755-4bbd-490e-a64d-fd88e68588bf-country:canada
+    description: >-
+      Predict: Canada → "Do you feel you were able to fully express your views on your culture, your values, and what
+      you want for the future in this conversation? (through what you responded and how you voted)"
+    promptText: >-
+      Consider the following demographic group (sample size: 31):
+
+      - Country: Canada
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 45.2%, Equally concerned and excited: 41.9%, More concerned than excited: 12.9%
+      Q: "Do you feel like you understand yourself better after participating in this conversation?"
+        Response distribution: Yes: 48.1%, Maybe a little: 48.1%, No: 3.7%
+
+      Survey question:
+
+      "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+
+
+      Answer options:
+        a. Yes – I was able to fully express my views on these topics
+        b. Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.
+        c. Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.
+        d. No – I was unable to express my views on these topics, and did not have the chance to express most things.
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 44.4
+            - 48.1
+            - 7.4
+            - 0
+          metric: js-divergence
+          threshold: 0.85
+    idealResponse: '[44.4, 48.1, 7.4, 0.0]'
+    temperature: 0.3
+  - id: 0341ab84-47fe-48de-9277-8119617d35a9-country:canada
+    description: 'Predict: Canada → "Do you feel like you understand yourself better after participating in this conversation?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 31):
+
+      - Country: Canada
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 45.2%, Equally concerned and excited: 41.9%, More concerned than excited: 12.9%
+      Q: "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+        Response distribution: Yes – I was able to fully express my views on these topics: 44.4%, Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.: 48.1%, Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.: 7.4%, No – I was unable to express my views on these topics, and did not have the chance to express most things.: 0.0%
+
+      Survey question:
+
+      "Do you feel like you understand yourself better after participating in this conversation?"
+
+
+      Answer options:
+        a. Yes
+        b. Maybe a little
+        c. No
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Divergence)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 48.1
+            - 48.1
+            - 3.7
+          metric: js-divergence
+          threshold: 0.85
+    idealResponse: '[48.1, 48.1, 3.7]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - global-dialogues-gd2
+context:
+  dtef:
+    surveyId: global-dialogues-gd2
+    segmentId: country:canada
+    segmentLabel: Canada
+    segmentAttributes:
+      country: Canada
+    groundTruthDistributions:
+      80e40224-43ef-440c-b8ca-6138a862e509-country:canada:
+        - 45.2
+        - 41.9
+        - 12.9
+      71118755-4bbd-490e-a64d-fd88e68588bf-country:canada:
+        - 44.4
+        - 48.1
+        - 7.4
+        - 0
+      0341ab84-47fe-48de-9277-8119617d35a9-country:canada:
+        - 48.1
+        - 48.1
+        - 3.7
