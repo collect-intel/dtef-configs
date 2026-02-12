@@ -151,7 +151,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -292,7 +292,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -435,7 +435,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -577,7 +577,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -720,7 +720,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -863,7 +863,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1006,7 +1006,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1149,7 +1149,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1292,7 +1292,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1435,7 +1435,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1577,7 +1577,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1720,7 +1720,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1863,7 +1863,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2004,7 +2004,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2145,7 +2145,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2286,7 +2286,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2429,7 +2429,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2570,7 +2570,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2713,7 +2713,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2856,7 +2856,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -2997,7 +2997,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3140,7 +3140,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3283,7 +3283,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3426,7 +3426,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3569,7 +3569,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3712,7 +3712,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3853,7 +3853,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -3994,7 +3994,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -4137,7 +4137,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -4280,7 +4280,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -4423,7 +4423,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -4566,7 +4566,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -4707,7 +4707,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -4846,7 +4846,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -4983,7 +4983,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -5120,7 +5120,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -5258,7 +5258,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -5395,7 +5395,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -5530,7 +5530,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -5665,7 +5665,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -5800,7 +5800,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -5939,7 +5939,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -6077,7 +6077,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:

@@ -41,7 +41,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -70,7 +70,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -87,7 +87,7 @@ prompts:
       interest?"
     promptText: "Consider the following demographic group (sample size: 161):\n- Country: United States\n\nSurvey question:\n\"To what extent, if at all, do you trust your family doctor to act in your best interest?\"\n\nAnswer options:\n  a. Strongly Distrust\n  b. Somewhat Distrust\t\n  c. Neither Trust Nor Distrust\n  d. Somewhat Trust\n  e. Strongly Trust\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -106,7 +106,7 @@ prompts:
       act in your best interest?"
     promptText: "Consider the following demographic group (sample size: 161):\n- Country: United States\n\nSurvey question:\n\"To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best interest?\"\n\nAnswer options:\n  a. Strongly Distrust\n  b. Somewhat Distrust\n  c. Neither Trust Nor Distrust\t\n  d. Somewhat Trust\t\n  e. Strongly Trust\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -139,7 +139,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -172,7 +172,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -205,7 +205,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -238,7 +238,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -271,7 +271,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -290,7 +290,7 @@ prompts:
       to use an AI system at work?"
     promptText: "Consider the following demographic group (sample size: 161):\n- Country: United States\n\nSurvey question:\n\"Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at work?\"\n\nAnswer options:\n  a. daily\t\n  b. weekly\t\n  c. monthly\t\n  d. annually\n  e. never\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -309,7 +309,7 @@ prompts:
       to use an AI system in your personal life?"
     promptText: "Consider the following demographic group (sample size: 161):\n- Country: United States\n\nSurvey question:\n\"Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in your personal life?\"\n\nAnswer options:\n  a. daily\t\n  b. weekly\t\n  c. monthly\t\n  d. annually\t\n  e. never\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -347,7 +347,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -366,7 +366,7 @@ prompts:
       systems to complete an action in the real world on your behalf without your supervision?"
     promptText: "Consider the following demographic group (sample size: 161):\n- Country: United States\n\nSurvey question:\n\"Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an action in the real world on your behalf without your supervision?\"\n\nAnswer options:\n  a. daily\t\n  b. weekly\t\n  c. monthly\t\n  d. annually\t\n  e. never\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -385,7 +385,7 @@ prompts:
       living better, worse or stay the same in the next 10 years?"
     promptText: "Consider the following demographic group (sample size: 161):\n- Country: United States\n\nSurvey question:\n\"Do you think the increased use of AI across society is likely to make your cost of living better, worse or stay the same in the next 10 years?\"\n\nAnswer options:\n  a. Profoundly Worse\t\n  b. Noticeably Worse\t\n  c. No Major Change\t\n  d. Noticeably Better\t\n  e. Profoundly Better\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -404,7 +404,7 @@ prompts:
       time you have better, worse or stay the same in the next 10 years?"
     promptText: "Consider the following demographic group (sample size: 161):\n- Country: United States\n\nSurvey question:\n\"Do you think the increased use of AI across society is likely to make the amount of free time you have better, worse or stay the same in the next 10 years?\"\n\nAnswer options:\n  a. Profoundly Worse\t\n  b. Noticeably Worse\t\n  c. No Major Change\t\n  d. Noticeably Better\t\n  e. Profoundly Better\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -423,7 +423,7 @@ prompts:
       well-being better, worse or stay the same in the next 10 years?"
     promptText: "Consider the following demographic group (sample size: 161):\n- Country: United States\n\nSurvey question:\n\"Do you think the increased use of AI across society is likely to make your community's well-being better, worse or stay the same in the next 10 years?\"\n\nAnswer options:\n  a. Profoundly Worse\t\n  b. Noticeably Worse\t\n  c. No Major Change\t\n  d. Noticeably Better\t\n  e. Profoundly Better\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -442,7 +442,7 @@ prompts:
       of good jobs better, worse or stay the same in the next 10 years?"
     promptText: "Consider the following demographic group (sample size: 161):\n- Country: United States\n\nSurvey question:\n\"Do you think the increased use of AI across society is likely to make the availability of good jobs better, worse or stay the same in the next 10 years?\"\n\nAnswer options:\n  a. Profoundly Worse\t\n  b. Noticeably Worse\t\n  c. No Major Change\t\n  d. Noticeably Better\t\n  e. Profoundly Better\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -461,7 +461,7 @@ prompts:
       purpose better, worse or stay the same in the next 10 years?"
     promptText: "Consider the following demographic group (sample size: 161):\n- Country: United States\n\nSurvey question:\n\"Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or stay the same in the next 10 years?\"\n\nAnswer options:\n  a. Profoundly Worse\t\n  b. Noticeably Worse\t\n  c. No Major Change\t\n  d. Noticeably Better\t\n  e. Profoundly Better\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -491,7 +491,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -519,7 +519,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -548,7 +548,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -586,7 +586,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -624,7 +624,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -655,7 +655,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -686,7 +686,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -717,7 +717,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -748,7 +748,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -779,7 +779,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -812,7 +812,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -842,7 +842,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -879,7 +879,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -919,7 +919,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -947,7 +947,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -961,7 +961,7 @@ prompts:
     description: 'Predict: United States → "Which approach feels most appropriate to you for protecting animals?"'
     promptText: "Consider the following demographic group (sample size: 161):\n- Country: United States\n\nSurvey question:\n\"Which approach feels most appropriate to you for protecting animals?\"\n\nAnswer options:\n  a. Future A: Building ongoing relationships and communication\t\n  b. Future B: Including all voices in shared decision-making\t\n  c. Future C: Granting legal rights and representation\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -995,7 +995,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1028,7 +1028,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1065,7 +1065,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1102,7 +1102,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1141,7 +1141,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1174,7 +1174,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1212,7 +1212,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1246,7 +1246,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1277,7 +1277,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1305,7 +1305,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1340,7 +1340,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
@@ -1370,7 +1370,7 @@ prompts:
 
       Predict the percentage distribution of responses for this demographic group across the answer options.
     points:
-      - text: Distribution Similarity (Jensen-Shannon Divergence)
+      - text: Distribution Similarity (Jensen-Shannon Distance)
         fn: distribution_metric
         fnArgs:
           expected:
