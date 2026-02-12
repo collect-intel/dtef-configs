@@ -195,7 +195,6 @@ prompts:
     temperature: 0.3
 tags:
   - _periodic
-  - _featured
   - dtef
   - demographic
   - global-dialogues-gd1
