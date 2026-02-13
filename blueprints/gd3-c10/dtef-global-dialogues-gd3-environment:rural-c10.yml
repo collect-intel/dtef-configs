@@ -1,0 +1,3066 @@
+configId: dtef-global-dialogues-gd3-environment:rural-c10
+configTitle: Global Dialogues GD3 - Rural (10 context Qs)
+description: >-
+  DTEF: Predict response distributions for Rural. Source: Global Dialogues GD3
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+prompts:
+  - id: f932063f-700c-4327-9c34-59b7c3e19190-environment:rural
+    description: >-
+      Predict: Rural → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you
+      feel…"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 30.7
+            - 48.9
+            - 20.5
+          metric: js-divergence
+    idealResponse: '[30.7, 48.9, 20.5]'
+    temperature: 0.3
+  - id: ae768935-002f-49e2-b08f-92c7616b0533-environment:rural
+    description: >-
+      Predict: Rural → "Thinking about the last three months, how often, if at all, have you noticed AI systems in your
+      daily life?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 60.2
+            - 29.5
+            - 9.1
+            - 0
+            - 1.1
+          metric: js-divergence
+    idealResponse: '[60.2, 29.5, 9.1, 0.0, 1.1]'
+    temperature: 0.3
+  - id: 926a5461-6a68-43c9-8279-94430dc9323e-environment:rural
+    description: >-
+      Predict: Rural → "Thinking about the last three months, how often, if at all, have you noticed human interactions
+      which have been replaced with automated systems?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you noticed human interactions which have been
+      replaced with automated systems?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 24.1
+            - 49.4
+            - 19.5
+            - 3.4
+            - 3.4
+          metric: js-divergence
+    idealResponse: '[24.1, 49.4, 19.5, 3.4, 3.4]'
+    temperature: 0.3
+  - id: 1ebc80e1-d3e2-4dc5-987c-e4d637cf6bec-environment:rural
+    description: >-
+      Predict: Rural → "Thinking about the last three months, how often, if at all, have you been expected to use an AI
+      system at work?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at work?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 43.7
+            - 21.8
+            - 11.5
+            - 3.4
+            - 19.5
+          metric: js-divergence
+    idealResponse: '[43.7, 21.8, 11.5, 3.4, 19.5]'
+    temperature: 0.3
+  - id: 3c74ec68-77f6-46a5-9918-0c8e97fb7bc8-environment:rural
+    description: >-
+      Predict: Rural → "Thinking about the last three months, how often, if at all, have you personally chosen to use an
+      AI system at work?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 42.5
+            - 27.6
+            - 13.8
+            - 4.6
+            - 11.5
+          metric: js-divergence
+    idealResponse: '[42.5, 27.6, 13.8, 4.6, 11.5]'
+    temperature: 0.3
+  - id: 47cdf76a-9abf-4b5c-abbe-2d5b00ef172d-environment:rural
+    description: >-
+      Predict: Rural → "Thinking about the last three months, how often, if at all, have you personally chosen to use an
+      AI system in your personal life?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 40.2
+            - 39.1
+            - 12.6
+            - 2.3
+            - 5.7
+          metric: js-divergence
+    idealResponse: '[40.2, 39.1, 12.6, 2.3, 5.7]'
+    temperature: 0.3
+  - id: d633720f-a159-4922-925c-fd9f3245711e-environment:rural
+    description: >-
+      Predict: Rural → "Thinking about the last three months, how often, if at all, have you interacted with AI systems
+      to get advice on a sensitive personal issue or to get emotional support?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice on
+      a sensitive personal issue or to get emotional support?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.4
+            - 28.7
+            - 9.2
+            - 6.9
+            - 36.8
+          metric: js-divergence
+    idealResponse: '[18.4, 28.7, 9.2, 6.9, 36.8]'
+    temperature: 0.3
+  - id: 8b361c6c-eb59-415b-8536-7f80713c3e5e-environment:rural
+    description: >-
+      Predict: Rural → "Thinking about the last three months, how often, if at all, have you interacted with AI systems
+      to complete an action in the real world on your behalf without your supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 17.2
+            - 13.8
+            - 13.8
+            - 1.1
+            - 54
+          metric: js-divergence
+    idealResponse: '[17.2, 13.8, 13.8, 1.1, 54.0]'
+    temperature: 0.3
+  - id: d1baeb26-baca-414f-91f6-72b023c02a65-environment:rural
+    description: >-
+      Predict: Rural → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of messaging apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.8
+            - 9.3
+            - 36
+            - 33.7
+            - 15.1
+          metric: js-divergence
+    idealResponse: '[5.8, 9.3, 36.0, 33.7, 15.1]'
+    temperature: 0.3
+  - id: 8c50a77a-3fc2-49ce-b568-b7832c9b99e0-environment:rural
+    description: >-
+      Predict: Rural → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of social media apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 11.6
+            - 24.4
+            - 30.2
+            - 26.7
+            - 7
+          metric: js-divergence
+    idealResponse: '[11.6, 24.4, 30.2, 26.7, 7.0]'
+    temperature: 0.3
+  - id: 30324a2e-b5b2-4e0a-a8f2-af599b55c40e-environment:rural
+    description: >-
+      Predict: Rural → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI chatbots?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI chatbots?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 12.8
+            - 15.1
+            - 27.9
+            - 27.9
+            - 16.3
+          metric: js-divergence
+    idealResponse: '[12.8, 15.1, 27.9, 27.9, 16.3]'
+    temperature: 0.3
+  - id: 4f234e17-2d57-4709-b29a-4a2909683566-environment:rural
+    description: >-
+      Predict: Rural → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI systems that can perform tasks in the real world without human supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can perform tasks in the real world without human supervision?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.6
+            - 27.9
+            - 23.3
+            - 16.3
+            - 14
+          metric: js-divergence
+    idealResponse: '[18.6, 27.9, 23.3, 16.3, 14.0]'
+    temperature: 0.3
+  - id: 96ccfd7b-8f99-4d0a-b700-9fd835e23bd8-environment:rural
+    description: >-
+      Predict: Rural → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI systems that can outperform humans on most economically valuable work?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can outperform humans on most economically valuable work?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20.9
+            - 31.4
+            - 15.1
+            - 23.3
+            - 9.3
+          metric: js-divergence
+    idealResponse: '[20.9, 31.4, 15.1, 23.3, 9.3]'
+    temperature: 0.3
+  - id: b1869877-1015-43ec-9645-84bf2db39c6f-environment:rural
+    description: 'Predict: Rural → "To what extent, if at all, do you generally trust governments to do what is right?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you generally trust governments to do what is right?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 22.1
+            - 38.4
+            - 18.6
+            - 16.3
+            - 4.7
+          metric: js-divergence
+    idealResponse: '[22.1, 38.4, 18.6, 16.3, 4.7]'
+    temperature: 0.3
+  - id: dc5e8d2a-c20b-47fa-89e2-b4db635a8ad4-environment:rural
+    description: 'Predict: Rural → "To what extent, if at all, do you generally trust small businesses to do what is right?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you generally trust small businesses to do what is right?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.3
+            - 12.8
+            - 24.4
+            - 48.8
+            - 11.6
+          metric: js-divergence
+    idealResponse: '[2.3, 12.8, 24.4, 48.8, 11.6]'
+    temperature: 0.3
+  - id: 8ed2d795-acca-47d8-abb0-8c446310dbf0-environment:rural
+    description: 'Predict: Rural → "To what extent, if at all, do you generally trust large corporations to do what is right?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you generally trust large corporations to do what is right?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16.3
+            - 34.9
+            - 17.4
+            - 24.4
+            - 7
+          metric: js-divergence
+    idealResponse: '[16.3, 34.9, 17.4, 24.4, 7.0]'
+    temperature: 0.3
+  - id: 4c5ed164-eb69-4e41-906f-1e7a93f1d5bd-environment:rural
+    description: 'Predict: Rural → "To what extent, if at all, do you generally trust social media companies to do what is right?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you generally trust social media companies to do what is right?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 32.6
+            - 31.4
+            - 19.8
+            - 15.1
+            - 1.2
+          metric: js-divergence
+    idealResponse: '[32.6, 31.4, 19.8, 15.1, 1.2]'
+    temperature: 0.3
+  - id: 8d058cce-8ccf-4816-8ef7-c9c9e37038dc-environment:rural
+    description: 'Predict: Rural → "To what extent, if at all, do you generally trust companies building AI to do what is right?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10.5
+            - 27.9
+            - 25.6
+            - 27.9
+            - 8.1
+          metric: js-divergence
+    idealResponse: '[10.5, 27.9, 25.6, 27.9, 8.1]'
+    temperature: 0.3
+  - id: e80f0f47-44d0-4d1a-bbda-d2334ff056ac-environment:rural
+    description: 'Predict: Rural → "To what extent, if at all, do you generally trust public utility companies to do what is right?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you generally trust public utility companies to do what is right?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.8
+            - 19.8
+            - 30.2
+            - 36
+            - 8.1
+          metric: js-divergence
+    idealResponse: '[5.8, 19.8, 30.2, 36.0, 8.1]'
+    temperature: 0.3
+  - id: a6fa1236-c145-498b-8c30-7ca307461789-environment:rural
+    description: >-
+      Predict: Rural → "To what extent, if at all, do you generally trust public research institutions to do what is
+      right?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you generally trust public research institutions to do what is right?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.5
+            - 10.5
+            - 19.8
+            - 46.5
+            - 19.8
+          metric: js-divergence
+    idealResponse: '[3.5, 10.5, 19.8, 46.5, 19.8]'
+    temperature: 0.3
+  - id: f435994f-e66e-4681-8334-4d6ee5f39e6b-environment:rural
+    description: 'Predict: Rural → "To what extent, if at all, do you trust your family doctor to act in your best interest?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you trust your family doctor to act in your best interest?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1.2
+            - 3.5
+            - 8.1
+            - 33.7
+            - 53.5
+          metric: js-divergence
+    idealResponse: '[1.2, 3.5, 8.1, 33.7, 53.5]'
+    temperature: 0.3
+  - id: 951f11a0-3307-4507-805c-86d17562d21a-environment:rural
+    description: >-
+      Predict: Rural → "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in
+      your best interest?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best
+      interest?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 23.3
+            - 38.4
+            - 16.3
+            - 17.4
+            - 4.7
+          metric: js-divergence
+    idealResponse: '[23.3, 38.4, 16.3, 17.4, 4.7]'
+    temperature: 0.3
+  - id: 522df4e6-3a3b-48d9-9c83-a03a6a7bb22e-environment:rural
+    description: >-
+      Predict: Rural → "To what extent, if at all, do you trust your elected representatives to act in your best
+      interest?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you trust your elected representatives to act in your best interest?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 17.4
+            - 32.6
+            - 16.3
+            - 25.6
+            - 8.1
+          metric: js-divergence
+    idealResponse: '[17.4, 32.6, 16.3, 25.6, 8.1]'
+    temperature: 0.3
+  - id: 18cc2f33-6373-49f0-aa7e-e2fa04a04575-environment:rural
+    description: >-
+      Predict: Rural → "To what extent, if at all, do you trust your faith or community leader to act in your best
+      interest?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you trust your faith or community leader to act in your best interest?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10.5
+            - 23.3
+            - 30.2
+            - 23.3
+            - 12.8
+          metric: js-divergence
+    idealResponse: '[10.5, 23.3, 30.2, 23.3, 12.8]'
+    temperature: 0.3
+  - id: e26549f8-5c9a-426b-b22a-57d8fe0d5e03-environment:rural
+    description: >-
+      Predict: Rural → "To what extent, if at all, do you trust the civil servants in your government to act in your
+      best interest?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you trust the civil servants in your government to act in your best interest?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10.5
+            - 30.2
+            - 23.3
+            - 27.9
+            - 8.1
+          metric: js-divergence
+    idealResponse: '[10.5, 30.2, 23.3, 27.9, 8.1]'
+    temperature: 0.3
+  - id: 332cec0c-afeb-4c18-a0e4-146c656750a8-environment:rural
+    description: >-
+      Predict: Rural → "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best
+      interest?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best interest?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 7
+            - 9.3
+            - 24.4
+            - 44.2
+            - 15.1
+          metric: js-divergence
+    idealResponse: '[7.0, 9.3, 24.4, 44.2, 15.1]'
+    temperature: 0.3
+  - id: 38964f80-772f-4e5d-a355-b4857f2de101-environment:rural
+    description: >-
+      Predict: Rural → "Do you agree or disagree with this statement? AI could make better decisions on my behalf than
+      my government representatives."
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+        c. Unsure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 33.7
+            - 20.9
+            - 45.3
+          metric: js-divergence
+    idealResponse: '[33.7, 20.9, 45.3]'
+    temperature: 0.3
+  - id: 983893d8-07ab-4c8e-bdb2-14335638633d-environment:rural
+    description: >-
+      Predict: Rural → "Do you think the increased use of AI across society is likely to make your cost of living
+      better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make your cost of living better, worse or stay
+      the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4.7
+            - 25.6
+            - 23.3
+            - 40.7
+            - 5.8
+          metric: js-divergence
+    idealResponse: '[4.7, 25.6, 23.3, 40.7, 5.8]'
+    temperature: 0.3
+  - id: 8a9d1c12-44f6-42dc-9238-daaaca0d85d0-environment:rural
+    description: >-
+      Predict: Rural → "Do you think the increased use of AI across society is likely to make the amount of free time
+      you have better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make the amount of free time you have better,
+      worse or stay the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.3
+            - 5.8
+            - 27.9
+            - 46.5
+            - 17.4
+          metric: js-divergence
+    idealResponse: '[2.3, 5.8, 27.9, 46.5, 17.4]'
+    temperature: 0.3
+  - id: 5afe8617-7e71-40c8-8a33-1b356a8ca674-environment:rural
+    description: >-
+      Predict: Rural → "Do you think the increased use of AI across society is likely to make your community's
+      well-being better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make your community's well-being better, worse
+      or stay the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4.7
+            - 19.8
+            - 20.9
+            - 38.4
+            - 16.3
+          metric: js-divergence
+    idealResponse: '[4.7, 19.8, 20.9, 38.4, 16.3]'
+    temperature: 0.3
+  - id: 96e5895f-d640-4a37-bc16-6e095f38ba7e-environment:rural
+    description: >-
+      Predict: Rural → "Do you think the increased use of AI across society is likely to make the availability of good
+      jobs better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make the availability of good jobs better, worse
+      or stay the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 17.4
+            - 41.9
+            - 12.8
+            - 18.6
+            - 9.3
+          metric: js-divergence
+    idealResponse: '[17.4, 41.9, 12.8, 18.6, 9.3]'
+    temperature: 0.3
+  - id: 0e0a2736-2ac9-490c-adb9-bf7dfd25b14b-environment:rural
+    description: >-
+      Predict: Rural → "Do you think the increased use of AI across society is likely to make your sense of purpose
+      better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or stay
+      the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 12.8
+            - 19.8
+            - 29.1
+            - 25.6
+            - 12.8
+          metric: js-divergence
+    idealResponse: '[12.8, 19.8, 29.1, 25.6, 12.8]'
+    temperature: 0.3
+  - id: b1288e79-aec5-43e4-a34e-c6d474737305-environment:rural
+    description: 'Predict: Rural → "So far, what has been the overall impact of AI on your daily life?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "So far, what has been the overall impact of AI on your daily life?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1.2
+            - 5.8
+            - 30.2
+            - 43
+            - 19.8
+          metric: js-divergence
+    idealResponse: '[1.2, 5.8, 30.2, 43.0, 19.8]'
+    temperature: 0.3
+  - id: 29453c82-de9b-4be1-ba27-723906fb7dcf-environment:rural
+    description: 'Predict: Rural → "Is your job making a meaningful contribution to the world?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Is your job making a meaningful contribution to the world?"
+
+
+      Answer options:
+        a. Yes
+        b. No 
+        c. Don't Know
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 69.8
+            - 10.5
+            - 19.8
+          metric: js-divergence
+    idealResponse: '[69.8, 10.5, 19.8]'
+    temperature: 0.3
+  - id: 289f8b3b-d97c-4585-8e41-5e41602aaedb-environment:rural
+    description: 'Predict: Rural → "Do you think your job is likely to be automated in the next 10 years?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Do you think your job is likely to be automated in the next 10 years?"
+
+
+      Answer options:
+        a. Yes
+        b. No
+        c. Don't Know
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 36
+            - 41.9
+            - 22.1
+          metric: js-divergence
+    idealResponse: '[36.0, 41.9, 22.1]'
+    temperature: 0.3
+  - id: e7a8b7e2-9077-4c8c-9cca-29f3c957ca16-environment:rural
+    description: 'Predict: Rural → "Do you think your job should be automated in the next 10 years?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Do you think your job should be automated in the next 10 years?"
+
+
+      Answer options:
+        a. Yes
+        b. No
+        c. Don't Know
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.6
+            - 67.4
+            - 14
+          metric: js-divergence
+    idealResponse: '[18.6, 67.4, 14.0]'
+    temperature: 0.3
+  - id: 41f7cf6e-c4ee-42c7-b453-77320c78b294-environment:rural
+    description: 'Predict: Rural → "So far, how has your community been affected by job loss from automation?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "So far, how has your community been affected by job loss from automation?"
+
+
+      Answer options:
+        a. Not at all
+        b. I know someone who has lost their job
+        c. I know several people who have lost their job
+        d. I know many people who have lost their job
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 50
+            - 26.7
+            - 19.8
+            - 3.5
+          metric: js-divergence
+    idealResponse: '[50.0, 26.7, 19.8, 3.5]'
+    temperature: 0.3
+  - id: c909ca6a-ef51-4505-92a3-6f19645cd2b0-environment:rural
+    description: 'Predict: Rural → "Do you agree or disagree?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Do you agree or disagree?"
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 95.2
+            - 4.8
+          metric: js-divergence
+    idealResponse: '[95.2, 4.8]'
+    temperature: 0.3
+  - id: 18e6fbb1-c242-41ab-9e56-17b8ac4b4ca7-environment:rural
+    description: 'Predict: Rural → "Do you agree or disagree?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Do you agree or disagree?"
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 86.9
+            - 13.1
+          metric: js-divergence
+    idealResponse: '[86.9, 13.1]'
+    temperature: 0.3
+  - id: b6c5e939-455a-4c81-a676-9be1bccaa582-environment:rural
+    description: 'Predict: Rural → "Do you agree or disagree?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Do you agree or disagree?"
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 44
+            - 56
+          metric: js-divergence
+    idealResponse: '[44.0, 56.0]'
+    temperature: 0.3
+  - id: ec5fd6c7-ba70-46c0-a5c7-75e4f75163de-environment:rural
+    description: 'Predict: Rural → "Do you agree or disagree?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Do you agree or disagree?"
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 65.5
+            - 34.5
+          metric: js-divergence
+    idealResponse: '[65.5, 34.5]'
+    temperature: 0.3
+  - id: 78975667-0a8d-452f-9569-c7447732ba49-environment:rural
+    description: >-
+      Predict: Rural → "Do you feel you were able to fully express your views on your culture, your values, and what you
+      want for the future in this conversation? (through what you responded and how you voted)"
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+
+
+      Answer options:
+        a. Yes – I was able to fully express my views on these topics
+        b. Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.
+        c. Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.
+        d. No – I was unable to express my views on these topics, and did not have the chance to express most things.
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 69
+            - 25
+            - 6
+            - 0
+          metric: js-divergence
+    idealResponse: '[69.0, 25.0, 6.0, 0.0]'
+    temperature: 0.3
+  - id: fb7e02bc-de8f-453d-bfcc-10feb179f4ce-environment:rural
+    description: 'Predict: Rural → "Do you feel like you understand yourself better after participating in this conversation?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 30.7%, Equally concerned and excited: 48.9%, More concerned than excited: 20.5%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 60.2%, weekly: 29.5%, monthly: 9.1%, annually: 0.0%, never: 1.1%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 24.1%, weekly: 49.4%, monthly: 19.5%, annually: 3.4%, never: 3.4%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 43.7%, weekly: 21.8%, monthly: 11.5%, annually: 3.4%, never: 19.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 42.5%, weekly: 27.6%, monthly: 13.8%, annually: 4.6%, never: 11.5%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Response distribution: daily: 40.2%, weekly: 39.1%, monthly: 12.6%, annually: 2.3%, never: 5.7%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Response distribution: daily: 18.4%, weekly: 28.7%, monthly: 9.2%, annually: 6.9%, never: 36.8%
+      Q: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+        Response distribution: daily: 17.2%, weekly: 13.8%, monthly: 13.8%, annually: 1.1%, never: 54.0%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Response distribution: Risks far outweigh benefits: 5.8%, Risks slightly outweigh benefits: 9.3%, Risks and benefits are equal: 36.0%, Benefits slightly outweigh risks: 33.7%, Benefits far outweigh risks: 15.1%
+      Q: "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+        Response distribution: Risks far outweigh benefits: 11.6%, Risks slightly outweigh benefits: 24.4%, Risks and benefits are equal: 30.2%, Benefits slightly outweigh risks: 26.7%, Benefits far outweigh risks: 7.0%
+
+      Survey question:
+
+      "Do you feel like you understand yourself better after participating in this conversation?"
+
+
+      Answer options:
+        a. Yes
+        b. Maybe a little
+        c. No
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 52.4
+            - 42.9
+            - 4.8
+          metric: js-divergence
+    idealResponse: '[52.4, 42.9, 4.8]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - global-dialogues-gd3
+context:
+  dtef:
+    surveyId: global-dialogues-gd3
+    segmentId: environment:rural
+    segmentLabel: Rural
+    segmentAttributes:
+      environment: Rural
+    groundTruthDistributions:
+      f932063f-700c-4327-9c34-59b7c3e19190-environment:rural:
+        - 30.7
+        - 48.9
+        - 20.5
+      ae768935-002f-49e2-b08f-92c7616b0533-environment:rural:
+        - 60.2
+        - 29.5
+        - 9.1
+        - 0
+        - 1.1
+      926a5461-6a68-43c9-8279-94430dc9323e-environment:rural:
+        - 24.1
+        - 49.4
+        - 19.5
+        - 3.4
+        - 3.4
+      1ebc80e1-d3e2-4dc5-987c-e4d637cf6bec-environment:rural:
+        - 43.7
+        - 21.8
+        - 11.5
+        - 3.4
+        - 19.5
+      3c74ec68-77f6-46a5-9918-0c8e97fb7bc8-environment:rural:
+        - 42.5
+        - 27.6
+        - 13.8
+        - 4.6
+        - 11.5
+      47cdf76a-9abf-4b5c-abbe-2d5b00ef172d-environment:rural:
+        - 40.2
+        - 39.1
+        - 12.6
+        - 2.3
+        - 5.7
+      d633720f-a159-4922-925c-fd9f3245711e-environment:rural:
+        - 18.4
+        - 28.7
+        - 9.2
+        - 6.9
+        - 36.8
+      8b361c6c-eb59-415b-8536-7f80713c3e5e-environment:rural:
+        - 17.2
+        - 13.8
+        - 13.8
+        - 1.1
+        - 54
+      d1baeb26-baca-414f-91f6-72b023c02a65-environment:rural:
+        - 5.8
+        - 9.3
+        - 36
+        - 33.7
+        - 15.1
+      8c50a77a-3fc2-49ce-b568-b7832c9b99e0-environment:rural:
+        - 11.6
+        - 24.4
+        - 30.2
+        - 26.7
+        - 7
+      30324a2e-b5b2-4e0a-a8f2-af599b55c40e-environment:rural:
+        - 12.8
+        - 15.1
+        - 27.9
+        - 27.9
+        - 16.3
+      4f234e17-2d57-4709-b29a-4a2909683566-environment:rural:
+        - 18.6
+        - 27.9
+        - 23.3
+        - 16.3
+        - 14
+      96ccfd7b-8f99-4d0a-b700-9fd835e23bd8-environment:rural:
+        - 20.9
+        - 31.4
+        - 15.1
+        - 23.3
+        - 9.3
+      b1869877-1015-43ec-9645-84bf2db39c6f-environment:rural:
+        - 22.1
+        - 38.4
+        - 18.6
+        - 16.3
+        - 4.7
+      dc5e8d2a-c20b-47fa-89e2-b4db635a8ad4-environment:rural:
+        - 2.3
+        - 12.8
+        - 24.4
+        - 48.8
+        - 11.6
+      8ed2d795-acca-47d8-abb0-8c446310dbf0-environment:rural:
+        - 16.3
+        - 34.9
+        - 17.4
+        - 24.4
+        - 7
+      4c5ed164-eb69-4e41-906f-1e7a93f1d5bd-environment:rural:
+        - 32.6
+        - 31.4
+        - 19.8
+        - 15.1
+        - 1.2
+      8d058cce-8ccf-4816-8ef7-c9c9e37038dc-environment:rural:
+        - 10.5
+        - 27.9
+        - 25.6
+        - 27.9
+        - 8.1
+      e80f0f47-44d0-4d1a-bbda-d2334ff056ac-environment:rural:
+        - 5.8
+        - 19.8
+        - 30.2
+        - 36
+        - 8.1
+      a6fa1236-c145-498b-8c30-7ca307461789-environment:rural:
+        - 3.5
+        - 10.5
+        - 19.8
+        - 46.5
+        - 19.8
+      f435994f-e66e-4681-8334-4d6ee5f39e6b-environment:rural:
+        - 1.2
+        - 3.5
+        - 8.1
+        - 33.7
+        - 53.5
+      951f11a0-3307-4507-805c-86d17562d21a-environment:rural:
+        - 23.3
+        - 38.4
+        - 16.3
+        - 17.4
+        - 4.7
+      522df4e6-3a3b-48d9-9c83-a03a6a7bb22e-environment:rural:
+        - 17.4
+        - 32.6
+        - 16.3
+        - 25.6
+        - 8.1
+      18cc2f33-6373-49f0-aa7e-e2fa04a04575-environment:rural:
+        - 10.5
+        - 23.3
+        - 30.2
+        - 23.3
+        - 12.8
+      e26549f8-5c9a-426b-b22a-57d8fe0d5e03-environment:rural:
+        - 10.5
+        - 30.2
+        - 23.3
+        - 27.9
+        - 8.1
+      332cec0c-afeb-4c18-a0e4-146c656750a8-environment:rural:
+        - 7
+        - 9.3
+        - 24.4
+        - 44.2
+        - 15.1
+      38964f80-772f-4e5d-a355-b4857f2de101-environment:rural:
+        - 33.7
+        - 20.9
+        - 45.3
+      983893d8-07ab-4c8e-bdb2-14335638633d-environment:rural:
+        - 4.7
+        - 25.6
+        - 23.3
+        - 40.7
+        - 5.8
+      8a9d1c12-44f6-42dc-9238-daaaca0d85d0-environment:rural:
+        - 2.3
+        - 5.8
+        - 27.9
+        - 46.5
+        - 17.4
+      5afe8617-7e71-40c8-8a33-1b356a8ca674-environment:rural:
+        - 4.7
+        - 19.8
+        - 20.9
+        - 38.4
+        - 16.3
+      96e5895f-d640-4a37-bc16-6e095f38ba7e-environment:rural:
+        - 17.4
+        - 41.9
+        - 12.8
+        - 18.6
+        - 9.3
+      0e0a2736-2ac9-490c-adb9-bf7dfd25b14b-environment:rural:
+        - 12.8
+        - 19.8
+        - 29.1
+        - 25.6
+        - 12.8
+      b1288e79-aec5-43e4-a34e-c6d474737305-environment:rural:
+        - 1.2
+        - 5.8
+        - 30.2
+        - 43
+        - 19.8
+      29453c82-de9b-4be1-ba27-723906fb7dcf-environment:rural:
+        - 69.8
+        - 10.5
+        - 19.8
+      289f8b3b-d97c-4585-8e41-5e41602aaedb-environment:rural:
+        - 36
+        - 41.9
+        - 22.1
+      e7a8b7e2-9077-4c8c-9cca-29f3c957ca16-environment:rural:
+        - 18.6
+        - 67.4
+        - 14
+      41f7cf6e-c4ee-42c7-b453-77320c78b294-environment:rural:
+        - 50
+        - 26.7
+        - 19.8
+        - 3.5
+      c909ca6a-ef51-4505-92a3-6f19645cd2b0-environment:rural:
+        - 95.2
+        - 4.8
+      18e6fbb1-c242-41ab-9e56-17b8ac4b4ca7-environment:rural:
+        - 86.9
+        - 13.1
+      b6c5e939-455a-4c81-a676-9be1bccaa582-environment:rural:
+        - 44
+        - 56
+      ec5fd6c7-ba70-46c0-a5c7-75e4f75163de-environment:rural:
+        - 65.5
+        - 34.5
+      78975667-0a8d-452f-9569-c7447732ba49-environment:rural:
+        - 69
+        - 25
+        - 6
+        - 0
+      fb7e02bc-de8f-453d-bfcc-10feb179f4ce-environment:rural:
+        - 52.4
+        - 42.9
+        - 4.8
+    contextQuestionCount: 10
+    contextQuestionIds:
+      - f932063f-700c-4327-9c34-59b7c3e19190
+      - ae768935-002f-49e2-b08f-92c7616b0533
+      - 926a5461-6a68-43c9-8279-94430dc9323e
+      - 1ebc80e1-d3e2-4dc5-987c-e4d637cf6bec
+      - 3c74ec68-77f6-46a5-9918-0c8e97fb7bc8
+      - 47cdf76a-9abf-4b5c-abbe-2d5b00ef172d
+      - d633720f-a159-4922-925c-fd9f3245711e
+      - 8b361c6c-eb59-415b-8536-7f80713c3e5e
+      - d1baeb26-baca-414f-91f6-72b023c02a65
+      - 8c50a77a-3fc2-49ce-b568-b7832c9b99e0

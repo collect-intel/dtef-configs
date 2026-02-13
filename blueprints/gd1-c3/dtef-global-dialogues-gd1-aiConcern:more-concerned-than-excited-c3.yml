@@ -1,0 +1,231 @@
+configId: dtef-global-dialogues-gd1-aiConcern:more-concerned-than-excited-c3
+configTitle: Global Dialogues GD1 - More concerned than excited (3 context Qs)
+description: >-
+  DTEF: Predict response distributions for More concerned than excited. Source: Global Dialogues GD1
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+prompts:
+  - id: 8e27b118-4fb8-4fa1-a838-a34b257c2070-aiConcern:more-concerned-than-excited
+    description: >-
+      Predict: More concerned than excited → "Overall, would you say the increased use of artificial intelligence (AI)
+      in daily life makes you feel…"
+    promptText: >-
+      Consider the following demographic group (sample size: 127):
+
+      - Ai Concern: More concerned than excited
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Would these things experts believe could help people make a positive difference in your life?"
+        Response distribution: Yes – these things would definitely make a large positive difference in my life: 32.7%, Maybe – these things might make some positive difference in my life: 53.1%, No – these things won’t really make any difference in my life: 14.2%
+      Q: "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+        Response distribution: Yes – I was able to fully express my views on these topics: 66.7%, Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.: 27.1%, Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.: 6.3%, No – I was unable to express my views on these topics, and did not have the chance to express most things.: 0.0%
+      Q: "Do you feel like you understand yourself better after participating in this conversation?"
+        Response distribution: Yes: 55.2%, Maybe a little: 38.5%, No: 6.3%
+
+      Survey question:
+
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 0
+            - 100
+          metric: js-divergence
+    idealResponse: '[0.0, 0.0, 100.0]'
+    temperature: 0.3
+  - id: ce8d6dba-231c-4353-8e8a-ba1e1eb4a10c-aiConcern:more-concerned-than-excited
+    description: >-
+      Predict: More concerned than excited → "Would these things experts believe could help people make a positive
+      difference in your life?"
+    promptText: >-
+      Consider the following demographic group (sample size: 127):
+
+      - Ai Concern: More concerned than excited
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 0.0%, Equally concerned and excited: 0.0%, More concerned than excited: 100.0%
+      Q: "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+        Response distribution: Yes – I was able to fully express my views on these topics: 66.7%, Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.: 27.1%, Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.: 6.3%, No – I was unable to express my views on these topics, and did not have the chance to express most things.: 0.0%
+      Q: "Do you feel like you understand yourself better after participating in this conversation?"
+        Response distribution: Yes: 55.2%, Maybe a little: 38.5%, No: 6.3%
+
+      Survey question:
+
+      "Would these things experts believe could help people make a positive difference in your life?"
+
+
+      Answer options:
+        a. Yes – these things would definitely make a large positive difference in my life
+        b. Maybe – these things might make some positive difference in my life
+        c. No – these things won’t really make any difference in my life
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 32.7
+            - 53.1
+            - 14.2
+          metric: js-divergence
+    idealResponse: '[32.7, 53.1, 14.2]'
+    temperature: 0.3
+  - id: df6d9080-be3c-4166-a298-1b9c48e5c008-aiConcern:more-concerned-than-excited
+    description: >-
+      Predict: More concerned than excited → "Do you feel you were able to fully express your views on your culture,
+      your values, and what you want for the future in this conversation? (through what you responded and how you
+      voted)"
+    promptText: >-
+      Consider the following demographic group (sample size: 127):
+
+      - Ai Concern: More concerned than excited
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 0.0%, Equally concerned and excited: 0.0%, More concerned than excited: 100.0%
+      Q: "Would these things experts believe could help people make a positive difference in your life?"
+        Response distribution: Yes – these things would definitely make a large positive difference in my life: 32.7%, Maybe – these things might make some positive difference in my life: 53.1%, No – these things won’t really make any difference in my life: 14.2%
+      Q: "Do you feel like you understand yourself better after participating in this conversation?"
+        Response distribution: Yes: 55.2%, Maybe a little: 38.5%, No: 6.3%
+
+      Survey question:
+
+      "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+
+
+      Answer options:
+        a. Yes – I was able to fully express my views on these topics
+        b. Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.
+        c. Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.
+        d. No – I was unable to express my views on these topics, and did not have the chance to express most things.
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 66.7
+            - 27.1
+            - 6.3
+            - 0
+          metric: js-divergence
+    idealResponse: '[66.7, 27.1, 6.3, 0.0]'
+    temperature: 0.3
+  - id: e6253ecc-a4ed-42e9-99a3-00e4b2ff0f68-aiConcern:more-concerned-than-excited
+    description: >-
+      Predict: More concerned than excited → "Do you feel like you understand yourself better after participating in
+      this conversation?"
+    promptText: >-
+      Consider the following demographic group (sample size: 127):
+
+      - Ai Concern: More concerned than excited
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 0.0%, Equally concerned and excited: 0.0%, More concerned than excited: 100.0%
+      Q: "Would these things experts believe could help people make a positive difference in your life?"
+        Response distribution: Yes – these things would definitely make a large positive difference in my life: 32.7%, Maybe – these things might make some positive difference in my life: 53.1%, No – these things won’t really make any difference in my life: 14.2%
+      Q: "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+        Response distribution: Yes – I was able to fully express my views on these topics: 66.7%, Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.: 27.1%, Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.: 6.3%, No – I was unable to express my views on these topics, and did not have the chance to express most things.: 0.0%
+
+      Survey question:
+
+      "Do you feel like you understand yourself better after participating in this conversation?"
+
+
+      Answer options:
+        a. Yes
+        b. Maybe a little
+        c. No
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 55.2
+            - 38.5
+            - 6.3
+          metric: js-divergence
+    idealResponse: '[55.2, 38.5, 6.3]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - global-dialogues-gd1
+context:
+  dtef:
+    surveyId: global-dialogues-gd1
+    segmentId: aiConcern:more-concerned-than-excited
+    segmentLabel: More concerned than excited
+    segmentAttributes:
+      aiConcern: More concerned than excited
+    groundTruthDistributions:
+      8e27b118-4fb8-4fa1-a838-a34b257c2070-aiConcern:more-concerned-than-excited:
+        - 0
+        - 0
+        - 100
+      ce8d6dba-231c-4353-8e8a-ba1e1eb4a10c-aiConcern:more-concerned-than-excited:
+        - 32.7
+        - 53.1
+        - 14.2
+      df6d9080-be3c-4166-a298-1b9c48e5c008-aiConcern:more-concerned-than-excited:
+        - 66.7
+        - 27.1
+        - 6.3
+        - 0
+      e6253ecc-a4ed-42e9-99a3-00e4b2ff0f68-aiConcern:more-concerned-than-excited:
+        - 55.2
+        - 38.5
+        - 6.3
+    contextQuestionCount: 3
+    contextQuestionIds:
+      - ce8d6dba-231c-4353-8e8a-ba1e1eb4a10c
+      - df6d9080-be3c-4166-a298-1b9c48e5c008
+      - e6253ecc-a4ed-42e9-99a3-00e4b2ff0f68

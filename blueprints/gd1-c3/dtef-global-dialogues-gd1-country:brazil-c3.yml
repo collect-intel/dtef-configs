@@ -1,0 +1,226 @@
+configId: dtef-global-dialogues-gd1-country:brazil-c3
+configTitle: Global Dialogues GD1 - Brazil (3 context Qs)
+description: >-
+  DTEF: Predict response distributions for Brazil. Source: Global Dialogues GD1
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+prompts:
+  - id: 8e27b118-4fb8-4fa1-a838-a34b257c2070-country:brazil
+    description: >-
+      Predict: Brazil → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes
+      you feel…"
+    promptText: >-
+      Consider the following demographic group (sample size: 42):
+
+      - Country: Brazil
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Would these things experts believe could help people make a positive difference in your life?"
+        Response distribution: Yes – these things would definitely make a large positive difference in my life: 72.5%, Maybe – these things might make some positive difference in my life: 27.5%, No – these things won’t really make any difference in my life: 0.0%
+      Q: "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+        Response distribution: Yes – I was able to fully express my views on these topics: 75.8%, Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.: 24.2%, Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.: 0.0%, No – I was unable to express my views on these topics, and did not have the chance to express most things.: 0.0%
+      Q: "Do you feel like you understand yourself better after participating in this conversation?"
+        Response distribution: Yes: 54.5%, Maybe a little: 39.4%, No: 6.1%
+
+      Survey question:
+
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 42.9
+            - 42.9
+            - 14.3
+          metric: js-divergence
+    idealResponse: '[42.9, 42.9, 14.3]'
+    temperature: 0.3
+  - id: ce8d6dba-231c-4353-8e8a-ba1e1eb4a10c-country:brazil
+    description: 'Predict: Brazil → "Would these things experts believe could help people make a positive difference in your life?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 42):
+
+      - Country: Brazil
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 42.9%, Equally concerned and excited: 42.9%, More concerned than excited: 14.3%
+      Q: "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+        Response distribution: Yes – I was able to fully express my views on these topics: 75.8%, Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.: 24.2%, Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.: 0.0%, No – I was unable to express my views on these topics, and did not have the chance to express most things.: 0.0%
+      Q: "Do you feel like you understand yourself better after participating in this conversation?"
+        Response distribution: Yes: 54.5%, Maybe a little: 39.4%, No: 6.1%
+
+      Survey question:
+
+      "Would these things experts believe could help people make a positive difference in your life?"
+
+
+      Answer options:
+        a. Yes – these things would definitely make a large positive difference in my life
+        b. Maybe – these things might make some positive difference in my life
+        c. No – these things won’t really make any difference in my life
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 72.5
+            - 27.5
+            - 0
+          metric: js-divergence
+    idealResponse: '[72.5, 27.5, 0.0]'
+    temperature: 0.3
+  - id: df6d9080-be3c-4166-a298-1b9c48e5c008-country:brazil
+    description: >-
+      Predict: Brazil → "Do you feel you were able to fully express your views on your culture, your values, and what
+      you want for the future in this conversation? (through what you responded and how you voted)"
+    promptText: >-
+      Consider the following demographic group (sample size: 42):
+
+      - Country: Brazil
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 42.9%, Equally concerned and excited: 42.9%, More concerned than excited: 14.3%
+      Q: "Would these things experts believe could help people make a positive difference in your life?"
+        Response distribution: Yes – these things would definitely make a large positive difference in my life: 72.5%, Maybe – these things might make some positive difference in my life: 27.5%, No – these things won’t really make any difference in my life: 0.0%
+      Q: "Do you feel like you understand yourself better after participating in this conversation?"
+        Response distribution: Yes: 54.5%, Maybe a little: 39.4%, No: 6.1%
+
+      Survey question:
+
+      "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+
+
+      Answer options:
+        a. Yes – I was able to fully express my views on these topics
+        b. Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.
+        c. Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.
+        d. No – I was unable to express my views on these topics, and did not have the chance to express most things.
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 75.8
+            - 24.2
+            - 0
+            - 0
+          metric: js-divergence
+    idealResponse: '[75.8, 24.2, 0.0, 0.0]'
+    temperature: 0.3
+  - id: e6253ecc-a4ed-42e9-99a3-00e4b2ff0f68-country:brazil
+    description: 'Predict: Brazil → "Do you feel like you understand yourself better after participating in this conversation?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 42):
+
+      - Country: Brazil
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 42.9%, Equally concerned and excited: 42.9%, More concerned than excited: 14.3%
+      Q: "Would these things experts believe could help people make a positive difference in your life?"
+        Response distribution: Yes – these things would definitely make a large positive difference in my life: 72.5%, Maybe – these things might make some positive difference in my life: 27.5%, No – these things won’t really make any difference in my life: 0.0%
+      Q: "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)"
+        Response distribution: Yes – I was able to fully express my views on these topics: 75.8%, Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a few things.: 24.2%, Somewhat – I was able to somewhat express my views on these topics, but did not have the chance to express many things.: 0.0%, No – I was unable to express my views on these topics, and did not have the chance to express most things.: 0.0%
+
+      Survey question:
+
+      "Do you feel like you understand yourself better after participating in this conversation?"
+
+
+      Answer options:
+        a. Yes
+        b. Maybe a little
+        c. No
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 54.5
+            - 39.4
+            - 6.1
+          metric: js-divergence
+    idealResponse: '[54.5, 39.4, 6.1]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - global-dialogues-gd1
+context:
+  dtef:
+    surveyId: global-dialogues-gd1
+    segmentId: country:brazil
+    segmentLabel: Brazil
+    segmentAttributes:
+      country: Brazil
+    groundTruthDistributions:
+      8e27b118-4fb8-4fa1-a838-a34b257c2070-country:brazil:
+        - 42.9
+        - 42.9
+        - 14.3
+      ce8d6dba-231c-4353-8e8a-ba1e1eb4a10c-country:brazil:
+        - 72.5
+        - 27.5
+        - 0
+      df6d9080-be3c-4166-a298-1b9c48e5c008-country:brazil:
+        - 75.8
+        - 24.2
+        - 0
+        - 0
+      e6253ecc-a4ed-42e9-99a3-00e4b2ff0f68-country:brazil:
+        - 54.5
+        - 39.4
+        - 6.1
+    contextQuestionCount: 3
+    contextQuestionIds:
+      - ce8d6dba-231c-4353-8e8a-ba1e1eb4a10c
+      - df6d9080-be3c-4166-a298-1b9c48e5c008
+      - e6253ecc-a4ed-42e9-99a3-00e4b2ff0f68
