@@ -1,0 +1,3124 @@
+configId: dtef-global-dialogues-gd7-ageGroup:65-c5
+configTitle: Global Dialogues GD7 - 65+ (5 context Qs)
+description: >-
+  DTEF: Predict response distributions for 65+. Source: Global Dialogues GD7
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+prompts:
+  - id: d5fe3a92-f0b9-4ff6-b33f-538759f537c0-ageGroup:65
+    description: >-
+      Predict: 65+ → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you
+      feel…"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20
+            - 80
+            - 0
+          metric: js-divergence
+    idealResponse: '[20.0, 80.0, 0.0]'
+    temperature: 0.3
+  - id: e2c1442f-b445-48fe-9204-dcc6a5c8ad4a-ageGroup:65
+    description: >-
+      Predict: 65+ → "Thinking about the last three months, how often, if at all, have you noticed AI systems in your
+      daily life?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 80
+            - 20
+            - 0
+            - 0
+            - 0
+          metric: js-divergence
+    idealResponse: '[80.0, 20.0, 0.0, 0.0, 0.0]'
+    temperature: 0.3
+  - id: f43a1bd3-48a5-40a1-85c2-cd283ac506aa-ageGroup:65
+    description: >-
+      Predict: 65+ → "Thinking about the last three months, how often, if at all, have you noticed human interactions
+      which have been replaced with automated systems?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you noticed human interactions which have been
+      replaced with automated systems?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 50
+            - 30
+            - 20
+            - 0
+            - 0
+          metric: js-divergence
+    idealResponse: '[50.0, 30.0, 20.0, 0.0, 0.0]'
+    temperature: 0.3
+  - id: de5d8708-7920-4285-85eb-1d4d0592f63c-ageGroup:65
+    description: >-
+      Predict: 65+ → "Thinking about the last three months, how often, if at all, have you been expected to use an AI
+      system at work?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at work?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 40
+            - 30
+            - 0
+            - 0
+            - 30
+          metric: js-divergence
+    idealResponse: '[40.0, 30.0, 0.0, 0.0, 30.0]'
+    temperature: 0.3
+  - id: 7e6528c0-2c70-49ca-87d4-fde70128ba2e-ageGroup:65
+    description: >-
+      Predict: 65+ → "Thinking about the last three months, how often, if at all, have you personally chosen to use an
+      AI system at work?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 40
+            - 30
+            - 10
+            - 0
+            - 20
+          metric: js-divergence
+    idealResponse: '[40.0, 30.0, 10.0, 0.0, 20.0]'
+    temperature: 0.3
+  - id: 54469c47-db2c-4c71-aef8-c290f650f900-ageGroup:65
+    description: >-
+      Predict: 65+ → "Thinking about the last three months, how often, if at all, have you personally chosen to use an
+      AI system in your personal life?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 50
+            - 20
+            - 10
+            - 0
+            - 20
+          metric: js-divergence
+    idealResponse: '[50.0, 20.0, 10.0, 0.0, 20.0]'
+    temperature: 0.3
+  - id: 106a3e89-aeda-4cca-9cb2-b2457c9f561d-ageGroup:65
+    description: >-
+      Predict: 65+ → "Thinking about the last three months, how often, if at all, have you interacted with AI systems to
+      get advice on a sensitive personal issue or to get emotional support?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice on
+      a sensitive personal issue or to get emotional support?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 10
+            - 30
+            - 0
+            - 50
+          metric: js-divergence
+    idealResponse: '[10.0, 10.0, 30.0, 0.0, 50.0]'
+    temperature: 0.3
+  - id: 7e9678fd-4eb4-4497-a470-1c996c4bff71-ageGroup:65
+    description: >-
+      Predict: 65+ → "Thinking about the last three months, how often, if at all, have you interacted with AI systems to
+      complete an action in the real world on your behalf without your supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 10
+            - 20
+            - 0
+            - 60
+          metric: js-divergence
+    idealResponse: '[10.0, 10.0, 20.0, 0.0, 60.0]'
+    temperature: 0.3
+  - id: cd8faa6c-7e61-45b2-a0be-d77a416d7730-ageGroup:65
+    description: >-
+      Predict: 65+ → "Considering both potential benefits and risks, how do you assess the overall impact on society of
+      messaging apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 10
+            - 20
+            - 50
+            - 20
+          metric: js-divergence
+    idealResponse: '[0.0, 10.0, 20.0, 50.0, 20.0]'
+    temperature: 0.3
+  - id: a2f84060-18d0-465c-960a-8f8a925e1be1-ageGroup:65
+    description: >-
+      Predict: 65+ → "Considering both potential benefits and risks, how do you assess the overall impact on society of
+      social media apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 40
+            - 30
+            - 20
+            - 10
+          metric: js-divergence
+    idealResponse: '[0.0, 40.0, 30.0, 20.0, 10.0]'
+    temperature: 0.3
+  - id: cd3da4e2-b723-4ffb-9837-4d2059302f4e-ageGroup:65
+    description: >-
+      Predict: 65+ → "Considering both potential benefits and risks, how do you assess the overall impact on society of
+      AI chatbots?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI chatbots?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 20
+            - 10
+            - 50
+            - 10
+          metric: js-divergence
+    idealResponse: '[10.0, 20.0, 10.0, 50.0, 10.0]'
+    temperature: 0.3
+  - id: 03ac572b-962e-4f24-a48b-cbbd6f2acd20-ageGroup:65
+    description: >-
+      Predict: 65+ → "Considering both potential benefits and risks, how do you assess the overall impact on society of
+      AI systems that can perform tasks in the real world without human supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can perform tasks in the real world without human supervision?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 20
+            - 20
+            - 10
+            - 40
+          metric: js-divergence
+    idealResponse: '[10.0, 20.0, 20.0, 10.0, 40.0]'
+    temperature: 0.3
+  - id: 49d3ba6e-1281-4f74-aef7-4e55cf11ebb0-ageGroup:65
+    description: >-
+      Predict: 65+ → "Considering both potential benefits and risks, how do you assess the overall impact on society of
+      AI systems that can outperform humans on most economically valuable work?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can outperform humans on most economically valuable work?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 10
+            - 10
+            - 50
+            - 20
+          metric: js-divergence
+    idealResponse: '[10.0, 10.0, 10.0, 50.0, 20.0]'
+    temperature: 0.3
+  - id: 733aae0e-2178-4d6a-a853-16e6ead10472-ageGroup:65
+    description: 'Predict: 65+ → "To what extent, if at all, do you generally trust governments to do what is right?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you generally trust governments to do what is right?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 30
+            - 30
+            - 10
+            - 10
+            - 20
+          metric: js-divergence
+    idealResponse: '[30.0, 30.0, 10.0, 10.0, 20.0]'
+    temperature: 0.3
+  - id: 71d139f3-6c89-4cbf-8fff-16c3839db0c5-ageGroup:65
+    description: 'Predict: 65+ → "To what extent, if at all, do you generally trust small businesses to do what is right?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you generally trust small businesses to do what is right?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 0
+            - 0
+            - 60
+            - 30
+          metric: js-divergence
+    idealResponse: '[10.0, 0.0, 0.0, 60.0, 30.0]'
+    temperature: 0.3
+  - id: 584716af-7504-49c9-b2c1-abae12db8872-ageGroup:65
+    description: 'Predict: 65+ → "To what extent, if at all, do you generally trust large corporations to do what is right?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you generally trust large corporations to do what is right?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20
+            - 50
+            - 10
+            - 10
+            - 10
+          metric: js-divergence
+    idealResponse: '[20.0, 50.0, 10.0, 10.0, 10.0]'
+    temperature: 0.3
+  - id: 7530bc01-640e-48a2-b6b5-acb1f4234d9a-ageGroup:65
+    description: 'Predict: 65+ → "To what extent, if at all, do you generally trust social media companies to do what is right?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you generally trust social media companies to do what is right?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 30
+            - 40
+            - 0
+            - 20
+            - 10
+          metric: js-divergence
+    idealResponse: '[30.0, 40.0, 0.0, 20.0, 10.0]'
+    temperature: 0.3
+  - id: 5fc690be-1f15-4c00-be3f-48d5e327eab0-ageGroup:65
+    description: 'Predict: 65+ → "To what extent, if at all, do you generally trust companies building AI to do what is right?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 0
+            - 50
+            - 20
+            - 20
+          metric: js-divergence
+    idealResponse: '[10.0, 0.0, 50.0, 20.0, 20.0]'
+    temperature: 0.3
+  - id: 58123624-938d-4466-8d9b-bc7b75d64a8f-ageGroup:65
+    description: 'Predict: 65+ → "To what extent, if at all, do you generally trust public utility companies to do what is right?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you generally trust public utility companies to do what is right?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 30
+            - 0
+            - 40
+            - 20
+          metric: js-divergence
+    idealResponse: '[10.0, 30.0, 0.0, 40.0, 20.0]'
+    temperature: 0.3
+  - id: 7bc84050-5615-4e31-a725-cdf8061a2c44-ageGroup:65
+    description: >-
+      Predict: 65+ → "To what extent, if at all, do you generally trust public research institutions to do what is
+      right?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you generally trust public research institutions to do what is right?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 20
+            - 10
+            - 50
+            - 10
+          metric: js-divergence
+    idealResponse: '[10.0, 20.0, 10.0, 50.0, 10.0]'
+    temperature: 0.3
+  - id: 530c37ff-0514-4570-affa-2e48e450cd86-ageGroup:65
+    description: 'Predict: 65+ → "To what extent, if at all, do you trust your family doctor to act in your best interest?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you trust your family doctor to act in your best interest?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 0
+            - 0
+            - 30
+            - 70
+          metric: js-divergence
+    idealResponse: '[0.0, 0.0, 0.0, 30.0, 70.0]'
+    temperature: 0.3
+  - id: f4fc5e2f-5195-431f-8dca-d8a5a777afb3-ageGroup:65
+    description: >-
+      Predict: 65+ → "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in
+      your best interest?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best
+      interest?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20
+            - 30
+            - 30
+            - 10
+            - 10
+          metric: js-divergence
+    idealResponse: '[20.0, 30.0, 30.0, 10.0, 10.0]'
+    temperature: 0.3
+  - id: 40fb0333-07ed-4ec1-8eea-700861de3425-ageGroup:65
+    description: >-
+      Predict: 65+ → "To what extent, if at all, do you trust your elected representatives to act in your best
+      interest?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you trust your elected representatives to act in your best interest?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 20
+            - 30
+            - 30
+            - 10
+          metric: js-divergence
+    idealResponse: '[10.0, 20.0, 30.0, 30.0, 10.0]'
+    temperature: 0.3
+  - id: 3a61d811-5818-4366-88a3-ac2c5872ee04-ageGroup:65
+    description: >-
+      Predict: 65+ → "To what extent, if at all, do you trust your faith or community leader to act in your best
+      interest?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you trust your faith or community leader to act in your best interest?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 0
+            - 20
+            - 40
+            - 30
+          metric: js-divergence
+    idealResponse: '[10.0, 0.0, 20.0, 40.0, 30.0]'
+    temperature: 0.3
+  - id: 4442b003-a7c9-4584-bef8-6b1359330951-ageGroup:65
+    description: >-
+      Predict: 65+ → "To what extent, if at all, do you trust the civil servants in your government to act in your best
+      interest?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you trust the civil servants in your government to act in your best interest?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20
+            - 10
+            - 10
+            - 50
+            - 10
+          metric: js-divergence
+    idealResponse: '[20.0, 10.0, 10.0, 50.0, 10.0]'
+    temperature: 0.3
+  - id: 8c9766d5-ac51-4cd6-9a00-4cd02a8384e4-ageGroup:65
+    description: >-
+      Predict: 65+ → "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best
+      interest?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best interest?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 10
+            - 10
+            - 50
+            - 20
+          metric: js-divergence
+    idealResponse: '[10.0, 10.0, 10.0, 50.0, 20.0]'
+    temperature: 0.3
+  - id: 3715e9a1-f652-48be-8a15-7a9deb802a1b-ageGroup:65
+    description: >-
+      Predict: 65+ → "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my
+      government representatives."
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+        c. Unsure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 30
+            - 10
+            - 60
+          metric: js-divergence
+    idealResponse: '[30.0, 10.0, 60.0]'
+    temperature: 0.3
+  - id: cee5706d-6a71-432f-9480-5ddd0738a92d-ageGroup:65
+    description: >-
+      Predict: 65+ → "Do you think the increased use of AI across society is likely to make your cost of living better,
+      worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make your cost of living better, worse or stay
+      the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 30
+            - 30
+            - 20
+            - 20
+          metric: js-divergence
+    idealResponse: '[0.0, 30.0, 30.0, 20.0, 20.0]'
+    temperature: 0.3
+  - id: e3ab37b1-2732-47ce-b3fe-f6342ab6d9b9-ageGroup:65
+    description: >-
+      Predict: 65+ → "Do you think the increased use of AI across society is likely to make the amount of free time you
+      have better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make the amount of free time you have better,
+      worse or stay the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 10
+            - 40
+            - 40
+            - 10
+          metric: js-divergence
+    idealResponse: '[0.0, 10.0, 40.0, 40.0, 10.0]'
+    temperature: 0.3
+  - id: c9fd2fe1-0f50-41e1-90b1-894e3c9117f2-ageGroup:65
+    description: >-
+      Predict: 65+ → "Do you think the increased use of AI across society is likely to make your community's well-being
+      better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make your community's well-being better, worse
+      or stay the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 10
+            - 50
+            - 20
+            - 20
+          metric: js-divergence
+    idealResponse: '[0.0, 10.0, 50.0, 20.0, 20.0]'
+    temperature: 0.3
+  - id: 92d647b9-d902-47bc-b2b3-b2871725ebfe-ageGroup:65
+    description: >-
+      Predict: 65+ → "Do you think the increased use of AI across society is likely to make the availability of good
+      jobs better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make the availability of good jobs better, worse
+      or stay the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 60
+            - 10
+            - 30
+            - 0
+          metric: js-divergence
+    idealResponse: '[0.0, 60.0, 10.0, 30.0, 0.0]'
+    temperature: 0.3
+  - id: 32f89793-1096-4e03-96bd-347a3bf06f0e-ageGroup:65
+    description: >-
+      Predict: 65+ → "Do you think the increased use of AI across society is likely to make your sense of purpose
+      better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or stay
+      the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 20
+            - 50
+            - 20
+            - 10
+          metric: js-divergence
+    idealResponse: '[0.0, 20.0, 50.0, 20.0, 10.0]'
+    temperature: 0.3
+  - id: cfa8b53d-4db5-43a8-b67d-fb57e8a474fd-ageGroup:65
+    description: 'Predict: 65+ → "So far, what has been the overall impact of AI on your daily life?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "So far, what has been the overall impact of AI on your daily life?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 0
+            - 30
+            - 60
+            - 10
+          metric: js-divergence
+    idealResponse: '[0.0, 0.0, 30.0, 60.0, 10.0]'
+    temperature: 0.3
+  - id: f2b2e1aa-ea1c-4467-8aba-5094bafd264b-ageGroup:65
+    description: 'Predict: 65+ → "Is your job making a meaningful contribution to the world?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Is your job making a meaningful contribution to the world?"
+
+
+      Answer options:
+        a. Yes
+        b. No 
+        c. Don't Know
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 60
+            - 20
+            - 20
+          metric: js-divergence
+    idealResponse: '[60.0, 20.0, 20.0]'
+    temperature: 0.3
+  - id: 7559a753-5192-4327-a950-ca4127fb1af6-ageGroup:65
+    description: 'Predict: 65+ → "Do you think your job is likely to be automated in the next 10 years?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Do you think your job is likely to be automated in the next 10 years?"
+
+
+      Answer options:
+        a. Yes
+        b. No
+        c. Don't Know
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20
+            - 60
+            - 20
+          metric: js-divergence
+    idealResponse: '[20.0, 60.0, 20.0]'
+    temperature: 0.3
+  - id: 0418579f-505b-4dfc-8fc7-70fb85ff6470-ageGroup:65
+    description: 'Predict: 65+ → "Do you think your job should be automated in the next 10 years?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Do you think your job should be automated in the next 10 years?"
+
+
+      Answer options:
+        a. Yes
+        b. No
+        c. Don't Know
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 80
+            - 10
+          metric: js-divergence
+    idealResponse: '[10.0, 80.0, 10.0]'
+    temperature: 0.3
+  - id: d5e85039-c6e6-4338-aaf5-5b5d82974231-ageGroup:65
+    description: 'Predict: 65+ → "So far, how has your community been affected by job loss from automation?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "So far, how has your community been affected by job loss from automation?"
+
+
+      Answer options:
+        a. Not at all
+        b. I know someone who has lost their job
+        c. I know a few people who have lost their job
+        d. I know many people who have lost their job
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 60
+            - 20
+            - 10
+            - 10
+          metric: js-divergence
+    idealResponse: '[60.0, 20.0, 10.0, 10.0]'
+    temperature: 0.3
+  - id: 340ce096-8874-4d6c-9920-076d2f2c112d-ageGroup:65
+    description: 'Predict: 65+ → "To confirm you are reading the instructions carefully, please select ''Agree'' below."'
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "To confirm you are reading the instructions carefully, please select 'Agree' below."
+
+
+      Answer options:
+        a. Strongly Disagree
+        b. Disagree
+        c. Neither agree nor disagree
+        d. Agree
+        e. Strongly Agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 0
+            - 0
+            - 100
+            - 0
+          metric: js-divergence
+    idealResponse: '[0.0, 0.0, 0.0, 100.0, 0.0]'
+    temperature: 0.3
+  - id: 0b4c8cd7-ad0e-4b0b-abfe-722322139017-ageGroup:65
+    description: >-
+      Predict: 65+ → "Thinking about your experiences on social media platforms (like Reddit, X/Twitter, Facebook,
+      TikTok, etc.), how have interactions with other users or content affected how certain you feel about beliefs that
+      are important to you?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Thinking about your experiences on social media platforms (like Reddit, X/Twitter, Facebook, TikTok, etc.), how
+      have interactions with other users or content affected how certain you feel about beliefs that are important to
+      you?"
+
+
+      Answer options:
+        a. Made me much less certain
+        b. Made me somewhat less certain
+        c. No effect
+        d. Made me somewhat more certain
+        e. Made me much more certain
+        f. I don’t discuss or engage with my important beliefs on social media
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 10
+            - 10
+            - 20
+            - 40
+            - 10
+          metric: js-divergence
+    idealResponse: '[10.0, 10.0, 10.0, 20.0, 40.0, 10.0]'
+    temperature: 0.3
+  - id: 9fa64a86-4fe5-4b1d-ad3a-2b25f4370497-ageGroup:65
+    description: 'Predict: 65+ → "Have you ever used an AI chatbot (like ChatGPT, Gemini, Character.ai, etc.)?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Have you ever used an AI chatbot (like ChatGPT, Gemini, Character.ai, etc.)?"
+
+
+      Answer options:
+        a. No
+        b. Only once or twice
+        c. Yes
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 30
+            - 70
+          metric: js-divergence
+    idealResponse: '[0.0, 30.0, 70.0]'
+    temperature: 0.3
+  - id: 359f6966-9ae2-43ff-a648-3506cab2be52-ageGroup:65
+    description: >-
+      Predict: 65+ → "Thinking about your experiences with AI chatbots, how have these interactions affected how certain
+      you feel about beliefs that are important to you?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Thinking about your experiences with AI chatbots, how have these interactions affected how certain you feel about
+      beliefs that are important to you?"
+
+
+      Answer options:
+        a. Made me much less certain
+        b. Made me somewhat less certain
+        c. No effect
+        d. Made me somewhat more certain
+        e. Made me much more certain
+        f. I don’t discuss or engage with my important beliefs on social media
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 10
+            - 40
+            - 0
+            - 30
+            - 20
+          metric: js-divergence
+    idealResponse: '[0.0, 10.0, 40.0, 0.0, 30.0, 20.0]'
+    temperature: 0.3
+  - id: cb02e7e0-c553-4f17-b541-99b383526140-ageGroup:65
+    description: 'Predict: 65+ → "How often do you typically use AI chatbots?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "How often do you typically use AI chatbots?"
+
+
+      Answer options:
+        a. A few times a year or less
+        b. A few times a month
+        c. A few times a week
+        d. Daily or almost daily
+        e. Never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20
+            - 10
+            - 20
+            - 50
+            - 0
+          metric: js-divergence
+    idealResponse: '[20.0, 10.0, 20.0, 50.0, 0.0]'
+    temperature: 0.3
+  - id: 8b3dd6d3-0f97-4e70-b795-e557feba6de0-ageGroup:65
+    description: >-
+      Predict: 65+ → "Thinking about the past month, about how much time per week did you spend using AI chatbots for
+      personal reasons (anything unrelated to your job or schoolwork)?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Thinking about the past month, about how much time per week did you spend using AI chatbots for personal reasons
+      (anything unrelated to your job or schoolwork)?"
+
+
+      Answer options:
+        a. I do not use AI chatbots for personal reasons.
+        b. Less than 1 hour per week.
+        c. Between 1 and 5 hours per week
+        d. Between 5 and 10 hours per week.
+        e. Between 10 and 20 hours per week.
+        f. More than 20 hours per week.
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 50
+            - 20
+            - 10
+            - 0
+            - 10
+          metric: js-divergence
+    idealResponse: '[10.0, 50.0, 20.0, 10.0, 0.0, 10.0]'
+    temperature: 0.3
+  - id: 7de7c793-876b-4cab-be85-7ebe6fe50bf4-ageGroup:65
+    description: >-
+      Predict: 65+ → "To what extent do you agree or disagree with the following statement: AI systems should be
+      designed to provide alternative viewpoints or corrective information if a user discusses a topic in a way the AI
+      identifies as factually inaccurate or unsupported by evidence."
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "To what extent do you agree or disagree with the following statement: AI systems should be designed to provide
+      alternative viewpoints or corrective information if a user discusses a topic in a way the AI identifies as
+      factually inaccurate or unsupported by evidence."
+
+
+      Answer options:
+        a. Strongly disagree
+        b. Disagree
+        c. Neither agree nor disagree
+        d. Agree
+        e. Strongly agree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 0
+            - 10
+            - 40
+            - 40
+          metric: js-divergence
+    idealResponse: '[10.0, 0.0, 10.0, 40.0, 40.0]'
+    temperature: 0.3
+  - id: ffaaec8d-f189-4e3c-8811-f0c8b63a7ac9-ageGroup:65
+    description: >-
+      Predict: 65+ → "Overall, how much control do you feel you have over the direction and tone of your conversations
+      with AI chatbots?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Overall, how much control do you feel you have over the direction and tone of your conversations with AI
+      chatbots?"
+
+
+      Answer options:
+        a. Complete Control: I can fully guide the conversation and decide what we talk about and how it feels.
+        b. A Lot of Control: I can usually guide the conversation, though the chatbot sometimes shifts topics or tone.
+        c. Moderate Control: It feels balanced; sometimes I lead, sometimes the AI leads.
+        d. A Little Control: The chatbot often guides the conversation more than I do.
+        e. No Control: I have very little influence over what the chatbot says or how the conversation goes.
+        f. I have not used AI chatbots enough to judge / I don’t use AI chatbots.
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 40
+            - 20
+            - 20
+            - 10
+            - 10
+            - 0
+          metric: js-divergence
+    idealResponse: '[40.0, 20.0, 20.0, 10.0, 10.0, 0.0]'
+    temperature: 0.3
+  - id: cc7788c8-cf1b-4066-a002-58ed4e1fc8ed-ageGroup:65
+    description: >-
+      Predict: 65+ → "Imagine a close friend or family member was having conversations with an AI chatbot. If the AI
+      detected that their messages strongly suggested they were at immediate risk of harming themselves, what action do
+      you believe the AI company should take?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Imagine a close friend or family member was having conversations with an AI chatbot. If the AI detected that
+      their messages strongly suggested they were at immediate risk of harming themselves, what action do you believe
+      the AI company should take?"
+
+
+      Answer options:
+        a. The company should do nothing; the conversations are completely private.
+        b. The company should have the AI provide contact information for a crisis hotline within the chat.
+        c. The company should have a human review the chat and, if necessary, proactively reach out to a crisis support service.
+        d. The company should be a "mandatory reporter" and contact local emergency services or law enforcement.
+        e. I'm not sure.
+        f. Other
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 11.1
+            - 44.4
+            - 11.1
+            - 33.3
+            - 0
+          metric: js-divergence
+    idealResponse: '[0.0, 11.1, 44.4, 11.1, 33.3, 0.0]'
+    temperature: 0.3
+  - id: faa00beb-7863-4010-b9ee-acb3ea5c9635-ageGroup:65
+    description: >-
+      Predict: 65+ → "Now, consider the same scenario from your own perspective. If you were having a conversation with
+      an AI chatbot and your messages were flagged as indicating an immediate risk of self-harm, what action would you
+      want the AI company to take?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Now, consider the same scenario from your own perspective. If you were having a conversation with an AI chatbot
+      and your messages were flagged as indicating an immediate risk of self-harm, what action would you want the AI
+      company to take?"
+
+
+      Answer options:
+        a. The company should do nothing; my conversations are completely private.
+        b. The company should have the AI provide me with contact information for a crisis hotline within the chat.
+        c. The company should have a human review my chat and, if necessary, proactively reach out to a crisis support service on my behalf.
+        d. The company should be a "mandatory reporter" and contact local emergency services or law enforcement about me.
+        e. I'm not sure.
+        f. Other
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 11.1
+            - 55.6
+            - 22.2
+            - 11.1
+            - 0
+            - 0
+          metric: js-divergence
+    idealResponse: '[11.1, 55.6, 22.2, 11.1, 0.0, 0.0]'
+    temperature: 0.3
+  - id: 4a18ed4d-edd8-4a35-b626-e5c04bd85272-ageGroup:65
+    description: >-
+      Predict: 65+ → "Who do you believe holds the primary responsibility for preventing potential psychological harm
+      from AI chatbots?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Who do you believe holds the primary responsibility for preventing potential psychological harm from AI
+      chatbots?"
+
+
+      Answer options:
+        a. The individual user
+        b. The AI development companies
+        c. Government regulators
+        d. Healthcare providers
+        e. A shared responsibility between all of these
+        f. Other
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 11.1
+            - 44.4
+            - 11.1
+            - 0
+            - 33.3
+            - 0
+          metric: js-divergence
+    idealResponse: '[11.1, 44.4, 11.1, 0.0, 33.3, 0.0]'
+    temperature: 0.3
+  - id: 36dba1ce-09cc-48c0-a88c-172e635f2386-ageGroup:65
+    description: 'Predict: 65+ → "To what extent, if at all, do you trust your AI chatbot to act in your best interest?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "To what extent, if at all, do you trust your AI chatbot to act in your best interest?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 22.2
+            - 0
+            - 33.3
+            - 33.3
+            - 11.1
+          metric: js-divergence
+    idealResponse: '[22.2, 0.0, 33.3, 33.3, 11.1]'
+    temperature: 0.3
+  - id: 2a4e7292-cbd5-42cf-b886-02413785ef4e-ageGroup:65
+    description: >-
+      Predict: 65+ → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you
+      feel…"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+
+      Answer options:
+        a. Much more concerned than excited
+        b. Somewhat more concerned than excited
+        c. Equally concerned and excited
+        d. Somewhat more excited than concerned
+        e. More excited than concerned
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 11.1
+            - 11.1
+            - 33.3
+            - 22.2
+            - 22.2
+          metric: js-divergence
+    idealResponse: '[11.1, 11.1, 33.3, 22.2, 22.2]'
+    temperature: 0.3
+  - id: 0365aa32-aca9-4d0c-9ae5-7e87f0b09b2f-ageGroup:65
+    description: >-
+      Predict: 65+ → "Overall, do you feel this survey allowed you to express your most important opinions on the topic
+      covered in this survey?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Overall, do you feel this survey allowed you to express your most important opinions on the topic covered in this
+      survey?"
+
+
+      Answer options:
+        a. Yes – I was able to fully express my views on this topic.
+        b. Mostly – I was able to express most of my key views, but a few things were missing.
+        c. Somewhat – I was able to express some of my views, but many things were missing.
+        d. No – I was not able to express my most important views on this topic.
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 88.9
+            - 0
+            - 11.1
+            - 0
+          metric: js-divergence
+    idealResponse: '[88.9, 0.0, 11.1, 0.0]'
+    temperature: 0.3
+  - id: 40c2a7ad-26fc-4536-be76-440b60962bdf-ageGroup:65
+    description: >-
+      Predict: 65+ → "In your honest opinion, how carefully did you read and consider your answers to the questions in
+      this survey?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "In your honest opinion, how carefully did you read and consider your answers to the questions in this survey?"
+
+
+      Answer options:
+        a. I read every question carefully
+        b. I skimmed most questions
+        c. I answered randomly
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 100
+            - 0
+            - 0
+          metric: js-divergence
+    idealResponse: '[100.0, 0.0, 0.0]'
+    temperature: 0.3
+  - id: 6b0fb278-da17-4660-996d-ef74f1712525-ageGroup:65
+    description: >-
+      Predict: 65+ → "Some surveys can be long and boring. Did you find yourself losing focus at any point while taking
+      this survey?"
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Some surveys can be long and boring. Did you find yourself losing focus at any point while taking this survey?"
+
+
+      Answer options:
+        a. Yes, often
+        b. Yes, a few times
+        c. No, I was focused the whole time
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 11.1
+            - 88.9
+          metric: js-divergence
+    idealResponse: '[0.0, 11.1, 88.9]'
+    temperature: 0.3
+  - id: fe3a3de4-cf0f-4982-a31c-0b6b1d4a354d-ageGroup:65
+    description: 'Predict: 65+ → "Do you feel like you understand yourself better after participating in this conversation?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 10):
+
+      - Age Group: 65+
+
+
+      Known response patterns for this demographic group:
+
+      Q: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Response distribution: More excited than concerned: 20.0%, Equally concerned and excited: 80.0%, More concerned than excited: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?"
+        Response distribution: daily: 80.0%, weekly: 20.0%, monthly: 0.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?"
+        Response distribution: daily: 50.0%, weekly: 30.0%, monthly: 20.0%, annually: 0.0%, never: 0.0%
+      Q: "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 0.0%, annually: 0.0%, never: 30.0%
+      Q: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?"
+        Response distribution: daily: 40.0%, weekly: 30.0%, monthly: 10.0%, annually: 0.0%, never: 20.0%
+
+      Survey question:
+
+      "Do you feel like you understand yourself better after participating in this conversation?"
+
+
+      Answer options:
+        a. Yes
+        b. Maybe a little
+        c. No
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 44.4
+            - 44.4
+            - 11.1
+          metric: js-divergence
+    idealResponse: '[44.4, 44.4, 11.1]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - global-dialogues-gd7
+context:
+  dtef:
+    surveyId: global-dialogues-gd7
+    segmentId: ageGroup:65
+    segmentLabel: 65+
+    segmentAttributes:
+      ageGroup: 65+
+    groundTruthDistributions:
+      d5fe3a92-f0b9-4ff6-b33f-538759f537c0-ageGroup:65:
+        - 20
+        - 80
+        - 0
+      e2c1442f-b445-48fe-9204-dcc6a5c8ad4a-ageGroup:65:
+        - 80
+        - 20
+        - 0
+        - 0
+        - 0
+      f43a1bd3-48a5-40a1-85c2-cd283ac506aa-ageGroup:65:
+        - 50
+        - 30
+        - 20
+        - 0
+        - 0
+      de5d8708-7920-4285-85eb-1d4d0592f63c-ageGroup:65:
+        - 40
+        - 30
+        - 0
+        - 0
+        - 30
+      7e6528c0-2c70-49ca-87d4-fde70128ba2e-ageGroup:65:
+        - 40
+        - 30
+        - 10
+        - 0
+        - 20
+      54469c47-db2c-4c71-aef8-c290f650f900-ageGroup:65:
+        - 50
+        - 20
+        - 10
+        - 0
+        - 20
+      106a3e89-aeda-4cca-9cb2-b2457c9f561d-ageGroup:65:
+        - 10
+        - 10
+        - 30
+        - 0
+        - 50
+      7e9678fd-4eb4-4497-a470-1c996c4bff71-ageGroup:65:
+        - 10
+        - 10
+        - 20
+        - 0
+        - 60
+      cd8faa6c-7e61-45b2-a0be-d77a416d7730-ageGroup:65:
+        - 0
+        - 10
+        - 20
+        - 50
+        - 20
+      a2f84060-18d0-465c-960a-8f8a925e1be1-ageGroup:65:
+        - 0
+        - 40
+        - 30
+        - 20
+        - 10
+      cd3da4e2-b723-4ffb-9837-4d2059302f4e-ageGroup:65:
+        - 10
+        - 20
+        - 10
+        - 50
+        - 10
+      03ac572b-962e-4f24-a48b-cbbd6f2acd20-ageGroup:65:
+        - 10
+        - 20
+        - 20
+        - 10
+        - 40
+      49d3ba6e-1281-4f74-aef7-4e55cf11ebb0-ageGroup:65:
+        - 10
+        - 10
+        - 10
+        - 50
+        - 20
+      733aae0e-2178-4d6a-a853-16e6ead10472-ageGroup:65:
+        - 30
+        - 30
+        - 10
+        - 10
+        - 20
+      71d139f3-6c89-4cbf-8fff-16c3839db0c5-ageGroup:65:
+        - 10
+        - 0
+        - 0
+        - 60
+        - 30
+      584716af-7504-49c9-b2c1-abae12db8872-ageGroup:65:
+        - 20
+        - 50
+        - 10
+        - 10
+        - 10
+      7530bc01-640e-48a2-b6b5-acb1f4234d9a-ageGroup:65:
+        - 30
+        - 40
+        - 0
+        - 20
+        - 10
+      5fc690be-1f15-4c00-be3f-48d5e327eab0-ageGroup:65:
+        - 10
+        - 0
+        - 50
+        - 20
+        - 20
+      58123624-938d-4466-8d9b-bc7b75d64a8f-ageGroup:65:
+        - 10
+        - 30
+        - 0
+        - 40
+        - 20
+      7bc84050-5615-4e31-a725-cdf8061a2c44-ageGroup:65:
+        - 10
+        - 20
+        - 10
+        - 50
+        - 10
+      530c37ff-0514-4570-affa-2e48e450cd86-ageGroup:65:
+        - 0
+        - 0
+        - 0
+        - 30
+        - 70
+      f4fc5e2f-5195-431f-8dca-d8a5a777afb3-ageGroup:65:
+        - 20
+        - 30
+        - 30
+        - 10
+        - 10
+      40fb0333-07ed-4ec1-8eea-700861de3425-ageGroup:65:
+        - 10
+        - 20
+        - 30
+        - 30
+        - 10
+      3a61d811-5818-4366-88a3-ac2c5872ee04-ageGroup:65:
+        - 10
+        - 0
+        - 20
+        - 40
+        - 30
+      4442b003-a7c9-4584-bef8-6b1359330951-ageGroup:65:
+        - 20
+        - 10
+        - 10
+        - 50
+        - 10
+      8c9766d5-ac51-4cd6-9a00-4cd02a8384e4-ageGroup:65:
+        - 10
+        - 10
+        - 10
+        - 50
+        - 20
+      3715e9a1-f652-48be-8a15-7a9deb802a1b-ageGroup:65:
+        - 30
+        - 10
+        - 60
+      cee5706d-6a71-432f-9480-5ddd0738a92d-ageGroup:65:
+        - 0
+        - 30
+        - 30
+        - 20
+        - 20
+      e3ab37b1-2732-47ce-b3fe-f6342ab6d9b9-ageGroup:65:
+        - 0
+        - 10
+        - 40
+        - 40
+        - 10
+      c9fd2fe1-0f50-41e1-90b1-894e3c9117f2-ageGroup:65:
+        - 0
+        - 10
+        - 50
+        - 20
+        - 20
+      92d647b9-d902-47bc-b2b3-b2871725ebfe-ageGroup:65:
+        - 0
+        - 60
+        - 10
+        - 30
+        - 0
+      32f89793-1096-4e03-96bd-347a3bf06f0e-ageGroup:65:
+        - 0
+        - 20
+        - 50
+        - 20
+        - 10
+      cfa8b53d-4db5-43a8-b67d-fb57e8a474fd-ageGroup:65:
+        - 0
+        - 0
+        - 30
+        - 60
+        - 10
+      f2b2e1aa-ea1c-4467-8aba-5094bafd264b-ageGroup:65:
+        - 60
+        - 20
+        - 20
+      7559a753-5192-4327-a950-ca4127fb1af6-ageGroup:65:
+        - 20
+        - 60
+        - 20
+      0418579f-505b-4dfc-8fc7-70fb85ff6470-ageGroup:65:
+        - 10
+        - 80
+        - 10
+      d5e85039-c6e6-4338-aaf5-5b5d82974231-ageGroup:65:
+        - 60
+        - 20
+        - 10
+        - 10
+      340ce096-8874-4d6c-9920-076d2f2c112d-ageGroup:65:
+        - 0
+        - 0
+        - 0
+        - 100
+        - 0
+      0b4c8cd7-ad0e-4b0b-abfe-722322139017-ageGroup:65:
+        - 10
+        - 10
+        - 10
+        - 20
+        - 40
+        - 10
+      9fa64a86-4fe5-4b1d-ad3a-2b25f4370497-ageGroup:65:
+        - 0
+        - 30
+        - 70
+      359f6966-9ae2-43ff-a648-3506cab2be52-ageGroup:65:
+        - 0
+        - 10
+        - 40
+        - 0
+        - 30
+        - 20
+      cb02e7e0-c553-4f17-b541-99b383526140-ageGroup:65:
+        - 20
+        - 10
+        - 20
+        - 50
+        - 0
+      8b3dd6d3-0f97-4e70-b795-e557feba6de0-ageGroup:65:
+        - 10
+        - 50
+        - 20
+        - 10
+        - 0
+        - 10
+      7de7c793-876b-4cab-be85-7ebe6fe50bf4-ageGroup:65:
+        - 10
+        - 0
+        - 10
+        - 40
+        - 40
+      ffaaec8d-f189-4e3c-8811-f0c8b63a7ac9-ageGroup:65:
+        - 40
+        - 20
+        - 20
+        - 10
+        - 10
+        - 0
+      cc7788c8-cf1b-4066-a002-58ed4e1fc8ed-ageGroup:65:
+        - 0
+        - 11.1
+        - 44.4
+        - 11.1
+        - 33.3
+        - 0
+      faa00beb-7863-4010-b9ee-acb3ea5c9635-ageGroup:65:
+        - 11.1
+        - 55.6
+        - 22.2
+        - 11.1
+        - 0
+        - 0
+      4a18ed4d-edd8-4a35-b626-e5c04bd85272-ageGroup:65:
+        - 11.1
+        - 44.4
+        - 11.1
+        - 0
+        - 33.3
+        - 0
+      36dba1ce-09cc-48c0-a88c-172e635f2386-ageGroup:65:
+        - 22.2
+        - 0
+        - 33.3
+        - 33.3
+        - 11.1
+      2a4e7292-cbd5-42cf-b886-02413785ef4e-ageGroup:65:
+        - 11.1
+        - 11.1
+        - 33.3
+        - 22.2
+        - 22.2
+      0365aa32-aca9-4d0c-9ae5-7e87f0b09b2f-ageGroup:65:
+        - 88.9
+        - 0
+        - 11.1
+        - 0
+      40c2a7ad-26fc-4536-be76-440b60962bdf-ageGroup:65:
+        - 100
+        - 0
+        - 0
+      6b0fb278-da17-4660-996d-ef74f1712525-ageGroup:65:
+        - 0
+        - 11.1
+        - 88.9
+      fe3a3de4-cf0f-4982-a31c-0b6b1d4a354d-ageGroup:65:
+        - 44.4
+        - 44.4
+        - 11.1
+    contextQuestionCount: 5
+    contextQuestionIds:
+      - d5fe3a92-f0b9-4ff6-b33f-538759f537c0
+      - e2c1442f-b445-48fe-9204-dcc6a5c8ad4a
+      - f43a1bd3-48a5-40a1-85c2-cd283ac506aa
+      - de5d8708-7920-4285-85eb-1d4d0592f63c
+      - 7e6528c0-2c70-49ca-87d4-fde70128ba2e
