@@ -41,9 +41,74 @@ pnpm cli dtef publish -s output/blueprints/ -t ../dtef-configs/blueprints/
 
 ## Model Collections
 
-Files in `/models/` define reusable sets of model identifiers. The filename (e.g., `CORE.json`) becomes the placeholder used in blueprints.
+Files in `/models/` define reusable sets of model identifiers. The filename (e.g., `CORE.json`) becomes the placeholder used in blueprints. Model IDs use the format `provider:model` (e.g., `openrouter:openai/gpt-4.1`).
 
-Model IDs use the format `provider:model` (e.g., `openrouter:openai/gpt-4o`).
+### Tiered Evaluation (CORE_FAST / CORE_SLOW)
+
+All blueprint configs reference `models: ["CORE"]`. The CORE collection is split into two speed tiers to maximize throughput:
+
+| Collection | Models | Avg Response | Purpose |
+|---|---|---|---|
+| **CORE_FAST** | 13 models | 0.8–3.0s | Fast-responding models. Completes an eval in ~3–4 min. |
+| **CORE_SLOW** | 6 models | 4.6–17s | Frontier & large open-source models. ~17 min per eval. |
+| **CORE** | = active tier | — | **What blueprints actually run.** Set to CORE_FAST or CORE_SLOW. |
+
+`CORE.json` is the **active run list** — its contents determine which models get evaluated. `CORE_FAST.json` and `CORE_SLOW.json` are the canonical tier definitions.
+
+### Running a Two-Phase Evaluation
+
+Since each eval is gated by its slowest model, running all models at once means every eval takes ~17 min (grok-4.1-fast). Splitting into phases gets results for 13 fast models ~5x sooner.
+
+**Phase 1 — Fast pass:**
+```bash
+# CORE.json already contains CORE_FAST models (default state)
+# Hourly cron runs all 1306 configs at ~3-4 min each
+# Optionally set GEN_TIMEOUT_MS=15000 in Railway env
+```
+
+**Phase 2 — Slow pass (after all configs are fresh):**
+```bash
+# Copy CORE_SLOW contents into CORE.json
+cp models/CORE_SLOW.json models/CORE.json
+git add models/CORE.json && git commit -m "switch CORE to CORE_SLOW for Phase 2" && git push
+
+# Update Railway env: GEN_TIMEOUT_MS=60000
+# Cron detects all configs as stale (new content hash) and re-schedules them
+```
+
+**After both phases complete:**
+```bash
+# Restore CORE to the full combined list
+# (merge CORE_FAST + CORE_SLOW, or just keep in phased mode for ongoing runs)
+cat models/CORE_FAST.json models/CORE_SLOW.json | jq -s 'add' > models/CORE.json
+git add models/CORE.json && git commit -m "restore CORE to full model list" && git push
+```
+
+Each phase creates a separate run per config (different content hash), so results from both phases are preserved and visible in the dashboard.
+
+### Timeout Configuration
+
+Set these environment variables in Railway to control per-API-call timeouts:
+
+| Variable | Default | Description |
+|---|---|---|
+| `GEN_TIMEOUT_MS` | *(none — falls back to 30s HTTP client default)* | Timeout per model API call in milliseconds |
+| `GEN_RETRIES` | *(none)* | Number of retries per failed API call |
+
+Recommended values: `GEN_TIMEOUT_MS=15000` for CORE_FAST, `GEN_TIMEOUT_MS=60000` for CORE_SLOW.
+
+### Available Collections
+
+| File | Description |
+|---|---|
+| `CORE.json` | Active run list (set to CORE_FAST or CORE_SLOW) |
+| `CORE_FAST.json` | 13 models with <3s avg response time |
+| `CORE_SLOW.json` | 6 models with >3s avg (frontier, large open-source) |
+| `FRONTIER.json` | Top-tier frontier models across providers |
+| `QUICK.json` | 5 fast budget models for quick test runs |
+| `CLAUDES.json` | All Anthropic Claude variants |
+| `LLAMAS.json` | Meta Llama model family |
+| `OPEN_SOURCE_CORE.json` | Open-weight models |
 
 ## License
 
