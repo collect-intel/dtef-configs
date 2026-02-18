@@ -1,0 +1,8 @@
+[
+  "openrouter:openai/gpt-5-mini",
+  "openrouter:openai/gpt-5.1",
+  "openrouter:openai/gpt-oss-20b",
+  "openrouter:openai/gpt-oss-120b",
+  "openrouter:x-ai/grok-4.1-fast",
+  "openrouter:mistralai/mistral-large-3"
+]
