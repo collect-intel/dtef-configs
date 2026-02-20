@@ -4,7 +4,7 @@ description: >-
   DTEF: Predict response distributions for South Africa. Source: Global Dialogues GD4
   (https://github.com/collect-intel/global-dialogues)
 models:
-  - CORE
+  - CORE_CHEAP
 system: >-
   You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
   would respond by providing a percentage distribution across the answer options.

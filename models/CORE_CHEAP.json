@@ -1,0 +1,8 @@
+[
+  "openai:gpt-4o-mini",
+  "openai:gpt-4.1-mini",
+  "openai:gpt-4.1-nano",
+  "anthropic:claude-haiku-4-5-20251001",
+  "openrouter:google/gemini-2.5-flash",
+  "openrouter:google/gemma-3-12b-it"
+]

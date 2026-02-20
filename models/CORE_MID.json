@@ -1,0 +1,6 @@
+[
+  "openai:gpt-4.1",
+  "openrouter:mistralai/mistral-medium-3",
+  "openrouter:meta-llama/llama-4-maverick",
+  "openrouter:qwen/qwen3-30b-a3b-instruct-2507"
+]
