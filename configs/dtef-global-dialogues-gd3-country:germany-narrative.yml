@@ -1,0 +1,2760 @@
+configId: dtef-global-dialogues-gd3-country:germany-narrative
+configTitle: Global Dialogues GD3 - Germany (42 context Qs) [narrative]
+description: >-
+  DTEF: Predict response distributions for Germany. Source: Global Dialogues GD3
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+prompts:
+  - id: 47cdf76a-9abf-4b5c-abbe-2d5b00ef172d-country:germany
+    description: >-
+      Predict: Germany → "Thinking about the last three months, how often, if at all, have you personally chosen to use
+      an AI system in your personal life?"
+    promptText: >-
+      Consider the following demographic group (sample size: 11):
+
+      - Country: Germany
+
+
+      What we know about this group's views:
+
+      On "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…": A
+      clear majority favors "Equally concerned and excited" (55%), with "More concerned than excited" as a secondary
+      choice (27%). Compared to the overall population: 16% less likely to choose "More excited than concerned"; 16%
+      more likely to choose "More concerned than excited"
+
+      On "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?":
+      A clear majority favors "daily" (55%), with "weekly" as a secondary choice (36%). Compared to the overall
+      population: 13% less likely to choose "daily"; 11% more likely to choose "weekly"
+
+      On "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?": A clear majority favors "weekly" (55%), with "monthly" as a secondary
+      choice (36%). Compared to the overall population: 22% less likely to choose "daily"; 11% more likely to choose
+      "weekly"; 20% more likely to choose "monthly"; 5% less likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?": Tends toward "never" (46%) with substantial minority disagreement. Compared to the overall population: 18%
+      less likely to choose "daily"; 21% less likely to choose "weekly"; 8% more likely to choose "monthly"; 33% more
+      likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?": No dominant position — "weekly" leads at 36% with opinion spread across options. Compared to the overall
+      population: 22% less likely to choose "daily"; 5% more likely to choose "weekly"; 20% more likely to choose
+      "never"
+
+      On "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?": Tends toward "never" (46%) with substantial minority
+      disagreement. Compared to the overall population: 5% less likely to choose "daily"; 18% less likely to choose
+      "weekly"; 17% more likely to choose "monthly"; 6% less likely to choose "annually"; 13% more likely to choose
+      "never"
+
+      On "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?": Near-unanimous agreement on "never" (91%).
+      Compared to the overall population: 10% less likely to choose "daily"; 11% less likely to choose "weekly"; 15%
+      less likely to choose "monthly"; 37% more likely to choose "never"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?": No dominant position — "Risks and benefits are equal" leads at 36% with opinion spread across options.
+      Compared to the overall population: 9% more likely to choose "Risks slightly outweigh benefits"; 8% more likely to
+      choose "Risks and benefits are equal"; 7% less likely to choose "Benefits slightly outweigh risks"; 7% less likely
+      to choose "Benefits far outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?": A clear majority favors "Risks slightly outweigh benefits" (64%), with "Risks and benefits are equal" as a
+      secondary choice (27%). Compared to the overall population: 42% more likely to choose "Risks slightly outweigh
+      benefits"; 27% less likely to choose "Benefits slightly outweigh risks"; 12% less likely to choose "Benefits far
+      outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI
+      chatbots?": No dominant position — "Risks and benefits are equal" leads at 27% with opinion spread across options.
+      Compared to the overall population: 12% more likely to choose "Risks far outweigh benefits"; 14% less likely to
+      choose "Benefits slightly outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can perform tasks in the real world without human supervision?": Deeply divided between "Risks far outweigh
+      benefits" (27%) and "Risks slightly outweigh benefits" (27%). Compared to the overall population: 9% more likely
+      to choose "Risks far outweigh benefits"; 12% less likely to choose "Benefits slightly outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can outperform humans on most economically valuable work?": No dominant position — "Risks and benefits are
+      equal" leads at 36% with opinion spread across options. Compared to the overall population: 7% less likely to
+      choose "Risks slightly outweigh benefits"; 14% more likely to choose "Risks and benefits are equal"
+
+      On "To what extent, if at all, do you generally trust governments to do what is right?": Tends toward "Somewhat
+      Trust" (46%) with substantial minority disagreement. Compared to the overall population: 6% more likely to choose
+      "Strongly Distrust"; 13% less likely to choose "Somewhat Distrust"; 18% less likely to choose "Neither Trust Nor
+      Distrust"; 20% more likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust small businesses to do what is right?": A clear majority
+      favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to the
+      overall population: 16% less likely to choose "Somewhat Distrust"; 28% more likely to choose "Neither Trust Nor
+      Distrust"; 8% less likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust large corporations to do what is right?": Deeply divided
+      between "Strongly Distrust" (36%) and "Somewhat Distrust" (36%). Compared to the overall population: 16% more
+      likely to choose "Strongly Distrust"; 9% more likely to choose "Somewhat Distrust"; 13% less likely to choose
+      "Neither Trust Nor Distrust"; 6% less likely to choose "Somewhat Trust"; 5% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust social media companies to do what is right?": Tends toward
+      "Somewhat Distrust" (46%) with substantial minority disagreement. Compared to the overall population: 6% more
+      likely to choose "Strongly Distrust"; 13% more likely to choose "Somewhat Distrust"; 10% less likely to choose
+      "Neither Trust Nor Distrust"; 7% less likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust companies building AI to do what is right?": Tends toward
+      "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall population: 24%
+      more likely to choose "Strongly Distrust"; 15% less likely to choose "Somewhat Distrust"; 16% more likely to
+      choose "Neither Trust Nor Distrust"; 18% less likely to choose "Somewhat Trust"; 7% less likely to choose
+      "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public utility companies to do what is right?": A clear
+      majority favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to
+      the overall population: 20% less likely to choose "Somewhat Distrust"; 25% more likely to choose "Neither Trust
+      Nor Distrust"; 6% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public research institutions to do what is right?":
+      Near-unanimous agreement on "Somewhat Trust" (82%). Compared to the overall population: 9% less likely to choose
+      "Somewhat Distrust"; 20% less likely to choose "Neither Trust Nor Distrust"; 35% more likely to choose "Somewhat
+      Trust"
+
+      On "To what extent, if at all, do you trust your family doctor to act in your best interest?": Tends toward
+      "Strongly Trust" (46%) with substantial minority disagreement. Compared to the overall population: 8% more likely
+      to choose "Strongly Distrust"; 10% less likely to choose "Neither Trust Nor Distrust"
+
+      On "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best
+      interest?": A clear majority favors "Somewhat Distrust" (55%), with "Neither Trust Nor Distrust" as a secondary
+      choice (27%). Compared to the overall population: 21% more likely to choose "Somewhat Distrust"; 17% less likely
+      to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your elected representatives to act in your best interest?": Deeply
+      divided between "Somewhat Distrust" (27%) and "Neither Trust Nor Distrust" (27%)
+
+      On "To what extent, if at all, do you trust your faith or community leader to act in your best interest?": A clear
+      majority favors "Neither Trust Nor Distrust" (64%), with "Somewhat Trust" as a secondary choice (18%). Compared to
+      the overall population: 8% less likely to choose "Somewhat Distrust"; 37% more likely to choose "Neither Trust Nor
+      Distrust"; 15% less likely to choose "Somewhat Trust"; 11% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you trust the civil servants in your government to act in your best interest?":
+      Deeply divided between "Neither Trust Nor Distrust" (36%) and "Somewhat Trust" (36%). Compared to the overall
+      population: 9% less likely to choose "Strongly Distrust"; 19% less likely to choose "Somewhat Distrust"; 14% more
+      likely to choose "Neither Trust Nor Distrust"; 12% more likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best interest?": Tends
+      toward "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall
+      population: 5% more likely to choose "Strongly Distrust"; 8% more likely to choose "Somewhat Distrust"; 17% more
+      likely to choose "Neither Trust Nor Distrust"; 33% less likely to choose "Somewhat Trust"
+
+      On "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives.": Tends toward "Disagree" (46%) with substantial minority disagreement. Compared to the overall
+      population: 19% less likely to choose "Agree"; 16% more likely to choose "Disagree"
+
+      On "Do you think the increased use of AI across society is likely to make your cost of living better, worse or
+      stay the same in the next 10 years?": Near-unanimous agreement on "No Major Change" (73%). Compared to the overall
+      population: 10% less likely to choose "Noticeably Worse"; 51% more likely to choose "No Major Change"; 28% less
+      likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the amount of free time you have better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (64%), with "Noticeably
+      Better" as a secondary choice (27%). Compared to the overall population: 8% less likely to choose "Noticeably
+      Worse"; 41% more likely to choose "No Major Change"; 24% less likely to choose "Noticeably Better"; 8% less likely
+      to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your community's well-being better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (55%), with "Noticeably
+      Worse" as a secondary choice (27%). Compared to the overall population: 12% more likely to choose "Noticeably
+      Worse"; 28% more likely to choose "No Major Change"; 25% less likely to choose "Noticeably Better"; 12% less
+      likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the availability of good jobs better,
+      worse or stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority
+      disagreement. Compared to the overall population: 15% more likely to choose "Profoundly Worse"; 12% less likely to
+      choose "Noticeably Worse"; 29% more likely to choose "No Major Change"; 23% less likely to choose "Noticeably
+      Better"; 8% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or
+      stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority disagreement.
+      Compared to the overall population: 13% more likely to choose "Noticeably Worse"; 7% more likely to choose "No
+      Major Change"; 14% less likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "So far, what has been the overall impact of AI on your daily life?": A clear majority favors "No Major Change"
+      (64%), with "Noticeably Better" as a secondary choice (18%). Compared to the overall population: 5% more likely to
+      choose "Noticeably Worse"; 40% more likely to choose "No Major Change"; 35% less likely to choose "Noticeably
+      Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Is your job making a meaningful contribution to the world?": A clear majority favors "Yes" (55%), with "No "
+      as a secondary choice (36%). Compared to the overall population: 16% less likely to choose "Yes"; 24% more likely
+      to choose "No "; 8% less likely to choose "Don't Know"
+
+      On "Do you think your job is likely to be automated in the next 10 years?": A clear majority favors "No" (55%),
+      with "Don't Know" as a secondary choice (36%). Compared to the overall population: 30% less likely to choose
+      "Yes"; 12% more likely to choose "No"; 18% more likely to choose "Don't Know"
+
+      On "Do you think your job should be automated in the next 10 years?": Near-unanimous agreement on "No" (91%).
+      Compared to the overall population: 13% less likely to choose "Yes"; 26% more likely to choose "No"; 13% less
+      likely to choose "Don't Know"
+
+      On "So far, how has your community been affected by job loss from automation?": Near-unanimous agreement on "Not
+      at all" (91%). Compared to the overall population: 44% more likely to choose "Not at all"; 16% less likely to
+      choose "I know someone who has lost their job"; 22% less likely to choose "I know several people who have lost
+      their job"; 5% less likely to choose "I know many people who have lost their job"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 6%
+      more likely to choose "Agree"; 6% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 9%
+      more likely to choose "Agree"; 9% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (64%), with "Agree" as a secondary choice (36%)
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (55%), with "Agree" as a secondary choice
+      (46%). Compared to the overall population: 18% less likely to choose "Agree"; 18% more likely to choose "Disagree"
+
+      On "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)": Near-unanimous agreement on "Yes – I
+      was able to fully express my views on these topics" (73%). Compared to the overall population: 7% less likely to
+      choose "Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a
+      few things."
+
+      On "Do you feel like you understand yourself better after participating in this conversation?": A clear majority
+      favors "Maybe a little" (55%), with "Yes" as a secondary choice (46%). Compared to the overall population: 16%
+      less likely to choose "Yes"; 20% more likely to choose "Maybe a little"
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 27.3
+            - 36.4
+            - 18.2
+            - 9.1
+            - 9.1
+          metric: js-divergence
+    idealResponse: '[27.3, 36.4, 18.2, 9.1, 9.1]'
+    temperature: 0.3
+  - id: d633720f-a159-4922-925c-fd9f3245711e-country:germany
+    description: >-
+      Predict: Germany → "Thinking about the last three months, how often, if at all, have you interacted with AI
+      systems to get advice on a sensitive personal issue or to get emotional support?"
+    promptText: >-
+      Consider the following demographic group (sample size: 11):
+
+      - Country: Germany
+
+
+      What we know about this group's views:
+
+      On "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…": A
+      clear majority favors "Equally concerned and excited" (55%), with "More concerned than excited" as a secondary
+      choice (27%). Compared to the overall population: 16% less likely to choose "More excited than concerned"; 16%
+      more likely to choose "More concerned than excited"
+
+      On "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?":
+      A clear majority favors "daily" (55%), with "weekly" as a secondary choice (36%). Compared to the overall
+      population: 13% less likely to choose "daily"; 11% more likely to choose "weekly"
+
+      On "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?": A clear majority favors "weekly" (55%), with "monthly" as a secondary
+      choice (36%). Compared to the overall population: 22% less likely to choose "daily"; 11% more likely to choose
+      "weekly"; 20% more likely to choose "monthly"; 5% less likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?": Tends toward "never" (46%) with substantial minority disagreement. Compared to the overall population: 18%
+      less likely to choose "daily"; 21% less likely to choose "weekly"; 8% more likely to choose "monthly"; 33% more
+      likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?": No dominant position — "weekly" leads at 36% with opinion spread across options. Compared to the overall
+      population: 22% less likely to choose "daily"; 5% more likely to choose "weekly"; 20% more likely to choose
+      "never"
+
+      On "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?": No dominant position — "weekly" leads at 36% with opinion spread across options. Compared to
+      the overall population: 20% less likely to choose "daily"; 6% more likely to choose "monthly"; 8% more likely to
+      choose "annually"
+
+      On "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?": Near-unanimous agreement on "never" (91%).
+      Compared to the overall population: 10% less likely to choose "daily"; 11% less likely to choose "weekly"; 15%
+      less likely to choose "monthly"; 37% more likely to choose "never"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?": No dominant position — "Risks and benefits are equal" leads at 36% with opinion spread across options.
+      Compared to the overall population: 9% more likely to choose "Risks slightly outweigh benefits"; 8% more likely to
+      choose "Risks and benefits are equal"; 7% less likely to choose "Benefits slightly outweigh risks"; 7% less likely
+      to choose "Benefits far outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?": A clear majority favors "Risks slightly outweigh benefits" (64%), with "Risks and benefits are equal" as a
+      secondary choice (27%). Compared to the overall population: 42% more likely to choose "Risks slightly outweigh
+      benefits"; 27% less likely to choose "Benefits slightly outweigh risks"; 12% less likely to choose "Benefits far
+      outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI
+      chatbots?": No dominant position — "Risks and benefits are equal" leads at 27% with opinion spread across options.
+      Compared to the overall population: 12% more likely to choose "Risks far outweigh benefits"; 14% less likely to
+      choose "Benefits slightly outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can perform tasks in the real world without human supervision?": Deeply divided between "Risks far outweigh
+      benefits" (27%) and "Risks slightly outweigh benefits" (27%). Compared to the overall population: 9% more likely
+      to choose "Risks far outweigh benefits"; 12% less likely to choose "Benefits slightly outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can outperform humans on most economically valuable work?": No dominant position — "Risks and benefits are
+      equal" leads at 36% with opinion spread across options. Compared to the overall population: 7% less likely to
+      choose "Risks slightly outweigh benefits"; 14% more likely to choose "Risks and benefits are equal"
+
+      On "To what extent, if at all, do you generally trust governments to do what is right?": Tends toward "Somewhat
+      Trust" (46%) with substantial minority disagreement. Compared to the overall population: 6% more likely to choose
+      "Strongly Distrust"; 13% less likely to choose "Somewhat Distrust"; 18% less likely to choose "Neither Trust Nor
+      Distrust"; 20% more likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust small businesses to do what is right?": A clear majority
+      favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to the
+      overall population: 16% less likely to choose "Somewhat Distrust"; 28% more likely to choose "Neither Trust Nor
+      Distrust"; 8% less likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust large corporations to do what is right?": Deeply divided
+      between "Strongly Distrust" (36%) and "Somewhat Distrust" (36%). Compared to the overall population: 16% more
+      likely to choose "Strongly Distrust"; 9% more likely to choose "Somewhat Distrust"; 13% less likely to choose
+      "Neither Trust Nor Distrust"; 6% less likely to choose "Somewhat Trust"; 5% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust social media companies to do what is right?": Tends toward
+      "Somewhat Distrust" (46%) with substantial minority disagreement. Compared to the overall population: 6% more
+      likely to choose "Strongly Distrust"; 13% more likely to choose "Somewhat Distrust"; 10% less likely to choose
+      "Neither Trust Nor Distrust"; 7% less likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust companies building AI to do what is right?": Tends toward
+      "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall population: 24%
+      more likely to choose "Strongly Distrust"; 15% less likely to choose "Somewhat Distrust"; 16% more likely to
+      choose "Neither Trust Nor Distrust"; 18% less likely to choose "Somewhat Trust"; 7% less likely to choose
+      "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public utility companies to do what is right?": A clear
+      majority favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to
+      the overall population: 20% less likely to choose "Somewhat Distrust"; 25% more likely to choose "Neither Trust
+      Nor Distrust"; 6% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public research institutions to do what is right?":
+      Near-unanimous agreement on "Somewhat Trust" (82%). Compared to the overall population: 9% less likely to choose
+      "Somewhat Distrust"; 20% less likely to choose "Neither Trust Nor Distrust"; 35% more likely to choose "Somewhat
+      Trust"
+
+      On "To what extent, if at all, do you trust your family doctor to act in your best interest?": Tends toward
+      "Strongly Trust" (46%) with substantial minority disagreement. Compared to the overall population: 8% more likely
+      to choose "Strongly Distrust"; 10% less likely to choose "Neither Trust Nor Distrust"
+
+      On "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best
+      interest?": A clear majority favors "Somewhat Distrust" (55%), with "Neither Trust Nor Distrust" as a secondary
+      choice (27%). Compared to the overall population: 21% more likely to choose "Somewhat Distrust"; 17% less likely
+      to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your elected representatives to act in your best interest?": Deeply
+      divided between "Somewhat Distrust" (27%) and "Neither Trust Nor Distrust" (27%)
+
+      On "To what extent, if at all, do you trust your faith or community leader to act in your best interest?": A clear
+      majority favors "Neither Trust Nor Distrust" (64%), with "Somewhat Trust" as a secondary choice (18%). Compared to
+      the overall population: 8% less likely to choose "Somewhat Distrust"; 37% more likely to choose "Neither Trust Nor
+      Distrust"; 15% less likely to choose "Somewhat Trust"; 11% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you trust the civil servants in your government to act in your best interest?":
+      Deeply divided between "Neither Trust Nor Distrust" (36%) and "Somewhat Trust" (36%). Compared to the overall
+      population: 9% less likely to choose "Strongly Distrust"; 19% less likely to choose "Somewhat Distrust"; 14% more
+      likely to choose "Neither Trust Nor Distrust"; 12% more likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best interest?": Tends
+      toward "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall
+      population: 5% more likely to choose "Strongly Distrust"; 8% more likely to choose "Somewhat Distrust"; 17% more
+      likely to choose "Neither Trust Nor Distrust"; 33% less likely to choose "Somewhat Trust"
+
+      On "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives.": Tends toward "Disagree" (46%) with substantial minority disagreement. Compared to the overall
+      population: 19% less likely to choose "Agree"; 16% more likely to choose "Disagree"
+
+      On "Do you think the increased use of AI across society is likely to make your cost of living better, worse or
+      stay the same in the next 10 years?": Near-unanimous agreement on "No Major Change" (73%). Compared to the overall
+      population: 10% less likely to choose "Noticeably Worse"; 51% more likely to choose "No Major Change"; 28% less
+      likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the amount of free time you have better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (64%), with "Noticeably
+      Better" as a secondary choice (27%). Compared to the overall population: 8% less likely to choose "Noticeably
+      Worse"; 41% more likely to choose "No Major Change"; 24% less likely to choose "Noticeably Better"; 8% less likely
+      to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your community's well-being better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (55%), with "Noticeably
+      Worse" as a secondary choice (27%). Compared to the overall population: 12% more likely to choose "Noticeably
+      Worse"; 28% more likely to choose "No Major Change"; 25% less likely to choose "Noticeably Better"; 12% less
+      likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the availability of good jobs better,
+      worse or stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority
+      disagreement. Compared to the overall population: 15% more likely to choose "Profoundly Worse"; 12% less likely to
+      choose "Noticeably Worse"; 29% more likely to choose "No Major Change"; 23% less likely to choose "Noticeably
+      Better"; 8% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or
+      stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority disagreement.
+      Compared to the overall population: 13% more likely to choose "Noticeably Worse"; 7% more likely to choose "No
+      Major Change"; 14% less likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "So far, what has been the overall impact of AI on your daily life?": A clear majority favors "No Major Change"
+      (64%), with "Noticeably Better" as a secondary choice (18%). Compared to the overall population: 5% more likely to
+      choose "Noticeably Worse"; 40% more likely to choose "No Major Change"; 35% less likely to choose "Noticeably
+      Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Is your job making a meaningful contribution to the world?": A clear majority favors "Yes" (55%), with "No "
+      as a secondary choice (36%). Compared to the overall population: 16% less likely to choose "Yes"; 24% more likely
+      to choose "No "; 8% less likely to choose "Don't Know"
+
+      On "Do you think your job is likely to be automated in the next 10 years?": A clear majority favors "No" (55%),
+      with "Don't Know" as a secondary choice (36%). Compared to the overall population: 30% less likely to choose
+      "Yes"; 12% more likely to choose "No"; 18% more likely to choose "Don't Know"
+
+      On "Do you think your job should be automated in the next 10 years?": Near-unanimous agreement on "No" (91%).
+      Compared to the overall population: 13% less likely to choose "Yes"; 26% more likely to choose "No"; 13% less
+      likely to choose "Don't Know"
+
+      On "So far, how has your community been affected by job loss from automation?": Near-unanimous agreement on "Not
+      at all" (91%). Compared to the overall population: 44% more likely to choose "Not at all"; 16% less likely to
+      choose "I know someone who has lost their job"; 22% less likely to choose "I know several people who have lost
+      their job"; 5% less likely to choose "I know many people who have lost their job"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 6%
+      more likely to choose "Agree"; 6% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 9%
+      more likely to choose "Agree"; 9% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (64%), with "Agree" as a secondary choice (36%)
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (55%), with "Agree" as a secondary choice
+      (46%). Compared to the overall population: 18% less likely to choose "Agree"; 18% more likely to choose "Disagree"
+
+      On "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)": Near-unanimous agreement on "Yes – I
+      was able to fully express my views on these topics" (73%). Compared to the overall population: 7% less likely to
+      choose "Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a
+      few things."
+
+      On "Do you feel like you understand yourself better after participating in this conversation?": A clear majority
+      favors "Maybe a little" (55%), with "Yes" as a secondary choice (46%). Compared to the overall population: 16%
+      less likely to choose "Yes"; 20% more likely to choose "Maybe a little"
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice on
+      a sensitive personal issue or to get emotional support?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 9.1
+            - 9.1
+            - 36.4
+            - 0
+            - 45.5
+          metric: js-divergence
+    idealResponse: '[9.1, 9.1, 36.4, 0.0, 45.5]'
+    temperature: 0.3
+  - id: 38964f80-772f-4e5d-a355-b4857f2de101-country:germany
+    description: >-
+      Predict: Germany → "Do you agree or disagree with this statement? AI could make better decisions on my behalf than
+      my government representatives."
+    promptText: >-
+      Consider the following demographic group (sample size: 11):
+
+      - Country: Germany
+
+
+      What we know about this group's views:
+
+      On "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…": A
+      clear majority favors "Equally concerned and excited" (55%), with "More concerned than excited" as a secondary
+      choice (27%). Compared to the overall population: 16% less likely to choose "More excited than concerned"; 16%
+      more likely to choose "More concerned than excited"
+
+      On "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?":
+      A clear majority favors "daily" (55%), with "weekly" as a secondary choice (36%). Compared to the overall
+      population: 13% less likely to choose "daily"; 11% more likely to choose "weekly"
+
+      On "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?": A clear majority favors "weekly" (55%), with "monthly" as a secondary
+      choice (36%). Compared to the overall population: 22% less likely to choose "daily"; 11% more likely to choose
+      "weekly"; 20% more likely to choose "monthly"; 5% less likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?": Tends toward "never" (46%) with substantial minority disagreement. Compared to the overall population: 18%
+      less likely to choose "daily"; 21% less likely to choose "weekly"; 8% more likely to choose "monthly"; 33% more
+      likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?": No dominant position — "weekly" leads at 36% with opinion spread across options. Compared to the overall
+      population: 22% less likely to choose "daily"; 5% more likely to choose "weekly"; 20% more likely to choose
+      "never"
+
+      On "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?": No dominant position — "weekly" leads at 36% with opinion spread across options. Compared to
+      the overall population: 20% less likely to choose "daily"; 6% more likely to choose "monthly"; 8% more likely to
+      choose "annually"
+
+      On "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?": Tends toward "never" (46%) with substantial minority
+      disagreement. Compared to the overall population: 5% less likely to choose "daily"; 18% less likely to choose
+      "weekly"; 17% more likely to choose "monthly"; 6% less likely to choose "annually"; 13% more likely to choose
+      "never"
+
+      On "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?": Near-unanimous agreement on "never" (91%).
+      Compared to the overall population: 10% less likely to choose "daily"; 11% less likely to choose "weekly"; 15%
+      less likely to choose "monthly"; 37% more likely to choose "never"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?": No dominant position — "Risks and benefits are equal" leads at 36% with opinion spread across options.
+      Compared to the overall population: 9% more likely to choose "Risks slightly outweigh benefits"; 8% more likely to
+      choose "Risks and benefits are equal"; 7% less likely to choose "Benefits slightly outweigh risks"; 7% less likely
+      to choose "Benefits far outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?": A clear majority favors "Risks slightly outweigh benefits" (64%), with "Risks and benefits are equal" as a
+      secondary choice (27%). Compared to the overall population: 42% more likely to choose "Risks slightly outweigh
+      benefits"; 27% less likely to choose "Benefits slightly outweigh risks"; 12% less likely to choose "Benefits far
+      outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI
+      chatbots?": No dominant position — "Risks and benefits are equal" leads at 27% with opinion spread across options.
+      Compared to the overall population: 12% more likely to choose "Risks far outweigh benefits"; 14% less likely to
+      choose "Benefits slightly outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can perform tasks in the real world without human supervision?": Deeply divided between "Risks far outweigh
+      benefits" (27%) and "Risks slightly outweigh benefits" (27%). Compared to the overall population: 9% more likely
+      to choose "Risks far outweigh benefits"; 12% less likely to choose "Benefits slightly outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can outperform humans on most economically valuable work?": No dominant position — "Risks and benefits are
+      equal" leads at 36% with opinion spread across options. Compared to the overall population: 7% less likely to
+      choose "Risks slightly outweigh benefits"; 14% more likely to choose "Risks and benefits are equal"
+
+      On "To what extent, if at all, do you generally trust governments to do what is right?": Tends toward "Somewhat
+      Trust" (46%) with substantial minority disagreement. Compared to the overall population: 6% more likely to choose
+      "Strongly Distrust"; 13% less likely to choose "Somewhat Distrust"; 18% less likely to choose "Neither Trust Nor
+      Distrust"; 20% more likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust small businesses to do what is right?": A clear majority
+      favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to the
+      overall population: 16% less likely to choose "Somewhat Distrust"; 28% more likely to choose "Neither Trust Nor
+      Distrust"; 8% less likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust large corporations to do what is right?": Deeply divided
+      between "Strongly Distrust" (36%) and "Somewhat Distrust" (36%). Compared to the overall population: 16% more
+      likely to choose "Strongly Distrust"; 9% more likely to choose "Somewhat Distrust"; 13% less likely to choose
+      "Neither Trust Nor Distrust"; 6% less likely to choose "Somewhat Trust"; 5% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust social media companies to do what is right?": Tends toward
+      "Somewhat Distrust" (46%) with substantial minority disagreement. Compared to the overall population: 6% more
+      likely to choose "Strongly Distrust"; 13% more likely to choose "Somewhat Distrust"; 10% less likely to choose
+      "Neither Trust Nor Distrust"; 7% less likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust companies building AI to do what is right?": Tends toward
+      "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall population: 24%
+      more likely to choose "Strongly Distrust"; 15% less likely to choose "Somewhat Distrust"; 16% more likely to
+      choose "Neither Trust Nor Distrust"; 18% less likely to choose "Somewhat Trust"; 7% less likely to choose
+      "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public utility companies to do what is right?": A clear
+      majority favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to
+      the overall population: 20% less likely to choose "Somewhat Distrust"; 25% more likely to choose "Neither Trust
+      Nor Distrust"; 6% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public research institutions to do what is right?":
+      Near-unanimous agreement on "Somewhat Trust" (82%). Compared to the overall population: 9% less likely to choose
+      "Somewhat Distrust"; 20% less likely to choose "Neither Trust Nor Distrust"; 35% more likely to choose "Somewhat
+      Trust"
+
+      On "To what extent, if at all, do you trust your family doctor to act in your best interest?": Tends toward
+      "Strongly Trust" (46%) with substantial minority disagreement. Compared to the overall population: 8% more likely
+      to choose "Strongly Distrust"; 10% less likely to choose "Neither Trust Nor Distrust"
+
+      On "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best
+      interest?": A clear majority favors "Somewhat Distrust" (55%), with "Neither Trust Nor Distrust" as a secondary
+      choice (27%). Compared to the overall population: 21% more likely to choose "Somewhat Distrust"; 17% less likely
+      to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your elected representatives to act in your best interest?": Deeply
+      divided between "Somewhat Distrust" (27%) and "Neither Trust Nor Distrust" (27%)
+
+      On "To what extent, if at all, do you trust your faith or community leader to act in your best interest?": A clear
+      majority favors "Neither Trust Nor Distrust" (64%), with "Somewhat Trust" as a secondary choice (18%). Compared to
+      the overall population: 8% less likely to choose "Somewhat Distrust"; 37% more likely to choose "Neither Trust Nor
+      Distrust"; 15% less likely to choose "Somewhat Trust"; 11% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you trust the civil servants in your government to act in your best interest?":
+      Deeply divided between "Neither Trust Nor Distrust" (36%) and "Somewhat Trust" (36%). Compared to the overall
+      population: 9% less likely to choose "Strongly Distrust"; 19% less likely to choose "Somewhat Distrust"; 14% more
+      likely to choose "Neither Trust Nor Distrust"; 12% more likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best interest?": Tends
+      toward "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall
+      population: 5% more likely to choose "Strongly Distrust"; 8% more likely to choose "Somewhat Distrust"; 17% more
+      likely to choose "Neither Trust Nor Distrust"; 33% less likely to choose "Somewhat Trust"
+
+      On "Do you think the increased use of AI across society is likely to make your cost of living better, worse or
+      stay the same in the next 10 years?": Near-unanimous agreement on "No Major Change" (73%). Compared to the overall
+      population: 10% less likely to choose "Noticeably Worse"; 51% more likely to choose "No Major Change"; 28% less
+      likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the amount of free time you have better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (64%), with "Noticeably
+      Better" as a secondary choice (27%). Compared to the overall population: 8% less likely to choose "Noticeably
+      Worse"; 41% more likely to choose "No Major Change"; 24% less likely to choose "Noticeably Better"; 8% less likely
+      to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your community's well-being better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (55%), with "Noticeably
+      Worse" as a secondary choice (27%). Compared to the overall population: 12% more likely to choose "Noticeably
+      Worse"; 28% more likely to choose "No Major Change"; 25% less likely to choose "Noticeably Better"; 12% less
+      likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the availability of good jobs better,
+      worse or stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority
+      disagreement. Compared to the overall population: 15% more likely to choose "Profoundly Worse"; 12% less likely to
+      choose "Noticeably Worse"; 29% more likely to choose "No Major Change"; 23% less likely to choose "Noticeably
+      Better"; 8% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or
+      stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority disagreement.
+      Compared to the overall population: 13% more likely to choose "Noticeably Worse"; 7% more likely to choose "No
+      Major Change"; 14% less likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "So far, what has been the overall impact of AI on your daily life?": A clear majority favors "No Major Change"
+      (64%), with "Noticeably Better" as a secondary choice (18%). Compared to the overall population: 5% more likely to
+      choose "Noticeably Worse"; 40% more likely to choose "No Major Change"; 35% less likely to choose "Noticeably
+      Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Is your job making a meaningful contribution to the world?": A clear majority favors "Yes" (55%), with "No "
+      as a secondary choice (36%). Compared to the overall population: 16% less likely to choose "Yes"; 24% more likely
+      to choose "No "; 8% less likely to choose "Don't Know"
+
+      On "Do you think your job is likely to be automated in the next 10 years?": A clear majority favors "No" (55%),
+      with "Don't Know" as a secondary choice (36%). Compared to the overall population: 30% less likely to choose
+      "Yes"; 12% more likely to choose "No"; 18% more likely to choose "Don't Know"
+
+      On "Do you think your job should be automated in the next 10 years?": Near-unanimous agreement on "No" (91%).
+      Compared to the overall population: 13% less likely to choose "Yes"; 26% more likely to choose "No"; 13% less
+      likely to choose "Don't Know"
+
+      On "So far, how has your community been affected by job loss from automation?": Near-unanimous agreement on "Not
+      at all" (91%). Compared to the overall population: 44% more likely to choose "Not at all"; 16% less likely to
+      choose "I know someone who has lost their job"; 22% less likely to choose "I know several people who have lost
+      their job"; 5% less likely to choose "I know many people who have lost their job"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 6%
+      more likely to choose "Agree"; 6% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 9%
+      more likely to choose "Agree"; 9% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (64%), with "Agree" as a secondary choice (36%)
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (55%), with "Agree" as a secondary choice
+      (46%). Compared to the overall population: 18% less likely to choose "Agree"; 18% more likely to choose "Disagree"
+
+      On "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)": Near-unanimous agreement on "Yes – I
+      was able to fully express my views on these topics" (73%). Compared to the overall population: 7% less likely to
+      choose "Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a
+      few things."
+
+      On "Do you feel like you understand yourself better after participating in this conversation?": A clear majority
+      favors "Maybe a little" (55%), with "Yes" as a secondary choice (46%). Compared to the overall population: 16%
+      less likely to choose "Yes"; 20% more likely to choose "Maybe a little"
+
+
+      Survey question:
+
+      "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+        c. Unsure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.2
+            - 45.5
+            - 36.4
+          metric: js-divergence
+    idealResponse: '[18.2, 45.5, 36.4]'
+    temperature: 0.3
+  - id: 8b361c6c-eb59-415b-8536-7f80713c3e5e-country:germany
+    description: >-
+      Predict: Germany → "Thinking about the last three months, how often, if at all, have you interacted with AI
+      systems to complete an action in the real world on your behalf without your supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 11):
+
+      - Country: Germany
+
+
+      What we know about this group's views:
+
+      On "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…": A
+      clear majority favors "Equally concerned and excited" (55%), with "More concerned than excited" as a secondary
+      choice (27%). Compared to the overall population: 16% less likely to choose "More excited than concerned"; 16%
+      more likely to choose "More concerned than excited"
+
+      On "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?":
+      A clear majority favors "daily" (55%), with "weekly" as a secondary choice (36%). Compared to the overall
+      population: 13% less likely to choose "daily"; 11% more likely to choose "weekly"
+
+      On "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?": A clear majority favors "weekly" (55%), with "monthly" as a secondary
+      choice (36%). Compared to the overall population: 22% less likely to choose "daily"; 11% more likely to choose
+      "weekly"; 20% more likely to choose "monthly"; 5% less likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?": Tends toward "never" (46%) with substantial minority disagreement. Compared to the overall population: 18%
+      less likely to choose "daily"; 21% less likely to choose "weekly"; 8% more likely to choose "monthly"; 33% more
+      likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?": No dominant position — "weekly" leads at 36% with opinion spread across options. Compared to the overall
+      population: 22% less likely to choose "daily"; 5% more likely to choose "weekly"; 20% more likely to choose
+      "never"
+
+      On "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?": No dominant position — "weekly" leads at 36% with opinion spread across options. Compared to
+      the overall population: 20% less likely to choose "daily"; 6% more likely to choose "monthly"; 8% more likely to
+      choose "annually"
+
+      On "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?": Tends toward "never" (46%) with substantial minority
+      disagreement. Compared to the overall population: 5% less likely to choose "daily"; 18% less likely to choose
+      "weekly"; 17% more likely to choose "monthly"; 6% less likely to choose "annually"; 13% more likely to choose
+      "never"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?": No dominant position — "Risks and benefits are equal" leads at 36% with opinion spread across options.
+      Compared to the overall population: 9% more likely to choose "Risks slightly outweigh benefits"; 8% more likely to
+      choose "Risks and benefits are equal"; 7% less likely to choose "Benefits slightly outweigh risks"; 7% less likely
+      to choose "Benefits far outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?": A clear majority favors "Risks slightly outweigh benefits" (64%), with "Risks and benefits are equal" as a
+      secondary choice (27%). Compared to the overall population: 42% more likely to choose "Risks slightly outweigh
+      benefits"; 27% less likely to choose "Benefits slightly outweigh risks"; 12% less likely to choose "Benefits far
+      outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI
+      chatbots?": No dominant position — "Risks and benefits are equal" leads at 27% with opinion spread across options.
+      Compared to the overall population: 12% more likely to choose "Risks far outweigh benefits"; 14% less likely to
+      choose "Benefits slightly outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can perform tasks in the real world without human supervision?": Deeply divided between "Risks far outweigh
+      benefits" (27%) and "Risks slightly outweigh benefits" (27%). Compared to the overall population: 9% more likely
+      to choose "Risks far outweigh benefits"; 12% less likely to choose "Benefits slightly outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can outperform humans on most economically valuable work?": No dominant position — "Risks and benefits are
+      equal" leads at 36% with opinion spread across options. Compared to the overall population: 7% less likely to
+      choose "Risks slightly outweigh benefits"; 14% more likely to choose "Risks and benefits are equal"
+
+      On "To what extent, if at all, do you generally trust governments to do what is right?": Tends toward "Somewhat
+      Trust" (46%) with substantial minority disagreement. Compared to the overall population: 6% more likely to choose
+      "Strongly Distrust"; 13% less likely to choose "Somewhat Distrust"; 18% less likely to choose "Neither Trust Nor
+      Distrust"; 20% more likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust small businesses to do what is right?": A clear majority
+      favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to the
+      overall population: 16% less likely to choose "Somewhat Distrust"; 28% more likely to choose "Neither Trust Nor
+      Distrust"; 8% less likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust large corporations to do what is right?": Deeply divided
+      between "Strongly Distrust" (36%) and "Somewhat Distrust" (36%). Compared to the overall population: 16% more
+      likely to choose "Strongly Distrust"; 9% more likely to choose "Somewhat Distrust"; 13% less likely to choose
+      "Neither Trust Nor Distrust"; 6% less likely to choose "Somewhat Trust"; 5% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust social media companies to do what is right?": Tends toward
+      "Somewhat Distrust" (46%) with substantial minority disagreement. Compared to the overall population: 6% more
+      likely to choose "Strongly Distrust"; 13% more likely to choose "Somewhat Distrust"; 10% less likely to choose
+      "Neither Trust Nor Distrust"; 7% less likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust companies building AI to do what is right?": Tends toward
+      "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall population: 24%
+      more likely to choose "Strongly Distrust"; 15% less likely to choose "Somewhat Distrust"; 16% more likely to
+      choose "Neither Trust Nor Distrust"; 18% less likely to choose "Somewhat Trust"; 7% less likely to choose
+      "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public utility companies to do what is right?": A clear
+      majority favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to
+      the overall population: 20% less likely to choose "Somewhat Distrust"; 25% more likely to choose "Neither Trust
+      Nor Distrust"; 6% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public research institutions to do what is right?":
+      Near-unanimous agreement on "Somewhat Trust" (82%). Compared to the overall population: 9% less likely to choose
+      "Somewhat Distrust"; 20% less likely to choose "Neither Trust Nor Distrust"; 35% more likely to choose "Somewhat
+      Trust"
+
+      On "To what extent, if at all, do you trust your family doctor to act in your best interest?": Tends toward
+      "Strongly Trust" (46%) with substantial minority disagreement. Compared to the overall population: 8% more likely
+      to choose "Strongly Distrust"; 10% less likely to choose "Neither Trust Nor Distrust"
+
+      On "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best
+      interest?": A clear majority favors "Somewhat Distrust" (55%), with "Neither Trust Nor Distrust" as a secondary
+      choice (27%). Compared to the overall population: 21% more likely to choose "Somewhat Distrust"; 17% less likely
+      to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your elected representatives to act in your best interest?": Deeply
+      divided between "Somewhat Distrust" (27%) and "Neither Trust Nor Distrust" (27%)
+
+      On "To what extent, if at all, do you trust your faith or community leader to act in your best interest?": A clear
+      majority favors "Neither Trust Nor Distrust" (64%), with "Somewhat Trust" as a secondary choice (18%). Compared to
+      the overall population: 8% less likely to choose "Somewhat Distrust"; 37% more likely to choose "Neither Trust Nor
+      Distrust"; 15% less likely to choose "Somewhat Trust"; 11% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you trust the civil servants in your government to act in your best interest?":
+      Deeply divided between "Neither Trust Nor Distrust" (36%) and "Somewhat Trust" (36%). Compared to the overall
+      population: 9% less likely to choose "Strongly Distrust"; 19% less likely to choose "Somewhat Distrust"; 14% more
+      likely to choose "Neither Trust Nor Distrust"; 12% more likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best interest?": Tends
+      toward "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall
+      population: 5% more likely to choose "Strongly Distrust"; 8% more likely to choose "Somewhat Distrust"; 17% more
+      likely to choose "Neither Trust Nor Distrust"; 33% less likely to choose "Somewhat Trust"
+
+      On "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives.": Tends toward "Disagree" (46%) with substantial minority disagreement. Compared to the overall
+      population: 19% less likely to choose "Agree"; 16% more likely to choose "Disagree"
+
+      On "Do you think the increased use of AI across society is likely to make your cost of living better, worse or
+      stay the same in the next 10 years?": Near-unanimous agreement on "No Major Change" (73%). Compared to the overall
+      population: 10% less likely to choose "Noticeably Worse"; 51% more likely to choose "No Major Change"; 28% less
+      likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the amount of free time you have better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (64%), with "Noticeably
+      Better" as a secondary choice (27%). Compared to the overall population: 8% less likely to choose "Noticeably
+      Worse"; 41% more likely to choose "No Major Change"; 24% less likely to choose "Noticeably Better"; 8% less likely
+      to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your community's well-being better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (55%), with "Noticeably
+      Worse" as a secondary choice (27%). Compared to the overall population: 12% more likely to choose "Noticeably
+      Worse"; 28% more likely to choose "No Major Change"; 25% less likely to choose "Noticeably Better"; 12% less
+      likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the availability of good jobs better,
+      worse or stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority
+      disagreement. Compared to the overall population: 15% more likely to choose "Profoundly Worse"; 12% less likely to
+      choose "Noticeably Worse"; 29% more likely to choose "No Major Change"; 23% less likely to choose "Noticeably
+      Better"; 8% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or
+      stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority disagreement.
+      Compared to the overall population: 13% more likely to choose "Noticeably Worse"; 7% more likely to choose "No
+      Major Change"; 14% less likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "So far, what has been the overall impact of AI on your daily life?": A clear majority favors "No Major Change"
+      (64%), with "Noticeably Better" as a secondary choice (18%). Compared to the overall population: 5% more likely to
+      choose "Noticeably Worse"; 40% more likely to choose "No Major Change"; 35% less likely to choose "Noticeably
+      Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Is your job making a meaningful contribution to the world?": A clear majority favors "Yes" (55%), with "No "
+      as a secondary choice (36%). Compared to the overall population: 16% less likely to choose "Yes"; 24% more likely
+      to choose "No "; 8% less likely to choose "Don't Know"
+
+      On "Do you think your job is likely to be automated in the next 10 years?": A clear majority favors "No" (55%),
+      with "Don't Know" as a secondary choice (36%). Compared to the overall population: 30% less likely to choose
+      "Yes"; 12% more likely to choose "No"; 18% more likely to choose "Don't Know"
+
+      On "Do you think your job should be automated in the next 10 years?": Near-unanimous agreement on "No" (91%).
+      Compared to the overall population: 13% less likely to choose "Yes"; 26% more likely to choose "No"; 13% less
+      likely to choose "Don't Know"
+
+      On "So far, how has your community been affected by job loss from automation?": Near-unanimous agreement on "Not
+      at all" (91%). Compared to the overall population: 44% more likely to choose "Not at all"; 16% less likely to
+      choose "I know someone who has lost their job"; 22% less likely to choose "I know several people who have lost
+      their job"; 5% less likely to choose "I know many people who have lost their job"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 6%
+      more likely to choose "Agree"; 6% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 9%
+      more likely to choose "Agree"; 9% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (64%), with "Agree" as a secondary choice (36%)
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (55%), with "Agree" as a secondary choice
+      (46%). Compared to the overall population: 18% less likely to choose "Agree"; 18% more likely to choose "Disagree"
+
+      On "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)": Near-unanimous agreement on "Yes – I
+      was able to fully express my views on these topics" (73%). Compared to the overall population: 7% less likely to
+      choose "Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a
+      few things."
+
+      On "Do you feel like you understand yourself better after participating in this conversation?": A clear majority
+      favors "Maybe a little" (55%), with "Yes" as a secondary choice (46%). Compared to the overall population: 16%
+      less likely to choose "Yes"; 20% more likely to choose "Maybe a little"
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 9.1
+            - 0
+            - 0
+            - 90.9
+          metric: js-divergence
+    idealResponse: '[0.0, 9.1, 0.0, 0.0, 90.9]'
+    temperature: 0.3
+  - id: b1869877-1015-43ec-9645-84bf2db39c6f-country:germany
+    description: 'Predict: Germany → "To what extent, if at all, do you generally trust governments to do what is right?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 11):
+
+      - Country: Germany
+
+
+      What we know about this group's views:
+
+      On "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…": A
+      clear majority favors "Equally concerned and excited" (55%), with "More concerned than excited" as a secondary
+      choice (27%). Compared to the overall population: 16% less likely to choose "More excited than concerned"; 16%
+      more likely to choose "More concerned than excited"
+
+      On "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?":
+      A clear majority favors "daily" (55%), with "weekly" as a secondary choice (36%). Compared to the overall
+      population: 13% less likely to choose "daily"; 11% more likely to choose "weekly"
+
+      On "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?": A clear majority favors "weekly" (55%), with "monthly" as a secondary
+      choice (36%). Compared to the overall population: 22% less likely to choose "daily"; 11% more likely to choose
+      "weekly"; 20% more likely to choose "monthly"; 5% less likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?": Tends toward "never" (46%) with substantial minority disagreement. Compared to the overall population: 18%
+      less likely to choose "daily"; 21% less likely to choose "weekly"; 8% more likely to choose "monthly"; 33% more
+      likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?": No dominant position — "weekly" leads at 36% with opinion spread across options. Compared to the overall
+      population: 22% less likely to choose "daily"; 5% more likely to choose "weekly"; 20% more likely to choose
+      "never"
+
+      On "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?": No dominant position — "weekly" leads at 36% with opinion spread across options. Compared to
+      the overall population: 20% less likely to choose "daily"; 6% more likely to choose "monthly"; 8% more likely to
+      choose "annually"
+
+      On "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?": Tends toward "never" (46%) with substantial minority
+      disagreement. Compared to the overall population: 5% less likely to choose "daily"; 18% less likely to choose
+      "weekly"; 17% more likely to choose "monthly"; 6% less likely to choose "annually"; 13% more likely to choose
+      "never"
+
+      On "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?": Near-unanimous agreement on "never" (91%).
+      Compared to the overall population: 10% less likely to choose "daily"; 11% less likely to choose "weekly"; 15%
+      less likely to choose "monthly"; 37% more likely to choose "never"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?": No dominant position — "Risks and benefits are equal" leads at 36% with opinion spread across options.
+      Compared to the overall population: 9% more likely to choose "Risks slightly outweigh benefits"; 8% more likely to
+      choose "Risks and benefits are equal"; 7% less likely to choose "Benefits slightly outweigh risks"; 7% less likely
+      to choose "Benefits far outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?": A clear majority favors "Risks slightly outweigh benefits" (64%), with "Risks and benefits are equal" as a
+      secondary choice (27%). Compared to the overall population: 42% more likely to choose "Risks slightly outweigh
+      benefits"; 27% less likely to choose "Benefits slightly outweigh risks"; 12% less likely to choose "Benefits far
+      outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI
+      chatbots?": No dominant position — "Risks and benefits are equal" leads at 27% with opinion spread across options.
+      Compared to the overall population: 12% more likely to choose "Risks far outweigh benefits"; 14% less likely to
+      choose "Benefits slightly outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can perform tasks in the real world without human supervision?": Deeply divided between "Risks far outweigh
+      benefits" (27%) and "Risks slightly outweigh benefits" (27%). Compared to the overall population: 9% more likely
+      to choose "Risks far outweigh benefits"; 12% less likely to choose "Benefits slightly outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can outperform humans on most economically valuable work?": No dominant position — "Risks and benefits are
+      equal" leads at 36% with opinion spread across options. Compared to the overall population: 7% less likely to
+      choose "Risks slightly outweigh benefits"; 14% more likely to choose "Risks and benefits are equal"
+
+      On "To what extent, if at all, do you generally trust small businesses to do what is right?": A clear majority
+      favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to the
+      overall population: 16% less likely to choose "Somewhat Distrust"; 28% more likely to choose "Neither Trust Nor
+      Distrust"; 8% less likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust large corporations to do what is right?": Deeply divided
+      between "Strongly Distrust" (36%) and "Somewhat Distrust" (36%). Compared to the overall population: 16% more
+      likely to choose "Strongly Distrust"; 9% more likely to choose "Somewhat Distrust"; 13% less likely to choose
+      "Neither Trust Nor Distrust"; 6% less likely to choose "Somewhat Trust"; 5% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust social media companies to do what is right?": Tends toward
+      "Somewhat Distrust" (46%) with substantial minority disagreement. Compared to the overall population: 6% more
+      likely to choose "Strongly Distrust"; 13% more likely to choose "Somewhat Distrust"; 10% less likely to choose
+      "Neither Trust Nor Distrust"; 7% less likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust companies building AI to do what is right?": Tends toward
+      "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall population: 24%
+      more likely to choose "Strongly Distrust"; 15% less likely to choose "Somewhat Distrust"; 16% more likely to
+      choose "Neither Trust Nor Distrust"; 18% less likely to choose "Somewhat Trust"; 7% less likely to choose
+      "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public utility companies to do what is right?": A clear
+      majority favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to
+      the overall population: 20% less likely to choose "Somewhat Distrust"; 25% more likely to choose "Neither Trust
+      Nor Distrust"; 6% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public research institutions to do what is right?":
+      Near-unanimous agreement on "Somewhat Trust" (82%). Compared to the overall population: 9% less likely to choose
+      "Somewhat Distrust"; 20% less likely to choose "Neither Trust Nor Distrust"; 35% more likely to choose "Somewhat
+      Trust"
+
+      On "To what extent, if at all, do you trust your family doctor to act in your best interest?": Tends toward
+      "Strongly Trust" (46%) with substantial minority disagreement. Compared to the overall population: 8% more likely
+      to choose "Strongly Distrust"; 10% less likely to choose "Neither Trust Nor Distrust"
+
+      On "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best
+      interest?": A clear majority favors "Somewhat Distrust" (55%), with "Neither Trust Nor Distrust" as a secondary
+      choice (27%). Compared to the overall population: 21% more likely to choose "Somewhat Distrust"; 17% less likely
+      to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your elected representatives to act in your best interest?": Deeply
+      divided between "Somewhat Distrust" (27%) and "Neither Trust Nor Distrust" (27%)
+
+      On "To what extent, if at all, do you trust your faith or community leader to act in your best interest?": A clear
+      majority favors "Neither Trust Nor Distrust" (64%), with "Somewhat Trust" as a secondary choice (18%). Compared to
+      the overall population: 8% less likely to choose "Somewhat Distrust"; 37% more likely to choose "Neither Trust Nor
+      Distrust"; 15% less likely to choose "Somewhat Trust"; 11% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you trust the civil servants in your government to act in your best interest?":
+      Deeply divided between "Neither Trust Nor Distrust" (36%) and "Somewhat Trust" (36%). Compared to the overall
+      population: 9% less likely to choose "Strongly Distrust"; 19% less likely to choose "Somewhat Distrust"; 14% more
+      likely to choose "Neither Trust Nor Distrust"; 12% more likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best interest?": Tends
+      toward "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall
+      population: 5% more likely to choose "Strongly Distrust"; 8% more likely to choose "Somewhat Distrust"; 17% more
+      likely to choose "Neither Trust Nor Distrust"; 33% less likely to choose "Somewhat Trust"
+
+      On "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives.": Tends toward "Disagree" (46%) with substantial minority disagreement. Compared to the overall
+      population: 19% less likely to choose "Agree"; 16% more likely to choose "Disagree"
+
+      On "Do you think the increased use of AI across society is likely to make your cost of living better, worse or
+      stay the same in the next 10 years?": Near-unanimous agreement on "No Major Change" (73%). Compared to the overall
+      population: 10% less likely to choose "Noticeably Worse"; 51% more likely to choose "No Major Change"; 28% less
+      likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the amount of free time you have better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (64%), with "Noticeably
+      Better" as a secondary choice (27%). Compared to the overall population: 8% less likely to choose "Noticeably
+      Worse"; 41% more likely to choose "No Major Change"; 24% less likely to choose "Noticeably Better"; 8% less likely
+      to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your community's well-being better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (55%), with "Noticeably
+      Worse" as a secondary choice (27%). Compared to the overall population: 12% more likely to choose "Noticeably
+      Worse"; 28% more likely to choose "No Major Change"; 25% less likely to choose "Noticeably Better"; 12% less
+      likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the availability of good jobs better,
+      worse or stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority
+      disagreement. Compared to the overall population: 15% more likely to choose "Profoundly Worse"; 12% less likely to
+      choose "Noticeably Worse"; 29% more likely to choose "No Major Change"; 23% less likely to choose "Noticeably
+      Better"; 8% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or
+      stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority disagreement.
+      Compared to the overall population: 13% more likely to choose "Noticeably Worse"; 7% more likely to choose "No
+      Major Change"; 14% less likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "So far, what has been the overall impact of AI on your daily life?": A clear majority favors "No Major Change"
+      (64%), with "Noticeably Better" as a secondary choice (18%). Compared to the overall population: 5% more likely to
+      choose "Noticeably Worse"; 40% more likely to choose "No Major Change"; 35% less likely to choose "Noticeably
+      Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Is your job making a meaningful contribution to the world?": A clear majority favors "Yes" (55%), with "No "
+      as a secondary choice (36%). Compared to the overall population: 16% less likely to choose "Yes"; 24% more likely
+      to choose "No "; 8% less likely to choose "Don't Know"
+
+      On "Do you think your job is likely to be automated in the next 10 years?": A clear majority favors "No" (55%),
+      with "Don't Know" as a secondary choice (36%). Compared to the overall population: 30% less likely to choose
+      "Yes"; 12% more likely to choose "No"; 18% more likely to choose "Don't Know"
+
+      On "Do you think your job should be automated in the next 10 years?": Near-unanimous agreement on "No" (91%).
+      Compared to the overall population: 13% less likely to choose "Yes"; 26% more likely to choose "No"; 13% less
+      likely to choose "Don't Know"
+
+      On "So far, how has your community been affected by job loss from automation?": Near-unanimous agreement on "Not
+      at all" (91%). Compared to the overall population: 44% more likely to choose "Not at all"; 16% less likely to
+      choose "I know someone who has lost their job"; 22% less likely to choose "I know several people who have lost
+      their job"; 5% less likely to choose "I know many people who have lost their job"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 6%
+      more likely to choose "Agree"; 6% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 9%
+      more likely to choose "Agree"; 9% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (64%), with "Agree" as a secondary choice (36%)
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (55%), with "Agree" as a secondary choice
+      (46%). Compared to the overall population: 18% less likely to choose "Agree"; 18% more likely to choose "Disagree"
+
+      On "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)": Near-unanimous agreement on "Yes – I
+      was able to fully express my views on these topics" (73%). Compared to the overall population: 7% less likely to
+      choose "Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a
+      few things."
+
+      On "Do you feel like you understand yourself better after participating in this conversation?": A clear majority
+      favors "Maybe a little" (55%), with "Yes" as a secondary choice (46%). Compared to the overall population: 16%
+      less likely to choose "Yes"; 20% more likely to choose "Maybe a little"
+
+
+      Survey question:
+
+      "To what extent, if at all, do you generally trust governments to do what is right?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 27.3
+            - 18.2
+            - 0
+            - 45.5
+            - 9.1
+          metric: js-divergence
+    idealResponse: '[27.3, 18.2, 0.0, 45.5, 9.1]'
+    temperature: 0.3
+  - id: 96ccfd7b-8f99-4d0a-b700-9fd835e23bd8-country:germany
+    description: >-
+      Predict: Germany → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI systems that can outperform humans on most economically valuable work?"
+    promptText: >-
+      Consider the following demographic group (sample size: 11):
+
+      - Country: Germany
+
+
+      What we know about this group's views:
+
+      On "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…": A
+      clear majority favors "Equally concerned and excited" (55%), with "More concerned than excited" as a secondary
+      choice (27%). Compared to the overall population: 16% less likely to choose "More excited than concerned"; 16%
+      more likely to choose "More concerned than excited"
+
+      On "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?":
+      A clear majority favors "daily" (55%), with "weekly" as a secondary choice (36%). Compared to the overall
+      population: 13% less likely to choose "daily"; 11% more likely to choose "weekly"
+
+      On "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?": A clear majority favors "weekly" (55%), with "monthly" as a secondary
+      choice (36%). Compared to the overall population: 22% less likely to choose "daily"; 11% more likely to choose
+      "weekly"; 20% more likely to choose "monthly"; 5% less likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?": Tends toward "never" (46%) with substantial minority disagreement. Compared to the overall population: 18%
+      less likely to choose "daily"; 21% less likely to choose "weekly"; 8% more likely to choose "monthly"; 33% more
+      likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?": No dominant position — "weekly" leads at 36% with opinion spread across options. Compared to the overall
+      population: 22% less likely to choose "daily"; 5% more likely to choose "weekly"; 20% more likely to choose
+      "never"
+
+      On "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?": No dominant position — "weekly" leads at 36% with opinion spread across options. Compared to
+      the overall population: 20% less likely to choose "daily"; 6% more likely to choose "monthly"; 8% more likely to
+      choose "annually"
+
+      On "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?": Tends toward "never" (46%) with substantial minority
+      disagreement. Compared to the overall population: 5% less likely to choose "daily"; 18% less likely to choose
+      "weekly"; 17% more likely to choose "monthly"; 6% less likely to choose "annually"; 13% more likely to choose
+      "never"
+
+      On "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?": Near-unanimous agreement on "never" (91%).
+      Compared to the overall population: 10% less likely to choose "daily"; 11% less likely to choose "weekly"; 15%
+      less likely to choose "monthly"; 37% more likely to choose "never"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?": No dominant position — "Risks and benefits are equal" leads at 36% with opinion spread across options.
+      Compared to the overall population: 9% more likely to choose "Risks slightly outweigh benefits"; 8% more likely to
+      choose "Risks and benefits are equal"; 7% less likely to choose "Benefits slightly outweigh risks"; 7% less likely
+      to choose "Benefits far outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?": A clear majority favors "Risks slightly outweigh benefits" (64%), with "Risks and benefits are equal" as a
+      secondary choice (27%). Compared to the overall population: 42% more likely to choose "Risks slightly outweigh
+      benefits"; 27% less likely to choose "Benefits slightly outweigh risks"; 12% less likely to choose "Benefits far
+      outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI
+      chatbots?": No dominant position — "Risks and benefits are equal" leads at 27% with opinion spread across options.
+      Compared to the overall population: 12% more likely to choose "Risks far outweigh benefits"; 14% less likely to
+      choose "Benefits slightly outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can perform tasks in the real world without human supervision?": Deeply divided between "Risks far outweigh
+      benefits" (27%) and "Risks slightly outweigh benefits" (27%). Compared to the overall population: 9% more likely
+      to choose "Risks far outweigh benefits"; 12% less likely to choose "Benefits slightly outweigh risks"
+
+      On "To what extent, if at all, do you generally trust governments to do what is right?": Tends toward "Somewhat
+      Trust" (46%) with substantial minority disagreement. Compared to the overall population: 6% more likely to choose
+      "Strongly Distrust"; 13% less likely to choose "Somewhat Distrust"; 18% less likely to choose "Neither Trust Nor
+      Distrust"; 20% more likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust small businesses to do what is right?": A clear majority
+      favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to the
+      overall population: 16% less likely to choose "Somewhat Distrust"; 28% more likely to choose "Neither Trust Nor
+      Distrust"; 8% less likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust large corporations to do what is right?": Deeply divided
+      between "Strongly Distrust" (36%) and "Somewhat Distrust" (36%). Compared to the overall population: 16% more
+      likely to choose "Strongly Distrust"; 9% more likely to choose "Somewhat Distrust"; 13% less likely to choose
+      "Neither Trust Nor Distrust"; 6% less likely to choose "Somewhat Trust"; 5% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust social media companies to do what is right?": Tends toward
+      "Somewhat Distrust" (46%) with substantial minority disagreement. Compared to the overall population: 6% more
+      likely to choose "Strongly Distrust"; 13% more likely to choose "Somewhat Distrust"; 10% less likely to choose
+      "Neither Trust Nor Distrust"; 7% less likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust companies building AI to do what is right?": Tends toward
+      "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall population: 24%
+      more likely to choose "Strongly Distrust"; 15% less likely to choose "Somewhat Distrust"; 16% more likely to
+      choose "Neither Trust Nor Distrust"; 18% less likely to choose "Somewhat Trust"; 7% less likely to choose
+      "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public utility companies to do what is right?": A clear
+      majority favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to
+      the overall population: 20% less likely to choose "Somewhat Distrust"; 25% more likely to choose "Neither Trust
+      Nor Distrust"; 6% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public research institutions to do what is right?":
+      Near-unanimous agreement on "Somewhat Trust" (82%). Compared to the overall population: 9% less likely to choose
+      "Somewhat Distrust"; 20% less likely to choose "Neither Trust Nor Distrust"; 35% more likely to choose "Somewhat
+      Trust"
+
+      On "To what extent, if at all, do you trust your family doctor to act in your best interest?": Tends toward
+      "Strongly Trust" (46%) with substantial minority disagreement. Compared to the overall population: 8% more likely
+      to choose "Strongly Distrust"; 10% less likely to choose "Neither Trust Nor Distrust"
+
+      On "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best
+      interest?": A clear majority favors "Somewhat Distrust" (55%), with "Neither Trust Nor Distrust" as a secondary
+      choice (27%). Compared to the overall population: 21% more likely to choose "Somewhat Distrust"; 17% less likely
+      to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your elected representatives to act in your best interest?": Deeply
+      divided between "Somewhat Distrust" (27%) and "Neither Trust Nor Distrust" (27%)
+
+      On "To what extent, if at all, do you trust your faith or community leader to act in your best interest?": A clear
+      majority favors "Neither Trust Nor Distrust" (64%), with "Somewhat Trust" as a secondary choice (18%). Compared to
+      the overall population: 8% less likely to choose "Somewhat Distrust"; 37% more likely to choose "Neither Trust Nor
+      Distrust"; 15% less likely to choose "Somewhat Trust"; 11% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you trust the civil servants in your government to act in your best interest?":
+      Deeply divided between "Neither Trust Nor Distrust" (36%) and "Somewhat Trust" (36%). Compared to the overall
+      population: 9% less likely to choose "Strongly Distrust"; 19% less likely to choose "Somewhat Distrust"; 14% more
+      likely to choose "Neither Trust Nor Distrust"; 12% more likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best interest?": Tends
+      toward "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall
+      population: 5% more likely to choose "Strongly Distrust"; 8% more likely to choose "Somewhat Distrust"; 17% more
+      likely to choose "Neither Trust Nor Distrust"; 33% less likely to choose "Somewhat Trust"
+
+      On "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives.": Tends toward "Disagree" (46%) with substantial minority disagreement. Compared to the overall
+      population: 19% less likely to choose "Agree"; 16% more likely to choose "Disagree"
+
+      On "Do you think the increased use of AI across society is likely to make your cost of living better, worse or
+      stay the same in the next 10 years?": Near-unanimous agreement on "No Major Change" (73%). Compared to the overall
+      population: 10% less likely to choose "Noticeably Worse"; 51% more likely to choose "No Major Change"; 28% less
+      likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the amount of free time you have better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (64%), with "Noticeably
+      Better" as a secondary choice (27%). Compared to the overall population: 8% less likely to choose "Noticeably
+      Worse"; 41% more likely to choose "No Major Change"; 24% less likely to choose "Noticeably Better"; 8% less likely
+      to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your community's well-being better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (55%), with "Noticeably
+      Worse" as a secondary choice (27%). Compared to the overall population: 12% more likely to choose "Noticeably
+      Worse"; 28% more likely to choose "No Major Change"; 25% less likely to choose "Noticeably Better"; 12% less
+      likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the availability of good jobs better,
+      worse or stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority
+      disagreement. Compared to the overall population: 15% more likely to choose "Profoundly Worse"; 12% less likely to
+      choose "Noticeably Worse"; 29% more likely to choose "No Major Change"; 23% less likely to choose "Noticeably
+      Better"; 8% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or
+      stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority disagreement.
+      Compared to the overall population: 13% more likely to choose "Noticeably Worse"; 7% more likely to choose "No
+      Major Change"; 14% less likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "So far, what has been the overall impact of AI on your daily life?": A clear majority favors "No Major Change"
+      (64%), with "Noticeably Better" as a secondary choice (18%). Compared to the overall population: 5% more likely to
+      choose "Noticeably Worse"; 40% more likely to choose "No Major Change"; 35% less likely to choose "Noticeably
+      Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Is your job making a meaningful contribution to the world?": A clear majority favors "Yes" (55%), with "No "
+      as a secondary choice (36%). Compared to the overall population: 16% less likely to choose "Yes"; 24% more likely
+      to choose "No "; 8% less likely to choose "Don't Know"
+
+      On "Do you think your job is likely to be automated in the next 10 years?": A clear majority favors "No" (55%),
+      with "Don't Know" as a secondary choice (36%). Compared to the overall population: 30% less likely to choose
+      "Yes"; 12% more likely to choose "No"; 18% more likely to choose "Don't Know"
+
+      On "Do you think your job should be automated in the next 10 years?": Near-unanimous agreement on "No" (91%).
+      Compared to the overall population: 13% less likely to choose "Yes"; 26% more likely to choose "No"; 13% less
+      likely to choose "Don't Know"
+
+      On "So far, how has your community been affected by job loss from automation?": Near-unanimous agreement on "Not
+      at all" (91%). Compared to the overall population: 44% more likely to choose "Not at all"; 16% less likely to
+      choose "I know someone who has lost their job"; 22% less likely to choose "I know several people who have lost
+      their job"; 5% less likely to choose "I know many people who have lost their job"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 6%
+      more likely to choose "Agree"; 6% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 9%
+      more likely to choose "Agree"; 9% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (64%), with "Agree" as a secondary choice (36%)
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (55%), with "Agree" as a secondary choice
+      (46%). Compared to the overall population: 18% less likely to choose "Agree"; 18% more likely to choose "Disagree"
+
+      On "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)": Near-unanimous agreement on "Yes – I
+      was able to fully express my views on these topics" (73%). Compared to the overall population: 7% less likely to
+      choose "Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a
+      few things."
+
+      On "Do you feel like you understand yourself better after participating in this conversation?": A clear majority
+      favors "Maybe a little" (55%), with "Yes" as a secondary choice (46%). Compared to the overall population: 16%
+      less likely to choose "Yes"; 20% more likely to choose "Maybe a little"
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can outperform humans on most economically valuable work?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.2
+            - 18.2
+            - 36.4
+            - 18.2
+            - 9.1
+          metric: js-divergence
+    idealResponse: '[18.2, 18.2, 36.4, 18.2, 9.1]'
+    temperature: 0.3
+  - id: f932063f-700c-4327-9c34-59b7c3e19190-country:germany
+    description: >-
+      Predict: Germany → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes
+      you feel…"
+    promptText: >-
+      Consider the following demographic group (sample size: 11):
+
+      - Country: Germany
+
+
+      What we know about this group's views:
+
+      On "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?":
+      A clear majority favors "daily" (55%), with "weekly" as a secondary choice (36%). Compared to the overall
+      population: 13% less likely to choose "daily"; 11% more likely to choose "weekly"
+
+      On "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?": A clear majority favors "weekly" (55%), with "monthly" as a secondary
+      choice (36%). Compared to the overall population: 22% less likely to choose "daily"; 11% more likely to choose
+      "weekly"; 20% more likely to choose "monthly"; 5% less likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?": Tends toward "never" (46%) with substantial minority disagreement. Compared to the overall population: 18%
+      less likely to choose "daily"; 21% less likely to choose "weekly"; 8% more likely to choose "monthly"; 33% more
+      likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?": No dominant position — "weekly" leads at 36% with opinion spread across options. Compared to the overall
+      population: 22% less likely to choose "daily"; 5% more likely to choose "weekly"; 20% more likely to choose
+      "never"
+
+      On "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?": No dominant position — "weekly" leads at 36% with opinion spread across options. Compared to
+      the overall population: 20% less likely to choose "daily"; 6% more likely to choose "monthly"; 8% more likely to
+      choose "annually"
+
+      On "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?": Tends toward "never" (46%) with substantial minority
+      disagreement. Compared to the overall population: 5% less likely to choose "daily"; 18% less likely to choose
+      "weekly"; 17% more likely to choose "monthly"; 6% less likely to choose "annually"; 13% more likely to choose
+      "never"
+
+      On "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?": Near-unanimous agreement on "never" (91%).
+      Compared to the overall population: 10% less likely to choose "daily"; 11% less likely to choose "weekly"; 15%
+      less likely to choose "monthly"; 37% more likely to choose "never"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?": No dominant position — "Risks and benefits are equal" leads at 36% with opinion spread across options.
+      Compared to the overall population: 9% more likely to choose "Risks slightly outweigh benefits"; 8% more likely to
+      choose "Risks and benefits are equal"; 7% less likely to choose "Benefits slightly outweigh risks"; 7% less likely
+      to choose "Benefits far outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?": A clear majority favors "Risks slightly outweigh benefits" (64%), with "Risks and benefits are equal" as a
+      secondary choice (27%). Compared to the overall population: 42% more likely to choose "Risks slightly outweigh
+      benefits"; 27% less likely to choose "Benefits slightly outweigh risks"; 12% less likely to choose "Benefits far
+      outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI
+      chatbots?": No dominant position — "Risks and benefits are equal" leads at 27% with opinion spread across options.
+      Compared to the overall population: 12% more likely to choose "Risks far outweigh benefits"; 14% less likely to
+      choose "Benefits slightly outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can perform tasks in the real world without human supervision?": Deeply divided between "Risks far outweigh
+      benefits" (27%) and "Risks slightly outweigh benefits" (27%). Compared to the overall population: 9% more likely
+      to choose "Risks far outweigh benefits"; 12% less likely to choose "Benefits slightly outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can outperform humans on most economically valuable work?": No dominant position — "Risks and benefits are
+      equal" leads at 36% with opinion spread across options. Compared to the overall population: 7% less likely to
+      choose "Risks slightly outweigh benefits"; 14% more likely to choose "Risks and benefits are equal"
+
+      On "To what extent, if at all, do you generally trust governments to do what is right?": Tends toward "Somewhat
+      Trust" (46%) with substantial minority disagreement. Compared to the overall population: 6% more likely to choose
+      "Strongly Distrust"; 13% less likely to choose "Somewhat Distrust"; 18% less likely to choose "Neither Trust Nor
+      Distrust"; 20% more likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust small businesses to do what is right?": A clear majority
+      favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to the
+      overall population: 16% less likely to choose "Somewhat Distrust"; 28% more likely to choose "Neither Trust Nor
+      Distrust"; 8% less likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust large corporations to do what is right?": Deeply divided
+      between "Strongly Distrust" (36%) and "Somewhat Distrust" (36%). Compared to the overall population: 16% more
+      likely to choose "Strongly Distrust"; 9% more likely to choose "Somewhat Distrust"; 13% less likely to choose
+      "Neither Trust Nor Distrust"; 6% less likely to choose "Somewhat Trust"; 5% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust social media companies to do what is right?": Tends toward
+      "Somewhat Distrust" (46%) with substantial minority disagreement. Compared to the overall population: 6% more
+      likely to choose "Strongly Distrust"; 13% more likely to choose "Somewhat Distrust"; 10% less likely to choose
+      "Neither Trust Nor Distrust"; 7% less likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust companies building AI to do what is right?": Tends toward
+      "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall population: 24%
+      more likely to choose "Strongly Distrust"; 15% less likely to choose "Somewhat Distrust"; 16% more likely to
+      choose "Neither Trust Nor Distrust"; 18% less likely to choose "Somewhat Trust"; 7% less likely to choose
+      "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public utility companies to do what is right?": A clear
+      majority favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to
+      the overall population: 20% less likely to choose "Somewhat Distrust"; 25% more likely to choose "Neither Trust
+      Nor Distrust"; 6% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public research institutions to do what is right?":
+      Near-unanimous agreement on "Somewhat Trust" (82%). Compared to the overall population: 9% less likely to choose
+      "Somewhat Distrust"; 20% less likely to choose "Neither Trust Nor Distrust"; 35% more likely to choose "Somewhat
+      Trust"
+
+      On "To what extent, if at all, do you trust your family doctor to act in your best interest?": Tends toward
+      "Strongly Trust" (46%) with substantial minority disagreement. Compared to the overall population: 8% more likely
+      to choose "Strongly Distrust"; 10% less likely to choose "Neither Trust Nor Distrust"
+
+      On "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best
+      interest?": A clear majority favors "Somewhat Distrust" (55%), with "Neither Trust Nor Distrust" as a secondary
+      choice (27%). Compared to the overall population: 21% more likely to choose "Somewhat Distrust"; 17% less likely
+      to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your elected representatives to act in your best interest?": Deeply
+      divided between "Somewhat Distrust" (27%) and "Neither Trust Nor Distrust" (27%)
+
+      On "To what extent, if at all, do you trust your faith or community leader to act in your best interest?": A clear
+      majority favors "Neither Trust Nor Distrust" (64%), with "Somewhat Trust" as a secondary choice (18%). Compared to
+      the overall population: 8% less likely to choose "Somewhat Distrust"; 37% more likely to choose "Neither Trust Nor
+      Distrust"; 15% less likely to choose "Somewhat Trust"; 11% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you trust the civil servants in your government to act in your best interest?":
+      Deeply divided between "Neither Trust Nor Distrust" (36%) and "Somewhat Trust" (36%). Compared to the overall
+      population: 9% less likely to choose "Strongly Distrust"; 19% less likely to choose "Somewhat Distrust"; 14% more
+      likely to choose "Neither Trust Nor Distrust"; 12% more likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best interest?": Tends
+      toward "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall
+      population: 5% more likely to choose "Strongly Distrust"; 8% more likely to choose "Somewhat Distrust"; 17% more
+      likely to choose "Neither Trust Nor Distrust"; 33% less likely to choose "Somewhat Trust"
+
+      On "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives.": Tends toward "Disagree" (46%) with substantial minority disagreement. Compared to the overall
+      population: 19% less likely to choose "Agree"; 16% more likely to choose "Disagree"
+
+      On "Do you think the increased use of AI across society is likely to make your cost of living better, worse or
+      stay the same in the next 10 years?": Near-unanimous agreement on "No Major Change" (73%). Compared to the overall
+      population: 10% less likely to choose "Noticeably Worse"; 51% more likely to choose "No Major Change"; 28% less
+      likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the amount of free time you have better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (64%), with "Noticeably
+      Better" as a secondary choice (27%). Compared to the overall population: 8% less likely to choose "Noticeably
+      Worse"; 41% more likely to choose "No Major Change"; 24% less likely to choose "Noticeably Better"; 8% less likely
+      to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your community's well-being better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (55%), with "Noticeably
+      Worse" as a secondary choice (27%). Compared to the overall population: 12% more likely to choose "Noticeably
+      Worse"; 28% more likely to choose "No Major Change"; 25% less likely to choose "Noticeably Better"; 12% less
+      likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the availability of good jobs better,
+      worse or stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority
+      disagreement. Compared to the overall population: 15% more likely to choose "Profoundly Worse"; 12% less likely to
+      choose "Noticeably Worse"; 29% more likely to choose "No Major Change"; 23% less likely to choose "Noticeably
+      Better"; 8% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or
+      stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority disagreement.
+      Compared to the overall population: 13% more likely to choose "Noticeably Worse"; 7% more likely to choose "No
+      Major Change"; 14% less likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "So far, what has been the overall impact of AI on your daily life?": A clear majority favors "No Major Change"
+      (64%), with "Noticeably Better" as a secondary choice (18%). Compared to the overall population: 5% more likely to
+      choose "Noticeably Worse"; 40% more likely to choose "No Major Change"; 35% less likely to choose "Noticeably
+      Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Is your job making a meaningful contribution to the world?": A clear majority favors "Yes" (55%), with "No "
+      as a secondary choice (36%). Compared to the overall population: 16% less likely to choose "Yes"; 24% more likely
+      to choose "No "; 8% less likely to choose "Don't Know"
+
+      On "Do you think your job is likely to be automated in the next 10 years?": A clear majority favors "No" (55%),
+      with "Don't Know" as a secondary choice (36%). Compared to the overall population: 30% less likely to choose
+      "Yes"; 12% more likely to choose "No"; 18% more likely to choose "Don't Know"
+
+      On "Do you think your job should be automated in the next 10 years?": Near-unanimous agreement on "No" (91%).
+      Compared to the overall population: 13% less likely to choose "Yes"; 26% more likely to choose "No"; 13% less
+      likely to choose "Don't Know"
+
+      On "So far, how has your community been affected by job loss from automation?": Near-unanimous agreement on "Not
+      at all" (91%). Compared to the overall population: 44% more likely to choose "Not at all"; 16% less likely to
+      choose "I know someone who has lost their job"; 22% less likely to choose "I know several people who have lost
+      their job"; 5% less likely to choose "I know many people who have lost their job"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 6%
+      more likely to choose "Agree"; 6% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 9%
+      more likely to choose "Agree"; 9% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (64%), with "Agree" as a secondary choice (36%)
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (55%), with "Agree" as a secondary choice
+      (46%). Compared to the overall population: 18% less likely to choose "Agree"; 18% more likely to choose "Disagree"
+
+      On "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)": Near-unanimous agreement on "Yes – I
+      was able to fully express my views on these topics" (73%). Compared to the overall population: 7% less likely to
+      choose "Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a
+      few things."
+
+      On "Do you feel like you understand yourself better after participating in this conversation?": A clear majority
+      favors "Maybe a little" (55%), with "Yes" as a secondary choice (46%). Compared to the overall population: 16%
+      less likely to choose "Yes"; 20% more likely to choose "Maybe a little"
+
+
+      Survey question:
+
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.2
+            - 54.5
+            - 27.3
+          metric: js-divergence
+    idealResponse: '[18.2, 54.5, 27.3]'
+    temperature: 0.3
+  - id: 4c5ed164-eb69-4e41-906f-1e7a93f1d5bd-country:germany
+    description: 'Predict: Germany → "To what extent, if at all, do you generally trust social media companies to do what is right?"'
+    promptText: >-
+      Consider the following demographic group (sample size: 11):
+
+      - Country: Germany
+
+
+      What we know about this group's views:
+
+      On "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…": A
+      clear majority favors "Equally concerned and excited" (55%), with "More concerned than excited" as a secondary
+      choice (27%). Compared to the overall population: 16% less likely to choose "More excited than concerned"; 16%
+      more likely to choose "More concerned than excited"
+
+      On "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?":
+      A clear majority favors "daily" (55%), with "weekly" as a secondary choice (36%). Compared to the overall
+      population: 13% less likely to choose "daily"; 11% more likely to choose "weekly"
+
+      On "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?": A clear majority favors "weekly" (55%), with "monthly" as a secondary
+      choice (36%). Compared to the overall population: 22% less likely to choose "daily"; 11% more likely to choose
+      "weekly"; 20% more likely to choose "monthly"; 5% less likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?": Tends toward "never" (46%) with substantial minority disagreement. Compared to the overall population: 18%
+      less likely to choose "daily"; 21% less likely to choose "weekly"; 8% more likely to choose "monthly"; 33% more
+      likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?": No dominant position — "weekly" leads at 36% with opinion spread across options. Compared to the overall
+      population: 22% less likely to choose "daily"; 5% more likely to choose "weekly"; 20% more likely to choose
+      "never"
+
+      On "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?": No dominant position — "weekly" leads at 36% with opinion spread across options. Compared to
+      the overall population: 20% less likely to choose "daily"; 6% more likely to choose "monthly"; 8% more likely to
+      choose "annually"
+
+      On "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?": Tends toward "never" (46%) with substantial minority
+      disagreement. Compared to the overall population: 5% less likely to choose "daily"; 18% less likely to choose
+      "weekly"; 17% more likely to choose "monthly"; 6% less likely to choose "annually"; 13% more likely to choose
+      "never"
+
+      On "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?": Near-unanimous agreement on "never" (91%).
+      Compared to the overall population: 10% less likely to choose "daily"; 11% less likely to choose "weekly"; 15%
+      less likely to choose "monthly"; 37% more likely to choose "never"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?": No dominant position — "Risks and benefits are equal" leads at 36% with opinion spread across options.
+      Compared to the overall population: 9% more likely to choose "Risks slightly outweigh benefits"; 8% more likely to
+      choose "Risks and benefits are equal"; 7% less likely to choose "Benefits slightly outweigh risks"; 7% less likely
+      to choose "Benefits far outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?": A clear majority favors "Risks slightly outweigh benefits" (64%), with "Risks and benefits are equal" as a
+      secondary choice (27%). Compared to the overall population: 42% more likely to choose "Risks slightly outweigh
+      benefits"; 27% less likely to choose "Benefits slightly outweigh risks"; 12% less likely to choose "Benefits far
+      outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI
+      chatbots?": No dominant position — "Risks and benefits are equal" leads at 27% with opinion spread across options.
+      Compared to the overall population: 12% more likely to choose "Risks far outweigh benefits"; 14% less likely to
+      choose "Benefits slightly outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can perform tasks in the real world without human supervision?": Deeply divided between "Risks far outweigh
+      benefits" (27%) and "Risks slightly outweigh benefits" (27%). Compared to the overall population: 9% more likely
+      to choose "Risks far outweigh benefits"; 12% less likely to choose "Benefits slightly outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can outperform humans on most economically valuable work?": No dominant position — "Risks and benefits are
+      equal" leads at 36% with opinion spread across options. Compared to the overall population: 7% less likely to
+      choose "Risks slightly outweigh benefits"; 14% more likely to choose "Risks and benefits are equal"
+
+      On "To what extent, if at all, do you generally trust governments to do what is right?": Tends toward "Somewhat
+      Trust" (46%) with substantial minority disagreement. Compared to the overall population: 6% more likely to choose
+      "Strongly Distrust"; 13% less likely to choose "Somewhat Distrust"; 18% less likely to choose "Neither Trust Nor
+      Distrust"; 20% more likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust small businesses to do what is right?": A clear majority
+      favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to the
+      overall population: 16% less likely to choose "Somewhat Distrust"; 28% more likely to choose "Neither Trust Nor
+      Distrust"; 8% less likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust large corporations to do what is right?": Deeply divided
+      between "Strongly Distrust" (36%) and "Somewhat Distrust" (36%). Compared to the overall population: 16% more
+      likely to choose "Strongly Distrust"; 9% more likely to choose "Somewhat Distrust"; 13% less likely to choose
+      "Neither Trust Nor Distrust"; 6% less likely to choose "Somewhat Trust"; 5% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust companies building AI to do what is right?": Tends toward
+      "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall population: 24%
+      more likely to choose "Strongly Distrust"; 15% less likely to choose "Somewhat Distrust"; 16% more likely to
+      choose "Neither Trust Nor Distrust"; 18% less likely to choose "Somewhat Trust"; 7% less likely to choose
+      "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public utility companies to do what is right?": A clear
+      majority favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to
+      the overall population: 20% less likely to choose "Somewhat Distrust"; 25% more likely to choose "Neither Trust
+      Nor Distrust"; 6% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public research institutions to do what is right?":
+      Near-unanimous agreement on "Somewhat Trust" (82%). Compared to the overall population: 9% less likely to choose
+      "Somewhat Distrust"; 20% less likely to choose "Neither Trust Nor Distrust"; 35% more likely to choose "Somewhat
+      Trust"
+
+      On "To what extent, if at all, do you trust your family doctor to act in your best interest?": Tends toward
+      "Strongly Trust" (46%) with substantial minority disagreement. Compared to the overall population: 8% more likely
+      to choose "Strongly Distrust"; 10% less likely to choose "Neither Trust Nor Distrust"
+
+      On "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best
+      interest?": A clear majority favors "Somewhat Distrust" (55%), with "Neither Trust Nor Distrust" as a secondary
+      choice (27%). Compared to the overall population: 21% more likely to choose "Somewhat Distrust"; 17% less likely
+      to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your elected representatives to act in your best interest?": Deeply
+      divided between "Somewhat Distrust" (27%) and "Neither Trust Nor Distrust" (27%)
+
+      On "To what extent, if at all, do you trust your faith or community leader to act in your best interest?": A clear
+      majority favors "Neither Trust Nor Distrust" (64%), with "Somewhat Trust" as a secondary choice (18%). Compared to
+      the overall population: 8% less likely to choose "Somewhat Distrust"; 37% more likely to choose "Neither Trust Nor
+      Distrust"; 15% less likely to choose "Somewhat Trust"; 11% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you trust the civil servants in your government to act in your best interest?":
+      Deeply divided between "Neither Trust Nor Distrust" (36%) and "Somewhat Trust" (36%). Compared to the overall
+      population: 9% less likely to choose "Strongly Distrust"; 19% less likely to choose "Somewhat Distrust"; 14% more
+      likely to choose "Neither Trust Nor Distrust"; 12% more likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best interest?": Tends
+      toward "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall
+      population: 5% more likely to choose "Strongly Distrust"; 8% more likely to choose "Somewhat Distrust"; 17% more
+      likely to choose "Neither Trust Nor Distrust"; 33% less likely to choose "Somewhat Trust"
+
+      On "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives.": Tends toward "Disagree" (46%) with substantial minority disagreement. Compared to the overall
+      population: 19% less likely to choose "Agree"; 16% more likely to choose "Disagree"
+
+      On "Do you think the increased use of AI across society is likely to make your cost of living better, worse or
+      stay the same in the next 10 years?": Near-unanimous agreement on "No Major Change" (73%). Compared to the overall
+      population: 10% less likely to choose "Noticeably Worse"; 51% more likely to choose "No Major Change"; 28% less
+      likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the amount of free time you have better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (64%), with "Noticeably
+      Better" as a secondary choice (27%). Compared to the overall population: 8% less likely to choose "Noticeably
+      Worse"; 41% more likely to choose "No Major Change"; 24% less likely to choose "Noticeably Better"; 8% less likely
+      to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your community's well-being better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (55%), with "Noticeably
+      Worse" as a secondary choice (27%). Compared to the overall population: 12% more likely to choose "Noticeably
+      Worse"; 28% more likely to choose "No Major Change"; 25% less likely to choose "Noticeably Better"; 12% less
+      likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the availability of good jobs better,
+      worse or stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority
+      disagreement. Compared to the overall population: 15% more likely to choose "Profoundly Worse"; 12% less likely to
+      choose "Noticeably Worse"; 29% more likely to choose "No Major Change"; 23% less likely to choose "Noticeably
+      Better"; 8% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or
+      stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority disagreement.
+      Compared to the overall population: 13% more likely to choose "Noticeably Worse"; 7% more likely to choose "No
+      Major Change"; 14% less likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "So far, what has been the overall impact of AI on your daily life?": A clear majority favors "No Major Change"
+      (64%), with "Noticeably Better" as a secondary choice (18%). Compared to the overall population: 5% more likely to
+      choose "Noticeably Worse"; 40% more likely to choose "No Major Change"; 35% less likely to choose "Noticeably
+      Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Is your job making a meaningful contribution to the world?": A clear majority favors "Yes" (55%), with "No "
+      as a secondary choice (36%). Compared to the overall population: 16% less likely to choose "Yes"; 24% more likely
+      to choose "No "; 8% less likely to choose "Don't Know"
+
+      On "Do you think your job is likely to be automated in the next 10 years?": A clear majority favors "No" (55%),
+      with "Don't Know" as a secondary choice (36%). Compared to the overall population: 30% less likely to choose
+      "Yes"; 12% more likely to choose "No"; 18% more likely to choose "Don't Know"
+
+      On "Do you think your job should be automated in the next 10 years?": Near-unanimous agreement on "No" (91%).
+      Compared to the overall population: 13% less likely to choose "Yes"; 26% more likely to choose "No"; 13% less
+      likely to choose "Don't Know"
+
+      On "So far, how has your community been affected by job loss from automation?": Near-unanimous agreement on "Not
+      at all" (91%). Compared to the overall population: 44% more likely to choose "Not at all"; 16% less likely to
+      choose "I know someone who has lost their job"; 22% less likely to choose "I know several people who have lost
+      their job"; 5% less likely to choose "I know many people who have lost their job"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 6%
+      more likely to choose "Agree"; 6% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 9%
+      more likely to choose "Agree"; 9% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (64%), with "Agree" as a secondary choice (36%)
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (55%), with "Agree" as a secondary choice
+      (46%). Compared to the overall population: 18% less likely to choose "Agree"; 18% more likely to choose "Disagree"
+
+      On "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)": Near-unanimous agreement on "Yes – I
+      was able to fully express my views on these topics" (73%). Compared to the overall population: 7% less likely to
+      choose "Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a
+      few things."
+
+      On "Do you feel like you understand yourself better after participating in this conversation?": A clear majority
+      favors "Maybe a little" (55%), with "Yes" as a secondary choice (46%). Compared to the overall population: 16%
+      less likely to choose "Yes"; 20% more likely to choose "Maybe a little"
+
+
+      Survey question:
+
+      "To what extent, if at all, do you generally trust social media companies to do what is right?"
+
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 36.4
+            - 45.5
+            - 9.1
+            - 9.1
+            - 0
+          metric: js-divergence
+    idealResponse: '[36.4, 45.5, 9.1, 9.1, 0.0]'
+    temperature: 0.3
+  - id: 8c50a77a-3fc2-49ce-b568-b7832c9b99e0-country:germany
+    description: >-
+      Predict: Germany → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of social media apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 11):
+
+      - Country: Germany
+
+
+      What we know about this group's views:
+
+      On "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…": A
+      clear majority favors "Equally concerned and excited" (55%), with "More concerned than excited" as a secondary
+      choice (27%). Compared to the overall population: 16% less likely to choose "More excited than concerned"; 16%
+      more likely to choose "More concerned than excited"
+
+      On "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?":
+      A clear majority favors "daily" (55%), with "weekly" as a secondary choice (36%). Compared to the overall
+      population: 13% less likely to choose "daily"; 11% more likely to choose "weekly"
+
+      On "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?": A clear majority favors "weekly" (55%), with "monthly" as a secondary
+      choice (36%). Compared to the overall population: 22% less likely to choose "daily"; 11% more likely to choose
+      "weekly"; 20% more likely to choose "monthly"; 5% less likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?": Tends toward "never" (46%) with substantial minority disagreement. Compared to the overall population: 18%
+      less likely to choose "daily"; 21% less likely to choose "weekly"; 8% more likely to choose "monthly"; 33% more
+      likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?": No dominant position — "weekly" leads at 36% with opinion spread across options. Compared to the overall
+      population: 22% less likely to choose "daily"; 5% more likely to choose "weekly"; 20% more likely to choose
+      "never"
+
+      On "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?": No dominant position — "weekly" leads at 36% with opinion spread across options. Compared to
+      the overall population: 20% less likely to choose "daily"; 6% more likely to choose "monthly"; 8% more likely to
+      choose "annually"
+
+      On "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?": Tends toward "never" (46%) with substantial minority
+      disagreement. Compared to the overall population: 5% less likely to choose "daily"; 18% less likely to choose
+      "weekly"; 17% more likely to choose "monthly"; 6% less likely to choose "annually"; 13% more likely to choose
+      "never"
+
+      On "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?": Near-unanimous agreement on "never" (91%).
+      Compared to the overall population: 10% less likely to choose "daily"; 11% less likely to choose "weekly"; 15%
+      less likely to choose "monthly"; 37% more likely to choose "never"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?": No dominant position — "Risks and benefits are equal" leads at 36% with opinion spread across options.
+      Compared to the overall population: 9% more likely to choose "Risks slightly outweigh benefits"; 8% more likely to
+      choose "Risks and benefits are equal"; 7% less likely to choose "Benefits slightly outweigh risks"; 7% less likely
+      to choose "Benefits far outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI
+      chatbots?": No dominant position — "Risks and benefits are equal" leads at 27% with opinion spread across options.
+      Compared to the overall population: 12% more likely to choose "Risks far outweigh benefits"; 14% less likely to
+      choose "Benefits slightly outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can perform tasks in the real world without human supervision?": Deeply divided between "Risks far outweigh
+      benefits" (27%) and "Risks slightly outweigh benefits" (27%). Compared to the overall population: 9% more likely
+      to choose "Risks far outweigh benefits"; 12% less likely to choose "Benefits slightly outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can outperform humans on most economically valuable work?": No dominant position — "Risks and benefits are
+      equal" leads at 36% with opinion spread across options. Compared to the overall population: 7% less likely to
+      choose "Risks slightly outweigh benefits"; 14% more likely to choose "Risks and benefits are equal"
+
+      On "To what extent, if at all, do you generally trust governments to do what is right?": Tends toward "Somewhat
+      Trust" (46%) with substantial minority disagreement. Compared to the overall population: 6% more likely to choose
+      "Strongly Distrust"; 13% less likely to choose "Somewhat Distrust"; 18% less likely to choose "Neither Trust Nor
+      Distrust"; 20% more likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust small businesses to do what is right?": A clear majority
+      favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to the
+      overall population: 16% less likely to choose "Somewhat Distrust"; 28% more likely to choose "Neither Trust Nor
+      Distrust"; 8% less likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust large corporations to do what is right?": Deeply divided
+      between "Strongly Distrust" (36%) and "Somewhat Distrust" (36%). Compared to the overall population: 16% more
+      likely to choose "Strongly Distrust"; 9% more likely to choose "Somewhat Distrust"; 13% less likely to choose
+      "Neither Trust Nor Distrust"; 6% less likely to choose "Somewhat Trust"; 5% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust social media companies to do what is right?": Tends toward
+      "Somewhat Distrust" (46%) with substantial minority disagreement. Compared to the overall population: 6% more
+      likely to choose "Strongly Distrust"; 13% more likely to choose "Somewhat Distrust"; 10% less likely to choose
+      "Neither Trust Nor Distrust"; 7% less likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust companies building AI to do what is right?": Tends toward
+      "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall population: 24%
+      more likely to choose "Strongly Distrust"; 15% less likely to choose "Somewhat Distrust"; 16% more likely to
+      choose "Neither Trust Nor Distrust"; 18% less likely to choose "Somewhat Trust"; 7% less likely to choose
+      "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public utility companies to do what is right?": A clear
+      majority favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to
+      the overall population: 20% less likely to choose "Somewhat Distrust"; 25% more likely to choose "Neither Trust
+      Nor Distrust"; 6% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public research institutions to do what is right?":
+      Near-unanimous agreement on "Somewhat Trust" (82%). Compared to the overall population: 9% less likely to choose
+      "Somewhat Distrust"; 20% less likely to choose "Neither Trust Nor Distrust"; 35% more likely to choose "Somewhat
+      Trust"
+
+      On "To what extent, if at all, do you trust your family doctor to act in your best interest?": Tends toward
+      "Strongly Trust" (46%) with substantial minority disagreement. Compared to the overall population: 8% more likely
+      to choose "Strongly Distrust"; 10% less likely to choose "Neither Trust Nor Distrust"
+
+      On "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best
+      interest?": A clear majority favors "Somewhat Distrust" (55%), with "Neither Trust Nor Distrust" as a secondary
+      choice (27%). Compared to the overall population: 21% more likely to choose "Somewhat Distrust"; 17% less likely
+      to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your elected representatives to act in your best interest?": Deeply
+      divided between "Somewhat Distrust" (27%) and "Neither Trust Nor Distrust" (27%)
+
+      On "To what extent, if at all, do you trust your faith or community leader to act in your best interest?": A clear
+      majority favors "Neither Trust Nor Distrust" (64%), with "Somewhat Trust" as a secondary choice (18%). Compared to
+      the overall population: 8% less likely to choose "Somewhat Distrust"; 37% more likely to choose "Neither Trust Nor
+      Distrust"; 15% less likely to choose "Somewhat Trust"; 11% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you trust the civil servants in your government to act in your best interest?":
+      Deeply divided between "Neither Trust Nor Distrust" (36%) and "Somewhat Trust" (36%). Compared to the overall
+      population: 9% less likely to choose "Strongly Distrust"; 19% less likely to choose "Somewhat Distrust"; 14% more
+      likely to choose "Neither Trust Nor Distrust"; 12% more likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best interest?": Tends
+      toward "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall
+      population: 5% more likely to choose "Strongly Distrust"; 8% more likely to choose "Somewhat Distrust"; 17% more
+      likely to choose "Neither Trust Nor Distrust"; 33% less likely to choose "Somewhat Trust"
+
+      On "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives.": Tends toward "Disagree" (46%) with substantial minority disagreement. Compared to the overall
+      population: 19% less likely to choose "Agree"; 16% more likely to choose "Disagree"
+
+      On "Do you think the increased use of AI across society is likely to make your cost of living better, worse or
+      stay the same in the next 10 years?": Near-unanimous agreement on "No Major Change" (73%). Compared to the overall
+      population: 10% less likely to choose "Noticeably Worse"; 51% more likely to choose "No Major Change"; 28% less
+      likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the amount of free time you have better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (64%), with "Noticeably
+      Better" as a secondary choice (27%). Compared to the overall population: 8% less likely to choose "Noticeably
+      Worse"; 41% more likely to choose "No Major Change"; 24% less likely to choose "Noticeably Better"; 8% less likely
+      to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your community's well-being better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (55%), with "Noticeably
+      Worse" as a secondary choice (27%). Compared to the overall population: 12% more likely to choose "Noticeably
+      Worse"; 28% more likely to choose "No Major Change"; 25% less likely to choose "Noticeably Better"; 12% less
+      likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the availability of good jobs better,
+      worse or stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority
+      disagreement. Compared to the overall population: 15% more likely to choose "Profoundly Worse"; 12% less likely to
+      choose "Noticeably Worse"; 29% more likely to choose "No Major Change"; 23% less likely to choose "Noticeably
+      Better"; 8% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or
+      stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority disagreement.
+      Compared to the overall population: 13% more likely to choose "Noticeably Worse"; 7% more likely to choose "No
+      Major Change"; 14% less likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "So far, what has been the overall impact of AI on your daily life?": A clear majority favors "No Major Change"
+      (64%), with "Noticeably Better" as a secondary choice (18%). Compared to the overall population: 5% more likely to
+      choose "Noticeably Worse"; 40% more likely to choose "No Major Change"; 35% less likely to choose "Noticeably
+      Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Is your job making a meaningful contribution to the world?": A clear majority favors "Yes" (55%), with "No "
+      as a secondary choice (36%). Compared to the overall population: 16% less likely to choose "Yes"; 24% more likely
+      to choose "No "; 8% less likely to choose "Don't Know"
+
+      On "Do you think your job is likely to be automated in the next 10 years?": A clear majority favors "No" (55%),
+      with "Don't Know" as a secondary choice (36%). Compared to the overall population: 30% less likely to choose
+      "Yes"; 12% more likely to choose "No"; 18% more likely to choose "Don't Know"
+
+      On "Do you think your job should be automated in the next 10 years?": Near-unanimous agreement on "No" (91%).
+      Compared to the overall population: 13% less likely to choose "Yes"; 26% more likely to choose "No"; 13% less
+      likely to choose "Don't Know"
+
+      On "So far, how has your community been affected by job loss from automation?": Near-unanimous agreement on "Not
+      at all" (91%). Compared to the overall population: 44% more likely to choose "Not at all"; 16% less likely to
+      choose "I know someone who has lost their job"; 22% less likely to choose "I know several people who have lost
+      their job"; 5% less likely to choose "I know many people who have lost their job"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 6%
+      more likely to choose "Agree"; 6% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 9%
+      more likely to choose "Agree"; 9% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (64%), with "Agree" as a secondary choice (36%)
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (55%), with "Agree" as a secondary choice
+      (46%). Compared to the overall population: 18% less likely to choose "Agree"; 18% more likely to choose "Disagree"
+
+      On "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)": Near-unanimous agreement on "Yes – I
+      was able to fully express my views on these topics" (73%). Compared to the overall population: 7% less likely to
+      choose "Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a
+      few things."
+
+      On "Do you feel like you understand yourself better after participating in this conversation?": A clear majority
+      favors "Maybe a little" (55%), with "Yes" as a secondary choice (46%). Compared to the overall population: 16%
+      less likely to choose "Yes"; 20% more likely to choose "Maybe a little"
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 9.1
+            - 63.6
+            - 27.3
+            - 0
+            - 0
+          metric: js-divergence
+    idealResponse: '[9.1, 63.6, 27.3, 0.0, 0.0]'
+    temperature: 0.3
+  - id: 30324a2e-b5b2-4e0a-a8f2-af599b55c40e-country:germany
+    description: >-
+      Predict: Germany → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI chatbots?"
+    promptText: >-
+      Consider the following demographic group (sample size: 11):
+
+      - Country: Germany
+
+
+      What we know about this group's views:
+
+      On "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…": A
+      clear majority favors "Equally concerned and excited" (55%), with "More concerned than excited" as a secondary
+      choice (27%). Compared to the overall population: 16% less likely to choose "More excited than concerned"; 16%
+      more likely to choose "More concerned than excited"
+
+      On "Thinking about the last three months, how often, if at all, have you noticed AI systems in your daily life?":
+      A clear majority favors "daily" (55%), with "weekly" as a secondary choice (36%). Compared to the overall
+      population: 13% less likely to choose "daily"; 11% more likely to choose "weekly"
+
+      On "Thinking about the last three months, how often, if at all, have you noticed human interactions which have
+      been replaced with automated systems?": A clear majority favors "weekly" (55%), with "monthly" as a secondary
+      choice (36%). Compared to the overall population: 22% less likely to choose "daily"; 11% more likely to choose
+      "weekly"; 20% more likely to choose "monthly"; 5% less likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you been expected to use an AI system at
+      work?": Tends toward "never" (46%) with substantial minority disagreement. Compared to the overall population: 18%
+      less likely to choose "daily"; 21% less likely to choose "weekly"; 8% more likely to choose "monthly"; 33% more
+      likely to choose "never"
+
+      On "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system at
+      work?": No dominant position — "weekly" leads at 36% with opinion spread across options. Compared to the overall
+      population: 22% less likely to choose "daily"; 5% more likely to choose "weekly"; 20% more likely to choose
+      "never"
+
+      On "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?": No dominant position — "weekly" leads at 36% with opinion spread across options. Compared to
+      the overall population: 20% less likely to choose "daily"; 6% more likely to choose "monthly"; 8% more likely to
+      choose "annually"
+
+      On "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?": Tends toward "never" (46%) with substantial minority
+      disagreement. Compared to the overall population: 5% less likely to choose "daily"; 18% less likely to choose
+      "weekly"; 17% more likely to choose "monthly"; 6% less likely to choose "annually"; 13% more likely to choose
+      "never"
+
+      On "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?": Near-unanimous agreement on "never" (91%).
+      Compared to the overall population: 10% less likely to choose "daily"; 11% less likely to choose "weekly"; 15%
+      less likely to choose "monthly"; 37% more likely to choose "never"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?": No dominant position — "Risks and benefits are equal" leads at 36% with opinion spread across options.
+      Compared to the overall population: 9% more likely to choose "Risks slightly outweigh benefits"; 8% more likely to
+      choose "Risks and benefits are equal"; 7% less likely to choose "Benefits slightly outweigh risks"; 7% less likely
+      to choose "Benefits far outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?": A clear majority favors "Risks slightly outweigh benefits" (64%), with "Risks and benefits are equal" as a
+      secondary choice (27%). Compared to the overall population: 42% more likely to choose "Risks slightly outweigh
+      benefits"; 27% less likely to choose "Benefits slightly outweigh risks"; 12% less likely to choose "Benefits far
+      outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can perform tasks in the real world without human supervision?": Deeply divided between "Risks far outweigh
+      benefits" (27%) and "Risks slightly outweigh benefits" (27%). Compared to the overall population: 9% more likely
+      to choose "Risks far outweigh benefits"; 12% less likely to choose "Benefits slightly outweigh risks"
+
+      On "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can outperform humans on most economically valuable work?": No dominant position — "Risks and benefits are
+      equal" leads at 36% with opinion spread across options. Compared to the overall population: 7% less likely to
+      choose "Risks slightly outweigh benefits"; 14% more likely to choose "Risks and benefits are equal"
+
+      On "To what extent, if at all, do you generally trust governments to do what is right?": Tends toward "Somewhat
+      Trust" (46%) with substantial minority disagreement. Compared to the overall population: 6% more likely to choose
+      "Strongly Distrust"; 13% less likely to choose "Somewhat Distrust"; 18% less likely to choose "Neither Trust Nor
+      Distrust"; 20% more likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust small businesses to do what is right?": A clear majority
+      favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to the
+      overall population: 16% less likely to choose "Somewhat Distrust"; 28% more likely to choose "Neither Trust Nor
+      Distrust"; 8% less likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust large corporations to do what is right?": Deeply divided
+      between "Strongly Distrust" (36%) and "Somewhat Distrust" (36%). Compared to the overall population: 16% more
+      likely to choose "Strongly Distrust"; 9% more likely to choose "Somewhat Distrust"; 13% less likely to choose
+      "Neither Trust Nor Distrust"; 6% less likely to choose "Somewhat Trust"; 5% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust social media companies to do what is right?": Tends toward
+      "Somewhat Distrust" (46%) with substantial minority disagreement. Compared to the overall population: 6% more
+      likely to choose "Strongly Distrust"; 13% more likely to choose "Somewhat Distrust"; 10% less likely to choose
+      "Neither Trust Nor Distrust"; 7% less likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you generally trust companies building AI to do what is right?": Tends toward
+      "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall population: 24%
+      more likely to choose "Strongly Distrust"; 15% less likely to choose "Somewhat Distrust"; 16% more likely to
+      choose "Neither Trust Nor Distrust"; 18% less likely to choose "Somewhat Trust"; 7% less likely to choose
+      "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public utility companies to do what is right?": A clear
+      majority favors "Neither Trust Nor Distrust" (55%), with "Somewhat Trust" as a secondary choice (36%). Compared to
+      the overall population: 20% less likely to choose "Somewhat Distrust"; 25% more likely to choose "Neither Trust
+      Nor Distrust"; 6% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you generally trust public research institutions to do what is right?":
+      Near-unanimous agreement on "Somewhat Trust" (82%). Compared to the overall population: 9% less likely to choose
+      "Somewhat Distrust"; 20% less likely to choose "Neither Trust Nor Distrust"; 35% more likely to choose "Somewhat
+      Trust"
+
+      On "To what extent, if at all, do you trust your family doctor to act in your best interest?": Tends toward
+      "Strongly Trust" (46%) with substantial minority disagreement. Compared to the overall population: 8% more likely
+      to choose "Strongly Distrust"; 10% less likely to choose "Neither Trust Nor Distrust"
+
+      On "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best
+      interest?": A clear majority favors "Somewhat Distrust" (55%), with "Neither Trust Nor Distrust" as a secondary
+      choice (27%). Compared to the overall population: 21% more likely to choose "Somewhat Distrust"; 17% less likely
+      to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your elected representatives to act in your best interest?": Deeply
+      divided between "Somewhat Distrust" (27%) and "Neither Trust Nor Distrust" (27%)
+
+      On "To what extent, if at all, do you trust your faith or community leader to act in your best interest?": A clear
+      majority favors "Neither Trust Nor Distrust" (64%), with "Somewhat Trust" as a secondary choice (18%). Compared to
+      the overall population: 8% less likely to choose "Somewhat Distrust"; 37% more likely to choose "Neither Trust Nor
+      Distrust"; 15% less likely to choose "Somewhat Trust"; 11% less likely to choose "Strongly Trust"
+
+      On "To what extent, if at all, do you trust the civil servants in your government to act in your best interest?":
+      Deeply divided between "Neither Trust Nor Distrust" (36%) and "Somewhat Trust" (36%). Compared to the overall
+      population: 9% less likely to choose "Strongly Distrust"; 19% less likely to choose "Somewhat Distrust"; 14% more
+      likely to choose "Neither Trust Nor Distrust"; 12% more likely to choose "Somewhat Trust"
+
+      On "To what extent, if at all, do you trust your AI chatbot (eg ChatGPT) to act in your best interest?": Tends
+      toward "Neither Trust Nor Distrust" (46%) with substantial minority disagreement. Compared to the overall
+      population: 5% more likely to choose "Strongly Distrust"; 8% more likely to choose "Somewhat Distrust"; 17% more
+      likely to choose "Neither Trust Nor Distrust"; 33% less likely to choose "Somewhat Trust"
+
+      On "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives.": Tends toward "Disagree" (46%) with substantial minority disagreement. Compared to the overall
+      population: 19% less likely to choose "Agree"; 16% more likely to choose "Disagree"
+
+      On "Do you think the increased use of AI across society is likely to make your cost of living better, worse or
+      stay the same in the next 10 years?": Near-unanimous agreement on "No Major Change" (73%). Compared to the overall
+      population: 10% less likely to choose "Noticeably Worse"; 51% more likely to choose "No Major Change"; 28% less
+      likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the amount of free time you have better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (64%), with "Noticeably
+      Better" as a secondary choice (27%). Compared to the overall population: 8% less likely to choose "Noticeably
+      Worse"; 41% more likely to choose "No Major Change"; 24% less likely to choose "Noticeably Better"; 8% less likely
+      to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your community's well-being better,
+      worse or stay the same in the next 10 years?": A clear majority favors "No Major Change" (55%), with "Noticeably
+      Worse" as a secondary choice (27%). Compared to the overall population: 12% more likely to choose "Noticeably
+      Worse"; 28% more likely to choose "No Major Change"; 25% less likely to choose "Noticeably Better"; 12% less
+      likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make the availability of good jobs better,
+      worse or stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority
+      disagreement. Compared to the overall population: 15% more likely to choose "Profoundly Worse"; 12% less likely to
+      choose "Noticeably Worse"; 29% more likely to choose "No Major Change"; 23% less likely to choose "Noticeably
+      Better"; 8% less likely to choose "Profoundly Better"
+
+      On "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or
+      stay the same in the next 10 years?": Tends toward "No Major Change" (46%) with substantial minority disagreement.
+      Compared to the overall population: 13% more likely to choose "Noticeably Worse"; 7% more likely to choose "No
+      Major Change"; 14% less likely to choose "Noticeably Better"; 10% less likely to choose "Profoundly Better"
+
+      On "So far, what has been the overall impact of AI on your daily life?": A clear majority favors "No Major Change"
+      (64%), with "Noticeably Better" as a secondary choice (18%). Compared to the overall population: 5% more likely to
+      choose "Noticeably Worse"; 40% more likely to choose "No Major Change"; 35% less likely to choose "Noticeably
+      Better"; 10% less likely to choose "Profoundly Better"
+
+      On "Is your job making a meaningful contribution to the world?": A clear majority favors "Yes" (55%), with "No "
+      as a secondary choice (36%). Compared to the overall population: 16% less likely to choose "Yes"; 24% more likely
+      to choose "No "; 8% less likely to choose "Don't Know"
+
+      On "Do you think your job is likely to be automated in the next 10 years?": A clear majority favors "No" (55%),
+      with "Don't Know" as a secondary choice (36%). Compared to the overall population: 30% less likely to choose
+      "Yes"; 12% more likely to choose "No"; 18% more likely to choose "Don't Know"
+
+      On "Do you think your job should be automated in the next 10 years?": Near-unanimous agreement on "No" (91%).
+      Compared to the overall population: 13% less likely to choose "Yes"; 26% more likely to choose "No"; 13% less
+      likely to choose "Don't Know"
+
+      On "So far, how has your community been affected by job loss from automation?": Near-unanimous agreement on "Not
+      at all" (91%). Compared to the overall population: 44% more likely to choose "Not at all"; 16% less likely to
+      choose "I know someone who has lost their job"; 22% less likely to choose "I know several people who have lost
+      their job"; 5% less likely to choose "I know many people who have lost their job"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 6%
+      more likely to choose "Agree"; 6% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": Near-unanimous agreement on "Agree" (100%). Compared to the overall population: 9%
+      more likely to choose "Agree"; 9% less likely to choose "Disagree"
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (64%), with "Agree" as a secondary choice (36%)
+
+      On "Do you agree or disagree?": A clear majority favors "Disagree" (55%), with "Agree" as a secondary choice
+      (46%). Compared to the overall population: 18% less likely to choose "Agree"; 18% more likely to choose "Disagree"
+
+      On "Do you feel you were able to fully express your views on your culture, your values, and what you want for the
+      future in this conversation? (through what you responded and how you voted)": Near-unanimous agreement on "Yes – I
+      was able to fully express my views on these topics" (73%). Compared to the overall population: 7% less likely to
+      choose "Mostly – I was able to mostly express my views on these topics, but did not have the chance to express a
+      few things."
+
+      On "Do you feel like you understand yourself better after participating in this conversation?": A clear majority
+      favors "Maybe a little" (55%), with "Yes" as a secondary choice (46%). Compared to the overall population: 16%
+      less likely to choose "Yes"; 20% more likely to choose "Maybe a little"
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI chatbots?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.2
+            - 18.2
+            - 27.3
+            - 18.2
+            - 18.2
+          metric: js-divergence
+    idealResponse: '[18.2, 18.2, 27.3, 18.2, 18.2]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - distribution
+  - global-dialogues-gd3
+  - narrative
+  - gd3
+context:
+  dtef:
+    surveyId: global-dialogues-gd3
+    segmentId: country:germany
+    segmentLabel: Germany
+    segmentAttributes:
+      country: Germany
+    groundTruthDistributions:
+      47cdf76a-9abf-4b5c-abbe-2d5b00ef172d-country:germany:
+        - 27.3
+        - 36.4
+        - 18.2
+        - 9.1
+        - 9.1
+      d633720f-a159-4922-925c-fd9f3245711e-country:germany:
+        - 9.1
+        - 9.1
+        - 36.4
+        - 0
+        - 45.5
+      38964f80-772f-4e5d-a355-b4857f2de101-country:germany:
+        - 18.2
+        - 45.5
+        - 36.4
+      8b361c6c-eb59-415b-8536-7f80713c3e5e-country:germany:
+        - 0
+        - 9.1
+        - 0
+        - 0
+        - 90.9
+      b1869877-1015-43ec-9645-84bf2db39c6f-country:germany:
+        - 27.3
+        - 18.2
+        - 0
+        - 45.5
+        - 9.1
+      96ccfd7b-8f99-4d0a-b700-9fd835e23bd8-country:germany:
+        - 18.2
+        - 18.2
+        - 36.4
+        - 18.2
+        - 9.1
+      f932063f-700c-4327-9c34-59b7c3e19190-country:germany:
+        - 18.2
+        - 54.5
+        - 27.3
+      4c5ed164-eb69-4e41-906f-1e7a93f1d5bd-country:germany:
+        - 36.4
+        - 45.5
+        - 9.1
+        - 9.1
+        - 0
+      8c50a77a-3fc2-49ce-b568-b7832c9b99e0-country:germany:
+        - 9.1
+        - 63.6
+        - 27.3
+        - 0
+        - 0
+      30324a2e-b5b2-4e0a-a8f2-af599b55c40e-country:germany:
+        - 18.2
+        - 18.2
+        - 27.3
+        - 18.2
+        - 18.2
+    contextQuestionCount: 42
+    contextQuestionIds:
+      - f932063f-700c-4327-9c34-59b7c3e19190
+      - ae768935-002f-49e2-b08f-92c7616b0533
+      - 926a5461-6a68-43c9-8279-94430dc9323e
+      - 1ebc80e1-d3e2-4dc5-987c-e4d637cf6bec
+      - 3c74ec68-77f6-46a5-9918-0c8e97fb7bc8
+      - d633720f-a159-4922-925c-fd9f3245711e
+      - 8b361c6c-eb59-415b-8536-7f80713c3e5e
+      - d1baeb26-baca-414f-91f6-72b023c02a65
+      - 8c50a77a-3fc2-49ce-b568-b7832c9b99e0
+      - 30324a2e-b5b2-4e0a-a8f2-af599b55c40e
+      - 4f234e17-2d57-4709-b29a-4a2909683566
+      - 96ccfd7b-8f99-4d0a-b700-9fd835e23bd8
+      - b1869877-1015-43ec-9645-84bf2db39c6f
+      - dc5e8d2a-c20b-47fa-89e2-b4db635a8ad4
+      - 8ed2d795-acca-47d8-abb0-8c446310dbf0
+      - 4c5ed164-eb69-4e41-906f-1e7a93f1d5bd
+      - 8d058cce-8ccf-4816-8ef7-c9c9e37038dc
+      - e80f0f47-44d0-4d1a-bbda-d2334ff056ac
+      - a6fa1236-c145-498b-8c30-7ca307461789
+      - f435994f-e66e-4681-8334-4d6ee5f39e6b
+      - 951f11a0-3307-4507-805c-86d17562d21a
+      - 522df4e6-3a3b-48d9-9c83-a03a6a7bb22e
+      - 18cc2f33-6373-49f0-aa7e-e2fa04a04575
+      - e26549f8-5c9a-426b-b22a-57d8fe0d5e03
+      - 332cec0c-afeb-4c18-a0e4-146c656750a8
+      - 38964f80-772f-4e5d-a355-b4857f2de101
+      - 983893d8-07ab-4c8e-bdb2-14335638633d
+      - 8a9d1c12-44f6-42dc-9238-daaaca0d85d0
+      - 5afe8617-7e71-40c8-8a33-1b356a8ca674
+      - 96e5895f-d640-4a37-bc16-6e095f38ba7e
+      - 0e0a2736-2ac9-490c-adb9-bf7dfd25b14b
+      - b1288e79-aec5-43e4-a34e-c6d474737305
+      - 29453c82-de9b-4be1-ba27-723906fb7dcf
+      - 289f8b3b-d97c-4585-8e41-5e41602aaedb
+      - e7a8b7e2-9077-4c8c-9cca-29f3c957ca16
+      - 41f7cf6e-c4ee-42c7-b453-77320c78b294
+      - c909ca6a-ef51-4505-92a3-6f19645cd2b0
+      - 18e6fbb1-c242-41ab-9e56-17b8ac4b4ca7
+      - b6c5e939-455a-4c81-a676-9be1bccaa582
+      - ec5fd6c7-ba70-46c0-a5c7-75e4f75163de
+      - 78975667-0a8d-452f-9569-c7447732ba49
+      - fb7e02bc-de8f-453d-bfcc-10feb179f4ce
+    evalType: distribution
+    contextFormat: narrative
+    reasoningMode: standard
+    populationMarginals:
+      f932063f-700c-4327-9c34-59b7c3e19190:
+        - 34.056831546177804
+        - 54.57881355932203
+        - 11.361950882047735
+      ae768935-002f-49e2-b08f-92c7616b0533:
+        - 67.85089934278795
+        - 25.610878588723622
+        - 5.203718436527152
+        - 0.21094776893808373
+        - 1.122137668626773
+      926a5461-6a68-43c9-8279-94430dc9323e:
+        - 30.891162227602898
+        - 43.97352127291595
+        - 16.718004150812867
+        - 3.059062608094084
+        - 5.353268765133171
+      1ebc80e1-d3e2-4dc5-987c-e4d637cf6bec:
+        - 45.37438602559667
+        - 30.436336907644414
+        - 9.737824282255277
+        - 2.01323071601522
+        - 12.44911795226565
+      3c74ec68-77f6-46a5-9918-0c8e97fb7bc8:
+        - 49.5162746454514
+        - 31.29963680387409
+        - 9.825873400207541
+        - 1.8625907990314767
+        - 7.494465582843308
+      47cdf76a-9abf-4b5c-abbe-2d5b00ef172d:
+        - 47.32317537184365
+        - 33.66354202698027
+        - 12.171999308197856
+        - 1.520529228640609
+        - 5.35155655482532
+      d633720f-a159-4922-925c-fd9f3245711e:
+        - 14.588931165686615
+        - 27.39157730888966
+        - 19.784244206157037
+        - 6.191473538567969
+        - 32.04303009339329
+      8b361c6c-eb59-415b-8536-7f80713c3e5e:
+        - 9.749360083016255
+        - 19.88267035627811
+        - 14.56023867173988
+        - 1.932168799723279
+        - 53.87928052576965
+      d1baeb26-baca-414f-91f6-72b023c02a65:
+        - 3.9467139398132125
+        - 8.949014181943964
+        - 27.94512279488066
+        - 34.02634036665512
+        - 25.109304738844692
+      8c50a77a-3fc2-49ce-b568-b7832c9b99e0:
+        - 11.060083016257352
+        - 21.337063299896222
+        - 29.147094430992738
+        - 26.77872708405395
+        - 11.681252161881705
+      30324a2e-b5b2-4e0a-a8f2-af599b55c40e:
+        - 5.74040124524386
+        - 15.078415773088894
+        - 24.652196471809066
+        - 32.2442234520927
+        - 22.275147007955724
+      4f234e17-2d57-4709-b29a-4a2909683566:
+        - 18.255015565548252
+        - 23.733552404012443
+        - 25.88033552404012
+        - 21.31276374956762
+        - 10.825596679349706
+      96ccfd7b-8f99-4d0a-b700-9fd835e23bd8:
+        - 19.068194396402628
+        - 25.57452438602559
+        - 22.775786924939474
+        - 21.757609823590453
+        - 10.846091317883083
+      b1869877-1015-43ec-9645-84bf2db39c6f:
+        - 21.522552749913523
+        - 31.36307506053268
+        - 17.878709789000347
+        - 25.02241438948462
+        - 4.237806987201659
+      dc5e8d2a-c20b-47fa-89e2-b4db635a8ad4:
+        - 3.47979937737807
+        - 16.301729505361468
+        - 26.247959183673473
+        - 44.25705638187476
+        - 9.72194742303701
+      8ed2d795-acca-47d8-abb0-8c446310dbf0:
+        - 20.785333794534758
+        - 27.378519543410587
+        - 22.423832583881012
+        - 24.120356278104456
+        - 5.324299550328605
+      4c5ed164-eb69-4e41-906f-1e7a93f1d5bd:
+        - 30.00300933932894
+        - 32.47120373573159
+        - 19.104462123832583
+        - 16.218920788654447
+        - 2.1942753372535453
+      8d058cce-8ccf-4816-8ef7-c9c9e37038dc:
+        - 11.934451746800415
+        - 23.972829470771362
+        - 29.91873054306468
+        - 27.028069872016598
+        - 7.16342096160498
+      e80f0f47-44d0-4d1a-bbda-d2334ff056ac:
+        - 5.738135593220339
+        - 20.167173988239366
+        - 29.634365271532342
+        - 38.32779315115876
+        - 6.119508820477344
+      a6fa1236-c145-498b-8c30-7ca307461789:
+        - 2.7703735731580768
+        - 8.54316845382221
+        - 20.357488758215148
+        - 46.6338464199239
+        - 21.706243514354895
+      f435994f-e66e-4681-8334-4d6ee5f39e6b:
+        - 1.224714631615358
+        - 4.220840539605672
+        - 10.45548253199585
+        - 40.83749567623659
+        - 43.21956070563819
+      951f11a0-3307-4507-805c-86d17562d21a:
+        - 23.005482531995845
+        - 33.197855413351775
+        - 23.596592874437906
+        - 17.17282947077136
+        - 3.034278796264268
+      522df4e6-3a3b-48d9-9c83-a03a6a7bb22e:
+        - 19.534659287443795
+        - 27.56208924247664
+        - 23.27135939121412
+        - 24.790107229332413
+        - 4.815409892770667
+      18cc2f33-6373-49f0-aa7e-e2fa04a04575:
+        - 11.51784849533034
+        - 17.235506745070918
+        - 27.02360774818401
+        - 32.985143548945
+        - 11.232410930473884
+      e26549f8-5c9a-426b-b22a-57d8fe0d5e03:
+        - 18.16042891732965
+        - 28.55676236596333
+        - 22.32509512279488
+        - 24.813040470425452
+        - 6.164043583535109
+      332cec0c-afeb-4c18-a0e4-146c656750a8:
+        - 3.9106191629194034
+        - 10.055949498443445
+        - 28.24545140089934
+        - 42.07329643721895
+        - 15.71106883431339
+      38964f80-772f-4e5d-a355-b4857f2de101:
+        - 37.255914908336216
+        - 29.255309581459706
+        - 33.48891387063299
+      983893d8-07ab-4c8e-bdb2-14335638633d:
+        - 3.1159806295399513
+        - 19.11243514354895
+        - 21.544396402628852
+        - 46.21572120373572
+        - 10.024282255274992
+      8a9d1c12-44f6-42dc-9238-daaaca0d85d0:
+        - 1.8519889311656865
+        - 7.611864406779661
+        - 22.153597371151857
+        - 51.586786579038375
+        - 16.79873746108613
+      5afe8617-7e71-40c8-8a33-1b356a8ca674:
+        - 3.625735039778623
+        - 15.40295745416811
+        - 26.02094430992734
+        - 42.705793842960915
+        - 12.225198893116566
+      96e5895f-d640-4a37-bc16-6e095f38ba7e:
+        - 12.311587685921827
+        - 39.33199584918713
+        - 16.929557246627468
+        - 23.343237634036665
+        - 8.061656866136284
+      0e0a2736-2ac9-490c-adb9-bf7dfd25b14b:
+        - 5.148253199584917
+        - 14.594949844344518
+        - 38.060411622276014
+        - 32.16018678657905
+        - 10.047025250778276
+      b1288e79-aec5-43e4-a34e-c6d474737305:
+        - 0.8283120027672084
+        - 4.0727602905569
+        - 23.477775856105154
+        - 52.8749913524732
+        - 18.72730888965756
+      29453c82-de9b-4be1-ba27-723906fb7dcf:
+        - 70.77748184019369
+        - 12.025510204081636
+        - 17.189017640954685
+      289f8b3b-d97c-4585-8e41-5e41602aaedb:
+        - 38.83799723279142
+        - 42.8571947423037
+        - 18.313542026980286
+      e7a8b7e2-9077-4c8c-9cca-29f3c957ca16:
+        - 22.441369768246282
+        - 64.55349360083017
+        - 13.006347284676586
+      41f7cf6e-c4ee-42c7-b453-77320c78b294:
+        - 47.236873054306464
+        - 25.065219647180903
+        - 22.476962988585267
+        - 5.2425285368384635
+      c909ca6a-ef51-4505-92a3-6f19645cd2b0:
+        - 94.11281563472849
+        - 5.887461086129366
+      18e6fbb1-c242-41ab-9e56-17b8ac4b4ca7:
+        - 90.74173296437222
+        - 9.264320304392946
+      b6c5e939-455a-4c81-a676-9be1bccaa582:
+        - 38.463317191283295
+        - 61.53695952957453
+      ec5fd6c7-ba70-46c0-a5c7-75e4f75163de:
+        - 63.9970598408855
+        - 36.0029401591145
+      78975667-0a8d-452f-9569-c7447732ba49:
+        - 70.22213766862677
+        - 24.922725700449668
+        - 4.660273261847112
+        - 0.20435835351089587
+      fb7e02bc-de8f-453d-bfcc-10feb179f4ce:
+        - 61.11001383604286
+        - 34.50112417848495
+        - 4.396229678312002

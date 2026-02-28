@@ -1,0 +1,460 @@
+configId: dtef-global-dialogues-gd7-gender:male-cot
+configTitle: Global Dialogues GD7 - Male [CoT]
+description: >-
+  DTEF: Predict response distributions for Male. Source: Global Dialogues GD7
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Think through this step-by-step:
+
+  1. OPTION INTERPRETATION: What does each answer option represent?
+
+  2. SEGMENT ANALYSIS: What do the demographic attributes and context suggest about this group's likely views?
+
+  3. DISTRIBUTION REASONING: How would this group's characteristics shape the distribution across options?
+
+  4. PREDICTION: Provide your predicted percentage distribution.
+
+
+  After your reasoning, provide the final distribution on its own line:
+
+  DISTRIBUTION: [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place.
+temperature: 0.3
+prompts:
+  - id: 3715e9a1-f652-48be-8a15-7a9deb802a1b-gender:male
+    description: >-
+      Predict: Male → "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my
+      government representatives."
+    promptText: >-
+      Consider the following demographic group (sample size: 506):
+
+      - Gender: Male
+
+
+      Survey question:
+
+      "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+        c. Unsure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 42.9
+            - 23.7
+            - 33.4
+          metric: js-divergence
+    idealResponse: '[42.9, 23.7, 33.4]'
+    temperature: 0.3
+  - id: 49d3ba6e-1281-4f74-aef7-4e55cf11ebb0-gender:male
+    description: >-
+      Predict: Male → "Considering both potential benefits and risks, how do you assess the overall impact on society of
+      AI systems that can outperform humans on most economically valuable work?"
+    promptText: >-
+      Consider the following demographic group (sample size: 506):
+
+      - Gender: Male
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can outperform humans on most economically valuable work?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.3
+            - 21.7
+            - 25.5
+            - 22.1
+            - 12.4
+          metric: js-divergence
+    idealResponse: '[18.3, 21.7, 25.5, 22.1, 12.4]'
+    temperature: 0.3
+  - id: 03ac572b-962e-4f24-a48b-cbbd6f2acd20-gender:male
+    description: >-
+      Predict: Male → "Considering both potential benefits and risks, how do you assess the overall impact on society of
+      AI systems that can perform tasks in the real world without human supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 506):
+
+      - Gender: Male
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can perform tasks in the real world without human supervision?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.9
+            - 24.5
+            - 23.3
+            - 22.5
+            - 10.8
+          metric: js-divergence
+    idealResponse: '[18.9, 24.5, 23.3, 22.5, 10.8]'
+    temperature: 0.3
+  - id: 733aae0e-2178-4d6a-a853-16e6ead10472-gender:male
+    description: 'Predict: Male → "To what extent, if at all, do you generally trust governments to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 506):
+      - Gender: Male
+
+      Survey question:
+      "To what extent, if at all, do you generally trust governments to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 24.3
+            - 31.7
+            - 15.5
+            - 25.5
+            - 3
+          metric: js-divergence
+    idealResponse: '[24.3, 31.7, 15.5, 25.5, 3.0]'
+    temperature: 0.3
+  - id: 584716af-7504-49c9-b2c1-abae12db8872-gender:male
+    description: 'Predict: Male → "To what extent, if at all, do you generally trust large corporations to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 506):
+      - Gender: Male
+
+      Survey question:
+      "To what extent, if at all, do you generally trust large corporations to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 23.7
+            - 30.1
+            - 18.5
+            - 20.7
+            - 7
+          metric: js-divergence
+    idealResponse: '[23.7, 30.1, 18.5, 20.7, 7.0]'
+    temperature: 0.3
+  - id: 5fc690be-1f15-4c00-be3f-48d5e327eab0-gender:male
+    description: 'Predict: Male → "To what extent, if at all, do you generally trust companies building AI to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 506):
+      - Gender: Male
+
+      Survey question:
+      "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 13.3
+            - 20.7
+            - 30.5
+            - 28.3
+            - 7.2
+          metric: js-divergence
+    idealResponse: '[13.3, 20.7, 30.5, 28.3, 7.2]'
+    temperature: 0.3
+  - id: 92d647b9-d902-47bc-b2b3-b2871725ebfe-gender:male
+    description: >-
+      Predict: Male → "Do you think the increased use of AI across society is likely to make the availability of good
+      jobs better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 506):
+
+      - Gender: Male
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make the availability of good jobs better, worse
+      or stay the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16.3
+            - 36.7
+            - 18.5
+            - 22.4
+            - 6
+          metric: js-divergence
+    idealResponse: '[16.3, 36.7, 18.5, 22.4, 6.0]'
+    temperature: 0.3
+  - id: 32f89793-1096-4e03-96bd-347a3bf06f0e-gender:male
+    description: >-
+      Predict: Male → "Do you think the increased use of AI across society is likely to make your sense of purpose
+      better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 506):
+
+      - Gender: Male
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or stay
+      the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 6.7
+            - 13.7
+            - 40.7
+            - 29.6
+            - 9.3
+          metric: js-divergence
+    idealResponse: '[6.7, 13.7, 40.7, 29.6, 9.3]'
+    temperature: 0.3
+  - id: a2f84060-18d0-465c-960a-8f8a925e1be1-gender:male
+    description: >-
+      Predict: Male → "Considering both potential benefits and risks, how do you assess the overall impact on society of
+      social media apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 506):
+
+      - Gender: Male
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15.4
+            - 22.8
+            - 26.9
+            - 25.3
+            - 9.6
+          metric: js-divergence
+    idealResponse: '[15.4, 22.8, 26.9, 25.3, 9.6]'
+    temperature: 0.3
+  - id: cc7788c8-cf1b-4066-a002-58ed4e1fc8ed-gender:male
+    description: >-
+      Predict: Male → "Imagine a close friend or family member was having conversations with an AI chatbot. If the AI
+      detected that their messages strongly suggested they were at immediate risk of harming themselves, what action do
+      you believe the AI company should take?"
+    promptText: >-
+      Consider the following demographic group (sample size: 506):
+
+      - Gender: Male
+
+
+      Survey question:
+
+      "Imagine a close friend or family member was having conversations with an AI chatbot. If the AI detected that
+      their messages strongly suggested they were at immediate risk of harming themselves, what action do you believe
+      the AI company should take?"
+
+
+      Answer options:
+        a. The company should do nothing; the conversations are completely private.
+        b. The company should have the AI provide contact information for a crisis hotline within the chat.
+        c. The company should have a human review the chat and, if necessary, proactively reach out to a crisis support service.
+        d. The company should be a "mandatory reporter" and contact local emergency services or law enforcement.
+        e. I'm not sure.
+        f. Other
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 11.9
+            - 33.9
+            - 29.9
+            - 15.7
+            - 7.8
+            - 0.8
+          metric: js-divergence
+    idealResponse: '[11.9, 33.9, 29.9, 15.7, 7.8, 0.8]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - distribution
+  - global-dialogues-gd7
+  - cot
+  - gd7
+context:
+  dtef:
+    surveyId: global-dialogues-gd7
+    segmentId: gender:male
+    segmentLabel: Male
+    segmentAttributes:
+      gender: Male
+    groundTruthDistributions:
+      3715e9a1-f652-48be-8a15-7a9deb802a1b-gender:male:
+        - 42.9
+        - 23.7
+        - 33.4
+      49d3ba6e-1281-4f74-aef7-4e55cf11ebb0-gender:male:
+        - 18.3
+        - 21.7
+        - 25.5
+        - 22.1
+        - 12.4
+      03ac572b-962e-4f24-a48b-cbbd6f2acd20-gender:male:
+        - 18.9
+        - 24.5
+        - 23.3
+        - 22.5
+        - 10.8
+      733aae0e-2178-4d6a-a853-16e6ead10472-gender:male:
+        - 24.3
+        - 31.7
+        - 15.5
+        - 25.5
+        - 3
+      584716af-7504-49c9-b2c1-abae12db8872-gender:male:
+        - 23.7
+        - 30.1
+        - 18.5
+        - 20.7
+        - 7
+      5fc690be-1f15-4c00-be3f-48d5e327eab0-gender:male:
+        - 13.3
+        - 20.7
+        - 30.5
+        - 28.3
+        - 7.2
+      92d647b9-d902-47bc-b2b3-b2871725ebfe-gender:male:
+        - 16.3
+        - 36.7
+        - 18.5
+        - 22.4
+        - 6
+      32f89793-1096-4e03-96bd-347a3bf06f0e-gender:male:
+        - 6.7
+        - 13.7
+        - 40.7
+        - 29.6
+        - 9.3
+      a2f84060-18d0-465c-960a-8f8a925e1be1-gender:male:
+        - 15.4
+        - 22.8
+        - 26.9
+        - 25.3
+        - 9.6
+      cc7788c8-cf1b-4066-a002-58ed4e1fc8ed-gender:male:
+        - 11.9
+        - 33.9
+        - 29.9
+        - 15.7
+        - 7.8
+        - 0.8
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: cot

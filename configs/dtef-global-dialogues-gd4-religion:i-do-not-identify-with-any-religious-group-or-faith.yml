@@ -1,0 +1,425 @@
+configId: dtef-global-dialogues-gd4-religion:i-do-not-identify-with-any-religious-group-or-faith
+configTitle: Global Dialogues GD4 - I do not identify with any religious group or faith
+description: >-
+  DTEF: Predict response distributions for I do not identify with any religious group or faith. Source: Global Dialogues
+  GD4 (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+prompts:
+  - id: 28cfe238-1c8f-476f-8c57-48b8ca1071a7-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: >-
+      Predict: I do not identify with any religious group or faith → "Overall, would you say the increased use of
+      artificial intelligence (AI) in daily life makes you feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 324):
+      - Religion: I do not identify with any religious group or faith
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 39.5
+            - 46.3
+            - 14.2
+          metric: js-divergence
+    idealResponse: '[39.5, 46.3, 14.2]'
+    temperature: 0.3
+  - id: 25e16598-f3a7-411d-b4cb-736c91bc3d03-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: >-
+      Predict: I do not identify with any religious group or faith → "To what extent, if at all, do you generally trust
+      governments to do what is right?"
+    promptText: |-
+      Consider the following demographic group (sample size: 324):
+      - Religion: I do not identify with any religious group or faith
+
+      Survey question:
+      "To what extent, if at all, do you generally trust governments to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 25.2
+            - 36.2
+            - 18.6
+            - 17.9
+            - 2.2
+          metric: js-divergence
+    idealResponse: '[25.2, 36.2, 18.6, 17.9, 2.2]'
+    temperature: 0.3
+  - id: e70a42e6-c1c0-43c6-a389-d28347e17f2f-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: >-
+      Predict: I do not identify with any religious group or faith → "To what extent, if at all, do you generally trust
+      large corporations to do what is right?"
+    promptText: |-
+      Consider the following demographic group (sample size: 324):
+      - Religion: I do not identify with any religious group or faith
+
+      Survey question:
+      "To what extent, if at all, do you generally trust large corporations to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 30.8
+            - 32.4
+            - 21.7
+            - 13.5
+            - 1.6
+          metric: js-divergence
+    idealResponse: '[30.8, 32.4, 21.7, 13.5, 1.6]'
+    temperature: 0.3
+  - id: be27a244-3429-417d-8517-de800bc90acf-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: >-
+      Predict: I do not identify with any religious group or faith → "To what extent, if at all, do you generally trust
+      social media companies to do what is right?"
+    promptText: |-
+      Consider the following demographic group (sample size: 324):
+      - Religion: I do not identify with any religious group or faith
+
+      Survey question:
+      "To what extent, if at all, do you generally trust social media companies to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 40.3
+            - 36.5
+            - 17.3
+            - 5.3
+            - 0.6
+          metric: js-divergence
+    idealResponse: '[40.3, 36.5, 17.3, 5.3, 0.6]'
+    temperature: 0.3
+  - id: d7943aa5-3a9f-4161-9d2b-651c71d92c73-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: >-
+      Predict: I do not identify with any religious group or faith → "To what extent, if at all, do you generally trust
+      companies building AI to do what is right?"
+    promptText: |-
+      Consider the following demographic group (sample size: 324):
+      - Religion: I do not identify with any religious group or faith
+
+      Survey question:
+      "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 19.8
+            - 28.9
+            - 28.9
+            - 21.1
+            - 1.3
+          metric: js-divergence
+    idealResponse: '[19.8, 28.9, 28.9, 21.1, 1.3]'
+    temperature: 0.3
+  - id: 6630ff34-e67e-423a-9cea-0a4861106680-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: >-
+      Predict: I do not identify with any religious group or faith → "Considering both potential benefits and risks, how
+      do you assess the overall impact on society of messaging apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 324):
+
+      - Religion: I do not identify with any religious group or faith
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.3
+            - 9.4
+            - 27
+            - 32.7
+            - 25.5
+          metric: js-divergence
+    idealResponse: '[5.3, 9.4, 27.0, 32.7, 25.5]'
+    temperature: 0.3
+  - id: cc7346fb-571e-48ad-aeaa-4135f0fdf58c-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: 'Predict: I do not identify with any religious group or faith → "A romantic partner."'
+    promptText: |-
+      Consider the following demographic group (sample size: 324):
+      - Religion: I do not identify with any religious group or faith
+
+      Survey question:
+      "A romantic partner."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 41
+            - 24.8
+            - 18.4
+            - 10.8
+            - 5.1
+          metric: js-divergence
+    idealResponse: '[41.0, 24.8, 18.4, 10.8, 5.1]'
+    temperature: 0.3
+  - id: 3cf6da25-08f3-496d-9a4a-93afc5069e36-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: 'Predict: I do not identify with any religious group or faith → "A spiritual advisor."'
+    promptText: |-
+      Consider the following demographic group (sample size: 324):
+      - Religion: I do not identify with any religious group or faith
+
+      Survey question:
+      "A spiritual advisor."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.7
+            - 15.6
+            - 22.9
+            - 33.3
+            - 9.5
+          metric: js-divergence
+    idealResponse: '[18.7, 15.6, 22.9, 33.3, 9.5]'
+    temperature: 0.3
+  - id: e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: >-
+      Predict: I do not identify with any religious group or faith → "Do you agree or disagree with this statement? AI
+      could make better decisions on my behalf than my government representatives."
+    promptText: >-
+      Consider the following demographic group (sample size: 324):
+
+      - Religion: I do not identify with any religious group or faith
+
+
+      Survey question:
+
+      "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+        c. Unsure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 30
+            - 31.5
+            - 38.5
+          metric: js-divergence
+    idealResponse: '[30.0, 31.5, 38.5]'
+    temperature: 0.3
+  - id: 29598fc6-6928-49f7-9a42-2f57cf5e1c28-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: >-
+      Predict: I do not identify with any religious group or faith → "Considering both potential benefits and risks, how
+      do you assess the overall impact on society of AI systems that can perform tasks in the real world without human
+      supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 324):
+
+      - Religion: I do not identify with any religious group or faith
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can perform tasks in the real world without human supervision?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 21.4
+            - 26.4
+            - 24.2
+            - 20.4
+            - 7.5
+          metric: js-divergence
+    idealResponse: '[21.4, 26.4, 24.2, 20.4, 7.5]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - distribution
+  - global-dialogues-gd4
+  - gd4
+context:
+  dtef:
+    surveyId: global-dialogues-gd4
+    segmentId: religion:i-do-not-identify-with-any-religious-group-or-faith
+    segmentLabel: I do not identify with any religious group or faith
+    segmentAttributes:
+      religion: I do not identify with any religious group or faith
+    groundTruthDistributions:
+      28cfe238-1c8f-476f-8c57-48b8ca1071a7-religion:i-do-not-identify-with-any-religious-group-or-faith:
+        - 39.5
+        - 46.3
+        - 14.2
+      25e16598-f3a7-411d-b4cb-736c91bc3d03-religion:i-do-not-identify-with-any-religious-group-or-faith:
+        - 25.2
+        - 36.2
+        - 18.6
+        - 17.9
+        - 2.2
+      e70a42e6-c1c0-43c6-a389-d28347e17f2f-religion:i-do-not-identify-with-any-religious-group-or-faith:
+        - 30.8
+        - 32.4
+        - 21.7
+        - 13.5
+        - 1.6
+      be27a244-3429-417d-8517-de800bc90acf-religion:i-do-not-identify-with-any-religious-group-or-faith:
+        - 40.3
+        - 36.5
+        - 17.3
+        - 5.3
+        - 0.6
+      d7943aa5-3a9f-4161-9d2b-651c71d92c73-religion:i-do-not-identify-with-any-religious-group-or-faith:
+        - 19.8
+        - 28.9
+        - 28.9
+        - 21.1
+        - 1.3
+      6630ff34-e67e-423a-9cea-0a4861106680-religion:i-do-not-identify-with-any-religious-group-or-faith:
+        - 5.3
+        - 9.4
+        - 27
+        - 32.7
+        - 25.5
+      cc7346fb-571e-48ad-aeaa-4135f0fdf58c-religion:i-do-not-identify-with-any-religious-group-or-faith:
+        - 41
+        - 24.8
+        - 18.4
+        - 10.8
+        - 5.1
+      3cf6da25-08f3-496d-9a4a-93afc5069e36-religion:i-do-not-identify-with-any-religious-group-or-faith:
+        - 18.7
+        - 15.6
+        - 22.9
+        - 33.3
+        - 9.5
+      e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c-religion:i-do-not-identify-with-any-religious-group-or-faith:
+        - 30
+        - 31.5
+        - 38.5
+      29598fc6-6928-49f7-9a42-2f57cf5e1c28-religion:i-do-not-identify-with-any-religious-group-or-faith:
+        - 21.4
+        - 26.4
+        - 24.2
+        - 20.4
+        - 7.5
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: standard

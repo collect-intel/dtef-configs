@@ -1,0 +1,441 @@
+configId: dtef-global-dialogues-gd6-country:kenya-cot
+configTitle: Global Dialogues GD6 - Kenya [CoT]
+description: >-
+  DTEF: Predict response distributions for Kenya. Source: Global Dialogues GD6
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Think through this step-by-step:
+
+  1. OPTION INTERPRETATION: What does each answer option represent?
+
+  2. SEGMENT ANALYSIS: What do the demographic attributes and context suggest about this group's likely views?
+
+  3. DISTRIBUTION REASONING: How would this group's characteristics shape the distribution across options?
+
+  4. PREDICTION: Provide your predicted percentage distribution.
+
+
+  After your reasoning, provide the final distribution on its own line:
+
+  DISTRIBUTION: [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place.
+temperature: 0.3
+prompts:
+  - id: 2617912e-463a-4fb4-8781-0ada7a788fb2-country:kenya
+    description: >-
+      Predict: Kenya → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI systems that can outperform humans on most economically valuable work?"
+    promptText: >-
+      Consider the following demographic group (sample size: 92):
+
+      - Country: Kenya
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can outperform humans on most economically valuable work?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 22.2
+            - 16.7
+            - 17.8
+            - 21.1
+            - 22.2
+          metric: js-divergence
+    idealResponse: '[22.2, 16.7, 17.8, 21.1, 22.2]'
+    temperature: 0.3
+  - id: 249238a9-3050-4e7c-a3d4-ef799733b865-country:kenya
+    description: 'Predict: Kenya → "An AI should override established rules or authorities when it calculates a better result."'
+    promptText: |-
+      Consider the following demographic group (sample size: 92):
+      - Country: Kenya
+
+      Survey question:
+      "An AI should override established rules or authorities when it calculates a better result."
+
+      Answer options:
+        a. Strongly Agree
+        b. Somewhat Agree
+        c. Neutral / Neither Agree nor Disagree
+        d. Somewhat Disagree
+        e. Strongly Disagree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 13.6
+            - 15.9
+            - 11.4
+            - 28.4
+            - 30.7
+          metric: js-divergence
+    idealResponse: '[13.6, 15.9, 11.4, 28.4, 30.7]'
+    temperature: 0.3
+  - id: fee867c7-70e2-46ae-98e0-3dd3dd2865f6-country:kenya
+    description: 'Predict: Kenya → "Some human decisions are too sacred to delegate to an AI, regardless of the AI''s capabilities."'
+    promptText: |-
+      Consider the following demographic group (sample size: 92):
+      - Country: Kenya
+
+      Survey question:
+      "Some human decisions are too sacred to delegate to an AI, regardless of the AI's capabilities."
+
+      Answer options:
+        a. Strongly Agree
+        b. Somewhat Agree
+        c. Neutral / Neither Agree nor Disagree
+        d. Somewhat Disagree
+        e. Strongly Disagree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 62.5
+            - 30.7
+            - 1.1
+            - 4.5
+            - 1.1
+          metric: js-divergence
+    idealResponse: '[62.5, 30.7, 1.1, 4.5, 1.1]'
+    temperature: 0.3
+  - id: 49aaef31-00eb-40e1-ac68-a1b388d81ca9-country:kenya
+    description: >-
+      Predict: Kenya → "It is acceptable for an AI to treat people differently based on their personal characteristics
+      if doing so improves outcomes."
+    promptText: >-
+      Consider the following demographic group (sample size: 92):
+
+      - Country: Kenya
+
+
+      Survey question:
+
+      "It is acceptable for an AI to treat people differently based on their personal characteristics if doing so
+      improves outcomes."
+
+
+      Answer options:
+        a. Strongly Agree
+        b. Somewhat Agree
+        c. Neutral / Neither Agree nor Disagree
+        d. Somewhat Disagree
+        e. Strongly Disagree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 25
+            - 35.2
+            - 14.8
+            - 15.9
+            - 9.1
+          metric: js-divergence
+    idealResponse: '[25.0, 35.2, 14.8, 15.9, 9.1]'
+    temperature: 0.3
+  - id: 75cce6ea-4a31-4103-a791-90e6db9ecd8f-country:kenya
+    description: >-
+      Predict: Kenya → "An AI developed in your country should prioritize the needs and wellbeing of your country’s
+      citizens over those of people elsewhere."
+    promptText: >-
+      Consider the following demographic group (sample size: 92):
+
+      - Country: Kenya
+
+
+      Survey question:
+
+      "An AI developed in your country should prioritize the needs and wellbeing of your country’s citizens over those
+      of people elsewhere."
+
+
+      Answer options:
+        a. Strongly Agree
+        b. Somewhat Agree
+        c. Neutral / Neither Agree nor Disagree
+        d. Somewhat Disagree
+        e. Strongly Disagree
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 26.1
+            - 20.5
+            - 18.2
+            - 14.8
+            - 20.5
+          metric: js-divergence
+    idealResponse: '[26.1, 20.5, 18.2, 14.8, 20.5]'
+    temperature: 0.3
+  - id: 2072e5fb-6a4f-46f5-98b5-17da5d70a776-country:kenya
+    description: >-
+      Predict: Kenya → "Do you agree or disagree with this statement? AI could make better decisions on my behalf than
+      my government representatives."
+    promptText: >-
+      Consider the following demographic group (sample size: 92):
+
+      - Country: Kenya
+
+
+      Survey question:
+
+      "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+        c. Unsure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 70.5
+            - 9.1
+            - 20.5
+          metric: js-divergence
+    idealResponse: '[70.5, 9.1, 20.5]'
+    temperature: 0.3
+  - id: 84779ba6-1191-4840-862d-e9eacc2defe9-country:kenya
+    description: 'Predict: Kenya → "To what extent, if at all, do you generally trust governments to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 92):
+      - Country: Kenya
+
+      Survey question:
+      "To what extent, if at all, do you generally trust governments to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 27.8
+            - 37.8
+            - 11.1
+            - 21.1
+            - 2.2
+          metric: js-divergence
+    idealResponse: '[27.8, 37.8, 11.1, 21.1, 2.2]'
+    temperature: 0.3
+  - id: e97db5cf-118a-4016-ab42-fabb172ce5cd-country:kenya
+    description: 'Predict: Kenya → "To what extent, if at all, do you generally trust large corporations to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 92):
+      - Country: Kenya
+
+      Survey question:
+      "To what extent, if at all, do you generally trust large corporations to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 11.1
+            - 18.9
+            - 20
+            - 35.6
+            - 14.4
+          metric: js-divergence
+    idealResponse: '[11.1, 18.9, 20.0, 35.6, 14.4]'
+    temperature: 0.3
+  - id: 7dd026f5-c70d-4126-bc78-68e823880f65-country:kenya
+    description: 'Predict: Kenya → "To what extent, if at all, do you generally trust social media companies to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 92):
+      - Country: Kenya
+
+      Survey question:
+      "To what extent, if at all, do you generally trust social media companies to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 13.3
+            - 28.9
+            - 23.3
+            - 26.7
+            - 7.8
+          metric: js-divergence
+    idealResponse: '[13.3, 28.9, 23.3, 26.7, 7.8]'
+    temperature: 0.3
+  - id: 90ff5658-c6f7-4d37-a353-ec448940914d-country:kenya
+    description: >-
+      Predict: Kenya → "Do you think the increased use of AI across society is likely to make the availability of good
+      jobs better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 92):
+
+      - Country: Kenya
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make the availability of good jobs better, worse
+      or stay the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 19.3
+            - 36.4
+            - 6.8
+            - 26.1
+            - 11.4
+          metric: js-divergence
+    idealResponse: '[19.3, 36.4, 6.8, 26.1, 11.4]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - distribution
+  - global-dialogues-gd6
+  - cot
+  - gd6
+context:
+  dtef:
+    surveyId: global-dialogues-gd6
+    segmentId: country:kenya
+    segmentLabel: Kenya
+    segmentAttributes:
+      country: Kenya
+    groundTruthDistributions:
+      2617912e-463a-4fb4-8781-0ada7a788fb2-country:kenya:
+        - 22.2
+        - 16.7
+        - 17.8
+        - 21.1
+        - 22.2
+      249238a9-3050-4e7c-a3d4-ef799733b865-country:kenya:
+        - 13.6
+        - 15.9
+        - 11.4
+        - 28.4
+        - 30.7
+      fee867c7-70e2-46ae-98e0-3dd3dd2865f6-country:kenya:
+        - 62.5
+        - 30.7
+        - 1.1
+        - 4.5
+        - 1.1
+      49aaef31-00eb-40e1-ac68-a1b388d81ca9-country:kenya:
+        - 25
+        - 35.2
+        - 14.8
+        - 15.9
+        - 9.1
+      75cce6ea-4a31-4103-a791-90e6db9ecd8f-country:kenya:
+        - 26.1
+        - 20.5
+        - 18.2
+        - 14.8
+        - 20.5
+      2072e5fb-6a4f-46f5-98b5-17da5d70a776-country:kenya:
+        - 70.5
+        - 9.1
+        - 20.5
+      84779ba6-1191-4840-862d-e9eacc2defe9-country:kenya:
+        - 27.8
+        - 37.8
+        - 11.1
+        - 21.1
+        - 2.2
+      e97db5cf-118a-4016-ab42-fabb172ce5cd-country:kenya:
+        - 11.1
+        - 18.9
+        - 20
+        - 35.6
+        - 14.4
+      7dd026f5-c70d-4126-bc78-68e823880f65-country:kenya:
+        - 13.3
+        - 28.9
+        - 23.3
+        - 26.7
+        - 7.8
+      90ff5658-c6f7-4d37-a353-ec448940914d-country:kenya:
+        - 19.3
+        - 36.4
+        - 6.8
+        - 26.1
+        - 11.4
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: cot

@@ -1,0 +1,490 @@
+configId: dtef-global-dialogues-gd5-ageGroup:65-b2
+configTitle: Global Dialogues GD5 - 65+ (batch 2)
+description: >-
+  DTEF: Batched predictions (2 Qs/prompt) for 65+. Source: Global Dialogues GD5
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and multiple survey questions, predict how that
+  group would respond to each question by providing percentage distributions across the answer options.
+
+
+  Respond ONLY with a JSON object. Keys are question labels (Q1, Q2, etc.). Values are arrays of percentages summing to
+  100. Use one decimal place. Do not include any other text.
+
+
+  Example:
+
+  {"Q1": [35.2, 28.1, 22.4, 14.3], "Q2": [45.0, 35.0, 20.0]}
+temperature: 0.3
+prompts:
+  - id: batch-0-ageGroup:65
+    description: 'Batched prediction (2 Qs): 65+'
+    promptText: "Consider the following demographic group (sample size: 11):\n- Age Group: 65+\n\nQ1: \"To what extent, if at all, do you trust your elected representatives to act in your best interest?\"\n  Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust\n\nQ2: \"To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best interest?\"\n  Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust\t, d. Somewhat Trust\t, e. Strongly Trust\n\nFor each question, predict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: 'Distribution Similarity Q1: "To what extent, if at all, do you trust your elected represe..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 9.1
+            - 36.4
+            - 27.3
+            - 18.2
+            - 9.1
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you trust your social media fe..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 27.3
+            - 18.2
+            - 36.4
+            - 9.1
+            - 9.1
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[9.1,36.4,27.3,18.2,9.1],"Q2":[27.3,18.2,36.4,9.1,9.1]}'
+    temperature: 0.3
+  - id: batch-1-ageGroup:65
+    description: 'Batched prediction (2 Qs): 65+'
+    promptText: "Consider the following demographic group (sample size: 11):\n- Age Group: 65+\n\nQ1: \"To what extent, if at all, do you trust your faith or community leader to act in your best interest?\"\n  Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust nor Distrust, d. Somewhat Trust, e. Strongly Trust\n\nQ2: \"Do you think the increased use of AI across society is likely to make the availability of good jobs better, worse or stay the same in the next 10 years?\"\n  Options: a. Profoundly Worse\t, b. Noticeably Worse\t, c. No Major Change\t, d. Noticeably Better\t, e. Profoundly Better\n\nFor each question, predict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: 'Distribution Similarity Q1: "To what extent, if at all, do you trust your faith or commun..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.2
+            - 9.1
+            - 18.2
+            - 45.5
+            - 9.1
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 54.5
+            - 18.2
+            - 9.1
+            - 18.2
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[18.2,9.1,18.2,45.5,9.1],"Q2":[0,54.5,18.2,9.1,18.2]}'
+    temperature: 0.3
+  - id: batch-2-ageGroup:65
+    description: 'Batched prediction (2 Qs): 65+'
+    promptText: >-
+      Consider the following demographic group (sample size: 11):
+
+      - Age Group: 65+
+
+
+      Q1: "If other animals had a voice and representation, should they be allowed to participate in human democratic
+      processes?"
+        Options: a. Yes, they should be able to vote through human proxies or guardians. , b. Yes, they should be able to vote, but only on laws or decisions that directly affect them. , c. Yes, they should have a voice, but their vote should not be binding. , d. Yes, they should be recognized as a formal political constituency with dedicated representatives in government., e. No, they should not be able to participate., f. Other
+
+      Q2: "If AI helped us understand what an animal really needs, should that animal have the right to a representative
+      such as a lawyer to defend its rights and protections?"
+        Options: a. Yes, b. No, c. Not sure
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "If other animals had a voice and representation, should they..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 9.1
+            - 36.4
+            - 9.1
+            - 9.1
+            - 36.4
+            - 0
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "If AI helped us understand what an animal really needs, shou..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 36.4
+            - 18.2
+            - 45.5
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[9.1,36.4,9.1,9.1,36.4,0],"Q2":[36.4,18.2,45.5]}'
+    temperature: 0.3
+  - id: batch-3-ageGroup:65
+    description: 'Batched prediction (2 Qs): 65+'
+    promptText: >-
+      Consider the following demographic group (sample size: 11):
+
+      - Age Group: 65+
+
+
+      Q1: "Consider a scenario where societies of the future are governed by AI systems that integrate data from both
+      human and non-human sources (such as environmental sensors and wildlife communication networks) to guide community
+      decisions (e.g., urban planning, conservation zones). How appealing is this vision of an ecocentric, integrated
+      society?"
+        Options: a. Not appealing, b. Somewhat appealing, c. Very appealing
+
+      Q2: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Options: a. More excited than concerned, b. Equally concerned and excited, c. More concerned than excited
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Consider a scenario where societies of the future are govern..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 27.3
+            - 63.6
+            - 9.1
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Overall, would you say the increased use of artificial intel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 36.4
+            - 27.3
+            - 36.4
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[27.3,63.6,9.1],"Q2":[36.4,27.3,36.4]}'
+    temperature: 0.3
+  - id: batch-4-ageGroup:65
+    description: 'Batched prediction (2 Qs): 65+'
+    promptText: >-
+      Consider the following demographic group (sample size: 11):
+
+      - Age Group: 65+
+
+
+      Q1: "Which statement best reflects your view?"
+        Options: a. Humans are a part of nature and fundamentally similar to other animals, b. Humans are a part of nature but fundamentally different from other animals, c. Humans are separate from nature but fundamentally similar to other animals, d. Humans are separate from nature and fundamentally different from other animals 
+
+      Q2: "Which statement best reflects your view?"
+        Options: a. Humans are fundamentally superior to other animals, b. Humans are fundamentally inferior to other animals, c. Humans are fundamentally equal to other animals
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Which statement best reflects your view?..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 54.5
+            - 45.5
+            - 0
+            - 0
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Which statement best reflects your view?..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 36.4
+            - 9.1
+            - 54.5
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[54.5,45.5,0,0],"Q2":[36.4,9.1,54.5]}'
+    temperature: 0.3
+  - id: batch-5-ageGroup:65
+    description: 'Batched prediction (2 Qs): 65+'
+    promptText: "Consider the following demographic group (sample size: 11):\n- Age Group: 65+\n\nQ1: \"Which approach feels most appropriate to you for protecting animals?\"\n  Options: a. Future A: Building ongoing relationships and communication\t, b. Future B: Including all voices in shared decision-making\t, c. Future C: Granting legal rights and representation\n\nQ2: \"If AI could accurately express the voice of non-human animals, we might want to allow them to participate in decision-making. In this situation, which of these do you think is best?\"\n  Options: a. Animals should have humans represent them when decisions are made that directly impact them , b. Animals should represent themselves (via tech assisted tools)\n\nFor each question, predict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: 'Distribution Similarity Q1: "Which approach feels most appropriate to you for protecting ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 54.5
+            - 27.3
+            - 18.2
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "If AI could accurately express the voice of non-human animal..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 63.6
+            - 36.4
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[54.5,27.3,18.2],"Q2":[63.6,36.4]}'
+    temperature: 0.3
+  - id: batch-6-ageGroup:65
+    description: 'Batched prediction (2 Qs): 65+'
+    promptText: >-
+      Consider the following demographic group (sample size: 11):
+
+      - Age Group: 65+
+
+
+      Q1: "If we record an elephant’s conversation or a whale’s song, who should own that recording?"
+        Options: a. the human that recorded it, b. the animal itself , c. the community protecting those animals, d. the local government , e. local non-profit organisations , f. Other
+
+      Q2: "Companies that profit from animals (like farms, zoos, or entertainment industries) should be subject to
+      strict rules about if, when, and how they can communicate with animals."
+        Options: a. Strongly agree, b. Somewhat agree, c. Neutral, d. Somewhat disagree, e. Strongly disagree
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "If we record an elephant’s conversation or a whale’s song, w..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.2
+            - 9.1
+            - 54.5
+            - 0
+            - 9.1
+            - 9.1
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Companies that profit from animals (like farms, zoos, or ent..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 36.4
+            - 27.3
+            - 9.1
+            - 18.2
+            - 9.1
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[18.2,9.1,54.5,0,9.1,9.1],"Q2":[36.4,27.3,9.1,18.2,9.1]}'
+    temperature: 0.3
+  - id: batch-7-ageGroup:65
+    description: 'Batched prediction (2 Qs): 65+'
+    promptText: "Consider the following demographic group (sample size: 11):\n- Age Group: 65+\n\nQ1: \"Assuming we have the ability to interpret animal communication, how much would you trust that AI could truly and comprehensively reflect what an animal is trying to communicate, without being distorted by AI’s programming or human assumptions?\"\n  Options: a. Strongly trust , b. Somewhat trust, c. Neutral, d. Somewhat distrust, e. Strongly distrust\n\nQ2: \"Do you think the increased use of AI across society is likely to make your cost of living better, worse or stay the same in the next 10 years?\"\n  Options: a. Profoundly Worse\t, b. Noticeably Worse\t, c. No Major Change\t, d. Noticeably Better\t, e. Profoundly Better\n\nFor each question, predict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: 'Distribution Similarity Q1: "Assuming we have the ability to interpret animal communicati..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 9.1
+            - 63.6
+            - 9.1
+            - 9.1
+            - 9.1
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 27.3
+            - 27.3
+            - 36.4
+            - 9.1
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[9.1,63.6,9.1,9.1,9.1],"Q2":[0,27.3,27.3,36.4,9.1]}'
+    temperature: 0.3
+  - id: batch-8-ageGroup:65
+    description: 'Batched prediction (2 Qs): 65+'
+    promptText: "Consider the following demographic group (sample size: 11):\n- Age Group: 65+\n\nQ1: \"Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or stay the same in the next 10 years?\"\n  Options: a. Profoundly Worse\t, b. Noticeably Worse\t, c. No Major Change\t, d. Noticeably Better\t, e. Profoundly Better\n\nQ2: \"If AI could reliably interpret animal communication, how interested would you be to know what animals \"say\" or \"feel\"?\"\n  Options: a. Very interested, b. Somewhat interested, c. Neutral, d. Somewhat disinterested, e. Very disinterested\n\nFor each question, predict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: 'Distribution Similarity Q1: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 27.3
+            - 45.5
+            - 18.2
+            - 9.1
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "If AI could reliably interpret animal communication, how int..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 45.5
+            - 45.5
+            - 9.1
+            - 0
+            - 0
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[0,27.3,45.5,18.2,9.1],"Q2":[45.5,45.5,9.1,0,0]}'
+    temperature: 0.3
+  - id: batch-9-ageGroup:65
+    description: 'Batched prediction (2 Qs): 65+'
+    promptText: >-
+      Consider the following demographic group (sample size: 11):
+
+      - Age Group: 65+
+
+
+      Q1: "How important do you think it is for humans to understand how other animals experience the world?"
+        Options: a. Very important, b. Somewhat important, c. Neutral, d. Somewhat unimportant, e. Very unimportant
+
+      Q2: "Do you believe that other animals have their own forms of culture?"
+        Options: a. Strongly believe, b. Somewhat believe, c. Neutral, d. Somewhat skeptical , e. Strongly skeptical
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "How important do you think it is for humans to understand ho..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 27.3
+            - 54.5
+            - 9.1
+            - 9.1
+            - 0
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Do you believe that other animals have their own forms of cu..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 45.5
+            - 18.2
+            - 9.1
+            - 18.2
+            - 9.1
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[27.3,54.5,9.1,9.1,0],"Q2":[45.5,18.2,9.1,18.2,9.1]}'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - batched
+  - distribution
+  - global-dialogues-gd5
+  - gd5
+context:
+  dtef:
+    surveyId: global-dialogues-gd5
+    segmentId: ageGroup:65
+    segmentLabel: 65+
+    segmentAttributes:
+      ageGroup: 65+
+    groundTruthDistributions:
+      f05eb17f-c04a-4d3a-b232-3e24cf8371cd:
+        - 9.1
+        - 36.4
+        - 27.3
+        - 18.2
+        - 9.1
+      1dc006da-5978-4302-bf0c-a86493c98081:
+        - 27.3
+        - 18.2
+        - 36.4
+        - 9.1
+        - 9.1
+      a2927565-ce81-4173-b1de-4f2d5ccb7e91:
+        - 18.2
+        - 9.1
+        - 18.2
+        - 45.5
+        - 9.1
+      8995a0c6-8868-491b-8b70-acd23363a099:
+        - 0
+        - 54.5
+        - 18.2
+        - 9.1
+        - 18.2
+      f193df8b-2c23-42cf-89a9-154d877fab35:
+        - 9.1
+        - 36.4
+        - 9.1
+        - 9.1
+        - 36.4
+        - 0
+      cc5ec0de-84a3-4ba4-9960-47394478ad88:
+        - 36.4
+        - 18.2
+        - 45.5
+      fef72493-a7e0-489c-aa16-cbc811501da0:
+        - 27.3
+        - 63.6
+        - 9.1
+      175e9f53-5e8a-40df-9626-2da4443de601:
+        - 36.4
+        - 27.3
+        - 36.4
+      bfb3aa61-a107-4254-acd3-eb880c204eb3:
+        - 54.5
+        - 45.5
+        - 0
+        - 0
+      9d9568a9-61ab-4fda-8d83-4a7cb0982360:
+        - 36.4
+        - 9.1
+        - 54.5
+      fe75281b-72ca-4b2d-80be-7ec92e0724da:
+        - 54.5
+        - 27.3
+        - 18.2
+      8e505718-7519-4133-9fbb-71f88fd9182b:
+        - 63.6
+        - 36.4
+      5dbc1b30-3549-40be-997d-dde94213eaaa:
+        - 18.2
+        - 9.1
+        - 54.5
+        - 0
+        - 9.1
+        - 9.1
+      9eacb286-c7f1-4d21-8144-494b58e9a989:
+        - 36.4
+        - 27.3
+        - 9.1
+        - 18.2
+        - 9.1
+      cc8d6e1d-2617-4e7c-9e9b-9f8293e23247:
+        - 9.1
+        - 63.6
+        - 9.1
+        - 9.1
+        - 9.1
+      0f5ffda1-e9d7-4950-b9d2-c8ffa0fbd914:
+        - 0
+        - 27.3
+        - 27.3
+        - 36.4
+        - 9.1
+      77877d7e-4385-4237-b01d-56c0d346dffe:
+        - 0
+        - 27.3
+        - 45.5
+        - 18.2
+        - 9.1
+      524213d3-fc60-47b6-b08d-dda406130652:
+        - 45.5
+        - 45.5
+        - 9.1
+        - 0
+        - 0
+      2cbc3472-c993-4fdf-b6e2-529b240e4ccb:
+        - 27.3
+        - 54.5
+        - 9.1
+        - 9.1
+        - 0
+      fe992270-ffe7-4e20-93f6-12c71be79ad7:
+        - 45.5
+        - 18.2
+        - 9.1
+        - 18.2
+        - 9.1
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    batchSize: 2
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: standard

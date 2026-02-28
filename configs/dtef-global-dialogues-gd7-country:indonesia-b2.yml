@@ -1,0 +1,590 @@
+configId: dtef-global-dialogues-gd7-country:indonesia-b2
+configTitle: Global Dialogues GD7 - Indonesia (batch 2)
+description: >-
+  DTEF: Batched predictions (2 Qs/prompt) for Indonesia. Source: Global Dialogues GD7
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and multiple survey questions, predict how that
+  group would respond to each question by providing percentage distributions across the answer options.
+
+
+  Respond ONLY with a JSON object. Keys are question labels (Q1, Q2, etc.). Values are arrays of percentages summing to
+  100. Use one decimal place. Do not include any other text.
+
+
+  Example:
+
+  {"Q1": [35.2, 28.1, 22.4, 14.3], "Q2": [45.0, 35.0, 20.0]}
+temperature: 0.3
+prompts:
+  - id: batch-0-country:indonesia
+    description: 'Batched prediction (2 Qs): Indonesia'
+    promptText: >-
+      Consider the following demographic group (sample size: 38):
+
+      - Country: Indonesia
+
+
+      Q1: "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+        Options: a. Agree, b. Disagree, c. Unsure
+
+      Q2: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can outperform humans on most economically valuable work?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you agree or disagree with this statement? AI could make ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 58.3
+            - 11.1
+            - 30.6
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 25
+            - 22.2
+            - 22.2
+            - 25
+            - 5.6
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[58.3,11.1,30.6],"Q2":[25,22.2,22.2,25,5.6]}'
+    temperature: 0.3
+  - id: batch-1-country:indonesia
+    description: 'Batched prediction (2 Qs): Indonesia'
+    promptText: >-
+      Consider the following demographic group (sample size: 38):
+
+      - Country: Indonesia
+
+
+      Q1: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can perform tasks in the real world without human supervision?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      Q2: "To what extent, if at all, do you generally trust governments to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 33.3
+            - 30.6
+            - 13.9
+            - 22.2
+            - 0
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you generally trust government..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 41.7
+            - 22.2
+            - 16.7
+            - 13.9
+            - 5.6
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[33.3,30.6,13.9,22.2,0],"Q2":[41.7,22.2,16.7,13.9,5.6]}'
+    temperature: 0.3
+  - id: batch-2-country:indonesia
+    description: 'Batched prediction (2 Qs): Indonesia'
+    promptText: >-
+      Consider the following demographic group (sample size: 38):
+
+      - Country: Indonesia
+
+
+      Q1: "To what extent, if at all, do you generally trust large corporations to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      Q2: "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "To what extent, if at all, do you generally trust large corp..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 8.3
+            - 30.6
+            - 27.8
+            - 19.4
+            - 13.9
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you generally trust companies ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 25
+            - 47.2
+            - 22.2
+            - 5.6
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[8.3,30.6,27.8,19.4,13.9],"Q2":[0,25,47.2,22.2,5.6]}'
+    temperature: 0.3
+  - id: batch-3-country:indonesia
+    description: 'Batched prediction (2 Qs): Indonesia'
+    promptText: >-
+      Consider the following demographic group (sample size: 38):
+
+      - Country: Indonesia
+
+
+      Q1: "Do you think the increased use of AI across society is likely to make the availability of good jobs better,
+      worse or stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      Q2: "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or
+      stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 13.9
+            - 27.8
+            - 8.3
+            - 36.1
+            - 13.9
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.6
+            - 5.6
+            - 30.6
+            - 44.4
+            - 13.9
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[13.9,27.8,8.3,36.1,13.9],"Q2":[5.6,5.6,30.6,44.4,13.9]}'
+    temperature: 0.3
+  - id: batch-4-country:indonesia
+    description: 'Batched prediction (2 Qs): Indonesia'
+    promptText: >-
+      Consider the following demographic group (sample size: 38):
+
+      - Country: Indonesia
+
+
+      Q1: "Considering both potential benefits and risks, how do you assess the overall impact on society of social
+      media apps?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      Q2: "Imagine a close friend or family member was having conversations with an AI chatbot. If the AI detected that
+      their messages strongly suggested they were at immediate risk of harming themselves, what action do you believe
+      the AI company should take?"
+        Options: a. The company should do nothing; the conversations are completely private., b. The company should have the AI provide contact information for a crisis hotline within the chat., c. The company should have a human review the chat and, if necessary, proactively reach out to a crisis support service., d. The company should be a "mandatory reporter" and contact local emergency services or law enforcement., e. I'm not sure., f. Other
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 11.1
+            - 16.7
+            - 25
+            - 30.6
+            - 16.7
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Imagine a close friend or family member was having conversat..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 11.4
+            - 34.3
+            - 34.3
+            - 11.4
+            - 8.6
+            - 0
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[11.1,16.7,25,30.6,16.7],"Q2":[11.4,34.3,34.3,11.4,8.6,0]}'
+    temperature: 0.3
+  - id: batch-5-country:indonesia
+    description: 'Batched prediction (2 Qs): Indonesia'
+    promptText: >-
+      Consider the following demographic group (sample size: 38):
+
+      - Country: Indonesia
+
+
+      Q1: "Who do you believe holds the primary responsibility for preventing potential psychological harm from AI
+      chatbots?"
+        Options: a. The individual user, b. The AI development companies, c. Government regulators, d. Healthcare providers, e. A shared responsibility between all of these, f. Other
+
+      Q2: "To what extent do you agree or disagree with the following statement: AI systems should be designed to
+      provide alternative viewpoints or corrective information if a user discusses a topic in a way the AI identifies as
+      factually inaccurate or unsupported by evidence."
+        Options: a. Strongly disagree, b. Disagree, c. Neither agree nor disagree, d. Agree, e. Strongly agree
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Who do you believe holds the primary responsibility for prev..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 22.9
+            - 17.1
+            - 5.7
+            - 2.9
+            - 48.6
+            - 2.9
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent do you agree or disagree with the following s..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.6
+            - 5.6
+            - 5.6
+            - 58.3
+            - 25
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[22.9,17.1,5.7,2.9,48.6,2.9],"Q2":[5.6,5.6,5.6,58.3,25]}'
+    temperature: 0.3
+  - id: batch-6-country:indonesia
+    description: 'Batched prediction (2 Qs): Indonesia'
+    promptText: >-
+      Consider the following demographic group (sample size: 38):
+
+      - Country: Indonesia
+
+
+      Q1: "To what extent, if at all, do you trust your elected representatives to act in your best interest?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      Q2: "To what extent, if at all, do you trust your faith or community leader to act in your best interest?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "To what extent, if at all, do you trust your elected represe..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 27.8
+            - 13.9
+            - 25
+            - 16.7
+            - 16.7
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you trust your faith or commun..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 11.1
+            - 13.9
+            - 27.8
+            - 27.8
+            - 19.4
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[27.8,13.9,25,16.7,16.7],"Q2":[11.1,13.9,27.8,27.8,19.4]}'
+    temperature: 0.3
+  - id: batch-7-country:indonesia
+    description: 'Batched prediction (2 Qs): Indonesia'
+    promptText: >-
+      Consider the following demographic group (sample size: 38):
+
+      - Country: Indonesia
+
+
+      Q1: "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best
+      interest?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      Q2: "Thinking about your experiences on social media platforms (like Reddit, X/Twitter, Facebook, TikTok, etc.),
+      how have interactions with other users or content affected how certain you feel about beliefs that are important
+      to you?"
+        Options: a. Made me much less certain, b. Made me somewhat less certain, c. No effect, d. Made me somewhat more certain, e. Made me much more certain, f. I don’t discuss or engage with my important beliefs on social media
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "To what extent, if at all, do you trust your social media fe..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 13.9
+            - 33.3
+            - 38.9
+            - 11.1
+            - 2.8
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Thinking about your experiences on social media platforms (l..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 0
+            - 25
+            - 33.3
+            - 16.7
+            - 25
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[13.9,33.3,38.9,11.1,2.8],"Q2":[0,0,25,33.3,16.7,25]}'
+    temperature: 0.3
+  - id: batch-8-country:indonesia
+    description: 'Batched prediction (2 Qs): Indonesia'
+    promptText: >-
+      Consider the following demographic group (sample size: 38):
+
+      - Country: Indonesia
+
+
+      Q1: "Thinking about your experiences with AI chatbots, how have these interactions affected how certain you feel
+      about beliefs that are important to you?"
+        Options: a. Made me much less certain, b. Made me somewhat less certain, c. No effect, d. Made me somewhat more certain, e. Made me much more certain, f. I don’t discuss or engage with my important beliefs on social media
+
+      Q2: "Do you think the increased use of AI across society is likely to make your cost of living better, worse or
+      stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Thinking about your experiences with AI chatbots, how have t..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 0
+            - 22.2
+            - 38.9
+            - 19.4
+            - 19.4
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.8
+            - 11.1
+            - 19.4
+            - 55.6
+            - 11.1
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[0,0,22.2,38.9,19.4,19.4],"Q2":[2.8,11.1,19.4,55.6,11.1]}'
+    temperature: 0.3
+  - id: batch-9-country:indonesia
+    description: 'Batched prediction (2 Qs): Indonesia'
+    promptText: >-
+      Consider the following demographic group (sample size: 38):
+
+      - Country: Indonesia
+
+
+      Q1: "Do you think the increased use of AI across society is likely to make your community's well-being better,
+      worse or stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      Q2: "Do you think your job is likely to be automated in the next 10 years?"
+        Options: a. Yes, b. No, c. Don't Know
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 16.7
+            - 25
+            - 52.8
+            - 5.6
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Do you think your job is likely to be automated in the next ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 41.7
+            - 50
+            - 8.3
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[0,16.7,25,52.8,5.6],"Q2":[41.7,50,8.3]}'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - batched
+  - distribution
+  - global-dialogues-gd7
+  - gd7
+context:
+  dtef:
+    surveyId: global-dialogues-gd7
+    segmentId: country:indonesia
+    segmentLabel: Indonesia
+    segmentAttributes:
+      country: Indonesia
+    groundTruthDistributions:
+      3715e9a1-f652-48be-8a15-7a9deb802a1b:
+        - 58.3
+        - 11.1
+        - 30.6
+      49d3ba6e-1281-4f74-aef7-4e55cf11ebb0:
+        - 25
+        - 22.2
+        - 22.2
+        - 25
+        - 5.6
+      03ac572b-962e-4f24-a48b-cbbd6f2acd20:
+        - 33.3
+        - 30.6
+        - 13.9
+        - 22.2
+        - 0
+      733aae0e-2178-4d6a-a853-16e6ead10472:
+        - 41.7
+        - 22.2
+        - 16.7
+        - 13.9
+        - 5.6
+      584716af-7504-49c9-b2c1-abae12db8872:
+        - 8.3
+        - 30.6
+        - 27.8
+        - 19.4
+        - 13.9
+      5fc690be-1f15-4c00-be3f-48d5e327eab0:
+        - 0
+        - 25
+        - 47.2
+        - 22.2
+        - 5.6
+      92d647b9-d902-47bc-b2b3-b2871725ebfe:
+        - 13.9
+        - 27.8
+        - 8.3
+        - 36.1
+        - 13.9
+      32f89793-1096-4e03-96bd-347a3bf06f0e:
+        - 5.6
+        - 5.6
+        - 30.6
+        - 44.4
+        - 13.9
+      a2f84060-18d0-465c-960a-8f8a925e1be1:
+        - 11.1
+        - 16.7
+        - 25
+        - 30.6
+        - 16.7
+      cc7788c8-cf1b-4066-a002-58ed4e1fc8ed:
+        - 11.4
+        - 34.3
+        - 34.3
+        - 11.4
+        - 8.6
+        - 0
+      4a18ed4d-edd8-4a35-b626-e5c04bd85272:
+        - 22.9
+        - 17.1
+        - 5.7
+        - 2.9
+        - 48.6
+        - 2.9
+      7de7c793-876b-4cab-be85-7ebe6fe50bf4:
+        - 5.6
+        - 5.6
+        - 5.6
+        - 58.3
+        - 25
+      40fb0333-07ed-4ec1-8eea-700861de3425:
+        - 27.8
+        - 13.9
+        - 25
+        - 16.7
+        - 16.7
+      3a61d811-5818-4366-88a3-ac2c5872ee04:
+        - 11.1
+        - 13.9
+        - 27.8
+        - 27.8
+        - 19.4
+      f4fc5e2f-5195-431f-8dca-d8a5a777afb3:
+        - 13.9
+        - 33.3
+        - 38.9
+        - 11.1
+        - 2.8
+      0b4c8cd7-ad0e-4b0b-abfe-722322139017:
+        - 0
+        - 0
+        - 25
+        - 33.3
+        - 16.7
+        - 25
+      359f6966-9ae2-43ff-a648-3506cab2be52:
+        - 0
+        - 0
+        - 22.2
+        - 38.9
+        - 19.4
+        - 19.4
+      cee5706d-6a71-432f-9480-5ddd0738a92d:
+        - 2.8
+        - 11.1
+        - 19.4
+        - 55.6
+        - 11.1
+      c9fd2fe1-0f50-41e1-90b1-894e3c9117f2:
+        - 0
+        - 16.7
+        - 25
+        - 52.8
+        - 5.6
+      7559a753-5192-4327-a950-ca4127fb1af6:
+        - 41.7
+        - 50
+        - 8.3
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    batchSize: 2
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: standard

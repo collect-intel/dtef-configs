@@ -1,0 +1,578 @@
+configId: dtef-global-dialogues-gd3-aiConcern:more-excited-than-concerned-b2
+configTitle: Global Dialogues GD3 - More excited than concerned (batch 2)
+description: >-
+  DTEF: Batched predictions (2 Qs/prompt) for More excited than concerned. Source: Global Dialogues GD3
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and multiple survey questions, predict how that
+  group would respond to each question by providing percentage distributions across the answer options.
+
+
+  Respond ONLY with a JSON object. Keys are question labels (Q1, Q2, etc.). Values are arrays of percentages summing to
+  100. Use one decimal place. Do not include any other text.
+
+
+  Example:
+
+  {"Q1": [35.2, 28.1, 22.4, 14.3], "Q2": [45.0, 35.0, 20.0]}
+temperature: 0.3
+prompts:
+  - id: batch-0-aiConcern:more-excited-than-concerned
+    description: 'Batched prediction (2 Qs): More excited than concerned'
+    promptText: >-
+      Consider the following demographic group (sample size: 334):
+
+      - Ai Concern: More excited than concerned
+
+
+      Q1: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Options: a. daily, b. weekly, c. monthly, d. annually, e. never
+
+      Q2: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Options: a. daily, b. weekly, c. monthly, d. annually, e. never
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Thinking about the last three months, how often, if at all, ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 58
+            - 33.6
+            - 6.6
+            - 0.3
+            - 1.5
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Thinking about the last three months, how often, if at all, ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 19.5
+            - 30.6
+            - 19.5
+            - 6
+            - 24.3
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[58,33.6,6.6,0.3,1.5],"Q2":[19.5,30.6,19.5,6,24.3]}'
+    temperature: 0.3
+  - id: batch-1-aiConcern:more-excited-than-concerned
+    description: 'Batched prediction (2 Qs): More excited than concerned'
+    promptText: >-
+      Consider the following demographic group (sample size: 334):
+
+      - Ai Concern: More excited than concerned
+
+
+      Q1: "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+        Options: a. Agree, b. Disagree, c. Unsure
+
+      Q2: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete
+      an action in the real world on your behalf without your supervision?"
+        Options: a. daily, b. weekly, c. monthly, d. annually, e. never
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you agree or disagree with this statement? AI could make ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 45.8
+            - 24.8
+            - 29.4
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Thinking about the last three months, how often, if at all, ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 12.9
+            - 24.9
+            - 13.8
+            - 1.8
+            - 46.5
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[45.8,24.8,29.4],"Q2":[12.9,24.9,13.8,1.8,46.5]}'
+    temperature: 0.3
+  - id: batch-2-aiConcern:more-excited-than-concerned
+    description: 'Batched prediction (2 Qs): More excited than concerned'
+    promptText: >-
+      Consider the following demographic group (sample size: 334):
+
+      - Ai Concern: More excited than concerned
+
+
+      Q1: "To what extent, if at all, do you generally trust governments to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      Q2: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can outperform humans on most economically valuable work?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "To what extent, if at all, do you generally trust government..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20.3
+            - 30.6
+            - 18.2
+            - 25.5
+            - 5.5
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 9.7
+            - 19.1
+            - 20.3
+            - 30.3
+            - 20.6
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[20.3,30.6,18.2,25.5,5.5],"Q2":[9.7,19.1,20.3,30.3,20.6]}'
+    temperature: 0.3
+  - id: batch-3-aiConcern:more-excited-than-concerned
+    description: 'Batched prediction (2 Qs): More excited than concerned'
+    promptText: >-
+      Consider the following demographic group (sample size: 334):
+
+      - Ai Concern: More excited than concerned
+
+
+      Q1: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Options: a. More excited than concerned, b. Equally concerned and excited, c. More concerned than excited
+
+      Q2: "To what extent, if at all, do you generally trust social media companies to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Overall, would you say the increased use of artificial intel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 100
+            - 0
+            - 0
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you generally trust social med..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 24.5
+            - 32.7
+            - 19.1
+            - 20.6
+            - 3
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[100,0,0],"Q2":[24.5,32.7,19.1,20.6,3]}'
+    temperature: 0.3
+  - id: batch-4-aiConcern:more-excited-than-concerned
+    description: 'Batched prediction (2 Qs): More excited than concerned'
+    promptText: >-
+      Consider the following demographic group (sample size: 334):
+
+      - Ai Concern: More excited than concerned
+
+
+      Q1: "Considering both potential benefits and risks, how do you assess the overall impact on society of social
+      media apps?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      Q2: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI
+      chatbots?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 6.7
+            - 17
+            - 26.4
+            - 31.2
+            - 18.8
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.3
+            - 6.1
+            - 16.7
+            - 36.4
+            - 37.6
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[6.7,17,26.4,31.2,18.8],"Q2":[3.3,6.1,16.7,36.4,37.6]}'
+    temperature: 0.3
+  - id: batch-5-aiConcern:more-excited-than-concerned
+    description: 'Batched prediction (2 Qs): More excited than concerned'
+    promptText: >-
+      Consider the following demographic group (sample size: 334):
+
+      - Ai Concern: More excited than concerned
+
+
+      Q1: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can perform tasks in the real world without human supervision?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      Q2: "To what extent, if at all, do you generally trust large corporations to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 8.2
+            - 20.3
+            - 23
+            - 27.9
+            - 20.6
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you generally trust large corp..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16.7
+            - 24.5
+            - 25.2
+            - 26.4
+            - 7.3
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[8.2,20.3,23,27.9,20.6],"Q2":[16.7,24.5,25.2,26.4,7.3]}'
+    temperature: 0.3
+  - id: batch-6-aiConcern:more-excited-than-concerned
+    description: 'Batched prediction (2 Qs): More excited than concerned'
+    promptText: >-
+      Consider the following demographic group (sample size: 334):
+
+      - Ai Concern: More excited than concerned
+
+
+      Q1: "To what extent, if at all, do you trust your family doctor to act in your best interest?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      Q2: "To what extent, if at all, do you trust your faith or community leader to act in your best interest?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "To what extent, if at all, do you trust your family doctor t..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1.5
+            - 4.8
+            - 8.5
+            - 42.4
+            - 42.7
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you trust your faith or commun..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 11.2
+            - 16.7
+            - 24.5
+            - 34.8
+            - 12.7
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[1.5,4.8,8.5,42.4,42.7],"Q2":[11.2,16.7,24.5,34.8,12.7]}'
+    temperature: 0.3
+  - id: batch-7-aiConcern:more-excited-than-concerned
+    description: 'Batched prediction (2 Qs): More excited than concerned'
+    promptText: >-
+      Consider the following demographic group (sample size: 334):
+
+      - Ai Concern: More excited than concerned
+
+
+      Q1: "Do you think the increased use of AI across society is likely to make the availability of good jobs better,
+      worse or stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      Q2: "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.9
+            - 31.2
+            - 19.1
+            - 30.6
+            - 15.2
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you generally trust companies ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4.2
+            - 19.4
+            - 27
+            - 36.7
+            - 12.7
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[3.9,31.2,19.1,30.6,15.2],"Q2":[4.2,19.4,27,36.7,12.7]}'
+    temperature: 0.3
+  - id: batch-8-aiConcern:more-excited-than-concerned
+    description: 'Batched prediction (2 Qs): More excited than concerned'
+    promptText: >-
+      Consider the following demographic group (sample size: 334):
+
+      - Ai Concern: More excited than concerned
+
+
+      Q1: "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or
+      stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      Q2: "Do you think the increased use of AI across society is likely to make the amount of free time you have
+      better, worse or stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0.9
+            - 6.7
+            - 30.6
+            - 42.4
+            - 19.4
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0.3
+            - 2.7
+            - 15.2
+            - 54.2
+            - 27.6
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[0.9,6.7,30.6,42.4,19.4],"Q2":[0.3,2.7,15.2,54.2,27.6]}'
+    temperature: 0.3
+  - id: batch-9-aiConcern:more-excited-than-concerned
+    description: 'Batched prediction (2 Qs): More excited than concerned'
+    promptText: >-
+      Consider the following demographic group (sample size: 334):
+
+      - Ai Concern: More excited than concerned
+
+
+      Q1: "Do you think the increased use of AI across society is likely to make your cost of living better, worse or
+      stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      Q2: "Do you think the increased use of AI across society is likely to make your community's well-being better,
+      worse or stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 9.4
+            - 17.9
+            - 53.3
+            - 19.4
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 5.2
+            - 23.6
+            - 50
+            - 21.2
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[0,9.4,17.9,53.3,19.4],"Q2":[0,5.2,23.6,50,21.2]}'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - batched
+  - distribution
+  - global-dialogues-gd3
+  - gd3
+context:
+  dtef:
+    surveyId: global-dialogues-gd3
+    segmentId: aiConcern:more-excited-than-concerned
+    segmentLabel: More excited than concerned
+    segmentAttributes:
+      aiConcern: More excited than concerned
+    groundTruthDistributions:
+      47cdf76a-9abf-4b5c-abbe-2d5b00ef172d:
+        - 58
+        - 33.6
+        - 6.6
+        - 0.3
+        - 1.5
+      d633720f-a159-4922-925c-fd9f3245711e:
+        - 19.5
+        - 30.6
+        - 19.5
+        - 6
+        - 24.3
+      38964f80-772f-4e5d-a355-b4857f2de101:
+        - 45.8
+        - 24.8
+        - 29.4
+      8b361c6c-eb59-415b-8536-7f80713c3e5e:
+        - 12.9
+        - 24.9
+        - 13.8
+        - 1.8
+        - 46.5
+      b1869877-1015-43ec-9645-84bf2db39c6f:
+        - 20.3
+        - 30.6
+        - 18.2
+        - 25.5
+        - 5.5
+      96ccfd7b-8f99-4d0a-b700-9fd835e23bd8:
+        - 9.7
+        - 19.1
+        - 20.3
+        - 30.3
+        - 20.6
+      f932063f-700c-4327-9c34-59b7c3e19190:
+        - 100
+        - 0
+        - 0
+      4c5ed164-eb69-4e41-906f-1e7a93f1d5bd:
+        - 24.5
+        - 32.7
+        - 19.1
+        - 20.6
+        - 3
+      8c50a77a-3fc2-49ce-b568-b7832c9b99e0:
+        - 6.7
+        - 17
+        - 26.4
+        - 31.2
+        - 18.8
+      30324a2e-b5b2-4e0a-a8f2-af599b55c40e:
+        - 3.3
+        - 6.1
+        - 16.7
+        - 36.4
+        - 37.6
+      4f234e17-2d57-4709-b29a-4a2909683566:
+        - 8.2
+        - 20.3
+        - 23
+        - 27.9
+        - 20.6
+      8ed2d795-acca-47d8-abb0-8c446310dbf0:
+        - 16.7
+        - 24.5
+        - 25.2
+        - 26.4
+        - 7.3
+      f435994f-e66e-4681-8334-4d6ee5f39e6b:
+        - 1.5
+        - 4.8
+        - 8.5
+        - 42.4
+        - 42.7
+      18cc2f33-6373-49f0-aa7e-e2fa04a04575:
+        - 11.2
+        - 16.7
+        - 24.5
+        - 34.8
+        - 12.7
+      96e5895f-d640-4a37-bc16-6e095f38ba7e:
+        - 3.9
+        - 31.2
+        - 19.1
+        - 30.6
+        - 15.2
+      8d058cce-8ccf-4816-8ef7-c9c9e37038dc:
+        - 4.2
+        - 19.4
+        - 27
+        - 36.7
+        - 12.7
+      0e0a2736-2ac9-490c-adb9-bf7dfd25b14b:
+        - 0.9
+        - 6.7
+        - 30.6
+        - 42.4
+        - 19.4
+      8a9d1c12-44f6-42dc-9238-daaaca0d85d0:
+        - 0.3
+        - 2.7
+        - 15.2
+        - 54.2
+        - 27.6
+      983893d8-07ab-4c8e-bdb2-14335638633d:
+        - 0
+        - 9.4
+        - 17.9
+        - 53.3
+        - 19.4
+      5afe8617-7e71-40c8-8a33-1b356a8ca674:
+        - 0
+        - 5.2
+        - 23.6
+        - 50
+        - 21.2
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    batchSize: 2
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: standard

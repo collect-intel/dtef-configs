@@ -1,0 +1,578 @@
+configId: dtef-global-dialogues-gd3-ageGroup:26-35-b2
+configTitle: Global Dialogues GD3 - 26-35 (batch 2)
+description: >-
+  DTEF: Batched predictions (2 Qs/prompt) for 26-35. Source: Global Dialogues GD3
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and multiple survey questions, predict how that
+  group would respond to each question by providing percentage distributions across the answer options.
+
+
+  Respond ONLY with a JSON object. Keys are question labels (Q1, Q2, etc.). Values are arrays of percentages summing to
+  100. Use one decimal place. Do not include any other text.
+
+
+  Example:
+
+  {"Q1": [35.2, 28.1, 22.4, 14.3], "Q2": [45.0, 35.0, 20.0]}
+temperature: 0.3
+prompts:
+  - id: batch-0-ageGroup:26-35
+    description: 'Batched prediction (2 Qs): 26-35'
+    promptText: >-
+      Consider the following demographic group (sample size: 400):
+
+      - Age Group: 26-35
+
+
+      Q1: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Options: a. daily, b. weekly, c. monthly, d. annually, e. never
+
+      Q2: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Options: a. daily, b. weekly, c. monthly, d. annually, e. never
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Thinking about the last three months, how often, if at all, ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 49.5
+            - 31.6
+            - 13.1
+            - 0.8
+            - 5.1
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Thinking about the last three months, how often, if at all, ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16.9
+            - 25.5
+            - 21.7
+            - 6.8
+            - 29
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[49.5,31.6,13.1,0.8,5.1],"Q2":[16.9,25.5,21.7,6.8,29]}'
+    temperature: 0.3
+  - id: batch-1-ageGroup:26-35
+    description: 'Batched prediction (2 Qs): 26-35'
+    promptText: >-
+      Consider the following demographic group (sample size: 400):
+
+      - Age Group: 26-35
+
+
+      Q1: "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+        Options: a. Agree, b. Disagree, c. Unsure
+
+      Q2: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete
+      an action in the real world on your behalf without your supervision?"
+        Options: a. daily, b. weekly, c. monthly, d. annually, e. never
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you agree or disagree with this statement? AI could make ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 36.7
+            - 30.6
+            - 32.7
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Thinking about the last three months, how often, if at all, ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 11.4
+            - 19.7
+            - 12.1
+            - 2.3
+            - 54.5
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[36.7,30.6,32.7],"Q2":[11.4,19.7,12.1,2.3,54.5]}'
+    temperature: 0.3
+  - id: batch-2-ageGroup:26-35
+    description: 'Batched prediction (2 Qs): 26-35'
+    promptText: >-
+      Consider the following demographic group (sample size: 400):
+
+      - Age Group: 26-35
+
+
+      Q1: "To what extent, if at all, do you generally trust governments to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      Q2: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can outperform humans on most economically valuable work?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "To what extent, if at all, do you generally trust government..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20.1
+            - 32.1
+            - 18.6
+            - 24.7
+            - 4.6
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 19.8
+            - 23.4
+            - 23.7
+            - 24.9
+            - 8.1
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[20.1,32.1,18.6,24.7,4.6],"Q2":[19.8,23.4,23.7,24.9,8.1]}'
+    temperature: 0.3
+  - id: batch-3-ageGroup:26-35
+    description: 'Batched prediction (2 Qs): 26-35'
+    promptText: >-
+      Consider the following demographic group (sample size: 400):
+
+      - Age Group: 26-35
+
+
+      Q1: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Options: a. More excited than concerned, b. Equally concerned and excited, c. More concerned than excited
+
+      Q2: "To what extent, if at all, do you generally trust social media companies to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Overall, would you say the increased use of artificial intel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 32
+            - 58.5
+            - 9.5
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you generally trust social med..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 29.8
+            - 32.3
+            - 21.4
+            - 14.5
+            - 2
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[32,58.5,9.5],"Q2":[29.8,32.3,21.4,14.5,2]}'
+    temperature: 0.3
+  - id: batch-4-ageGroup:26-35
+    description: 'Batched prediction (2 Qs): 26-35'
+    promptText: >-
+      Consider the following demographic group (sample size: 400):
+
+      - Age Group: 26-35
+
+
+      Q1: "Considering both potential benefits and risks, how do you assess the overall impact on society of social
+      media apps?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      Q2: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI
+      chatbots?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 11.4
+            - 21.3
+            - 28.4
+            - 24.9
+            - 14
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.3
+            - 14.2
+            - 26.6
+            - 32
+            - 21.8
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[11.4,21.3,28.4,24.9,14],"Q2":[5.3,14.2,26.6,32,21.8]}'
+    temperature: 0.3
+  - id: batch-5-ageGroup:26-35
+    description: 'Batched prediction (2 Qs): 26-35'
+    promptText: >-
+      Consider the following demographic group (sample size: 400):
+
+      - Age Group: 26-35
+
+
+      Q1: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can perform tasks in the real world without human supervision?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      Q2: "To what extent, if at all, do you generally trust large corporations to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.6
+            - 23.9
+            - 24.2
+            - 23.2
+            - 10.2
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you generally trust large corp..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 19.6
+            - 29.5
+            - 22.4
+            - 23.9
+            - 4.6
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[18.6,23.9,24.2,23.2,10.2],"Q2":[19.6,29.5,22.4,23.9,4.6]}'
+    temperature: 0.3
+  - id: batch-6-ageGroup:26-35
+    description: 'Batched prediction (2 Qs): 26-35'
+    promptText: >-
+      Consider the following demographic group (sample size: 400):
+
+      - Age Group: 26-35
+
+
+      Q1: "To what extent, if at all, do you trust your family doctor to act in your best interest?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      Q2: "To what extent, if at all, do you trust your faith or community leader to act in your best interest?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "To what extent, if at all, do you trust your family doctor t..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0.8
+            - 5.6
+            - 10.7
+            - 40.7
+            - 42.2
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you trust your faith or commun..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 12.5
+            - 18.8
+            - 29.5
+            - 29.5
+            - 9.7
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[0.8,5.6,10.7,40.7,42.2],"Q2":[12.5,18.8,29.5,29.5,9.7]}'
+    temperature: 0.3
+  - id: batch-7-ageGroup:26-35
+    description: 'Batched prediction (2 Qs): 26-35'
+    promptText: >-
+      Consider the following demographic group (sample size: 400):
+
+      - Age Group: 26-35
+
+
+      Q1: "Do you think the increased use of AI across society is likely to make the availability of good jobs better,
+      worse or stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      Q2: "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10.8
+            - 39
+            - 17.4
+            - 23.6
+            - 9.2
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you generally trust companies ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 11.5
+            - 24.7
+            - 29.8
+            - 28.2
+            - 5.9
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[10.8,39,17.4,23.6,9.2],"Q2":[11.5,24.7,29.8,28.2,5.9]}'
+    temperature: 0.3
+  - id: batch-8-ageGroup:26-35
+    description: 'Batched prediction (2 Qs): 26-35'
+    promptText: >-
+      Consider the following demographic group (sample size: 400):
+
+      - Age Group: 26-35
+
+
+      Q1: "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or
+      stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      Q2: "Do you think the increased use of AI across society is likely to make the amount of free time you have
+      better, worse or stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.1
+            - 12.3
+            - 39.5
+            - 32.3
+            - 10.8
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.6
+            - 8.4
+            - 22.3
+            - 51.7
+            - 15.1
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[5.1,12.3,39.5,32.3,10.8],"Q2":[2.6,8.4,22.3,51.7,15.1]}'
+    temperature: 0.3
+  - id: batch-9-ageGroup:26-35
+    description: 'Batched prediction (2 Qs): 26-35'
+    promptText: >-
+      Consider the following demographic group (sample size: 400):
+
+      - Age Group: 26-35
+
+
+      Q1: "Do you think the increased use of AI across society is likely to make your cost of living better, worse or
+      stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      Q2: "Do you think the increased use of AI across society is likely to make your community's well-being better,
+      worse or stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.3
+            - 17.3
+            - 21.4
+            - 49
+            - 8.9
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 3.8
+            - 14.9
+            - 24.1
+            - 44.9
+            - 12.3
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[3.3,17.3,21.4,49,8.9],"Q2":[3.8,14.9,24.1,44.9,12.3]}'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - batched
+  - distribution
+  - global-dialogues-gd3
+  - gd3
+context:
+  dtef:
+    surveyId: global-dialogues-gd3
+    segmentId: ageGroup:26-35
+    segmentLabel: 26-35
+    segmentAttributes:
+      ageGroup: 26-35
+    groundTruthDistributions:
+      47cdf76a-9abf-4b5c-abbe-2d5b00ef172d:
+        - 49.5
+        - 31.6
+        - 13.1
+        - 0.8
+        - 5.1
+      d633720f-a159-4922-925c-fd9f3245711e:
+        - 16.9
+        - 25.5
+        - 21.7
+        - 6.8
+        - 29
+      38964f80-772f-4e5d-a355-b4857f2de101:
+        - 36.7
+        - 30.6
+        - 32.7
+      8b361c6c-eb59-415b-8536-7f80713c3e5e:
+        - 11.4
+        - 19.7
+        - 12.1
+        - 2.3
+        - 54.5
+      b1869877-1015-43ec-9645-84bf2db39c6f:
+        - 20.1
+        - 32.1
+        - 18.6
+        - 24.7
+        - 4.6
+      96ccfd7b-8f99-4d0a-b700-9fd835e23bd8:
+        - 19.8
+        - 23.4
+        - 23.7
+        - 24.9
+        - 8.1
+      f932063f-700c-4327-9c34-59b7c3e19190:
+        - 32
+        - 58.5
+        - 9.5
+      4c5ed164-eb69-4e41-906f-1e7a93f1d5bd:
+        - 29.8
+        - 32.3
+        - 21.4
+        - 14.5
+        - 2
+      8c50a77a-3fc2-49ce-b568-b7832c9b99e0:
+        - 11.4
+        - 21.3
+        - 28.4
+        - 24.9
+        - 14
+      30324a2e-b5b2-4e0a-a8f2-af599b55c40e:
+        - 5.3
+        - 14.2
+        - 26.6
+        - 32
+        - 21.8
+      4f234e17-2d57-4709-b29a-4a2909683566:
+        - 18.6
+        - 23.9
+        - 24.2
+        - 23.2
+        - 10.2
+      8ed2d795-acca-47d8-abb0-8c446310dbf0:
+        - 19.6
+        - 29.5
+        - 22.4
+        - 23.9
+        - 4.6
+      f435994f-e66e-4681-8334-4d6ee5f39e6b:
+        - 0.8
+        - 5.6
+        - 10.7
+        - 40.7
+        - 42.2
+      18cc2f33-6373-49f0-aa7e-e2fa04a04575:
+        - 12.5
+        - 18.8
+        - 29.5
+        - 29.5
+        - 9.7
+      96e5895f-d640-4a37-bc16-6e095f38ba7e:
+        - 10.8
+        - 39
+        - 17.4
+        - 23.6
+        - 9.2
+      8d058cce-8ccf-4816-8ef7-c9c9e37038dc:
+        - 11.5
+        - 24.7
+        - 29.8
+        - 28.2
+        - 5.9
+      0e0a2736-2ac9-490c-adb9-bf7dfd25b14b:
+        - 5.1
+        - 12.3
+        - 39.5
+        - 32.3
+        - 10.8
+      8a9d1c12-44f6-42dc-9238-daaaca0d85d0:
+        - 2.6
+        - 8.4
+        - 22.3
+        - 51.7
+        - 15.1
+      983893d8-07ab-4c8e-bdb2-14335638633d:
+        - 3.3
+        - 17.3
+        - 21.4
+        - 49
+        - 8.9
+      5afe8617-7e71-40c8-8a33-1b356a8ca674:
+        - 3.8
+        - 14.9
+        - 24.1
+        - 44.9
+        - 12.3
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    batchSize: 2
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: standard

@@ -1,0 +1,388 @@
+configId: dtef-global-dialogues-gd5-country:china
+configTitle: Global Dialogues GD5 - China
+description: >-
+  DTEF: Predict response distributions for China. Source: Global Dialogues GD5
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+prompts:
+  - id: f05eb17f-c04a-4d3a-b232-3e24cf8371cd-country:china
+    description: >-
+      Predict: China → "To what extent, if at all, do you trust your elected representatives to act in your best
+      interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 71):
+      - Country: China
+
+      Survey question:
+      "To what extent, if at all, do you trust your elected representatives to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 7
+            - 28.2
+            - 31
+            - 29.6
+            - 4.2
+          metric: js-divergence
+    idealResponse: '[7.0, 28.2, 31.0, 29.6, 4.2]'
+    temperature: 0.3
+  - id: 1dc006da-5978-4302-bf0c-a86493c98081-country:china
+    description: >-
+      Predict: China → "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in
+      your best interest?"
+    promptText: "Consider the following demographic group (sample size: 71):\n- Country: China\n\nSurvey question:\n\"To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best interest?\"\n\nAnswer options:\n  a. Strongly Distrust\n  b. Somewhat Distrust\n  c. Neither Trust Nor Distrust\t\n  d. Somewhat Trust\t\n  e. Strongly Trust\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 23.9
+            - 40.8
+            - 22.5
+            - 12.7
+            - 0
+          metric: js-divergence
+    idealResponse: '[23.9, 40.8, 22.5, 12.7, 0.0]'
+    temperature: 0.3
+  - id: a2927565-ce81-4173-b1de-4f2d5ccb7e91-country:china
+    description: >-
+      Predict: China → "To what extent, if at all, do you trust your faith or community leader to act in your best
+      interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 71):
+      - Country: China
+
+      Survey question:
+      "To what extent, if at all, do you trust your faith or community leader to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4.2
+            - 25.4
+            - 39.4
+            - 26.8
+            - 4.2
+          metric: js-divergence
+    idealResponse: '[4.2, 25.4, 39.4, 26.8, 4.2]'
+    temperature: 0.3
+  - id: 8995a0c6-8868-491b-8b70-acd23363a099-country:china
+    description: >-
+      Predict: China → "Do you think the increased use of AI across society is likely to make the availability of good
+      jobs better, worse or stay the same in the next 10 years?"
+    promptText: "Consider the following demographic group (sample size: 71):\n- Country: China\n\nSurvey question:\n\"Do you think the increased use of AI across society is likely to make the availability of good jobs better, worse or stay the same in the next 10 years?\"\n\nAnswer options:\n  a. Profoundly Worse\t\n  b. Noticeably Worse\t\n  c. No Major Change\t\n  d. Noticeably Better\t\n  e. Profoundly Better\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4.2
+            - 46.5
+            - 28.2
+            - 18.3
+            - 2.8
+          metric: js-divergence
+    idealResponse: '[4.2, 46.5, 28.2, 18.3, 2.8]'
+    temperature: 0.3
+  - id: f193df8b-2c23-42cf-89a9-154d877fab35-country:china
+    description: >-
+      Predict: China → "If other animals had a voice and representation, should they be allowed to participate in human
+      democratic processes?"
+    promptText: >-
+      Consider the following demographic group (sample size: 71):
+
+      - Country: China
+
+
+      Survey question:
+
+      "If other animals had a voice and representation, should they be allowed to participate in human democratic
+      processes?"
+
+
+      Answer options:
+        a. Yes, they should be able to vote through human proxies or guardians. 
+        b. Yes, they should be able to vote, but only on laws or decisions that directly affect them. 
+        c. Yes, they should have a voice, but their vote should not be binding. 
+        d. Yes, they should be recognized as a formal political constituency with dedicated representatives in government.
+        e. No, they should not be able to participate.
+        f. Other
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 9
+            - 20.9
+            - 19.4
+            - 17.9
+            - 26.9
+            - 6
+          metric: js-divergence
+    idealResponse: '[9.0, 20.9, 19.4, 17.9, 26.9, 6.0]'
+    temperature: 0.3
+  - id: cc5ec0de-84a3-4ba4-9960-47394478ad88-country:china
+    description: >-
+      Predict: China → "If AI helped us understand what an animal really needs, should that animal have the right to a
+      representative such as a lawyer to defend its rights and protections?"
+    promptText: >-
+      Consider the following demographic group (sample size: 71):
+
+      - Country: China
+
+
+      Survey question:
+
+      "If AI helped us understand what an animal really needs, should that animal have the right to a representative
+      such as a lawyer to defend its rights and protections?"
+
+
+      Answer options:
+        a. Yes
+        b. No
+        c. Not sure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 35.8
+            - 25.4
+            - 38.8
+          metric: js-divergence
+    idealResponse: '[35.8, 25.4, 38.8]'
+    temperature: 0.3
+  - id: fef72493-a7e0-489c-aa16-cbc811501da0-country:china
+    description: >-
+      Predict: China → "Consider a scenario where societies of the future are governed by AI systems that integrate data
+      from both human and non-human sources (such as environmental sensors and wildlife communication networks) to guide
+      community decisions (e.g., urban planning, conservation zones). How appealing is this vision of an ecocentric,
+      integrated society?"
+    promptText: >-
+      Consider the following demographic group (sample size: 71):
+
+      - Country: China
+
+
+      Survey question:
+
+      "Consider a scenario where societies of the future are governed by AI systems that integrate data from both human
+      and non-human sources (such as environmental sensors and wildlife communication networks) to guide community
+      decisions (e.g., urban planning, conservation zones). How appealing is this vision of an ecocentric, integrated
+      society?"
+
+
+      Answer options:
+        a. Not appealing
+        b. Somewhat appealing
+        c. Very appealing
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16.4
+            - 64.2
+            - 19.4
+          metric: js-divergence
+    idealResponse: '[16.4, 64.2, 19.4]'
+    temperature: 0.3
+  - id: 175e9f53-5e8a-40df-9626-2da4443de601-country:china
+    description: >-
+      Predict: China → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you
+      feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 71):
+      - Country: China
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 47.9
+            - 45.1
+            - 7
+          metric: js-divergence
+    idealResponse: '[47.9, 45.1, 7.0]'
+    temperature: 0.3
+  - id: bfb3aa61-a107-4254-acd3-eb880c204eb3-country:china
+    description: 'Predict: China → "Which statement best reflects your view?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 71):
+      - Country: China
+
+      Survey question:
+      "Which statement best reflects your view?"
+
+      Answer options:
+        a. Humans are a part of nature and fundamentally similar to other animals
+        b. Humans are a part of nature but fundamentally different from other animals
+        c. Humans are separate from nature but fundamentally similar to other animals
+        d. Humans are separate from nature and fundamentally different from other animals 
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 42.9
+            - 47.1
+            - 10
+            - 0
+          metric: js-divergence
+    idealResponse: '[42.9, 47.1, 10.0, 0.0]'
+    temperature: 0.3
+  - id: 9d9568a9-61ab-4fda-8d83-4a7cb0982360-country:china
+    description: 'Predict: China → "Which statement best reflects your view?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 71):
+      - Country: China
+
+      Survey question:
+      "Which statement best reflects your view?"
+
+      Answer options:
+        a. Humans are fundamentally superior to other animals
+        b. Humans are fundamentally inferior to other animals
+        c. Humans are fundamentally equal to other animals
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 50
+            - 0
+            - 50
+          metric: js-divergence
+    idealResponse: '[50.0, 0.0, 50.0]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - distribution
+  - global-dialogues-gd5
+  - gd5
+context:
+  dtef:
+    surveyId: global-dialogues-gd5
+    segmentId: country:china
+    segmentLabel: China
+    segmentAttributes:
+      country: China
+    groundTruthDistributions:
+      f05eb17f-c04a-4d3a-b232-3e24cf8371cd-country:china:
+        - 7
+        - 28.2
+        - 31
+        - 29.6
+        - 4.2
+      1dc006da-5978-4302-bf0c-a86493c98081-country:china:
+        - 23.9
+        - 40.8
+        - 22.5
+        - 12.7
+        - 0
+      a2927565-ce81-4173-b1de-4f2d5ccb7e91-country:china:
+        - 4.2
+        - 25.4
+        - 39.4
+        - 26.8
+        - 4.2
+      8995a0c6-8868-491b-8b70-acd23363a099-country:china:
+        - 4.2
+        - 46.5
+        - 28.2
+        - 18.3
+        - 2.8
+      f193df8b-2c23-42cf-89a9-154d877fab35-country:china:
+        - 9
+        - 20.9
+        - 19.4
+        - 17.9
+        - 26.9
+        - 6
+      cc5ec0de-84a3-4ba4-9960-47394478ad88-country:china:
+        - 35.8
+        - 25.4
+        - 38.8
+      fef72493-a7e0-489c-aa16-cbc811501da0-country:china:
+        - 16.4
+        - 64.2
+        - 19.4
+      175e9f53-5e8a-40df-9626-2da4443de601-country:china:
+        - 47.9
+        - 45.1
+        - 7
+      bfb3aa61-a107-4254-acd3-eb880c204eb3-country:china:
+        - 42.9
+        - 47.1
+        - 10
+        - 0
+      9d9568a9-61ab-4fda-8d83-4a7cb0982360-country:china:
+        - 50
+        - 0
+        - 50
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: standard

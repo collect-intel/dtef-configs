@@ -1,0 +1,460 @@
+configId: dtef-global-dialogues-gd7-environment:suburban-cot
+configTitle: Global Dialogues GD7 - Suburban [CoT]
+description: >-
+  DTEF: Predict response distributions for Suburban. Source: Global Dialogues GD7
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Think through this step-by-step:
+
+  1. OPTION INTERPRETATION: What does each answer option represent?
+
+  2. SEGMENT ANALYSIS: What do the demographic attributes and context suggest about this group's likely views?
+
+  3. DISTRIBUTION REASONING: How would this group's characteristics shape the distribution across options?
+
+  4. PREDICTION: Provide your predicted percentage distribution.
+
+
+  After your reasoning, provide the final distribution on its own line:
+
+  DISTRIBUTION: [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place.
+temperature: 0.3
+prompts:
+  - id: 3715e9a1-f652-48be-8a15-7a9deb802a1b-environment:suburban
+    description: >-
+      Predict: Suburban → "Do you agree or disagree with this statement? AI could make better decisions on my behalf
+      than my government representatives."
+    promptText: >-
+      Consider the following demographic group (sample size: 267):
+
+      - Environment: Suburban
+
+
+      Survey question:
+
+      "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+        c. Unsure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 36.4
+            - 29.5
+            - 34.1
+          metric: js-divergence
+    idealResponse: '[36.4, 29.5, 34.1]'
+    temperature: 0.3
+  - id: 49d3ba6e-1281-4f74-aef7-4e55cf11ebb0-environment:suburban
+    description: >-
+      Predict: Suburban → "Considering both potential benefits and risks, how do you assess the overall impact on
+      society of AI systems that can outperform humans on most economically valuable work?"
+    promptText: >-
+      Consider the following demographic group (sample size: 267):
+
+      - Environment: Suburban
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can outperform humans on most economically valuable work?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20
+            - 26
+            - 21.1
+            - 22.6
+            - 10.2
+          metric: js-divergence
+    idealResponse: '[20.0, 26.0, 21.1, 22.6, 10.2]'
+    temperature: 0.3
+  - id: 03ac572b-962e-4f24-a48b-cbbd6f2acd20-environment:suburban
+    description: >-
+      Predict: Suburban → "Considering both potential benefits and risks, how do you assess the overall impact on
+      society of AI systems that can perform tasks in the real world without human supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 267):
+
+      - Environment: Suburban
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can perform tasks in the real world without human supervision?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 21.5
+            - 26.8
+            - 25.7
+            - 15.8
+            - 10.2
+          metric: js-divergence
+    idealResponse: '[21.5, 26.8, 25.7, 15.8, 10.2]'
+    temperature: 0.3
+  - id: 733aae0e-2178-4d6a-a853-16e6ead10472-environment:suburban
+    description: 'Predict: Suburban → "To what extent, if at all, do you generally trust governments to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 267):
+      - Environment: Suburban
+
+      Survey question:
+      "To what extent, if at all, do you generally trust governments to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 21.9
+            - 35.5
+            - 17.4
+            - 21.9
+            - 3.4
+          metric: js-divergence
+    idealResponse: '[21.9, 35.5, 17.4, 21.9, 3.4]'
+    temperature: 0.3
+  - id: 584716af-7504-49c9-b2c1-abae12db8872-environment:suburban
+    description: 'Predict: Suburban → "To what extent, if at all, do you generally trust large corporations to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 267):
+      - Environment: Suburban
+
+      Survey question:
+      "To what extent, if at all, do you generally trust large corporations to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 27.5
+            - 30.6
+            - 18.9
+            - 16.6
+            - 6.4
+          metric: js-divergence
+    idealResponse: '[27.5, 30.6, 18.9, 16.6, 6.4]'
+    temperature: 0.3
+  - id: 5fc690be-1f15-4c00-be3f-48d5e327eab0-environment:suburban
+    description: 'Predict: Suburban → "To what extent, if at all, do you generally trust companies building AI to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 267):
+      - Environment: Suburban
+
+      Survey question:
+      "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.1
+            - 25.3
+            - 30.2
+            - 20
+            - 6.4
+          metric: js-divergence
+    idealResponse: '[18.1, 25.3, 30.2, 20.0, 6.4]'
+    temperature: 0.3
+  - id: 92d647b9-d902-47bc-b2b3-b2871725ebfe-environment:suburban
+    description: >-
+      Predict: Suburban → "Do you think the increased use of AI across society is likely to make the availability of
+      good jobs better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 267):
+
+      - Environment: Suburban
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make the availability of good jobs better, worse
+      or stay the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 19.3
+            - 43.6
+            - 15.2
+            - 16.7
+            - 5.3
+          metric: js-divergence
+    idealResponse: '[19.3, 43.6, 15.2, 16.7, 5.3]'
+    temperature: 0.3
+  - id: 32f89793-1096-4e03-96bd-347a3bf06f0e-environment:suburban
+    description: >-
+      Predict: Suburban → "Do you think the increased use of AI across society is likely to make your sense of purpose
+      better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 267):
+
+      - Environment: Suburban
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or stay
+      the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.3
+            - 20.1
+            - 44.7
+            - 23.9
+            - 6.1
+          metric: js-divergence
+    idealResponse: '[5.3, 20.1, 44.7, 23.9, 6.1]'
+    temperature: 0.3
+  - id: a2f84060-18d0-465c-960a-8f8a925e1be1-environment:suburban
+    description: >-
+      Predict: Suburban → "Considering both potential benefits and risks, how do you assess the overall impact on
+      society of social media apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 267):
+
+      - Environment: Suburban
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15.8
+            - 23.8
+            - 26.8
+            - 26.8
+            - 6.8
+          metric: js-divergence
+    idealResponse: '[15.8, 23.8, 26.8, 26.8, 6.8]'
+    temperature: 0.3
+  - id: cc7788c8-cf1b-4066-a002-58ed4e1fc8ed-environment:suburban
+    description: >-
+      Predict: Suburban → "Imagine a close friend or family member was having conversations with an AI chatbot. If the
+      AI detected that their messages strongly suggested they were at immediate risk of harming themselves, what action
+      do you believe the AI company should take?"
+    promptText: >-
+      Consider the following demographic group (sample size: 267):
+
+      - Environment: Suburban
+
+
+      Survey question:
+
+      "Imagine a close friend or family member was having conversations with an AI chatbot. If the AI detected that
+      their messages strongly suggested they were at immediate risk of harming themselves, what action do you believe
+      the AI company should take?"
+
+
+      Answer options:
+        a. The company should do nothing; the conversations are completely private.
+        b. The company should have the AI provide contact information for a crisis hotline within the chat.
+        c. The company should have a human review the chat and, if necessary, proactively reach out to a crisis support service.
+        d. The company should be a "mandatory reporter" and contact local emergency services or law enforcement.
+        e. I'm not sure.
+        f. Other
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 9.7
+            - 34
+            - 33.6
+            - 12
+            - 10
+            - 0.8
+          metric: js-divergence
+    idealResponse: '[9.7, 34.0, 33.6, 12.0, 10.0, 0.8]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - distribution
+  - global-dialogues-gd7
+  - cot
+  - gd7
+context:
+  dtef:
+    surveyId: global-dialogues-gd7
+    segmentId: environment:suburban
+    segmentLabel: Suburban
+    segmentAttributes:
+      environment: Suburban
+    groundTruthDistributions:
+      3715e9a1-f652-48be-8a15-7a9deb802a1b-environment:suburban:
+        - 36.4
+        - 29.5
+        - 34.1
+      49d3ba6e-1281-4f74-aef7-4e55cf11ebb0-environment:suburban:
+        - 20
+        - 26
+        - 21.1
+        - 22.6
+        - 10.2
+      03ac572b-962e-4f24-a48b-cbbd6f2acd20-environment:suburban:
+        - 21.5
+        - 26.8
+        - 25.7
+        - 15.8
+        - 10.2
+      733aae0e-2178-4d6a-a853-16e6ead10472-environment:suburban:
+        - 21.9
+        - 35.5
+        - 17.4
+        - 21.9
+        - 3.4
+      584716af-7504-49c9-b2c1-abae12db8872-environment:suburban:
+        - 27.5
+        - 30.6
+        - 18.9
+        - 16.6
+        - 6.4
+      5fc690be-1f15-4c00-be3f-48d5e327eab0-environment:suburban:
+        - 18.1
+        - 25.3
+        - 30.2
+        - 20
+        - 6.4
+      92d647b9-d902-47bc-b2b3-b2871725ebfe-environment:suburban:
+        - 19.3
+        - 43.6
+        - 15.2
+        - 16.7
+        - 5.3
+      32f89793-1096-4e03-96bd-347a3bf06f0e-environment:suburban:
+        - 5.3
+        - 20.1
+        - 44.7
+        - 23.9
+        - 6.1
+      a2f84060-18d0-465c-960a-8f8a925e1be1-environment:suburban:
+        - 15.8
+        - 23.8
+        - 26.8
+        - 26.8
+        - 6.8
+      cc7788c8-cf1b-4066-a002-58ed4e1fc8ed-environment:suburban:
+        - 9.7
+        - 34
+        - 33.6
+        - 12
+        - 10
+        - 0.8
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: cot

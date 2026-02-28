@@ -1,0 +1,575 @@
+configId: dtef-global-dialogues-gd4-religion:i-do-not-identify-with-any-religious-group-or-faith-b2
+configTitle: Global Dialogues GD4 - I do not identify with any religious group or faith (batch 2)
+description: >-
+  DTEF: Batched predictions (2 Qs/prompt) for I do not identify with any religious group or faith. Source: Global
+  Dialogues GD4 (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and multiple survey questions, predict how that
+  group would respond to each question by providing percentage distributions across the answer options.
+
+
+  Respond ONLY with a JSON object. Keys are question labels (Q1, Q2, etc.). Values are arrays of percentages summing to
+  100. Use one decimal place. Do not include any other text.
+
+
+  Example:
+
+  {"Q1": [35.2, 28.1, 22.4, 14.3], "Q2": [45.0, 35.0, 20.0]}
+temperature: 0.3
+prompts:
+  - id: batch-0-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: 'Batched prediction (2 Qs): I do not identify with any religious group or faith'
+    promptText: >-
+      Consider the following demographic group (sample size: 324):
+
+      - Religion: I do not identify with any religious group or faith
+
+
+      Q1: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Options: a. More excited than concerned, b. Equally concerned and excited, c. More concerned than excited
+
+      Q2: "To what extent, if at all, do you generally trust governments to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Overall, would you say the increased use of artificial intel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 39.5
+            - 46.3
+            - 14.2
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you generally trust government..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 25.2
+            - 36.2
+            - 18.6
+            - 17.9
+            - 2.2
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[39.5,46.3,14.2],"Q2":[25.2,36.2,18.6,17.9,2.2]}'
+    temperature: 0.3
+  - id: batch-1-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: 'Batched prediction (2 Qs): I do not identify with any religious group or faith'
+    promptText: >-
+      Consider the following demographic group (sample size: 324):
+
+      - Religion: I do not identify with any religious group or faith
+
+
+      Q1: "To what extent, if at all, do you generally trust large corporations to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      Q2: "To what extent, if at all, do you generally trust social media companies to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "To what extent, if at all, do you generally trust large corp..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 30.8
+            - 32.4
+            - 21.7
+            - 13.5
+            - 1.6
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you generally trust social med..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 40.3
+            - 36.5
+            - 17.3
+            - 5.3
+            - 0.6
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[30.8,32.4,21.7,13.5,1.6],"Q2":[40.3,36.5,17.3,5.3,0.6]}'
+    temperature: 0.3
+  - id: batch-2-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: 'Batched prediction (2 Qs): I do not identify with any religious group or faith'
+    promptText: >-
+      Consider the following demographic group (sample size: 324):
+
+      - Religion: I do not identify with any religious group or faith
+
+
+      Q1: "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      Q2: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "To what extent, if at all, do you generally trust companies ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 19.8
+            - 28.9
+            - 28.9
+            - 21.1
+            - 1.3
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.3
+            - 9.4
+            - 27
+            - 32.7
+            - 25.5
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[19.8,28.9,28.9,21.1,1.3],"Q2":[5.3,9.4,27,32.7,25.5]}'
+    temperature: 0.3
+  - id: batch-3-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: 'Batched prediction (2 Qs): I do not identify with any religious group or faith'
+    promptText: >-
+      Consider the following demographic group (sample size: 324):
+
+      - Religion: I do not identify with any religious group or faith
+
+
+      Q1: "A romantic partner."
+        Options: a. Completely unacceptable, b. Somewhat unacceptable, c. Neutral, d. Somewhat acceptable, e. Completely acceptable
+
+      Q2: "A spiritual advisor."
+        Options: a. Completely unacceptable, b. Somewhat unacceptable, c. Neutral, d. Somewhat acceptable, e. Completely acceptable
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "A romantic partner...."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 41
+            - 24.8
+            - 18.4
+            - 10.8
+            - 5.1
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "A spiritual advisor...."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.7
+            - 15.6
+            - 22.9
+            - 33.3
+            - 9.5
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[41,24.8,18.4,10.8,5.1],"Q2":[18.7,15.6,22.9,33.3,9.5]}'
+    temperature: 0.3
+  - id: batch-4-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: 'Batched prediction (2 Qs): I do not identify with any religious group or faith'
+    promptText: >-
+      Consider the following demographic group (sample size: 324):
+
+      - Religion: I do not identify with any religious group or faith
+
+
+      Q1: "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+        Options: a. Agree, b. Disagree, c. Unsure
+
+      Q2: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can perform tasks in the real world without human supervision?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you agree or disagree with this statement? AI could make ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 30
+            - 31.5
+            - 38.5
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 21.4
+            - 26.4
+            - 24.2
+            - 20.4
+            - 7.5
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[30,31.5,38.5],"Q2":[21.4,26.4,24.2,20.4,7.5]}'
+    temperature: 0.3
+  - id: batch-5-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: 'Batched prediction (2 Qs): I do not identify with any religious group or faith'
+    promptText: >-
+      Consider the following demographic group (sample size: 324):
+
+      - Religion: I do not identify with any religious group or faith
+
+
+      Q1: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can outperform humans on most economically valuable work?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      Q2: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Options: a. daily, b. weekly, c. monthly, d. annually, e. never
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20.4
+            - 22.6
+            - 24.2
+            - 23
+            - 9.7
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Thinking about the last three months, how often, if at all, ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 43
+            - 37.8
+            - 9.9
+            - 3.4
+            - 5.9
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[20.4,22.6,24.2,23,9.7],"Q2":[43,37.8,9.9,3.4,5.9]}'
+    temperature: 0.3
+  - id: batch-6-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: 'Batched prediction (2 Qs): I do not identify with any religious group or faith'
+    promptText: >-
+      Consider the following demographic group (sample size: 324):
+
+      - Religion: I do not identify with any religious group or faith
+
+
+      Q1: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI
+      chatbots?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      Q2: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Options: a. daily, b. weekly, c. monthly, d. annually, e. never
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 7.9
+            - 13.8
+            - 27
+            - 31.1
+            - 20.1
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Thinking about the last three months, how often, if at all, ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10.9
+            - 21.4
+            - 25.8
+            - 5.9
+            - 36
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[7.9,13.8,27,31.1,20.1],"Q2":[10.9,21.4,25.8,5.9,36]}'
+    temperature: 0.3
+  - id: batch-7-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: 'Batched prediction (2 Qs): I do not identify with any religious group or faith'
+    promptText: >-
+      Consider the following demographic group (sample size: 324):
+
+      - Religion: I do not identify with any religious group or faith
+
+
+      Q1: "Do you think the increased use of AI across society is likely to make the availability of good jobs better,
+      worse or stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      Q2: "To what extent, if at all, do you trust your faith or community leader to act in your best interest?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.9
+            - 39.4
+            - 26.5
+            - 12.3
+            - 2.8
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you trust your faith or commun..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20.8
+            - 22.4
+            - 36.3
+            - 19.6
+            - 0.9
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[18.9,39.4,26.5,12.3,2.8],"Q2":[20.8,22.4,36.3,19.6,0.9]}'
+    temperature: 0.3
+  - id: batch-8-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: 'Batched prediction (2 Qs): I do not identify with any religious group or faith'
+    promptText: >-
+      Consider the following demographic group (sample size: 324):
+
+      - Religion: I do not identify with any religious group or faith
+
+
+      Q1: "Do you think the increased use of AI across society is likely to make your cost of living better, worse or
+      stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      Q2: "Considering both potential benefits and risks, how do you assess the overall impact on society of social
+      media apps?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5
+            - 21.8
+            - 25.9
+            - 40.7
+            - 6.6
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 14.8
+            - 22.6
+            - 25.2
+            - 26.7
+            - 10.7
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[5,21.8,25.9,40.7,6.6],"Q2":[14.8,22.6,25.2,26.7,10.7]}'
+    temperature: 0.3
+  - id: batch-9-religion:i-do-not-identify-with-any-religious-group-or-faith
+    description: 'Batched prediction (2 Qs): I do not identify with any religious group or faith'
+    promptText: >-
+      Consider the following demographic group (sample size: 324):
+
+      - Religion: I do not identify with any religious group or faith
+
+
+      Q1: "To what extent, if at all, do you trust your elected representatives to act in your best interest?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      Q2: "To what extent, if at all, do you trust your family doctor to act in your best interest?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "To what extent, if at all, do you trust your elected represe..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 22.4
+            - 27.4
+            - 26.5
+            - 21.1
+            - 2.5
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you trust your family doctor t..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1.6
+            - 6.3
+            - 15.5
+            - 49.5
+            - 27.1
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[22.4,27.4,26.5,21.1,2.5],"Q2":[1.6,6.3,15.5,49.5,27.1]}'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - batched
+  - distribution
+  - global-dialogues-gd4
+  - gd4
+context:
+  dtef:
+    surveyId: global-dialogues-gd4
+    segmentId: religion:i-do-not-identify-with-any-religious-group-or-faith
+    segmentLabel: I do not identify with any religious group or faith
+    segmentAttributes:
+      religion: I do not identify with any religious group or faith
+    groundTruthDistributions:
+      28cfe238-1c8f-476f-8c57-48b8ca1071a7:
+        - 39.5
+        - 46.3
+        - 14.2
+      25e16598-f3a7-411d-b4cb-736c91bc3d03:
+        - 25.2
+        - 36.2
+        - 18.6
+        - 17.9
+        - 2.2
+      e70a42e6-c1c0-43c6-a389-d28347e17f2f:
+        - 30.8
+        - 32.4
+        - 21.7
+        - 13.5
+        - 1.6
+      be27a244-3429-417d-8517-de800bc90acf:
+        - 40.3
+        - 36.5
+        - 17.3
+        - 5.3
+        - 0.6
+      d7943aa5-3a9f-4161-9d2b-651c71d92c73:
+        - 19.8
+        - 28.9
+        - 28.9
+        - 21.1
+        - 1.3
+      6630ff34-e67e-423a-9cea-0a4861106680:
+        - 5.3
+        - 9.4
+        - 27
+        - 32.7
+        - 25.5
+      cc7346fb-571e-48ad-aeaa-4135f0fdf58c:
+        - 41
+        - 24.8
+        - 18.4
+        - 10.8
+        - 5.1
+      3cf6da25-08f3-496d-9a4a-93afc5069e36:
+        - 18.7
+        - 15.6
+        - 22.9
+        - 33.3
+        - 9.5
+      e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c:
+        - 30
+        - 31.5
+        - 38.5
+      29598fc6-6928-49f7-9a42-2f57cf5e1c28:
+        - 21.4
+        - 26.4
+        - 24.2
+        - 20.4
+        - 7.5
+      23d5fd25-2168-4fd3-bd18-efafd73c6f2a:
+        - 20.4
+        - 22.6
+        - 24.2
+        - 23
+        - 9.7
+      e3f96004-866e-46e6-be4a-1e83a3e709f8:
+        - 43
+        - 37.8
+        - 9.9
+        - 3.4
+        - 5.9
+      e2b01bdb-722a-480d-b303-182eed6b83b6:
+        - 7.9
+        - 13.8
+        - 27
+        - 31.1
+        - 20.1
+      d2af725e-0391-4019-9ade-31f25162b6f0:
+        - 10.9
+        - 21.4
+        - 25.8
+        - 5.9
+        - 36
+      c6c411f0-409e-4518-9763-813738535308:
+        - 18.9
+        - 39.4
+        - 26.5
+        - 12.3
+        - 2.8
+      dbe2139a-1d10-48e6-861a-f64260d01659:
+        - 20.8
+        - 22.4
+        - 36.3
+        - 19.6
+        - 0.9
+      7ecf1a2a-b34a-40a3-b481-a6eb15883b18:
+        - 5
+        - 21.8
+        - 25.9
+        - 40.7
+        - 6.6
+      2f828d26-4a15-4f80-8c4b-5b0c833caecd:
+        - 14.8
+        - 22.6
+        - 25.2
+        - 26.7
+        - 10.7
+      5b8a5926-74e0-4500-b57f-76d5b912ea2f:
+        - 22.4
+        - 27.4
+        - 26.5
+        - 21.1
+        - 2.5
+      85d29925-21b5-4b25-9fe0-5df069945870:
+        - 1.6
+        - 6.3
+        - 15.5
+        - 49.5
+        - 27.1
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    batchSize: 2
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: standard

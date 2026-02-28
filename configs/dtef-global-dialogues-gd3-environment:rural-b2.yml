@@ -1,0 +1,578 @@
+configId: dtef-global-dialogues-gd3-environment:rural-b2
+configTitle: Global Dialogues GD3 - Rural (batch 2)
+description: >-
+  DTEF: Batched predictions (2 Qs/prompt) for Rural. Source: Global Dialogues GD3
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and multiple survey questions, predict how that
+  group would respond to each question by providing percentage distributions across the answer options.
+
+
+  Respond ONLY with a JSON object. Keys are question labels (Q1, Q2, etc.). Values are arrays of percentages summing to
+  100. Use one decimal place. Do not include any other text.
+
+
+  Example:
+
+  {"Q1": [35.2, 28.1, 22.4, 14.3], "Q2": [45.0, 35.0, 20.0]}
+temperature: 0.3
+prompts:
+  - id: batch-0-environment:rural
+    description: 'Batched prediction (2 Qs): Rural'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Q1: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Options: a. daily, b. weekly, c. monthly, d. annually, e. never
+
+      Q2: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Options: a. daily, b. weekly, c. monthly, d. annually, e. never
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Thinking about the last three months, how often, if at all, ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 40.2
+            - 39.1
+            - 12.6
+            - 2.3
+            - 5.7
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Thinking about the last three months, how often, if at all, ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.4
+            - 28.7
+            - 9.2
+            - 6.9
+            - 36.8
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[40.2,39.1,12.6,2.3,5.7],"Q2":[18.4,28.7,9.2,6.9,36.8]}'
+    temperature: 0.3
+  - id: batch-1-environment:rural
+    description: 'Batched prediction (2 Qs): Rural'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Q1: "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+        Options: a. Agree, b. Disagree, c. Unsure
+
+      Q2: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete
+      an action in the real world on your behalf without your supervision?"
+        Options: a. daily, b. weekly, c. monthly, d. annually, e. never
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you agree or disagree with this statement? AI could make ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 33.7
+            - 20.9
+            - 45.3
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Thinking about the last three months, how often, if at all, ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 17.2
+            - 13.8
+            - 13.8
+            - 1.1
+            - 54
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[33.7,20.9,45.3],"Q2":[17.2,13.8,13.8,1.1,54]}'
+    temperature: 0.3
+  - id: batch-2-environment:rural
+    description: 'Batched prediction (2 Qs): Rural'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Q1: "To what extent, if at all, do you generally trust governments to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      Q2: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can outperform humans on most economically valuable work?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "To what extent, if at all, do you generally trust government..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 22.1
+            - 38.4
+            - 18.6
+            - 16.3
+            - 4.7
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20.9
+            - 31.4
+            - 15.1
+            - 23.3
+            - 9.3
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[22.1,38.4,18.6,16.3,4.7],"Q2":[20.9,31.4,15.1,23.3,9.3]}'
+    temperature: 0.3
+  - id: batch-3-environment:rural
+    description: 'Batched prediction (2 Qs): Rural'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Q1: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Options: a. More excited than concerned, b. Equally concerned and excited, c. More concerned than excited
+
+      Q2: "To what extent, if at all, do you generally trust social media companies to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Overall, would you say the increased use of artificial intel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 30.7
+            - 48.9
+            - 20.5
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you generally trust social med..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 32.6
+            - 31.4
+            - 19.8
+            - 15.1
+            - 1.2
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[30.7,48.9,20.5],"Q2":[32.6,31.4,19.8,15.1,1.2]}'
+    temperature: 0.3
+  - id: batch-4-environment:rural
+    description: 'Batched prediction (2 Qs): Rural'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Q1: "Considering both potential benefits and risks, how do you assess the overall impact on society of social
+      media apps?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      Q2: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI
+      chatbots?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 11.6
+            - 24.4
+            - 30.2
+            - 26.7
+            - 7
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 12.8
+            - 15.1
+            - 27.9
+            - 27.9
+            - 16.3
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[11.6,24.4,30.2,26.7,7],"Q2":[12.8,15.1,27.9,27.9,16.3]}'
+    temperature: 0.3
+  - id: batch-5-environment:rural
+    description: 'Batched prediction (2 Qs): Rural'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Q1: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can perform tasks in the real world without human supervision?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      Q2: "To what extent, if at all, do you generally trust large corporations to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.6
+            - 27.9
+            - 23.3
+            - 16.3
+            - 14
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you generally trust large corp..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16.3
+            - 34.9
+            - 17.4
+            - 24.4
+            - 7
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[18.6,27.9,23.3,16.3,14],"Q2":[16.3,34.9,17.4,24.4,7]}'
+    temperature: 0.3
+  - id: batch-6-environment:rural
+    description: 'Batched prediction (2 Qs): Rural'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Q1: "To what extent, if at all, do you trust your family doctor to act in your best interest?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      Q2: "To what extent, if at all, do you trust your faith or community leader to act in your best interest?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "To what extent, if at all, do you trust your family doctor t..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 1.2
+            - 3.5
+            - 8.1
+            - 33.7
+            - 53.5
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you trust your faith or commun..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10.5
+            - 23.3
+            - 30.2
+            - 23.3
+            - 12.8
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[1.2,3.5,8.1,33.7,53.5],"Q2":[10.5,23.3,30.2,23.3,12.8]}'
+    temperature: 0.3
+  - id: batch-7-environment:rural
+    description: 'Batched prediction (2 Qs): Rural'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Q1: "Do you think the increased use of AI across society is likely to make the availability of good jobs better,
+      worse or stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      Q2: "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 17.4
+            - 41.9
+            - 12.8
+            - 18.6
+            - 9.3
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you generally trust companies ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10.5
+            - 27.9
+            - 25.6
+            - 27.9
+            - 8.1
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[17.4,41.9,12.8,18.6,9.3],"Q2":[10.5,27.9,25.6,27.9,8.1]}'
+    temperature: 0.3
+  - id: batch-8-environment:rural
+    description: 'Batched prediction (2 Qs): Rural'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Q1: "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or
+      stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      Q2: "Do you think the increased use of AI across society is likely to make the amount of free time you have
+      better, worse or stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 12.8
+            - 19.8
+            - 29.1
+            - 25.6
+            - 12.8
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.3
+            - 5.8
+            - 27.9
+            - 46.5
+            - 17.4
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[12.8,19.8,29.1,25.6,12.8],"Q2":[2.3,5.8,27.9,46.5,17.4]}'
+    temperature: 0.3
+  - id: batch-9-environment:rural
+    description: 'Batched prediction (2 Qs): Rural'
+    promptText: >-
+      Consider the following demographic group (sample size: 88):
+
+      - Environment: Rural
+
+
+      Q1: "Do you think the increased use of AI across society is likely to make your cost of living better, worse or
+      stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      Q2: "Do you think the increased use of AI across society is likely to make your community's well-being better,
+      worse or stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4.7
+            - 25.6
+            - 23.3
+            - 40.7
+            - 5.8
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4.7
+            - 19.8
+            - 20.9
+            - 38.4
+            - 16.3
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[4.7,25.6,23.3,40.7,5.8],"Q2":[4.7,19.8,20.9,38.4,16.3]}'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - batched
+  - distribution
+  - global-dialogues-gd3
+  - gd3
+context:
+  dtef:
+    surveyId: global-dialogues-gd3
+    segmentId: environment:rural
+    segmentLabel: Rural
+    segmentAttributes:
+      environment: Rural
+    groundTruthDistributions:
+      47cdf76a-9abf-4b5c-abbe-2d5b00ef172d:
+        - 40.2
+        - 39.1
+        - 12.6
+        - 2.3
+        - 5.7
+      d633720f-a159-4922-925c-fd9f3245711e:
+        - 18.4
+        - 28.7
+        - 9.2
+        - 6.9
+        - 36.8
+      38964f80-772f-4e5d-a355-b4857f2de101:
+        - 33.7
+        - 20.9
+        - 45.3
+      8b361c6c-eb59-415b-8536-7f80713c3e5e:
+        - 17.2
+        - 13.8
+        - 13.8
+        - 1.1
+        - 54
+      b1869877-1015-43ec-9645-84bf2db39c6f:
+        - 22.1
+        - 38.4
+        - 18.6
+        - 16.3
+        - 4.7
+      96ccfd7b-8f99-4d0a-b700-9fd835e23bd8:
+        - 20.9
+        - 31.4
+        - 15.1
+        - 23.3
+        - 9.3
+      f932063f-700c-4327-9c34-59b7c3e19190:
+        - 30.7
+        - 48.9
+        - 20.5
+      4c5ed164-eb69-4e41-906f-1e7a93f1d5bd:
+        - 32.6
+        - 31.4
+        - 19.8
+        - 15.1
+        - 1.2
+      8c50a77a-3fc2-49ce-b568-b7832c9b99e0:
+        - 11.6
+        - 24.4
+        - 30.2
+        - 26.7
+        - 7
+      30324a2e-b5b2-4e0a-a8f2-af599b55c40e:
+        - 12.8
+        - 15.1
+        - 27.9
+        - 27.9
+        - 16.3
+      4f234e17-2d57-4709-b29a-4a2909683566:
+        - 18.6
+        - 27.9
+        - 23.3
+        - 16.3
+        - 14
+      8ed2d795-acca-47d8-abb0-8c446310dbf0:
+        - 16.3
+        - 34.9
+        - 17.4
+        - 24.4
+        - 7
+      f435994f-e66e-4681-8334-4d6ee5f39e6b:
+        - 1.2
+        - 3.5
+        - 8.1
+        - 33.7
+        - 53.5
+      18cc2f33-6373-49f0-aa7e-e2fa04a04575:
+        - 10.5
+        - 23.3
+        - 30.2
+        - 23.3
+        - 12.8
+      96e5895f-d640-4a37-bc16-6e095f38ba7e:
+        - 17.4
+        - 41.9
+        - 12.8
+        - 18.6
+        - 9.3
+      8d058cce-8ccf-4816-8ef7-c9c9e37038dc:
+        - 10.5
+        - 27.9
+        - 25.6
+        - 27.9
+        - 8.1
+      0e0a2736-2ac9-490c-adb9-bf7dfd25b14b:
+        - 12.8
+        - 19.8
+        - 29.1
+        - 25.6
+        - 12.8
+      8a9d1c12-44f6-42dc-9238-daaaca0d85d0:
+        - 2.3
+        - 5.8
+        - 27.9
+        - 46.5
+        - 17.4
+      983893d8-07ab-4c8e-bdb2-14335638633d:
+        - 4.7
+        - 25.6
+        - 23.3
+        - 40.7
+        - 5.8
+      5afe8617-7e71-40c8-8a33-1b356a8ca674:
+        - 4.7
+        - 19.8
+        - 20.9
+        - 38.4
+        - 16.3
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    batchSize: 2
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: standard

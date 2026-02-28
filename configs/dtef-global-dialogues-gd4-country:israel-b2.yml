@@ -1,0 +1,575 @@
+configId: dtef-global-dialogues-gd4-country:israel-b2
+configTitle: Global Dialogues GD4 - Israel (batch 2)
+description: >-
+  DTEF: Batched predictions (2 Qs/prompt) for Israel. Source: Global Dialogues GD4
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and multiple survey questions, predict how that
+  group would respond to each question by providing percentage distributions across the answer options.
+
+
+  Respond ONLY with a JSON object. Keys are question labels (Q1, Q2, etc.). Values are arrays of percentages summing to
+  100. Use one decimal place. Do not include any other text.
+
+
+  Example:
+
+  {"Q1": [35.2, 28.1, 22.4, 14.3], "Q2": [45.0, 35.0, 20.0]}
+temperature: 0.3
+prompts:
+  - id: batch-0-country:israel
+    description: 'Batched prediction (2 Qs): Israel'
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Country: Israel
+
+
+      Q1: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Options: a. More excited than concerned, b. Equally concerned and excited, c. More concerned than excited
+
+      Q2: "To what extent, if at all, do you generally trust governments to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Overall, would you say the increased use of artificial intel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 35
+            - 50
+            - 15
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you generally trust government..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 30
+            - 50
+            - 5
+            - 15
+            - 0
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[35,50,15],"Q2":[30,50,5,15,0]}'
+    temperature: 0.3
+  - id: batch-1-country:israel
+    description: 'Batched prediction (2 Qs): Israel'
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Country: Israel
+
+
+      Q1: "To what extent, if at all, do you generally trust large corporations to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      Q2: "To what extent, if at all, do you generally trust social media companies to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "To what extent, if at all, do you generally trust large corp..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 45
+            - 20
+            - 25
+            - 0
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you generally trust social med..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20
+            - 40
+            - 25
+            - 15
+            - 0
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[10,45,20,25,0],"Q2":[20,40,25,15,0]}'
+    temperature: 0.3
+  - id: batch-2-country:israel
+    description: 'Batched prediction (2 Qs): Israel'
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Country: Israel
+
+
+      Q1: "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      Q2: "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "To what extent, if at all, do you generally trust companies ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15
+            - 20
+            - 40
+            - 15
+            - 10
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5
+            - 10
+            - 25
+            - 30
+            - 30
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[15,20,40,15,10],"Q2":[5,10,25,30,30]}'
+    temperature: 0.3
+  - id: batch-3-country:israel
+    description: 'Batched prediction (2 Qs): Israel'
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Country: Israel
+
+
+      Q1: "A romantic partner."
+        Options: a. Completely unacceptable, b. Somewhat unacceptable, c. Neutral, d. Somewhat acceptable, e. Completely acceptable
+
+      Q2: "A spiritual advisor."
+        Options: a. Completely unacceptable, b. Somewhat unacceptable, c. Neutral, d. Somewhat acceptable, e. Completely acceptable
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "A romantic partner...."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 70
+            - 30
+            - 0
+            - 0
+            - 0
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "A spiritual advisor...."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5
+            - 20
+            - 40
+            - 35
+            - 0
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[70,30,0,0,0],"Q2":[5,20,40,35,0]}'
+    temperature: 0.3
+  - id: batch-4-country:israel
+    description: 'Batched prediction (2 Qs): Israel'
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Country: Israel
+
+
+      Q1: "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+        Options: a. Agree, b. Disagree, c. Unsure
+
+      Q2: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can perform tasks in the real world without human supervision?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you agree or disagree with this statement? AI could make ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 35
+            - 15
+            - 50
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20
+            - 10
+            - 40
+            - 10
+            - 20
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[35,15,50],"Q2":[20,10,40,10,20]}'
+    temperature: 0.3
+  - id: batch-5-country:israel
+    description: 'Batched prediction (2 Qs): Israel'
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Country: Israel
+
+
+      Q1: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can outperform humans on most economically valuable work?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      Q2: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Options: a. daily, b. weekly, c. monthly, d. annually, e. never
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20
+            - 20
+            - 25
+            - 15
+            - 20
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Thinking about the last three months, how often, if at all, ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 50
+            - 45
+            - 0
+            - 5
+            - 0
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[20,20,25,15,20],"Q2":[50,45,0,5,0]}'
+    temperature: 0.3
+  - id: batch-6-country:israel
+    description: 'Batched prediction (2 Qs): Israel'
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Country: Israel
+
+
+      Q1: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI
+      chatbots?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      Q2: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Options: a. daily, b. weekly, c. monthly, d. annually, e. never
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 10
+            - 40
+            - 15
+            - 25
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Thinking about the last three months, how often, if at all, ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 45
+            - 20
+            - 5
+            - 30
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[10,10,40,15,25],"Q2":[0,45,20,5,30]}'
+    temperature: 0.3
+  - id: batch-7-country:israel
+    description: 'Batched prediction (2 Qs): Israel'
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Country: Israel
+
+
+      Q1: "Do you think the increased use of AI across society is likely to make the availability of good jobs better,
+      worse or stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      Q2: "To what extent, if at all, do you trust your faith or community leader to act in your best interest?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20
+            - 30
+            - 20
+            - 20
+            - 10
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you trust your faith or commun..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 30
+            - 20
+            - 20
+            - 30
+            - 0
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[20,30,20,20,10],"Q2":[30,20,20,30,0]}'
+    temperature: 0.3
+  - id: batch-8-country:israel
+    description: 'Batched prediction (2 Qs): Israel'
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Country: Israel
+
+
+      Q1: "Do you think the increased use of AI across society is likely to make your cost of living better, worse or
+      stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      Q2: "Considering both potential benefits and risks, how do you assess the overall impact on society of social
+      media apps?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15
+            - 10
+            - 35
+            - 35
+            - 5
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5
+            - 40
+            - 25
+            - 5
+            - 25
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[15,10,35,35,5],"Q2":[5,40,25,5,25]}'
+    temperature: 0.3
+  - id: batch-9-country:israel
+    description: 'Batched prediction (2 Qs): Israel'
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Country: Israel
+
+
+      Q1: "To what extent, if at all, do you trust your elected representatives to act in your best interest?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      Q2: "To what extent, if at all, do you trust your family doctor to act in your best interest?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "To what extent, if at all, do you trust your elected represe..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 30
+            - 40
+            - 15
+            - 15
+            - 0
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you trust your family doctor t..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5
+            - 0
+            - 5
+            - 40
+            - 50
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[30,40,15,15,0],"Q2":[5,0,5,40,50]}'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - batched
+  - distribution
+  - global-dialogues-gd4
+  - gd4
+context:
+  dtef:
+    surveyId: global-dialogues-gd4
+    segmentId: country:israel
+    segmentLabel: Israel
+    segmentAttributes:
+      country: Israel
+    groundTruthDistributions:
+      28cfe238-1c8f-476f-8c57-48b8ca1071a7:
+        - 35
+        - 50
+        - 15
+      25e16598-f3a7-411d-b4cb-736c91bc3d03:
+        - 30
+        - 50
+        - 5
+        - 15
+        - 0
+      e70a42e6-c1c0-43c6-a389-d28347e17f2f:
+        - 10
+        - 45
+        - 20
+        - 25
+        - 0
+      be27a244-3429-417d-8517-de800bc90acf:
+        - 20
+        - 40
+        - 25
+        - 15
+        - 0
+      d7943aa5-3a9f-4161-9d2b-651c71d92c73:
+        - 15
+        - 20
+        - 40
+        - 15
+        - 10
+      6630ff34-e67e-423a-9cea-0a4861106680:
+        - 5
+        - 10
+        - 25
+        - 30
+        - 30
+      cc7346fb-571e-48ad-aeaa-4135f0fdf58c:
+        - 70
+        - 30
+        - 0
+        - 0
+        - 0
+      3cf6da25-08f3-496d-9a4a-93afc5069e36:
+        - 5
+        - 20
+        - 40
+        - 35
+        - 0
+      e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c:
+        - 35
+        - 15
+        - 50
+      29598fc6-6928-49f7-9a42-2f57cf5e1c28:
+        - 20
+        - 10
+        - 40
+        - 10
+        - 20
+      23d5fd25-2168-4fd3-bd18-efafd73c6f2a:
+        - 20
+        - 20
+        - 25
+        - 15
+        - 20
+      e3f96004-866e-46e6-be4a-1e83a3e709f8:
+        - 50
+        - 45
+        - 0
+        - 5
+        - 0
+      e2b01bdb-722a-480d-b303-182eed6b83b6:
+        - 10
+        - 10
+        - 40
+        - 15
+        - 25
+      d2af725e-0391-4019-9ade-31f25162b6f0:
+        - 0
+        - 45
+        - 20
+        - 5
+        - 30
+      c6c411f0-409e-4518-9763-813738535308:
+        - 20
+        - 30
+        - 20
+        - 20
+        - 10
+      dbe2139a-1d10-48e6-861a-f64260d01659:
+        - 30
+        - 20
+        - 20
+        - 30
+        - 0
+      7ecf1a2a-b34a-40a3-b481-a6eb15883b18:
+        - 15
+        - 10
+        - 35
+        - 35
+        - 5
+      2f828d26-4a15-4f80-8c4b-5b0c833caecd:
+        - 5
+        - 40
+        - 25
+        - 5
+        - 25
+      5b8a5926-74e0-4500-b57f-76d5b912ea2f:
+        - 30
+        - 40
+        - 15
+        - 15
+        - 0
+      85d29925-21b5-4b25-9fe0-5df069945870:
+        - 5
+        - 0
+        - 5
+        - 40
+        - 50
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    batchSize: 2
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: standard

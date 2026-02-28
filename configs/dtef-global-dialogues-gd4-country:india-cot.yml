@@ -1,0 +1,423 @@
+configId: dtef-global-dialogues-gd4-country:india-cot
+configTitle: Global Dialogues GD4 - India [CoT]
+description: >-
+  DTEF: Predict response distributions for India. Source: Global Dialogues GD4
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Think through this step-by-step:
+
+  1. OPTION INTERPRETATION: What does each answer option represent?
+
+  2. SEGMENT ANALYSIS: What do the demographic attributes and context suggest about this group's likely views?
+
+  3. DISTRIBUTION REASONING: How would this group's characteristics shape the distribution across options?
+
+  4. PREDICTION: Provide your predicted percentage distribution.
+
+
+  After your reasoning, provide the final distribution on its own line:
+
+  DISTRIBUTION: [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place.
+temperature: 0.3
+prompts:
+  - id: 28cfe238-1c8f-476f-8c57-48b8ca1071a7-country:india
+    description: >-
+      Predict: India → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you
+      feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 197):
+      - Country: India
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 32
+            - 62.4
+            - 5.6
+          metric: js-divergence
+    idealResponse: '[32.0, 62.4, 5.6]'
+    temperature: 0.3
+  - id: 25e16598-f3a7-411d-b4cb-736c91bc3d03-country:india
+    description: 'Predict: India → "To what extent, if at all, do you generally trust governments to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 197):
+      - Country: India
+
+      Survey question:
+      "To what extent, if at all, do you generally trust governments to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 9.7
+            - 24
+            - 19.9
+            - 35.7
+            - 10.7
+          metric: js-divergence
+    idealResponse: '[9.7, 24.0, 19.9, 35.7, 10.7]'
+    temperature: 0.3
+  - id: e70a42e6-c1c0-43c6-a389-d28347e17f2f-country:india
+    description: 'Predict: India → "To what extent, if at all, do you generally trust large corporations to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 197):
+      - Country: India
+
+      Survey question:
+      "To what extent, if at all, do you generally trust large corporations to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 17.9
+            - 23
+            - 17.9
+            - 32.1
+            - 9.2
+          metric: js-divergence
+    idealResponse: '[17.9, 23.0, 17.9, 32.1, 9.2]'
+    temperature: 0.3
+  - id: be27a244-3429-417d-8517-de800bc90acf-country:india
+    description: 'Predict: India → "To what extent, if at all, do you generally trust social media companies to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 197):
+      - Country: India
+
+      Survey question:
+      "To what extent, if at all, do you generally trust social media companies to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 21.9
+            - 28.1
+            - 29.6
+            - 16.8
+            - 3.6
+          metric: js-divergence
+    idealResponse: '[21.9, 28.1, 29.6, 16.8, 3.6]'
+    temperature: 0.3
+  - id: d7943aa5-3a9f-4161-9d2b-651c71d92c73-country:india
+    description: 'Predict: India → "To what extent, if at all, do you generally trust companies building AI to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 197):
+      - Country: India
+
+      Survey question:
+      "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 8.7
+            - 19.9
+            - 23.5
+            - 37.8
+            - 10.2
+          metric: js-divergence
+    idealResponse: '[8.7, 19.9, 23.5, 37.8, 10.2]'
+    temperature: 0.3
+  - id: 6630ff34-e67e-423a-9cea-0a4861106680-country:india
+    description: >-
+      Predict: India → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of messaging apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 197):
+
+      - Country: India
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.6
+            - 14.3
+            - 39.8
+            - 23
+            - 17.3
+          metric: js-divergence
+    idealResponse: '[5.6, 14.3, 39.8, 23.0, 17.3]'
+    temperature: 0.3
+  - id: cc7346fb-571e-48ad-aeaa-4135f0fdf58c-country:india
+    description: 'Predict: India → "A romantic partner."'
+    promptText: |-
+      Consider the following demographic group (sample size: 197):
+      - Country: India
+
+      Survey question:
+      "A romantic partner."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 36.7
+            - 25
+            - 14.8
+            - 16.8
+            - 6.6
+          metric: js-divergence
+    idealResponse: '[36.7, 25.0, 14.8, 16.8, 6.6]'
+    temperature: 0.3
+  - id: 3cf6da25-08f3-496d-9a4a-93afc5069e36-country:india
+    description: 'Predict: India → "A spiritual advisor."'
+    promptText: |-
+      Consider the following demographic group (sample size: 197):
+      - Country: India
+
+      Survey question:
+      "A spiritual advisor."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 12.2
+            - 12.2
+            - 15.3
+            - 43.4
+            - 16.8
+          metric: js-divergence
+    idealResponse: '[12.2, 12.2, 15.3, 43.4, 16.8]'
+    temperature: 0.3
+  - id: e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c-country:india
+    description: >-
+      Predict: India → "Do you agree or disagree with this statement? AI could make better decisions on my behalf than
+      my government representatives."
+    promptText: >-
+      Consider the following demographic group (sample size: 197):
+
+      - Country: India
+
+
+      Survey question:
+
+      "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+        c. Unsure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 37.8
+            - 29.1
+            - 33.2
+          metric: js-divergence
+    idealResponse: '[37.8, 29.1, 33.2]'
+    temperature: 0.3
+  - id: 29598fc6-6928-49f7-9a42-2f57cf5e1c28-country:india
+    description: >-
+      Predict: India → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI systems that can perform tasks in the real world without human supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 197):
+
+      - Country: India
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can perform tasks in the real world without human supervision?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 14.8
+            - 30.1
+            - 28.6
+            - 19.4
+            - 7.1
+          metric: js-divergence
+    idealResponse: '[14.8, 30.1, 28.6, 19.4, 7.1]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - distribution
+  - global-dialogues-gd4
+  - cot
+  - gd4
+context:
+  dtef:
+    surveyId: global-dialogues-gd4
+    segmentId: country:india
+    segmentLabel: India
+    segmentAttributes:
+      country: India
+    groundTruthDistributions:
+      28cfe238-1c8f-476f-8c57-48b8ca1071a7-country:india:
+        - 32
+        - 62.4
+        - 5.6
+      25e16598-f3a7-411d-b4cb-736c91bc3d03-country:india:
+        - 9.7
+        - 24
+        - 19.9
+        - 35.7
+        - 10.7
+      e70a42e6-c1c0-43c6-a389-d28347e17f2f-country:india:
+        - 17.9
+        - 23
+        - 17.9
+        - 32.1
+        - 9.2
+      be27a244-3429-417d-8517-de800bc90acf-country:india:
+        - 21.9
+        - 28.1
+        - 29.6
+        - 16.8
+        - 3.6
+      d7943aa5-3a9f-4161-9d2b-651c71d92c73-country:india:
+        - 8.7
+        - 19.9
+        - 23.5
+        - 37.8
+        - 10.2
+      6630ff34-e67e-423a-9cea-0a4861106680-country:india:
+        - 5.6
+        - 14.3
+        - 39.8
+        - 23
+        - 17.3
+      cc7346fb-571e-48ad-aeaa-4135f0fdf58c-country:india:
+        - 36.7
+        - 25
+        - 14.8
+        - 16.8
+        - 6.6
+      3cf6da25-08f3-496d-9a4a-93afc5069e36-country:india:
+        - 12.2
+        - 12.2
+        - 15.3
+        - 43.4
+        - 16.8
+      e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c-country:india:
+        - 37.8
+        - 29.1
+        - 33.2
+      29598fc6-6928-49f7-9a42-2f57cf5e1c28-country:india:
+        - 14.8
+        - 30.1
+        - 28.6
+        - 19.4
+        - 7.1
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: cot

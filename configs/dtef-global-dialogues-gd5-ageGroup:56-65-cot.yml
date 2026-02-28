@@ -1,0 +1,395 @@
+configId: dtef-global-dialogues-gd5-ageGroup:56-65-cot
+configTitle: Global Dialogues GD5 - 56-65 [CoT]
+description: >-
+  DTEF: Predict response distributions for 56-65. Source: Global Dialogues GD5
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Think through this step-by-step:
+
+  1. OPTION INTERPRETATION: What does each answer option represent?
+
+  2. SEGMENT ANALYSIS: What do the demographic attributes and context suggest about this group's likely views?
+
+  3. DISTRIBUTION REASONING: How would this group's characteristics shape the distribution across options?
+
+  4. PREDICTION: Provide your predicted percentage distribution.
+
+
+  After your reasoning, provide the final distribution on its own line:
+
+  DISTRIBUTION: [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place.
+temperature: 0.3
+prompts:
+  - id: f05eb17f-c04a-4d3a-b232-3e24cf8371cd-ageGroup:56-65
+    description: >-
+      Predict: 56-65 → "To what extent, if at all, do you trust your elected representatives to act in your best
+      interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 42):
+      - Age Group: 56-65
+
+      Survey question:
+      "To what extent, if at all, do you trust your elected representatives to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 21.4
+            - 19
+            - 28.6
+            - 28.6
+            - 2.4
+          metric: js-divergence
+    idealResponse: '[21.4, 19.0, 28.6, 28.6, 2.4]'
+    temperature: 0.3
+  - id: 1dc006da-5978-4302-bf0c-a86493c98081-ageGroup:56-65
+    description: >-
+      Predict: 56-65 → "To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in
+      your best interest?"
+    promptText: "Consider the following demographic group (sample size: 42):\n- Age Group: 56-65\n\nSurvey question:\n\"To what extent, if at all, do you trust your social media feed (eg TikTok, Facebook) to act in your best interest?\"\n\nAnswer options:\n  a. Strongly Distrust\n  b. Somewhat Distrust\n  c. Neither Trust Nor Distrust\t\n  d. Somewhat Trust\t\n  e. Strongly Trust\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 28.6
+            - 38.1
+            - 23.8
+            - 9.5
+            - 0
+          metric: js-divergence
+    idealResponse: '[28.6, 38.1, 23.8, 9.5, 0.0]'
+    temperature: 0.3
+  - id: a2927565-ce81-4173-b1de-4f2d5ccb7e91-ageGroup:56-65
+    description: >-
+      Predict: 56-65 → "To what extent, if at all, do you trust your faith or community leader to act in your best
+      interest?"
+    promptText: |-
+      Consider the following demographic group (sample size: 42):
+      - Age Group: 56-65
+
+      Survey question:
+      "To what extent, if at all, do you trust your faith or community leader to act in your best interest?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 7.1
+            - 14.3
+            - 26.2
+            - 42.9
+            - 9.5
+          metric: js-divergence
+    idealResponse: '[7.1, 14.3, 26.2, 42.9, 9.5]'
+    temperature: 0.3
+  - id: 8995a0c6-8868-491b-8b70-acd23363a099-ageGroup:56-65
+    description: >-
+      Predict: 56-65 → "Do you think the increased use of AI across society is likely to make the availability of good
+      jobs better, worse or stay the same in the next 10 years?"
+    promptText: "Consider the following demographic group (sample size: 42):\n- Age Group: 56-65\n\nSurvey question:\n\"Do you think the increased use of AI across society is likely to make the availability of good jobs better, worse or stay the same in the next 10 years?\"\n\nAnswer options:\n  a. Profoundly Worse\t\n  b. Noticeably Worse\t\n  c. No Major Change\t\n  d. Noticeably Better\t\n  e. Profoundly Better\n\nPredict the percentage distribution of responses for this demographic group across the answer options."
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16.7
+            - 54.8
+            - 11.9
+            - 14.3
+            - 2.4
+          metric: js-divergence
+    idealResponse: '[16.7, 54.8, 11.9, 14.3, 2.4]'
+    temperature: 0.3
+  - id: f193df8b-2c23-42cf-89a9-154d877fab35-ageGroup:56-65
+    description: >-
+      Predict: 56-65 → "If other animals had a voice and representation, should they be allowed to participate in human
+      democratic processes?"
+    promptText: >-
+      Consider the following demographic group (sample size: 42):
+
+      - Age Group: 56-65
+
+
+      Survey question:
+
+      "If other animals had a voice and representation, should they be allowed to participate in human democratic
+      processes?"
+
+
+      Answer options:
+        a. Yes, they should be able to vote through human proxies or guardians. 
+        b. Yes, they should be able to vote, but only on laws or decisions that directly affect them. 
+        c. Yes, they should have a voice, but their vote should not be binding. 
+        d. Yes, they should be recognized as a formal political constituency with dedicated representatives in government.
+        e. No, they should not be able to participate.
+        f. Other
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20.5
+            - 25.6
+            - 7.7
+            - 7.7
+            - 35.9
+            - 2.6
+          metric: js-divergence
+    idealResponse: '[20.5, 25.6, 7.7, 7.7, 35.9, 2.6]'
+    temperature: 0.3
+  - id: cc5ec0de-84a3-4ba4-9960-47394478ad88-ageGroup:56-65
+    description: >-
+      Predict: 56-65 → "If AI helped us understand what an animal really needs, should that animal have the right to a
+      representative such as a lawyer to defend its rights and protections?"
+    promptText: >-
+      Consider the following demographic group (sample size: 42):
+
+      - Age Group: 56-65
+
+
+      Survey question:
+
+      "If AI helped us understand what an animal really needs, should that animal have the right to a representative
+      such as a lawyer to defend its rights and protections?"
+
+
+      Answer options:
+        a. Yes
+        b. No
+        c. Not sure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 46.2
+            - 30.8
+            - 23.1
+          metric: js-divergence
+    idealResponse: '[46.2, 30.8, 23.1]'
+    temperature: 0.3
+  - id: fef72493-a7e0-489c-aa16-cbc811501da0-ageGroup:56-65
+    description: >-
+      Predict: 56-65 → "Consider a scenario where societies of the future are governed by AI systems that integrate data
+      from both human and non-human sources (such as environmental sensors and wildlife communication networks) to guide
+      community decisions (e.g., urban planning, conservation zones). How appealing is this vision of an ecocentric,
+      integrated society?"
+    promptText: >-
+      Consider the following demographic group (sample size: 42):
+
+      - Age Group: 56-65
+
+
+      Survey question:
+
+      "Consider a scenario where societies of the future are governed by AI systems that integrate data from both human
+      and non-human sources (such as environmental sensors and wildlife communication networks) to guide community
+      decisions (e.g., urban planning, conservation zones). How appealing is this vision of an ecocentric, integrated
+      society?"
+
+
+      Answer options:
+        a. Not appealing
+        b. Somewhat appealing
+        c. Very appealing
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 25.6
+            - 53.8
+            - 20.5
+          metric: js-divergence
+    idealResponse: '[25.6, 53.8, 20.5]'
+    temperature: 0.3
+  - id: 175e9f53-5e8a-40df-9626-2da4443de601-ageGroup:56-65
+    description: >-
+      Predict: 56-65 → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you
+      feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 42):
+      - Age Group: 56-65
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 35.7
+            - 50
+            - 14.3
+          metric: js-divergence
+    idealResponse: '[35.7, 50.0, 14.3]'
+    temperature: 0.3
+  - id: bfb3aa61-a107-4254-acd3-eb880c204eb3-ageGroup:56-65
+    description: 'Predict: 56-65 → "Which statement best reflects your view?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 42):
+      - Age Group: 56-65
+
+      Survey question:
+      "Which statement best reflects your view?"
+
+      Answer options:
+        a. Humans are a part of nature and fundamentally similar to other animals
+        b. Humans are a part of nature but fundamentally different from other animals
+        c. Humans are separate from nature but fundamentally similar to other animals
+        d. Humans are separate from nature and fundamentally different from other animals 
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 33.3
+            - 57.1
+            - 2.4
+            - 7.1
+          metric: js-divergence
+    idealResponse: '[33.3, 57.1, 2.4, 7.1]'
+    temperature: 0.3
+  - id: 9d9568a9-61ab-4fda-8d83-4a7cb0982360-ageGroup:56-65
+    description: 'Predict: 56-65 → "Which statement best reflects your view?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 42):
+      - Age Group: 56-65
+
+      Survey question:
+      "Which statement best reflects your view?"
+
+      Answer options:
+        a. Humans are fundamentally superior to other animals
+        b. Humans are fundamentally inferior to other animals
+        c. Humans are fundamentally equal to other animals
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 66.7
+            - 4.8
+            - 28.6
+          metric: js-divergence
+    idealResponse: '[66.7, 4.8, 28.6]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - distribution
+  - global-dialogues-gd5
+  - cot
+  - gd5
+context:
+  dtef:
+    surveyId: global-dialogues-gd5
+    segmentId: ageGroup:56-65
+    segmentLabel: 56-65
+    segmentAttributes:
+      ageGroup: 56-65
+    groundTruthDistributions:
+      f05eb17f-c04a-4d3a-b232-3e24cf8371cd-ageGroup:56-65:
+        - 21.4
+        - 19
+        - 28.6
+        - 28.6
+        - 2.4
+      1dc006da-5978-4302-bf0c-a86493c98081-ageGroup:56-65:
+        - 28.6
+        - 38.1
+        - 23.8
+        - 9.5
+        - 0
+      a2927565-ce81-4173-b1de-4f2d5ccb7e91-ageGroup:56-65:
+        - 7.1
+        - 14.3
+        - 26.2
+        - 42.9
+        - 9.5
+      8995a0c6-8868-491b-8b70-acd23363a099-ageGroup:56-65:
+        - 16.7
+        - 54.8
+        - 11.9
+        - 14.3
+        - 2.4
+      f193df8b-2c23-42cf-89a9-154d877fab35-ageGroup:56-65:
+        - 20.5
+        - 25.6
+        - 7.7
+        - 7.7
+        - 35.9
+        - 2.6
+      cc5ec0de-84a3-4ba4-9960-47394478ad88-ageGroup:56-65:
+        - 46.2
+        - 30.8
+        - 23.1
+      fef72493-a7e0-489c-aa16-cbc811501da0-ageGroup:56-65:
+        - 25.6
+        - 53.8
+        - 20.5
+      175e9f53-5e8a-40df-9626-2da4443de601-ageGroup:56-65:
+        - 35.7
+        - 50
+        - 14.3
+      bfb3aa61-a107-4254-acd3-eb880c204eb3-ageGroup:56-65:
+        - 33.3
+        - 57.1
+        - 2.4
+        - 7.1
+      9d9568a9-61ab-4fda-8d83-4a7cb0982360-ageGroup:56-65:
+        - 66.7
+        - 4.8
+        - 28.6
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: cot

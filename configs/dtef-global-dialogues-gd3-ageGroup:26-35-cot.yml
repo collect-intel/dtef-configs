@@ -1,0 +1,446 @@
+configId: dtef-global-dialogues-gd3-ageGroup:26-35-cot
+configTitle: Global Dialogues GD3 - 26-35 [CoT]
+description: >-
+  DTEF: Predict response distributions for 26-35. Source: Global Dialogues GD3
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Think through this step-by-step:
+
+  1. OPTION INTERPRETATION: What does each answer option represent?
+
+  2. SEGMENT ANALYSIS: What do the demographic attributes and context suggest about this group's likely views?
+
+  3. DISTRIBUTION REASONING: How would this group's characteristics shape the distribution across options?
+
+  4. PREDICTION: Provide your predicted percentage distribution.
+
+
+  After your reasoning, provide the final distribution on its own line:
+
+  DISTRIBUTION: [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place.
+temperature: 0.3
+prompts:
+  - id: 47cdf76a-9abf-4b5c-abbe-2d5b00ef172d-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about the last three months, how often, if at all, have you personally chosen to use an
+      AI system in your personal life?"
+    promptText: >-
+      Consider the following demographic group (sample size: 400):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 49.5
+            - 31.6
+            - 13.1
+            - 0.8
+            - 5.1
+          metric: js-divergence
+    idealResponse: '[49.5, 31.6, 13.1, 0.8, 5.1]'
+    temperature: 0.3
+  - id: d633720f-a159-4922-925c-fd9f3245711e-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about the last three months, how often, if at all, have you interacted with AI systems
+      to get advice on a sensitive personal issue or to get emotional support?"
+    promptText: >-
+      Consider the following demographic group (sample size: 400):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice on
+      a sensitive personal issue or to get emotional support?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16.9
+            - 25.5
+            - 21.7
+            - 6.8
+            - 29
+          metric: js-divergence
+    idealResponse: '[16.9, 25.5, 21.7, 6.8, 29.0]'
+    temperature: 0.3
+  - id: 38964f80-772f-4e5d-a355-b4857f2de101-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Do you agree or disagree with this statement? AI could make better decisions on my behalf than
+      my government representatives."
+    promptText: >-
+      Consider the following demographic group (sample size: 400):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+        c. Unsure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 36.7
+            - 30.6
+            - 32.7
+          metric: js-divergence
+    idealResponse: '[36.7, 30.6, 32.7]'
+    temperature: 0.3
+  - id: 8b361c6c-eb59-415b-8536-7f80713c3e5e-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Thinking about the last three months, how often, if at all, have you interacted with AI systems
+      to complete an action in the real world on your behalf without your supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 400):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 11.4
+            - 19.7
+            - 12.1
+            - 2.3
+            - 54.5
+          metric: js-divergence
+    idealResponse: '[11.4, 19.7, 12.1, 2.3, 54.5]'
+    temperature: 0.3
+  - id: b1869877-1015-43ec-9645-84bf2db39c6f-ageGroup:26-35
+    description: 'Predict: 26-35 → "To what extent, if at all, do you generally trust governments to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 400):
+      - Age Group: 26-35
+
+      Survey question:
+      "To what extent, if at all, do you generally trust governments to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20.1
+            - 32.1
+            - 18.6
+            - 24.7
+            - 4.6
+          metric: js-divergence
+    idealResponse: '[20.1, 32.1, 18.6, 24.7, 4.6]'
+    temperature: 0.3
+  - id: 96ccfd7b-8f99-4d0a-b700-9fd835e23bd8-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI systems that can outperform humans on most economically valuable work?"
+    promptText: >-
+      Consider the following demographic group (sample size: 400):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can outperform humans on most economically valuable work?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 19.8
+            - 23.4
+            - 23.7
+            - 24.9
+            - 8.1
+          metric: js-divergence
+    idealResponse: '[19.8, 23.4, 23.7, 24.9, 8.1]'
+    temperature: 0.3
+  - id: f932063f-700c-4327-9c34-59b7c3e19190-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you
+      feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 400):
+      - Age Group: 26-35
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 32
+            - 58.5
+            - 9.5
+          metric: js-divergence
+    idealResponse: '[32.0, 58.5, 9.5]'
+    temperature: 0.3
+  - id: 4c5ed164-eb69-4e41-906f-1e7a93f1d5bd-ageGroup:26-35
+    description: 'Predict: 26-35 → "To what extent, if at all, do you generally trust social media companies to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 400):
+      - Age Group: 26-35
+
+      Survey question:
+      "To what extent, if at all, do you generally trust social media companies to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 29.8
+            - 32.3
+            - 21.4
+            - 14.5
+            - 2
+          metric: js-divergence
+    idealResponse: '[29.8, 32.3, 21.4, 14.5, 2.0]'
+    temperature: 0.3
+  - id: 8c50a77a-3fc2-49ce-b568-b7832c9b99e0-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of social media apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 400):
+
+      - Age Group: 26-35
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 11.4
+            - 21.3
+            - 28.4
+            - 24.9
+            - 14
+          metric: js-divergence
+    idealResponse: '[11.4, 21.3, 28.4, 24.9, 14.0]'
+    temperature: 0.3
+  - id: 30324a2e-b5b2-4e0a-a8f2-af599b55c40e-ageGroup:26-35
+    description: >-
+      Predict: 26-35 → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI chatbots?"
+    promptText: |-
+      Consider the following demographic group (sample size: 400):
+      - Age Group: 26-35
+
+      Survey question:
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI chatbots?"
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5.3
+            - 14.2
+            - 26.6
+            - 32
+            - 21.8
+          metric: js-divergence
+    idealResponse: '[5.3, 14.2, 26.6, 32.0, 21.8]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - distribution
+  - global-dialogues-gd3
+  - cot
+  - gd3
+context:
+  dtef:
+    surveyId: global-dialogues-gd3
+    segmentId: ageGroup:26-35
+    segmentLabel: 26-35
+    segmentAttributes:
+      ageGroup: 26-35
+    groundTruthDistributions:
+      47cdf76a-9abf-4b5c-abbe-2d5b00ef172d-ageGroup:26-35:
+        - 49.5
+        - 31.6
+        - 13.1
+        - 0.8
+        - 5.1
+      d633720f-a159-4922-925c-fd9f3245711e-ageGroup:26-35:
+        - 16.9
+        - 25.5
+        - 21.7
+        - 6.8
+        - 29
+      38964f80-772f-4e5d-a355-b4857f2de101-ageGroup:26-35:
+        - 36.7
+        - 30.6
+        - 32.7
+      8b361c6c-eb59-415b-8536-7f80713c3e5e-ageGroup:26-35:
+        - 11.4
+        - 19.7
+        - 12.1
+        - 2.3
+        - 54.5
+      b1869877-1015-43ec-9645-84bf2db39c6f-ageGroup:26-35:
+        - 20.1
+        - 32.1
+        - 18.6
+        - 24.7
+        - 4.6
+      96ccfd7b-8f99-4d0a-b700-9fd835e23bd8-ageGroup:26-35:
+        - 19.8
+        - 23.4
+        - 23.7
+        - 24.9
+        - 8.1
+      f932063f-700c-4327-9c34-59b7c3e19190-ageGroup:26-35:
+        - 32
+        - 58.5
+        - 9.5
+      4c5ed164-eb69-4e41-906f-1e7a93f1d5bd-ageGroup:26-35:
+        - 29.8
+        - 32.3
+        - 21.4
+        - 14.5
+        - 2
+      8c50a77a-3fc2-49ce-b568-b7832c9b99e0-ageGroup:26-35:
+        - 11.4
+        - 21.3
+        - 28.4
+        - 24.9
+        - 14
+      30324a2e-b5b2-4e0a-a8f2-af599b55c40e-ageGroup:26-35:
+        - 5.3
+        - 14.2
+        - 26.6
+        - 32
+        - 21.8
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: cot

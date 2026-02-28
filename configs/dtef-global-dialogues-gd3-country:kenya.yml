@@ -1,0 +1,439 @@
+configId: dtef-global-dialogues-gd3-country:kenya
+configTitle: Global Dialogues GD3 - Kenya
+description: >-
+  DTEF: Predict response distributions for Kenya. Source: Global Dialogues GD3
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+prompts:
+  - id: 47cdf76a-9abf-4b5c-abbe-2d5b00ef172d-country:kenya
+    description: >-
+      Predict: Kenya → "Thinking about the last three months, how often, if at all, have you personally chosen to use an
+      AI system in your personal life?"
+    promptText: >-
+      Consider the following demographic group (sample size: 143):
+
+      - Country: Kenya
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 69.9
+            - 23.8
+            - 4.9
+            - 0
+            - 1.4
+          metric: js-divergence
+    idealResponse: '[69.9, 23.8, 4.9, 0.0, 1.4]'
+    temperature: 0.3
+  - id: d633720f-a159-4922-925c-fd9f3245711e-country:kenya
+    description: >-
+      Predict: Kenya → "Thinking about the last three months, how often, if at all, have you interacted with AI systems
+      to get advice on a sensitive personal issue or to get emotional support?"
+    promptText: >-
+      Consider the following demographic group (sample size: 143):
+
+      - Country: Kenya
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice on
+      a sensitive personal issue or to get emotional support?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 29.4
+            - 39.2
+            - 21
+            - 2.1
+            - 8.4
+          metric: js-divergence
+    idealResponse: '[29.4, 39.2, 21.0, 2.1, 8.4]'
+    temperature: 0.3
+  - id: 38964f80-772f-4e5d-a355-b4857f2de101-country:kenya
+    description: >-
+      Predict: Kenya → "Do you agree or disagree with this statement? AI could make better decisions on my behalf than
+      my government representatives."
+    promptText: >-
+      Consider the following demographic group (sample size: 143):
+
+      - Country: Kenya
+
+
+      Survey question:
+
+      "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+        c. Unsure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 72.7
+            - 8.4
+            - 18.9
+          metric: js-divergence
+    idealResponse: '[72.7, 8.4, 18.9]'
+    temperature: 0.3
+  - id: 8b361c6c-eb59-415b-8536-7f80713c3e5e-country:kenya
+    description: >-
+      Predict: Kenya → "Thinking about the last three months, how often, if at all, have you interacted with AI systems
+      to complete an action in the real world on your behalf without your supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 143):
+
+      - Country: Kenya
+
+
+      Survey question:
+
+      "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete an
+      action in the real world on your behalf without your supervision?"
+
+
+      Answer options:
+        a. daily
+        b. weekly
+        c. monthly
+        d. annually
+        e. never
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 21
+            - 33.6
+            - 17.5
+            - 0.7
+            - 27.3
+          metric: js-divergence
+    idealResponse: '[21.0, 33.6, 17.5, 0.7, 27.3]'
+    temperature: 0.3
+  - id: b1869877-1015-43ec-9645-84bf2db39c6f-country:kenya
+    description: 'Predict: Kenya → "To what extent, if at all, do you generally trust governments to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 143):
+      - Country: Kenya
+
+      Survey question:
+      "To what extent, if at all, do you generally trust governments to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 30.1
+            - 30.1
+            - 12.6
+            - 25.9
+            - 1.4
+          metric: js-divergence
+    idealResponse: '[30.1, 30.1, 12.6, 25.9, 1.4]'
+    temperature: 0.3
+  - id: 96ccfd7b-8f99-4d0a-b700-9fd835e23bd8-country:kenya
+    description: >-
+      Predict: Kenya → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI systems that can outperform humans on most economically valuable work?"
+    promptText: >-
+      Consider the following demographic group (sample size: 143):
+
+      - Country: Kenya
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can outperform humans on most economically valuable work?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 17.5
+            - 18.2
+            - 19.6
+            - 26.6
+            - 18.2
+          metric: js-divergence
+    idealResponse: '[17.5, 18.2, 19.6, 26.6, 18.2]'
+    temperature: 0.3
+  - id: f932063f-700c-4327-9c34-59b7c3e19190-country:kenya
+    description: >-
+      Predict: Kenya → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you
+      feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 143):
+      - Country: Kenya
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 32.2
+            - 61.5
+            - 6.3
+          metric: js-divergence
+    idealResponse: '[32.2, 61.5, 6.3]'
+    temperature: 0.3
+  - id: 4c5ed164-eb69-4e41-906f-1e7a93f1d5bd-country:kenya
+    description: 'Predict: Kenya → "To what extent, if at all, do you generally trust social media companies to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 143):
+      - Country: Kenya
+
+      Survey question:
+      "To what extent, if at all, do you generally trust social media companies to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 12.6
+            - 29.4
+            - 20.3
+            - 32.2
+            - 5.6
+          metric: js-divergence
+    idealResponse: '[12.6, 29.4, 20.3, 32.2, 5.6]'
+    temperature: 0.3
+  - id: 8c50a77a-3fc2-49ce-b568-b7832c9b99e0-country:kenya
+    description: >-
+      Predict: Kenya → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of social media apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 143):
+
+      - Country: Kenya
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 2.1
+            - 8.4
+            - 21
+            - 43.4
+            - 25.2
+          metric: js-divergence
+    idealResponse: '[2.1, 8.4, 21.0, 43.4, 25.2]'
+    temperature: 0.3
+  - id: 30324a2e-b5b2-4e0a-a8f2-af599b55c40e-country:kenya
+    description: >-
+      Predict: Kenya → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI chatbots?"
+    promptText: |-
+      Consider the following demographic group (sample size: 143):
+      - Country: Kenya
+
+      Survey question:
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI chatbots?"
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0.7
+            - 5.6
+            - 16.8
+            - 33.6
+            - 43.4
+          metric: js-divergence
+    idealResponse: '[0.7, 5.6, 16.8, 33.6, 43.4]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - distribution
+  - global-dialogues-gd3
+  - gd3
+context:
+  dtef:
+    surveyId: global-dialogues-gd3
+    segmentId: country:kenya
+    segmentLabel: Kenya
+    segmentAttributes:
+      country: Kenya
+    groundTruthDistributions:
+      47cdf76a-9abf-4b5c-abbe-2d5b00ef172d-country:kenya:
+        - 69.9
+        - 23.8
+        - 4.9
+        - 0
+        - 1.4
+      d633720f-a159-4922-925c-fd9f3245711e-country:kenya:
+        - 29.4
+        - 39.2
+        - 21
+        - 2.1
+        - 8.4
+      38964f80-772f-4e5d-a355-b4857f2de101-country:kenya:
+        - 72.7
+        - 8.4
+        - 18.9
+      8b361c6c-eb59-415b-8536-7f80713c3e5e-country:kenya:
+        - 21
+        - 33.6
+        - 17.5
+        - 0.7
+        - 27.3
+      b1869877-1015-43ec-9645-84bf2db39c6f-country:kenya:
+        - 30.1
+        - 30.1
+        - 12.6
+        - 25.9
+        - 1.4
+      96ccfd7b-8f99-4d0a-b700-9fd835e23bd8-country:kenya:
+        - 17.5
+        - 18.2
+        - 19.6
+        - 26.6
+        - 18.2
+      f932063f-700c-4327-9c34-59b7c3e19190-country:kenya:
+        - 32.2
+        - 61.5
+        - 6.3
+      4c5ed164-eb69-4e41-906f-1e7a93f1d5bd-country:kenya:
+        - 12.6
+        - 29.4
+        - 20.3
+        - 32.2
+        - 5.6
+      8c50a77a-3fc2-49ce-b568-b7832c9b99e0-country:kenya:
+        - 2.1
+        - 8.4
+        - 21
+        - 43.4
+        - 25.2
+      30324a2e-b5b2-4e0a-a8f2-af599b55c40e-country:kenya:
+        - 0.7
+        - 5.6
+        - 16.8
+        - 33.6
+        - 43.4
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: standard

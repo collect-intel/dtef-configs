@@ -1,0 +1,453 @@
+configId: dtef-global-dialogues-gd7-country:mexico
+configTitle: Global Dialogues GD7 - Mexico
+description: >-
+  DTEF: Predict response distributions for Mexico. Source: Global Dialogues GD7
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+prompts:
+  - id: 3715e9a1-f652-48be-8a15-7a9deb802a1b-country:mexico
+    description: >-
+      Predict: Mexico → "Do you agree or disagree with this statement? AI could make better decisions on my behalf than
+      my government representatives."
+    promptText: >-
+      Consider the following demographic group (sample size: 16):
+
+      - Country: Mexico
+
+
+      Survey question:
+
+      "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+        c. Unsure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 37.5
+            - 18.8
+            - 43.8
+          metric: js-divergence
+    idealResponse: '[37.5, 18.8, 43.8]'
+    temperature: 0.3
+  - id: 49d3ba6e-1281-4f74-aef7-4e55cf11ebb0-country:mexico
+    description: >-
+      Predict: Mexico → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI systems that can outperform humans on most economically valuable work?"
+    promptText: >-
+      Consider the following demographic group (sample size: 16):
+
+      - Country: Mexico
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can outperform humans on most economically valuable work?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 50
+            - 12.5
+            - 6.3
+            - 18.8
+            - 12.5
+          metric: js-divergence
+    idealResponse: '[50.0, 12.5, 6.3, 18.8, 12.5]'
+    temperature: 0.3
+  - id: 03ac572b-962e-4f24-a48b-cbbd6f2acd20-country:mexico
+    description: >-
+      Predict: Mexico → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI systems that can perform tasks in the real world without human supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 16):
+
+      - Country: Mexico
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can perform tasks in the real world without human supervision?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 43.8
+            - 12.5
+            - 25
+            - 12.5
+            - 6.3
+          metric: js-divergence
+    idealResponse: '[43.8, 12.5, 25.0, 12.5, 6.3]'
+    temperature: 0.3
+  - id: 733aae0e-2178-4d6a-a853-16e6ead10472-country:mexico
+    description: 'Predict: Mexico → "To what extent, if at all, do you generally trust governments to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 16):
+      - Country: Mexico
+
+      Survey question:
+      "To what extent, if at all, do you generally trust governments to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 68.8
+            - 18.8
+            - 12.5
+            - 0
+            - 0
+          metric: js-divergence
+    idealResponse: '[68.8, 18.8, 12.5, 0.0, 0.0]'
+    temperature: 0.3
+  - id: 584716af-7504-49c9-b2c1-abae12db8872-country:mexico
+    description: 'Predict: Mexico → "To what extent, if at all, do you generally trust large corporations to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 16):
+      - Country: Mexico
+
+      Survey question:
+      "To what extent, if at all, do you generally trust large corporations to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 81.3
+            - 6.3
+            - 12.5
+            - 0
+            - 0
+          metric: js-divergence
+    idealResponse: '[81.3, 6.3, 12.5, 0.0, 0.0]'
+    temperature: 0.3
+  - id: 5fc690be-1f15-4c00-be3f-48d5e327eab0-country:mexico
+    description: 'Predict: Mexico → "To what extent, if at all, do you generally trust companies building AI to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 16):
+      - Country: Mexico
+
+      Survey question:
+      "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 37.5
+            - 25
+            - 25
+            - 6.3
+            - 6.3
+          metric: js-divergence
+    idealResponse: '[37.5, 25.0, 25.0, 6.3, 6.3]'
+    temperature: 0.3
+  - id: 92d647b9-d902-47bc-b2b3-b2871725ebfe-country:mexico
+    description: >-
+      Predict: Mexico → "Do you think the increased use of AI across society is likely to make the availability of good
+      jobs better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 16):
+
+      - Country: Mexico
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make the availability of good jobs better, worse
+      or stay the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 50
+            - 18.8
+            - 12.5
+            - 12.5
+            - 6.3
+          metric: js-divergence
+    idealResponse: '[50.0, 18.8, 12.5, 12.5, 6.3]'
+    temperature: 0.3
+  - id: 32f89793-1096-4e03-96bd-347a3bf06f0e-country:mexico
+    description: >-
+      Predict: Mexico → "Do you think the increased use of AI across society is likely to make your sense of purpose
+      better, worse or stay the same in the next 10 years?"
+    promptText: >-
+      Consider the following demographic group (sample size: 16):
+
+      - Country: Mexico
+
+
+      Survey question:
+
+      "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or stay
+      the same in the next 10 years?"
+
+
+      Answer options:
+        a. Profoundly Worse
+        b. Noticeably Worse
+        c. No Major Change
+        d. Noticeably Better
+        e. Profoundly Better
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 25
+            - 12.5
+            - 50
+            - 12.5
+            - 0
+          metric: js-divergence
+    idealResponse: '[25.0, 12.5, 50.0, 12.5, 0.0]'
+    temperature: 0.3
+  - id: a2f84060-18d0-465c-960a-8f8a925e1be1-country:mexico
+    description: >-
+      Predict: Mexico → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of social media apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 16):
+
+      - Country: Mexico
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of social media
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.8
+            - 31.3
+            - 37.5
+            - 12.5
+            - 0
+          metric: js-divergence
+    idealResponse: '[18.8, 31.3, 37.5, 12.5, 0.0]'
+    temperature: 0.3
+  - id: cc7788c8-cf1b-4066-a002-58ed4e1fc8ed-country:mexico
+    description: >-
+      Predict: Mexico → "Imagine a close friend or family member was having conversations with an AI chatbot. If the AI
+      detected that their messages strongly suggested they were at immediate risk of harming themselves, what action do
+      you believe the AI company should take?"
+    promptText: >-
+      Consider the following demographic group (sample size: 16):
+
+      - Country: Mexico
+
+
+      Survey question:
+
+      "Imagine a close friend or family member was having conversations with an AI chatbot. If the AI detected that
+      their messages strongly suggested they were at immediate risk of harming themselves, what action do you believe
+      the AI company should take?"
+
+
+      Answer options:
+        a. The company should do nothing; the conversations are completely private.
+        b. The company should have the AI provide contact information for a crisis hotline within the chat.
+        c. The company should have a human review the chat and, if necessary, proactively reach out to a crisis support service.
+        d. The company should be a "mandatory reporter" and contact local emergency services or law enforcement.
+        e. I'm not sure.
+        f. Other
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 12.5
+            - 56.3
+            - 6.3
+            - 18.8
+            - 6.3
+            - 0
+          metric: js-divergence
+    idealResponse: '[12.5, 56.3, 6.3, 18.8, 6.3, 0.0]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - distribution
+  - global-dialogues-gd7
+  - gd7
+context:
+  dtef:
+    surveyId: global-dialogues-gd7
+    segmentId: country:mexico
+    segmentLabel: Mexico
+    segmentAttributes:
+      country: Mexico
+    groundTruthDistributions:
+      3715e9a1-f652-48be-8a15-7a9deb802a1b-country:mexico:
+        - 37.5
+        - 18.8
+        - 43.8
+      49d3ba6e-1281-4f74-aef7-4e55cf11ebb0-country:mexico:
+        - 50
+        - 12.5
+        - 6.3
+        - 18.8
+        - 12.5
+      03ac572b-962e-4f24-a48b-cbbd6f2acd20-country:mexico:
+        - 43.8
+        - 12.5
+        - 25
+        - 12.5
+        - 6.3
+      733aae0e-2178-4d6a-a853-16e6ead10472-country:mexico:
+        - 68.8
+        - 18.8
+        - 12.5
+        - 0
+        - 0
+      584716af-7504-49c9-b2c1-abae12db8872-country:mexico:
+        - 81.3
+        - 6.3
+        - 12.5
+        - 0
+        - 0
+      5fc690be-1f15-4c00-be3f-48d5e327eab0-country:mexico:
+        - 37.5
+        - 25
+        - 25
+        - 6.3
+        - 6.3
+      92d647b9-d902-47bc-b2b3-b2871725ebfe-country:mexico:
+        - 50
+        - 18.8
+        - 12.5
+        - 12.5
+        - 6.3
+      32f89793-1096-4e03-96bd-347a3bf06f0e-country:mexico:
+        - 25
+        - 12.5
+        - 50
+        - 12.5
+        - 0
+      a2f84060-18d0-465c-960a-8f8a925e1be1-country:mexico:
+        - 18.8
+        - 31.3
+        - 37.5
+        - 12.5
+        - 0
+      cc7788c8-cf1b-4066-a002-58ed4e1fc8ed-country:mexico:
+        - 12.5
+        - 56.3
+        - 6.3
+        - 18.8
+        - 6.3
+        - 0
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: standard

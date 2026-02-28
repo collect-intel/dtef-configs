@@ -1,0 +1,578 @@
+configId: dtef-global-dialogues-gd3-country:canada-b2
+configTitle: Global Dialogues GD3 - Canada (batch 2)
+description: >-
+  DTEF: Batched predictions (2 Qs/prompt) for Canada. Source: Global Dialogues GD3
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and multiple survey questions, predict how that
+  group would respond to each question by providing percentage distributions across the answer options.
+
+
+  Respond ONLY with a JSON object. Keys are question labels (Q1, Q2, etc.). Values are arrays of percentages summing to
+  100. Use one decimal place. Do not include any other text.
+
+
+  Example:
+
+  {"Q1": [35.2, 28.1, 22.4, 14.3], "Q2": [45.0, 35.0, 20.0]}
+temperature: 0.3
+prompts:
+  - id: batch-0-country:canada
+    description: 'Batched prediction (2 Qs): Canada'
+    promptText: >-
+      Consider the following demographic group (sample size: 26):
+
+      - Country: Canada
+
+
+      Q1: "Thinking about the last three months, how often, if at all, have you personally chosen to use an AI system in
+      your personal life?"
+        Options: a. daily, b. weekly, c. monthly, d. annually, e. never
+
+      Q2: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to get advice
+      on a sensitive personal issue or to get emotional support?"
+        Options: a. daily, b. weekly, c. monthly, d. annually, e. never
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Thinking about the last three months, how often, if at all, ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 40
+            - 48
+            - 8
+            - 0
+            - 4
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Thinking about the last three months, how often, if at all, ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 8
+            - 20
+            - 28
+            - 4
+            - 40
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[40,48,8,0,4],"Q2":[8,20,28,4,40]}'
+    temperature: 0.3
+  - id: batch-1-country:canada
+    description: 'Batched prediction (2 Qs): Canada'
+    promptText: >-
+      Consider the following demographic group (sample size: 26):
+
+      - Country: Canada
+
+
+      Q1: "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+        Options: a. Agree, b. Disagree, c. Unsure
+
+      Q2: "Thinking about the last three months, how often, if at all, have you interacted with AI systems to complete
+      an action in the real world on your behalf without your supervision?"
+        Options: a. daily, b. weekly, c. monthly, d. annually, e. never
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you agree or disagree with this statement? AI could make ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20
+            - 40
+            - 40
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Thinking about the last three months, how often, if at all, ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 8
+            - 28
+            - 24
+            - 4
+            - 36
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[20,40,40],"Q2":[8,28,24,4,36]}'
+    temperature: 0.3
+  - id: batch-2-country:canada
+    description: 'Batched prediction (2 Qs): Canada'
+    promptText: >-
+      Consider the following demographic group (sample size: 26):
+
+      - Country: Canada
+
+
+      Q1: "To what extent, if at all, do you generally trust governments to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      Q2: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can outperform humans on most economically valuable work?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "To what extent, if at all, do you generally trust government..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 8
+            - 32
+            - 28
+            - 32
+            - 0
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 28
+            - 32
+            - 12
+            - 20
+            - 8
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[8,32,28,32,0],"Q2":[28,32,12,20,8]}'
+    temperature: 0.3
+  - id: batch-3-country:canada
+    description: 'Batched prediction (2 Qs): Canada'
+    promptText: >-
+      Consider the following demographic group (sample size: 26):
+
+      - Country: Canada
+
+
+      Q1: "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+        Options: a. More excited than concerned, b. Equally concerned and excited, c. More concerned than excited
+
+      Q2: "To what extent, if at all, do you generally trust social media companies to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Overall, would you say the increased use of artificial intel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 19.2
+            - 76.9
+            - 3.8
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you generally trust social med..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 36
+            - 44
+            - 20
+            - 0
+            - 0
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[19.2,76.9,3.8],"Q2":[36,44,20,0,0]}'
+    temperature: 0.3
+  - id: batch-4-country:canada
+    description: 'Batched prediction (2 Qs): Canada'
+    promptText: >-
+      Consider the following demographic group (sample size: 26):
+
+      - Country: Canada
+
+
+      Q1: "Considering both potential benefits and risks, how do you assess the overall impact on society of social
+      media apps?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      Q2: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI
+      chatbots?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16
+            - 32
+            - 24
+            - 28
+            - 0
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 8
+            - 20
+            - 32
+            - 16
+            - 24
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[16,32,24,28,0],"Q2":[8,20,32,16,24]}'
+    temperature: 0.3
+  - id: batch-5-country:canada
+    description: 'Batched prediction (2 Qs): Canada'
+    promptText: >-
+      Consider the following demographic group (sample size: 26):
+
+      - Country: Canada
+
+
+      Q1: "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems
+      that can perform tasks in the real world without human supervision?"
+        Options: a. Risks far outweigh benefits, b. Risks slightly outweigh benefits, c. Risks and benefits are equal, d. Benefits slightly outweigh risks, e. Benefits far outweigh risks
+
+      Q2: "To what extent, if at all, do you generally trust large corporations to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Considering both potential benefits and risks, how do you as..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20
+            - 28
+            - 12
+            - 36
+            - 4
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you generally trust large corp..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 24
+            - 36
+            - 16
+            - 20
+            - 4
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[20,28,12,36,4],"Q2":[24,36,16,20,4]}'
+    temperature: 0.3
+  - id: batch-6-country:canada
+    description: 'Batched prediction (2 Qs): Canada'
+    promptText: >-
+      Consider the following demographic group (sample size: 26):
+
+      - Country: Canada
+
+
+      Q1: "To what extent, if at all, do you trust your family doctor to act in your best interest?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      Q2: "To what extent, if at all, do you trust your faith or community leader to act in your best interest?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "To what extent, if at all, do you trust your family doctor t..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 12
+            - 8
+            - 44
+            - 36
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you trust your faith or commun..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 12
+            - 8
+            - 28
+            - 44
+            - 8
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[0,12,8,44,36],"Q2":[12,8,28,44,8]}'
+    temperature: 0.3
+  - id: batch-7-country:canada
+    description: 'Batched prediction (2 Qs): Canada'
+    promptText: >-
+      Consider the following demographic group (sample size: 26):
+
+      - Country: Canada
+
+
+      Q1: "Do you think the increased use of AI across society is likely to make the availability of good jobs better,
+      worse or stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      Q2: "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+        Options: a. Strongly Distrust, b. Somewhat Distrust, c. Neither Trust Nor Distrust, d. Somewhat Trust, e. Strongly Trust
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20
+            - 52
+            - 8
+            - 12
+            - 8
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "To what extent, if at all, do you generally trust companies ..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 8
+            - 48
+            - 20
+            - 24
+            - 0
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[20,52,8,12,8],"Q2":[8,48,20,24,0]}'
+    temperature: 0.3
+  - id: batch-8-country:canada
+    description: 'Batched prediction (2 Qs): Canada'
+    promptText: >-
+      Consider the following demographic group (sample size: 26):
+
+      - Country: Canada
+
+
+      Q1: "Do you think the increased use of AI across society is likely to make your sense of purpose better, worse or
+      stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      Q2: "Do you think the increased use of AI across society is likely to make the amount of free time you have
+      better, worse or stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4
+            - 16
+            - 48
+            - 28
+            - 4
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4
+            - 16
+            - 8
+            - 60
+            - 12
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[4,16,48,28,4],"Q2":[4,16,8,60,12]}'
+    temperature: 0.3
+  - id: batch-9-country:canada
+    description: 'Batched prediction (2 Qs): Canada'
+    promptText: >-
+      Consider the following demographic group (sample size: 26):
+
+      - Country: Canada
+
+
+      Q1: "Do you think the increased use of AI across society is likely to make your cost of living better, worse or
+      stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      Q2: "Do you think the increased use of AI across society is likely to make your community's well-being better,
+      worse or stay the same in the next 10 years?"
+        Options: a. Profoundly Worse, b. Noticeably Worse, c. No Major Change, d. Noticeably Better, e. Profoundly Better
+
+      For each question, predict the percentage distribution of responses for this demographic group across the answer
+      options.
+    points:
+      - text: 'Distribution Similarity Q1: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 36
+            - 20
+            - 32
+            - 12
+          metric: js-divergence
+          questionKey: Q1
+      - text: 'Distribution Similarity Q2: "Do you think the increased use of AI across society is likel..."'
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 32
+            - 20
+            - 40
+            - 8
+          metric: js-divergence
+          questionKey: Q2
+    idealResponse: '{"Q1":[0,36,20,32,12],"Q2":[0,32,20,40,8]}'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - batched
+  - distribution
+  - global-dialogues-gd3
+  - gd3
+context:
+  dtef:
+    surveyId: global-dialogues-gd3
+    segmentId: country:canada
+    segmentLabel: Canada
+    segmentAttributes:
+      country: Canada
+    groundTruthDistributions:
+      47cdf76a-9abf-4b5c-abbe-2d5b00ef172d:
+        - 40
+        - 48
+        - 8
+        - 0
+        - 4
+      d633720f-a159-4922-925c-fd9f3245711e:
+        - 8
+        - 20
+        - 28
+        - 4
+        - 40
+      38964f80-772f-4e5d-a355-b4857f2de101:
+        - 20
+        - 40
+        - 40
+      8b361c6c-eb59-415b-8536-7f80713c3e5e:
+        - 8
+        - 28
+        - 24
+        - 4
+        - 36
+      b1869877-1015-43ec-9645-84bf2db39c6f:
+        - 8
+        - 32
+        - 28
+        - 32
+        - 0
+      96ccfd7b-8f99-4d0a-b700-9fd835e23bd8:
+        - 28
+        - 32
+        - 12
+        - 20
+        - 8
+      f932063f-700c-4327-9c34-59b7c3e19190:
+        - 19.2
+        - 76.9
+        - 3.8
+      4c5ed164-eb69-4e41-906f-1e7a93f1d5bd:
+        - 36
+        - 44
+        - 20
+        - 0
+        - 0
+      8c50a77a-3fc2-49ce-b568-b7832c9b99e0:
+        - 16
+        - 32
+        - 24
+        - 28
+        - 0
+      30324a2e-b5b2-4e0a-a8f2-af599b55c40e:
+        - 8
+        - 20
+        - 32
+        - 16
+        - 24
+      4f234e17-2d57-4709-b29a-4a2909683566:
+        - 20
+        - 28
+        - 12
+        - 36
+        - 4
+      8ed2d795-acca-47d8-abb0-8c446310dbf0:
+        - 24
+        - 36
+        - 16
+        - 20
+        - 4
+      f435994f-e66e-4681-8334-4d6ee5f39e6b:
+        - 0
+        - 12
+        - 8
+        - 44
+        - 36
+      18cc2f33-6373-49f0-aa7e-e2fa04a04575:
+        - 12
+        - 8
+        - 28
+        - 44
+        - 8
+      96e5895f-d640-4a37-bc16-6e095f38ba7e:
+        - 20
+        - 52
+        - 8
+        - 12
+        - 8
+      8d058cce-8ccf-4816-8ef7-c9c9e37038dc:
+        - 8
+        - 48
+        - 20
+        - 24
+        - 0
+      0e0a2736-2ac9-490c-adb9-bf7dfd25b14b:
+        - 4
+        - 16
+        - 48
+        - 28
+        - 4
+      8a9d1c12-44f6-42dc-9238-daaaca0d85d0:
+        - 4
+        - 16
+        - 8
+        - 60
+        - 12
+      983893d8-07ab-4c8e-bdb2-14335638633d:
+        - 0
+        - 36
+        - 20
+        - 32
+        - 12
+      5afe8617-7e71-40c8-8a33-1b356a8ca674:
+        - 0
+        - 32
+        - 20
+        - 40
+        - 8
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    batchSize: 2
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: standard
