@@ -1,0 +1,424 @@
+configId: dtef-global-dialogues-gd4-aiConcern:more-concerned-than-excited
+configTitle: Global Dialogues GD4 - More concerned than excited
+description: >-
+  DTEF: Predict response distributions for More concerned than excited. Source: Global Dialogues GD4
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+prompts:
+  - id: 28cfe238-1c8f-476f-8c57-48b8ca1071a7-aiConcern:more-concerned-than-excited
+    description: >-
+      Predict: More concerned than excited → "Overall, would you say the increased use of artificial intelligence (AI)
+      in daily life makes you feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 107):
+      - Ai Concern: More concerned than excited
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 0
+            - 100
+          metric: js-divergence
+    idealResponse: '[0.0, 0.0, 100.0]'
+    temperature: 0.3
+  - id: 25e16598-f3a7-411d-b4cb-736c91bc3d03-aiConcern:more-concerned-than-excited
+    description: >-
+      Predict: More concerned than excited → "To what extent, if at all, do you generally trust governments to do what
+      is right?"
+    promptText: |-
+      Consider the following demographic group (sample size: 107):
+      - Ai Concern: More concerned than excited
+
+      Survey question:
+      "To what extent, if at all, do you generally trust governments to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 38.2
+            - 24.5
+            - 15.7
+            - 16.7
+            - 4.9
+          metric: js-divergence
+    idealResponse: '[38.2, 24.5, 15.7, 16.7, 4.9]'
+    temperature: 0.3
+  - id: e70a42e6-c1c0-43c6-a389-d28347e17f2f-aiConcern:more-concerned-than-excited
+    description: >-
+      Predict: More concerned than excited → "To what extent, if at all, do you generally trust large corporations to do
+      what is right?"
+    promptText: |-
+      Consider the following demographic group (sample size: 107):
+      - Ai Concern: More concerned than excited
+
+      Survey question:
+      "To what extent, if at all, do you generally trust large corporations to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 50
+            - 20.6
+            - 9.8
+            - 12.7
+            - 6.9
+          metric: js-divergence
+    idealResponse: '[50.0, 20.6, 9.8, 12.7, 6.9]'
+    temperature: 0.3
+  - id: be27a244-3429-417d-8517-de800bc90acf-aiConcern:more-concerned-than-excited
+    description: >-
+      Predict: More concerned than excited → "To what extent, if at all, do you generally trust social media companies
+      to do what is right?"
+    promptText: |-
+      Consider the following demographic group (sample size: 107):
+      - Ai Concern: More concerned than excited
+
+      Survey question:
+      "To what extent, if at all, do you generally trust social media companies to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 50
+            - 29.4
+            - 9.8
+            - 7.8
+            - 2.9
+          metric: js-divergence
+    idealResponse: '[50.0, 29.4, 9.8, 7.8, 2.9]'
+    temperature: 0.3
+  - id: d7943aa5-3a9f-4161-9d2b-651c71d92c73-aiConcern:more-concerned-than-excited
+    description: >-
+      Predict: More concerned than excited → "To what extent, if at all, do you generally trust companies building AI to
+      do what is right?"
+    promptText: |-
+      Consider the following demographic group (sample size: 107):
+      - Ai Concern: More concerned than excited
+
+      Survey question:
+      "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 46.1
+            - 24.5
+            - 14.7
+            - 10.8
+            - 3.9
+          metric: js-divergence
+    idealResponse: '[46.1, 24.5, 14.7, 10.8, 3.9]'
+    temperature: 0.3
+  - id: 6630ff34-e67e-423a-9cea-0a4861106680-aiConcern:more-concerned-than-excited
+    description: >-
+      Predict: More concerned than excited → "Considering both potential benefits and risks, how do you assess the
+      overall impact on society of messaging apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 107):
+
+      - Ai Concern: More concerned than excited
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 14.7
+            - 16.7
+            - 29.4
+            - 27.5
+            - 11.8
+          metric: js-divergence
+    idealResponse: '[14.7, 16.7, 29.4, 27.5, 11.8]'
+    temperature: 0.3
+  - id: cc7346fb-571e-48ad-aeaa-4135f0fdf58c-aiConcern:more-concerned-than-excited
+    description: 'Predict: More concerned than excited → "A romantic partner."'
+    promptText: |-
+      Consider the following demographic group (sample size: 107):
+      - Ai Concern: More concerned than excited
+
+      Survey question:
+      "A romantic partner."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 68.3
+            - 12.9
+            - 11.9
+            - 4
+            - 3
+          metric: js-divergence
+    idealResponse: '[68.3, 12.9, 11.9, 4.0, 3.0]'
+    temperature: 0.3
+  - id: 3cf6da25-08f3-496d-9a4a-93afc5069e36-aiConcern:more-concerned-than-excited
+    description: 'Predict: More concerned than excited → "A spiritual advisor."'
+    promptText: |-
+      Consider the following demographic group (sample size: 107):
+      - Ai Concern: More concerned than excited
+
+      Survey question:
+      "A spiritual advisor."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 42.6
+            - 17.8
+            - 17.8
+            - 15.8
+            - 5.9
+          metric: js-divergence
+    idealResponse: '[42.6, 17.8, 17.8, 15.8, 5.9]'
+    temperature: 0.3
+  - id: e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c-aiConcern:more-concerned-than-excited
+    description: >-
+      Predict: More concerned than excited → "Do you agree or disagree with this statement? AI could make better
+      decisions on my behalf than my government representatives."
+    promptText: >-
+      Consider the following demographic group (sample size: 107):
+
+      - Ai Concern: More concerned than excited
+
+
+      Survey question:
+
+      "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+        c. Unsure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15.7
+            - 42.2
+            - 42.2
+          metric: js-divergence
+    idealResponse: '[15.7, 42.2, 42.2]'
+    temperature: 0.3
+  - id: 29598fc6-6928-49f7-9a42-2f57cf5e1c28-aiConcern:more-concerned-than-excited
+    description: >-
+      Predict: More concerned than excited → "Considering both potential benefits and risks, how do you assess the
+      overall impact on society of AI systems that can perform tasks in the real world without human supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 107):
+
+      - Ai Concern: More concerned than excited
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can perform tasks in the real world without human supervision?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 50
+            - 21.6
+            - 16.7
+            - 3.9
+            - 7.8
+          metric: js-divergence
+    idealResponse: '[50.0, 21.6, 16.7, 3.9, 7.8]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - distribution
+  - global-dialogues-gd4
+  - gd4-matrix
+context:
+  dtef:
+    surveyId: global-dialogues-gd4
+    segmentId: aiConcern:more-concerned-than-excited
+    segmentLabel: More concerned than excited
+    segmentAttributes:
+      aiConcern: More concerned than excited
+    groundTruthDistributions:
+      28cfe238-1c8f-476f-8c57-48b8ca1071a7-aiConcern:more-concerned-than-excited:
+        - 0
+        - 0
+        - 100
+      25e16598-f3a7-411d-b4cb-736c91bc3d03-aiConcern:more-concerned-than-excited:
+        - 38.2
+        - 24.5
+        - 15.7
+        - 16.7
+        - 4.9
+      e70a42e6-c1c0-43c6-a389-d28347e17f2f-aiConcern:more-concerned-than-excited:
+        - 50
+        - 20.6
+        - 9.8
+        - 12.7
+        - 6.9
+      be27a244-3429-417d-8517-de800bc90acf-aiConcern:more-concerned-than-excited:
+        - 50
+        - 29.4
+        - 9.8
+        - 7.8
+        - 2.9
+      d7943aa5-3a9f-4161-9d2b-651c71d92c73-aiConcern:more-concerned-than-excited:
+        - 46.1
+        - 24.5
+        - 14.7
+        - 10.8
+        - 3.9
+      6630ff34-e67e-423a-9cea-0a4861106680-aiConcern:more-concerned-than-excited:
+        - 14.7
+        - 16.7
+        - 29.4
+        - 27.5
+        - 11.8
+      cc7346fb-571e-48ad-aeaa-4135f0fdf58c-aiConcern:more-concerned-than-excited:
+        - 68.3
+        - 12.9
+        - 11.9
+        - 4
+        - 3
+      3cf6da25-08f3-496d-9a4a-93afc5069e36-aiConcern:more-concerned-than-excited:
+        - 42.6
+        - 17.8
+        - 17.8
+        - 15.8
+        - 5.9
+      e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c-aiConcern:more-concerned-than-excited:
+        - 15.7
+        - 42.2
+        - 42.2
+      29598fc6-6928-49f7-9a42-2f57cf5e1c28-aiConcern:more-concerned-than-excited:
+        - 50
+        - 21.6
+        - 16.7
+        - 3.9
+        - 7.8
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: standard
