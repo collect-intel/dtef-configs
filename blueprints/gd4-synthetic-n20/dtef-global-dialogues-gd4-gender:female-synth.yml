@@ -1,0 +1,409 @@
+configId: dtef-global-dialogues-gd4-gender:female-synth
+configTitle: Global Dialogues GD4 - Female [synth]
+description: >-
+  DTEF [synth]: Predict response distributions for Female. Source: Global Dialogues GD4
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, simulate how individual
+  members of this group would each answer the question.
+
+
+  Respond ONLY with a JSON array of answer letters. Each element represents one simulated individual's response.
+
+  Example for 20 simulated individuals on a 4-option question:
+
+  ["a", "c", "b", "a", "d", "a", "b", "c", "a", "a", "b", "a", "c", "d", "a", "b", "a", "c", "a", "b"]
+temperature: 0.3
+prompts:
+  - id: 28cfe238-1c8f-476f-8c57-48b8ca1071a7-gender:female
+    description: >-
+      Predict: Female → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes
+      you feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 504):
+      - Gender: Female
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 28.8
+            - 58.3
+            - 12.9
+          metric: js-divergence
+    idealResponse: '[28.8, 58.3, 12.9]'
+    temperature: 0.3
+  - id: 25e16598-f3a7-411d-b4cb-736c91bc3d03-gender:female
+    description: 'Predict: Female → "To what extent, if at all, do you generally trust governments to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 504):
+      - Gender: Female
+
+      Survey question:
+      "To what extent, if at all, do you generally trust governments to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 22.2
+            - 32.3
+            - 18.7
+            - 23.6
+            - 3.3
+          metric: js-divergence
+    idealResponse: '[22.2, 32.3, 18.7, 23.6, 3.3]'
+    temperature: 0.3
+  - id: e70a42e6-c1c0-43c6-a389-d28347e17f2f-gender:female
+    description: 'Predict: Female → "To what extent, if at all, do you generally trust large corporations to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 504):
+      - Gender: Female
+
+      Survey question:
+      "To what extent, if at all, do you generally trust large corporations to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 23.6
+            - 30.9
+            - 20.3
+            - 19.7
+            - 5.5
+          metric: js-divergence
+    idealResponse: '[23.6, 30.9, 20.3, 19.7, 5.5]'
+    temperature: 0.3
+  - id: be27a244-3429-417d-8517-de800bc90acf-gender:female
+    description: 'Predict: Female → "To what extent, if at all, do you generally trust social media companies to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 504):
+      - Gender: Female
+
+      Survey question:
+      "To what extent, if at all, do you generally trust social media companies to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 30.7
+            - 34.8
+            - 21.1
+            - 11.2
+            - 2.2
+          metric: js-divergence
+    idealResponse: '[30.7, 34.8, 21.1, 11.2, 2.2]'
+    temperature: 0.3
+  - id: d7943aa5-3a9f-4161-9d2b-651c71d92c73-gender:female
+    description: 'Predict: Female → "To what extent, if at all, do you generally trust companies building AI to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 504):
+      - Gender: Female
+
+      Survey question:
+      "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 16.5
+            - 26.8
+            - 27.4
+            - 24.8
+            - 4.5
+          metric: js-divergence
+    idealResponse: '[16.5, 26.8, 27.4, 24.8, 4.5]'
+    temperature: 0.3
+  - id: 6630ff34-e67e-423a-9cea-0a4861106680-gender:female
+    description: >-
+      Predict: Female → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of messaging apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 504):
+
+      - Gender: Female
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 6.5
+            - 12.8
+            - 32.7
+            - 29.4
+            - 18.7
+          metric: js-divergence
+    idealResponse: '[6.5, 12.8, 32.7, 29.4, 18.7]'
+    temperature: 0.3
+  - id: cc7346fb-571e-48ad-aeaa-4135f0fdf58c-gender:female
+    description: 'Predict: Female → "A romantic partner."'
+    promptText: |-
+      Consider the following demographic group (sample size: 504):
+      - Gender: Female
+
+      Survey question:
+      "A romantic partner."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 46.1
+            - 24.9
+            - 13.2
+            - 12.6
+            - 3.3
+          metric: js-divergence
+    idealResponse: '[46.1, 24.9, 13.2, 12.6, 3.3]'
+    temperature: 0.3
+  - id: 3cf6da25-08f3-496d-9a4a-93afc5069e36-gender:female
+    description: 'Predict: Female → "A spiritual advisor."'
+    promptText: |-
+      Consider the following demographic group (sample size: 504):
+      - Gender: Female
+
+      Survey question:
+      "A spiritual advisor."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.7
+            - 17.5
+            - 20.4
+            - 32.1
+            - 11.3
+          metric: js-divergence
+    idealResponse: '[18.7, 17.5, 20.4, 32.1, 11.3]'
+    temperature: 0.3
+  - id: e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c-gender:female
+    description: >-
+      Predict: Female → "Do you agree or disagree with this statement? AI could make better decisions on my behalf than
+      my government representatives."
+    promptText: >-
+      Consider the following demographic group (sample size: 504):
+
+      - Gender: Female
+
+
+      Survey question:
+
+      "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+        c. Unsure
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 29.2
+            - 32
+            - 38.8
+          metric: js-divergence
+    idealResponse: '[29.2, 32.0, 38.8]'
+    temperature: 0.3
+  - id: 29598fc6-6928-49f7-9a42-2f57cf5e1c28-gender:female
+    description: >-
+      Predict: Female → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI systems that can perform tasks in the real world without human supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 504):
+
+      - Gender: Female
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can perform tasks in the real world without human supervision?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 22.1
+            - 31
+            - 27.4
+            - 15
+            - 4.5
+          metric: js-divergence
+    idealResponse: '[22.1, 31.0, 27.4, 15.0, 4.5]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - synthetic-individual
+  - global-dialogues-gd4
+context:
+  dtef:
+    surveyId: global-dialogues-gd4
+    segmentId: gender:female
+    segmentLabel: Female
+    segmentAttributes:
+      gender: Female
+    groundTruthDistributions:
+      28cfe238-1c8f-476f-8c57-48b8ca1071a7-gender:female:
+        - 28.8
+        - 58.3
+        - 12.9
+      25e16598-f3a7-411d-b4cb-736c91bc3d03-gender:female:
+        - 22.2
+        - 32.3
+        - 18.7
+        - 23.6
+        - 3.3
+      e70a42e6-c1c0-43c6-a389-d28347e17f2f-gender:female:
+        - 23.6
+        - 30.9
+        - 20.3
+        - 19.7
+        - 5.5
+      be27a244-3429-417d-8517-de800bc90acf-gender:female:
+        - 30.7
+        - 34.8
+        - 21.1
+        - 11.2
+        - 2.2
+      d7943aa5-3a9f-4161-9d2b-651c71d92c73-gender:female:
+        - 16.5
+        - 26.8
+        - 27.4
+        - 24.8
+        - 4.5
+      6630ff34-e67e-423a-9cea-0a4861106680-gender:female:
+        - 6.5
+        - 12.8
+        - 32.7
+        - 29.4
+        - 18.7
+      cc7346fb-571e-48ad-aeaa-4135f0fdf58c-gender:female:
+        - 46.1
+        - 24.9
+        - 13.2
+        - 12.6
+        - 3.3
+      3cf6da25-08f3-496d-9a4a-93afc5069e36-gender:female:
+        - 18.7
+        - 17.5
+        - 20.4
+        - 32.1
+        - 11.3
+      e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c-gender:female:
+        - 29.2
+        - 32
+        - 38.8
+      29598fc6-6928-49f7-9a42-2f57cf5e1c28-gender:female:
+        - 22.1
+        - 31
+        - 27.4
+        - 15
+        - 4.5
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    evalType: synthetic-individual
+    contextFormat: attribute-label
+    reasoningMode: standard

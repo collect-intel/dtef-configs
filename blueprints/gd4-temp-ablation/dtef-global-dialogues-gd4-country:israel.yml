@@ -1,0 +1,420 @@
+configId: dtef-global-dialogues-gd4-country:israel
+configTitle: Global Dialogues GD4 - Israel
+description: >-
+  DTEF: Predict response distributions for Israel. Source: Global Dialogues GD4
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+temperatures:
+  - 0
+  - 0.3
+prompts:
+  - id: 28cfe238-1c8f-476f-8c57-48b8ca1071a7-country:israel
+    description: >-
+      Predict: Israel → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes
+      you feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Country: Israel
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 35
+            - 50
+            - 15
+          metric: js-divergence
+    idealResponse: '[35.0, 50.0, 15.0]'
+    temperature: 0.3
+  - id: 25e16598-f3a7-411d-b4cb-736c91bc3d03-country:israel
+    description: 'Predict: Israel → "To what extent, if at all, do you generally trust governments to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Country: Israel
+
+      Survey question:
+      "To what extent, if at all, do you generally trust governments to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 30
+            - 50
+            - 5
+            - 15
+            - 0
+          metric: js-divergence
+    idealResponse: '[30.0, 50.0, 5.0, 15.0, 0.0]'
+    temperature: 0.3
+  - id: e70a42e6-c1c0-43c6-a389-d28347e17f2f-country:israel
+    description: 'Predict: Israel → "To what extent, if at all, do you generally trust large corporations to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Country: Israel
+
+      Survey question:
+      "To what extent, if at all, do you generally trust large corporations to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 10
+            - 45
+            - 20
+            - 25
+            - 0
+          metric: js-divergence
+    idealResponse: '[10.0, 45.0, 20.0, 25.0, 0.0]'
+    temperature: 0.3
+  - id: be27a244-3429-417d-8517-de800bc90acf-country:israel
+    description: 'Predict: Israel → "To what extent, if at all, do you generally trust social media companies to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Country: Israel
+
+      Survey question:
+      "To what extent, if at all, do you generally trust social media companies to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20
+            - 40
+            - 25
+            - 15
+            - 0
+          metric: js-divergence
+    idealResponse: '[20.0, 40.0, 25.0, 15.0, 0.0]'
+    temperature: 0.3
+  - id: d7943aa5-3a9f-4161-9d2b-651c71d92c73-country:israel
+    description: 'Predict: Israel → "To what extent, if at all, do you generally trust companies building AI to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Country: Israel
+
+      Survey question:
+      "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 15
+            - 20
+            - 40
+            - 15
+            - 10
+          metric: js-divergence
+    idealResponse: '[15.0, 20.0, 40.0, 15.0, 10.0]'
+    temperature: 0.3
+  - id: 6630ff34-e67e-423a-9cea-0a4861106680-country:israel
+    description: >-
+      Predict: Israel → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of messaging apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Country: Israel
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5
+            - 10
+            - 25
+            - 30
+            - 30
+          metric: js-divergence
+    idealResponse: '[5.0, 10.0, 25.0, 30.0, 30.0]'
+    temperature: 0.3
+  - id: cc7346fb-571e-48ad-aeaa-4135f0fdf58c-country:israel
+    description: 'Predict: Israel → "A romantic partner."'
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Country: Israel
+
+      Survey question:
+      "A romantic partner."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 70
+            - 30
+            - 0
+            - 0
+            - 0
+          metric: js-divergence
+    idealResponse: '[70.0, 30.0, 0.0, 0.0, 0.0]'
+    temperature: 0.3
+  - id: 3cf6da25-08f3-496d-9a4a-93afc5069e36-country:israel
+    description: 'Predict: Israel → "A spiritual advisor."'
+    promptText: |-
+      Consider the following demographic group (sample size: 20):
+      - Country: Israel
+
+      Survey question:
+      "A spiritual advisor."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5
+            - 20
+            - 40
+            - 35
+            - 0
+          metric: js-divergence
+    idealResponse: '[5.0, 20.0, 40.0, 35.0, 0.0]'
+    temperature: 0.3
+  - id: e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c-country:israel
+    description: >-
+      Predict: Israel → "Do you agree or disagree with this statement? AI could make better decisions on my behalf than
+      my government representatives."
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Country: Israel
+
+
+      Survey question:
+
+      "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+        c. Unsure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 35
+            - 15
+            - 50
+          metric: js-divergence
+    idealResponse: '[35.0, 15.0, 50.0]'
+    temperature: 0.3
+  - id: 29598fc6-6928-49f7-9a42-2f57cf5e1c28-country:israel
+    description: >-
+      Predict: Israel → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI systems that can perform tasks in the real world without human supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 20):
+
+      - Country: Israel
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can perform tasks in the real world without human supervision?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20
+            - 10
+            - 40
+            - 10
+            - 20
+          metric: js-divergence
+    idealResponse: '[20.0, 10.0, 40.0, 10.0, 20.0]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - distribution
+  - global-dialogues-gd4
+  - experiment:temp-0-vs-03
+context:
+  dtef:
+    surveyId: global-dialogues-gd4
+    segmentId: country:israel
+    segmentLabel: Israel
+    segmentAttributes:
+      country: Israel
+    groundTruthDistributions:
+      28cfe238-1c8f-476f-8c57-48b8ca1071a7-country:israel:
+        - 35
+        - 50
+        - 15
+      25e16598-f3a7-411d-b4cb-736c91bc3d03-country:israel:
+        - 30
+        - 50
+        - 5
+        - 15
+        - 0
+      e70a42e6-c1c0-43c6-a389-d28347e17f2f-country:israel:
+        - 10
+        - 45
+        - 20
+        - 25
+        - 0
+      be27a244-3429-417d-8517-de800bc90acf-country:israel:
+        - 20
+        - 40
+        - 25
+        - 15
+        - 0
+      d7943aa5-3a9f-4161-9d2b-651c71d92c73-country:israel:
+        - 15
+        - 20
+        - 40
+        - 15
+        - 10
+      6630ff34-e67e-423a-9cea-0a4861106680-country:israel:
+        - 5
+        - 10
+        - 25
+        - 30
+        - 30
+      cc7346fb-571e-48ad-aeaa-4135f0fdf58c-country:israel:
+        - 70
+        - 30
+        - 0
+        - 0
+        - 0
+      3cf6da25-08f3-496d-9a4a-93afc5069e36-country:israel:
+        - 5
+        - 20
+        - 40
+        - 35
+        - 0
+      e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c-country:israel:
+        - 35
+        - 15
+        - 50
+      29598fc6-6928-49f7-9a42-2f57cf5e1c28-country:israel:
+        - 20
+        - 10
+        - 40
+        - 10
+        - 20
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: standard
+    experimentId: temp-0-vs-03

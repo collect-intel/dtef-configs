@@ -1,0 +1,409 @@
+configId: dtef-global-dialogues-gd4-environment:urban-synth
+configTitle: Global Dialogues GD4 - Urban [synth]
+description: >-
+  DTEF [synth]: Predict response distributions for Urban. Source: Global Dialogues GD4
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, simulate how individual
+  members of this group would each answer the question.
+
+
+  Respond ONLY with a JSON array of answer letters. Each element represents one simulated individual's response.
+
+  Example for 20 simulated individuals on a 4-option question:
+
+  ["a", "c", "b", "a", "d", "a", "b", "c", "a", "a", "b", "a", "c", "d", "a", "b", "a", "c", "a", "b"]
+temperature: 0.3
+prompts:
+  - id: 28cfe238-1c8f-476f-8c57-48b8ca1071a7-environment:urban
+    description: >-
+      Predict: Urban → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you
+      feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 684):
+      - Environment: Urban
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 36.3
+            - 53.5
+            - 10.2
+          metric: js-divergence
+    idealResponse: '[36.3, 53.5, 10.2]'
+    temperature: 0.3
+  - id: 25e16598-f3a7-411d-b4cb-736c91bc3d03-environment:urban
+    description: 'Predict: Urban → "To what extent, if at all, do you generally trust governments to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 684):
+      - Environment: Urban
+
+      Survey question:
+      "To what extent, if at all, do you generally trust governments to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 20.6
+            - 32
+            - 18.7
+            - 24
+            - 4.7
+          metric: js-divergence
+    idealResponse: '[20.6, 32.0, 18.7, 24.0, 4.7]'
+    temperature: 0.3
+  - id: e70a42e6-c1c0-43c6-a389-d28347e17f2f-environment:urban
+    description: 'Predict: Urban → "To what extent, if at all, do you generally trust large corporations to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 684):
+      - Environment: Urban
+
+      Survey question:
+      "To what extent, if at all, do you generally trust large corporations to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 24
+            - 28.9
+            - 19.4
+            - 21.5
+            - 6.2
+          metric: js-divergence
+    idealResponse: '[24.0, 28.9, 19.4, 21.5, 6.2]'
+    temperature: 0.3
+  - id: be27a244-3429-417d-8517-de800bc90acf-environment:urban
+    description: 'Predict: Urban → "To what extent, if at all, do you generally trust social media companies to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 684):
+      - Environment: Urban
+
+      Survey question:
+      "To what extent, if at all, do you generally trust social media companies to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 31.9
+            - 30.5
+            - 20.4
+            - 14.4
+            - 2.8
+          metric: js-divergence
+    idealResponse: '[31.9, 30.5, 20.4, 14.4, 2.8]'
+    temperature: 0.3
+  - id: d7943aa5-3a9f-4161-9d2b-651c71d92c73-environment:urban
+    description: 'Predict: Urban → "To what extent, if at all, do you generally trust companies building AI to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 684):
+      - Environment: Urban
+
+      Survey question:
+      "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 13.9
+            - 23.3
+            - 26.5
+            - 29.3
+            - 7
+          metric: js-divergence
+    idealResponse: '[13.9, 23.3, 26.5, 29.3, 7.0]'
+    temperature: 0.3
+  - id: 6630ff34-e67e-423a-9cea-0a4861106680-environment:urban
+    description: >-
+      Predict: Urban → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of messaging apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 684):
+
+      - Environment: Urban
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 5
+            - 11.1
+            - 27.9
+            - 30.8
+            - 25.2
+          metric: js-divergence
+    idealResponse: '[5.0, 11.1, 27.9, 30.8, 25.2]'
+    temperature: 0.3
+  - id: cc7346fb-571e-48ad-aeaa-4135f0fdf58c-environment:urban
+    description: 'Predict: Urban → "A romantic partner."'
+    promptText: |-
+      Consider the following demographic group (sample size: 684):
+      - Environment: Urban
+
+      Survey question:
+      "A romantic partner."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 40.4
+            - 25.4
+            - 15.6
+            - 12
+            - 6.6
+          metric: js-divergence
+    idealResponse: '[40.4, 25.4, 15.6, 12.0, 6.6]'
+    temperature: 0.3
+  - id: 3cf6da25-08f3-496d-9a4a-93afc5069e36-environment:urban
+    description: 'Predict: Urban → "A spiritual advisor."'
+    promptText: |-
+      Consider the following demographic group (sample size: 684):
+      - Environment: Urban
+
+      Survey question:
+      "A spiritual advisor."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.1
+            - 16.3
+            - 21.3
+            - 33.2
+            - 11.1
+          metric: js-divergence
+    idealResponse: '[18.1, 16.3, 21.3, 33.2, 11.1]'
+    temperature: 0.3
+  - id: e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c-environment:urban
+    description: >-
+      Predict: Urban → "Do you agree or disagree with this statement? AI could make better decisions on my behalf than
+      my government representatives."
+    promptText: >-
+      Consider the following demographic group (sample size: 684):
+
+      - Environment: Urban
+
+
+      Survey question:
+
+      "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+        c. Unsure
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 36.8
+            - 28
+            - 35.2
+          metric: js-divergence
+    idealResponse: '[36.8, 28.0, 35.2]'
+    temperature: 0.3
+  - id: 29598fc6-6928-49f7-9a42-2f57cf5e1c28-environment:urban
+    description: >-
+      Predict: Urban → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI systems that can perform tasks in the real world without human supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 684):
+
+      - Environment: Urban
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can perform tasks in the real world without human supervision?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Simulate 20 individual members of this demographic group answering this question.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 18.5
+            - 25
+            - 26.7
+            - 21
+            - 8.7
+          metric: js-divergence
+    idealResponse: '[18.5, 25.0, 26.7, 21.0, 8.7]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - synthetic-individual
+  - global-dialogues-gd4
+context:
+  dtef:
+    surveyId: global-dialogues-gd4
+    segmentId: environment:urban
+    segmentLabel: Urban
+    segmentAttributes:
+      environment: Urban
+    groundTruthDistributions:
+      28cfe238-1c8f-476f-8c57-48b8ca1071a7-environment:urban:
+        - 36.3
+        - 53.5
+        - 10.2
+      25e16598-f3a7-411d-b4cb-736c91bc3d03-environment:urban:
+        - 20.6
+        - 32
+        - 18.7
+        - 24
+        - 4.7
+      e70a42e6-c1c0-43c6-a389-d28347e17f2f-environment:urban:
+        - 24
+        - 28.9
+        - 19.4
+        - 21.5
+        - 6.2
+      be27a244-3429-417d-8517-de800bc90acf-environment:urban:
+        - 31.9
+        - 30.5
+        - 20.4
+        - 14.4
+        - 2.8
+      d7943aa5-3a9f-4161-9d2b-651c71d92c73-environment:urban:
+        - 13.9
+        - 23.3
+        - 26.5
+        - 29.3
+        - 7
+      6630ff34-e67e-423a-9cea-0a4861106680-environment:urban:
+        - 5
+        - 11.1
+        - 27.9
+        - 30.8
+        - 25.2
+      cc7346fb-571e-48ad-aeaa-4135f0fdf58c-environment:urban:
+        - 40.4
+        - 25.4
+        - 15.6
+        - 12
+        - 6.6
+      3cf6da25-08f3-496d-9a4a-93afc5069e36-environment:urban:
+        - 18.1
+        - 16.3
+        - 21.3
+        - 33.2
+        - 11.1
+      e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c-environment:urban:
+        - 36.8
+        - 28
+        - 35.2
+      29598fc6-6928-49f7-9a42-2f57cf5e1c28-environment:urban:
+        - 18.5
+        - 25
+        - 26.7
+        - 21
+        - 8.7
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    evalType: synthetic-individual
+    contextFormat: attribute-label
+    reasoningMode: standard

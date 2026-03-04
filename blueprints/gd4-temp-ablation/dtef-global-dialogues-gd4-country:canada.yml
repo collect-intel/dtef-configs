@@ -1,0 +1,420 @@
+configId: dtef-global-dialogues-gd4-country:canada
+configTitle: Global Dialogues GD4 - Canada
+description: >-
+  DTEF: Predict response distributions for Canada. Source: Global Dialogues GD4
+  (https://github.com/collect-intel/global-dialogues)
+models:
+  - CORE_CHEAP
+system: >-
+  You are a demographic survey analyst. When given a demographic group and a survey question, predict how that group
+  would respond by providing a percentage distribution across the answer options.
+
+
+  Respond ONLY with the distribution in this exact format:
+
+  [percentage1, percentage2, percentage3, ...]
+
+
+  The percentages must sum to 100. Use one decimal place. Do not include any other text.
+
+
+  Example for a 4-option question:
+
+  [35.2, 28.1, 22.4, 14.3]
+temperature: 0.3
+temperatures:
+  - 0
+  - 0.3
+prompts:
+  - id: 28cfe238-1c8f-476f-8c57-48b8ca1071a7-country:canada
+    description: >-
+      Predict: Canada → "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes
+      you feel…"
+    promptText: |-
+      Consider the following demographic group (sample size: 24):
+      - Country: Canada
+
+      Survey question:
+      "Overall, would you say the increased use of artificial intelligence (AI) in daily life makes you feel…"
+
+      Answer options:
+        a. More excited than concerned
+        b. Equally concerned and excited
+        c. More concerned than excited
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 45.8
+            - 50
+            - 4.2
+          metric: js-divergence
+    idealResponse: '[45.8, 50.0, 4.2]'
+    temperature: 0.3
+  - id: 25e16598-f3a7-411d-b4cb-736c91bc3d03-country:canada
+    description: 'Predict: Canada → "To what extent, if at all, do you generally trust governments to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 24):
+      - Country: Canada
+
+      Survey question:
+      "To what extent, if at all, do you generally trust governments to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 12.5
+            - 37.5
+            - 12.5
+            - 37.5
+            - 0
+          metric: js-divergence
+    idealResponse: '[12.5, 37.5, 12.5, 37.5, 0.0]'
+    temperature: 0.3
+  - id: e70a42e6-c1c0-43c6-a389-d28347e17f2f-country:canada
+    description: 'Predict: Canada → "To what extent, if at all, do you generally trust large corporations to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 24):
+      - Country: Canada
+
+      Survey question:
+      "To what extent, if at all, do you generally trust large corporations to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 12.5
+            - 50
+            - 20.8
+            - 16.7
+            - 0
+          metric: js-divergence
+    idealResponse: '[12.5, 50.0, 20.8, 16.7, 0.0]'
+    temperature: 0.3
+  - id: be27a244-3429-417d-8517-de800bc90acf-country:canada
+    description: 'Predict: Canada → "To what extent, if at all, do you generally trust social media companies to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 24):
+      - Country: Canada
+
+      Survey question:
+      "To what extent, if at all, do you generally trust social media companies to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 37.5
+            - 41.7
+            - 16.7
+            - 4.2
+            - 0
+          metric: js-divergence
+    idealResponse: '[37.5, 41.7, 16.7, 4.2, 0.0]'
+    temperature: 0.3
+  - id: d7943aa5-3a9f-4161-9d2b-651c71d92c73-country:canada
+    description: 'Predict: Canada → "To what extent, if at all, do you generally trust companies building AI to do what is right?"'
+    promptText: |-
+      Consider the following demographic group (sample size: 24):
+      - Country: Canada
+
+      Survey question:
+      "To what extent, if at all, do you generally trust companies building AI to do what is right?"
+
+      Answer options:
+        a. Strongly Distrust
+        b. Somewhat Distrust
+        c. Neither Trust Nor Distrust
+        d. Somewhat Trust
+        e. Strongly Trust
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 0
+            - 58.3
+            - 20.8
+            - 20.8
+            - 0
+          metric: js-divergence
+    idealResponse: '[0.0, 58.3, 20.8, 20.8, 0.0]'
+    temperature: 0.3
+  - id: 6630ff34-e67e-423a-9cea-0a4861106680-country:canada
+    description: >-
+      Predict: Canada → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of messaging apps?"
+    promptText: >-
+      Consider the following demographic group (sample size: 24):
+
+      - Country: Canada
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of messaging
+      apps?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4.2
+            - 8.3
+            - 29.2
+            - 33.3
+            - 25
+          metric: js-divergence
+    idealResponse: '[4.2, 8.3, 29.2, 33.3, 25.0]'
+    temperature: 0.3
+  - id: cc7346fb-571e-48ad-aeaa-4135f0fdf58c-country:canada
+    description: 'Predict: Canada → "A romantic partner."'
+    promptText: |-
+      Consider the following demographic group (sample size: 24):
+      - Country: Canada
+
+      Survey question:
+      "A romantic partner."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 33.3
+            - 8.3
+            - 29.2
+            - 29.2
+            - 0
+          metric: js-divergence
+    idealResponse: '[33.3, 8.3, 29.2, 29.2, 0.0]'
+    temperature: 0.3
+  - id: 3cf6da25-08f3-496d-9a4a-93afc5069e36-country:canada
+    description: 'Predict: Canada → "A spiritual advisor."'
+    promptText: |-
+      Consider the following demographic group (sample size: 24):
+      - Country: Canada
+
+      Survey question:
+      "A spiritual advisor."
+
+      Answer options:
+        a. Completely unacceptable
+        b. Somewhat unacceptable
+        c. Neutral
+        d. Somewhat acceptable
+        e. Completely acceptable
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 8.3
+            - 8.3
+            - 16.7
+            - 54.2
+            - 12.5
+          metric: js-divergence
+    idealResponse: '[8.3, 8.3, 16.7, 54.2, 12.5]'
+    temperature: 0.3
+  - id: e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c-country:canada
+    description: >-
+      Predict: Canada → "Do you agree or disagree with this statement? AI could make better decisions on my behalf than
+      my government representatives."
+    promptText: >-
+      Consider the following demographic group (sample size: 24):
+
+      - Country: Canada
+
+
+      Survey question:
+
+      "Do you agree or disagree with this statement? AI could make better decisions on my behalf than my government
+      representatives."
+
+
+      Answer options:
+        a. Agree
+        b. Disagree
+        c. Unsure
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 33.3
+            - 41.7
+            - 25
+          metric: js-divergence
+    idealResponse: '[33.3, 41.7, 25.0]'
+    temperature: 0.3
+  - id: 29598fc6-6928-49f7-9a42-2f57cf5e1c28-country:canada
+    description: >-
+      Predict: Canada → "Considering both potential benefits and risks, how do you assess the overall impact on society
+      of AI systems that can perform tasks in the real world without human supervision?"
+    promptText: >-
+      Consider the following demographic group (sample size: 24):
+
+      - Country: Canada
+
+
+      Survey question:
+
+      "Considering both potential benefits and risks, how do you assess the overall impact on society of AI systems that
+      can perform tasks in the real world without human supervision?"
+
+
+      Answer options:
+        a. Risks far outweigh benefits
+        b. Risks slightly outweigh benefits
+        c. Risks and benefits are equal
+        d. Benefits slightly outweigh risks
+        e. Benefits far outweigh risks
+
+      Predict the percentage distribution of responses for this demographic group across the answer options.
+    points:
+      - text: Distribution Similarity (Jensen-Shannon Distance)
+        fn: distribution_metric
+        fnArgs:
+          expected:
+            - 4.2
+            - 37.5
+            - 29.2
+            - 25
+            - 4.2
+          metric: js-divergence
+    idealResponse: '[4.2, 37.5, 29.2, 25.0, 4.2]'
+    temperature: 0.3
+tags:
+  - _periodic
+  - dtef
+  - demographic
+  - distribution
+  - global-dialogues-gd4
+  - experiment:temp-0-vs-03
+context:
+  dtef:
+    surveyId: global-dialogues-gd4
+    segmentId: country:canada
+    segmentLabel: Canada
+    segmentAttributes:
+      country: Canada
+    groundTruthDistributions:
+      28cfe238-1c8f-476f-8c57-48b8ca1071a7-country:canada:
+        - 45.8
+        - 50
+        - 4.2
+      25e16598-f3a7-411d-b4cb-736c91bc3d03-country:canada:
+        - 12.5
+        - 37.5
+        - 12.5
+        - 37.5
+        - 0
+      e70a42e6-c1c0-43c6-a389-d28347e17f2f-country:canada:
+        - 12.5
+        - 50
+        - 20.8
+        - 16.7
+        - 0
+      be27a244-3429-417d-8517-de800bc90acf-country:canada:
+        - 37.5
+        - 41.7
+        - 16.7
+        - 4.2
+        - 0
+      d7943aa5-3a9f-4161-9d2b-651c71d92c73-country:canada:
+        - 0
+        - 58.3
+        - 20.8
+        - 20.8
+        - 0
+      6630ff34-e67e-423a-9cea-0a4861106680-country:canada:
+        - 4.2
+        - 8.3
+        - 29.2
+        - 33.3
+        - 25
+      cc7346fb-571e-48ad-aeaa-4135f0fdf58c-country:canada:
+        - 33.3
+        - 8.3
+        - 29.2
+        - 29.2
+        - 0
+      3cf6da25-08f3-496d-9a4a-93afc5069e36-country:canada:
+        - 8.3
+        - 8.3
+        - 16.7
+        - 54.2
+        - 12.5
+      e5d7cc7b-d2cc-4b34-9c25-af67f8b7b83c-country:canada:
+        - 33.3
+        - 41.7
+        - 25
+      29598fc6-6928-49f7-9a42-2f57cf5e1c28-country:canada:
+        - 4.2
+        - 37.5
+        - 29.2
+        - 25
+        - 4.2
+    contextQuestionCount: 0
+    contextQuestionIds: []
+    evalType: distribution
+    contextFormat: attribute-label
+    reasoningMode: standard
+    experimentId: temp-0-vs-03
